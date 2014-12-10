@@ -39,8 +39,8 @@ osc.node.start();
 You can keep changing oscillator params by running the set and transition methods exposed by the `Oscillator` class, e.g.:
 
 ```js
-osc.transitionFrequency(600, 3000);
-osc.transitionDetune(16, 2000);
+osc.transitionFrequency(600, 3);
+osc.transitionDetune(86, 2);
 ```
 
 ## Test
