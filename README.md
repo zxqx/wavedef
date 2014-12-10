@@ -18,13 +18,6 @@ Install dependencies:
 $ npm install
 ```
 
-## Build
-Build the application:
-
-```
-$ npm run build
-```
-
 ## Test
 Run tests via [tape](https://github.com/substack/tape):
 
@@ -38,3 +31,25 @@ Watch for changes on files, rebuild, and reload using [LiveReload](https://chrom
 ```
 $ npm run watch
 ```
+
+## Build example
+To see an example in the browser, build it:
+
+```
+$ npm run example
+```
+
+Then open `examples/index.html`.
+
+In the console, run:
+
+```js
+osc
+  .setFrequency(50)
+  .setDetune(4)
+  .setWaveformType('square');
+
+osc.node.start();
+```
+
+You can reset params by running the set and transition methods exposed by the `Oscillator` class.
