@@ -25,7 +25,8 @@
     "browserify": "^7.0.0",
     "jshint": "^2.5.10",
     "nodemock": "^0.3.4",
-    "tape": "^3.0.3"
+    "tape": "^3.0.3",
+    "watchify": "^2.1.1"
   },
   "dependencies": {
     "bluebird": "^2.3.11",

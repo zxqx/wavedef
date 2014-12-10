@@ -18,20 +18,6 @@ Install dependencies:
 $ npm install
 ```
 
-## Test
-Run tests via [tape](https://github.com/substack/tape):
-
-```
-$ npm test
-```
-
-## Watch
-Watch for changes on files, rebuild, and reload using [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en):
-
-```
-$ npm run watch
-```
-
 ## Build example
 To see an example in the browser, build it:
 
@@ -57,4 +43,11 @@ You can reset params by running the set and transition methods exposed by the `O
 ```js
 osc.transitionFrequency(600, 3000);
 osc.transitionDetune(16, 2000);
+```
+
+## Test
+Run tests via [tape](https://github.com/substack/tape):
+
+```
+$ npm test
 ```
