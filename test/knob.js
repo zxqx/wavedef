@@ -5,7 +5,8 @@ test('Transition value', (t) => {
   t.plan(1);
 
   var knob = new Knob();
+  var node = { value: 0 };
 
-  knob.transitionValue(0, 100, 1000)
-    .then((value) => t.strictEquals(value, 100));
+  knob.transitionValue(node, 'value', 100, 1000)
+    .then(() => t.strictEquals(node.value, 100));
 });
