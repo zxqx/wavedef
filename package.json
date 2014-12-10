@@ -17,5 +17,14 @@
     "api"
   ],
   "author": "Zak Angelle, Drake Champagne",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "6to5": "^1.14.17",
+    "browserify": "^7.0.0",
+    "jshint": "^2.5.10",
+    "tape": "^3.0.3"
+  },
+  "dependencies": {
+    "debug": "^2.1.0"
+  }
 }

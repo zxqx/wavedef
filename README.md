@@ -6,7 +6,7 @@ A synthesizer built on the Web Audio API.
 + NodeJS
 
 ## Setup
-Clone via Bitbucket
+Clone via Bitbucket:
 
 ```
 $ git clone https://zakangelle@bitbucket.org/zakangelle/synth.git
