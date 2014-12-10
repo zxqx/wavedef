@@ -19,15 +19,13 @@ $ npm install
 ```
 
 ## Build example
-To see an example in the browser, build it:
+To run an example in the browser, build it:
 
 ```
 $ npm run example
 ```
 
-Then open `examples/index.html`.
-
-In the console, run:
+Then open `examples/index.html`, and in the console, run:
 
 ```js
 osc
@@ -38,7 +36,7 @@ osc
 osc.node.start();
 ```
 
-You can reset params by running the set and transition methods exposed by the `Oscillator` class.
+You can reset oscillator params by running the set and transition methods exposed by the `Oscillator` class.
 
 ```js
 osc.transitionFrequency(600, 3000);
