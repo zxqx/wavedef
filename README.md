@@ -33,7 +33,7 @@ $ npm test
 ```
 
 ## Watch
-Watch for changes on files, rebuild, and reload using [livereload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en):
+Watch for changes on files, rebuild, and reload using [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en):
 
 ```
 $ npm run watch
