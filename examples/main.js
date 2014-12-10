@@ -1,8 +1,9 @@
 import Oscillator from '../lib/Oscillator.js';
 
-var ctx = new AudioContext();
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let ctx = new AudioContext();
 
-var osc = new Oscillator(ctx);
+let osc = new Oscillator(ctx);
 osc.node.connect(ctx.destination);
 
 window.osc = osc;
