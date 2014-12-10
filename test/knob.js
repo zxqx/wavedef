@@ -1,13 +1,11 @@
-var test = require('tape');
-var Knob = require('../lib/Knob.js');
+import test from 'tape';
+import Knob from '../lib/Knob.js';
 
-test('knob', function(t) {
+test('Transition value', (t) => {
   t.plan(1);
 
   var knob = new Knob();
 
   knob.transitionValue(0, 100, 1000)
-  .then(function(value) {
-    t.strictEquals(100, 100);
-  });
+    .then((value) => t.strictEquals(value, 100));
 });
