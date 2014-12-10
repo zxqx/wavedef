@@ -80,29 +80,3 @@ test('Get waveform type', (t) => {
 
   t.strictEquals(osc.getWaveformType(), 'sine');
 });
-
-test('Transition frequency', (t) => {
-  t.plan(1);
-
-  var ctx = nm.mock('createOscillator').takes().returns({
-   frequency: { value: 3000 }
-  });
-
-  var osc = new Oscillator(ctx);
-
-  osc.transitionFrequency(4000, 1000)
-    .then(() => t.strictEquals(4000, osc.node.frequency.value));
-});
-
-test('Transition detune', (t) => {
-  t.plan(1);
-
-  var ctx = nm.mock('createOscillator').takes().returns({
-   detune: { value: 4 }
-  });
-
-  var osc = new Oscillator(ctx);
-
-  osc.transitionDetune(26, 2000)
-    .then(() => t.strictEquals(26, osc.node.detune.value));
-});
