@@ -53,3 +53,8 @@ osc.node.start();
 ```
 
 You can reset params by running the set and transition methods exposed by the `Oscillator` class.
+
+```js
+osc.transitionFrequency(600, 3000);
+osc.transitionDetune(16, 2000);
+```
