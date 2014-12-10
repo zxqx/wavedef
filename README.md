@@ -36,7 +36,7 @@ osc
 osc.node.start();
 ```
 
-You can reset oscillator params by running the set and transition methods exposed by the `Oscillator` class.
+You can keep changing oscillator params by running the set and transition methods exposed by the `Oscillator` class, e.g.:
 
 ```js
 osc.transitionFrequency(600, 3000);
