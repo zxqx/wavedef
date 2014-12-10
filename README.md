@@ -31,9 +31,9 @@ In the console, run:
 
 ```js
 osc
+  .setWaveformType('square')
   .setFrequency(50)
-  .setDetune(4)
-  .setWaveformType('square');
+  .setDetune(4);
 
 osc.node.start();
 ```
