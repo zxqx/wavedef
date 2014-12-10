@@ -45,6 +45,42 @@ test('Set waveform type', (t) => {
   t.strictEquals('sawtooth', osc.node.type);
 });
 
+test('Get frequency', (t) => {
+  t.plan(1);
+
+  var ctx = nm.mock('createOscillator').takes().returns({
+   frequency: { value: 1500 }
+  });
+
+  var osc = new Oscillator(ctx);
+
+  t.strictEquals(osc.getFrequency(), 1500);
+});
+
+test('Get detune', (t) => {
+  t.plan(1);
+
+  var ctx = nm.mock('createOscillator').takes().returns({
+   detune: { value: 4 }
+  });
+
+  var osc = new Oscillator(ctx);
+
+  t.strictEquals(osc.getDetune(), 4);
+});
+
+test('Get waveform type', (t) => {
+  t.plan(1);
+
+  var ctx = nm.mock('createOscillator').takes().returns({
+    type: 'sine'
+  });
+
+  var osc = new Oscillator(ctx);
+
+  t.strictEquals(osc.getWaveformType(), 'sine');
+});
+
 test('Transition frequency', (t) => {
   t.plan(1);
 
