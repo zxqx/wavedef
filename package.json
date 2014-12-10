@@ -4,7 +4,7 @@
   "description": "A synthesizer built on the Web Audio API",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/**/*.js"
+    "test": "./node_modules/.bin/6to5-node --experimental test/*.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "tape": "^3.0.3"
   },
   "dependencies": {
+    "bluebird": "^2.3.11",
     "debug": "^2.1.0"
   }
 }
