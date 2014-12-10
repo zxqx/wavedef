@@ -1,0 +1,21 @@
+{
+  "name": "synth",
+  "version": "0.0.0",
+  "description": "A synthesizer built on the Web Audio API",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://zakangelle@bitbucket.org/zakangelle/synth.git"
+  },
+  "keywords": [
+    "synth",
+    "web",
+    "audio",
+    "api"
+  ],
+  "author": "Zak Angelle, Drake Champagne",
+  "license": "MIT"
+}
