@@ -10,7 +10,6 @@ test('Set frequency', (t) => {
   });
 
   var osc = new Oscillator(ctx);
-
   osc.setFrequency(500);
 
   t.strictEquals(500, osc.node.frequency.value);
@@ -24,8 +23,6 @@ test('Set detune', (t) => {
   });
 
   var osc = new Oscillator(ctx);
-  
-  osc.node.detune.value = 0;
   osc.setDetune(72);
 
   t.strictEquals(72, osc.node.detune.value);
@@ -39,7 +36,6 @@ test('Set waveform type', (t) => {
   });
 
   var osc = new Oscillator(ctx);
-  
   osc.setWaveformType('sawtooth');
 
   t.strictEquals('sawtooth', osc.node.type);
