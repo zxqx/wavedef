@@ -25,7 +25,7 @@ To run an example in the browser, build it:
 $ npm run example
 ```
 
-Then open `examples/index.html`, and in the console, run:
+Then open `dist/index.html`, and in the console, run:
 
 ```js
 osc

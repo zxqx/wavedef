@@ -4,7 +4,7 @@
   "description": "A synthesizer built on the Web Audio API",
   "main": "index.js",
   "scripts": {
-    "example": "jshint lib/*.js && jshint examples/*.js && mkdir -p dist && browserify ./examples/main.js -t 6to5-browserify --outfile ./dist/main.js",
+    "example": "jshint lib/*.js && jshint examples/*.js && mkdir -p dist && cp examples/index.html dist/index.html && browserify ./examples/main.js -t 6to5-browserify --outfile ./dist/main.js",
     "test": "./node_modules/.bin/6to5-node --experimental test/*.js"
   },
   "repository": {
