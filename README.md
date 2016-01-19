@@ -2,6 +2,8 @@
 
 A synthesizer built on the Web Audio API.
 
+[![Circle CI](https://circleci.com/gh/zakangelle/synth/tree/master.svg?style=svg)](https://circleci.com/gh/zakangelle/synth/tree/master)
+
 ## Requirements
 + NodeJS
 
