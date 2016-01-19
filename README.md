@@ -52,7 +52,7 @@ osc.transitionDetune(86, 2);
 ```
 
 ## Test
-Run tests via [tape](https://github.com/substack/tape):
+To run tests, do:
 
 ```
 $ npm test
