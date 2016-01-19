@@ -18,14 +18,14 @@ Install dependencies:
 $ npm install
 ```
 
-## Build example
-To run an example in the browser, build it:
+## Run
+To run an example in the browser at http://localhost:8080, do:
 
 ```
-$ npm run example
+$ npm start
 ```
 
-Then open `dist/index.html`, and in the console, run:
+You can test the synth in the console:
 
 ```js
 osc
