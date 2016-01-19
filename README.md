@@ -36,7 +36,7 @@ osc
 osc.start();
 ```
 
-You can keep changing oscillator params by running the set and transition methods exposed by the `Oscillator` class, e.g.:
+You can experiment with changing oscillator parameters by running the set and transition methods exposed by the `Oscillator`, e.g.:
 
 ```js
 osc.transitionFrequency(600, 3);
