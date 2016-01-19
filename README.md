@@ -53,7 +53,7 @@ osc.transitionDetune(86, 2);
 
 ## Roadmap
 + Mixer
-+ Filter
++ Envelopes (volume, filter)
 + LFO
 + Keys
 + Polyphony mode
