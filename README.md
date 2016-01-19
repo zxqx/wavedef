@@ -39,8 +39,14 @@ osc.start();
 You can experiment with changing oscillator parameters by running the set and transition methods exposed by the `Oscillator`, e.g.:
 
 ```js
+osc.setFrequency(1200);
+// immediately set the frequency to 1.2kHz
+
 osc.transitionFrequency(600, 3);
+// transition the frequency setting to 600Hz over 3 seconds
+
 osc.transitionDetune(86, 2);
+// transition the detune setting to 86 over 2 seconds
 ```
 
 ## Test
