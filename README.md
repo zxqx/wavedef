@@ -1,6 +1,6 @@
 # Synth
 
-A synthesizer built on the Web Audio API.
+A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
 [![Circle CI](https://circleci.com/gh/zakangelle/synth/tree/master.svg?style=svg)](https://circleci.com/gh/zakangelle/synth/tree/master)
 
@@ -50,6 +50,13 @@ osc.transitionFrequency(600, 3);
 osc.transitionDetune(86, 2);
 // transition the detune setting to 86 over 2 seconds
 ```
+
+## Roadmap
++ Mixer
++ Filter
++ LFO
++ Keys
++ Polyphony mode
 
 ## Test
 To run tests, do:
