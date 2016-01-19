@@ -33,7 +33,7 @@ osc
   .setFrequency(50)
   .setDetune(4);
 
-osc.node.start();
+osc.start();
 ```
 
 You can keep changing oscillator params by running the set and transition methods exposed by the `Oscillator` class, e.g.:
