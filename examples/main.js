@@ -11,12 +11,9 @@ let synth = new Synth(ctx);
 
 synth.addModule(osc);
 synth.addModule(mixer);
-synth.connect(osc, mixer);
-synth.connectToMaster(mixer);
-synth.on();
+synth.connect(osc).to(mixer).output();
 
 window.osc = osc;
 window.mixer = mixer;
 window.synth = synth;
 window.ctx = ctx;
-
