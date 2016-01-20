@@ -23,7 +23,7 @@ gulp.task('copy:static', function() {
 
 gulp.task('watch', function() {
   livereload.listen();
-  gulp.watch('examples/index.html', ['copy:static']);
+  gulp.watch('examples/**/*', ['copy:static']);
   gulp.watch('lib/**/*.js', ['compile:example']);
 });
 
