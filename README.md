@@ -66,14 +66,15 @@ $ npm run watch
 ```
 
 ## Roadmap
-+ Composable synth
-+ Oscillator
++ ~~Composable synth~~
++ ~~Oscillator~~
 + Mixer
 + Volume envelope
 + Filter envelope
 + LFO
 + Keys
 + *Polyphony mode*
++ *Jam sessions*
 
 ## Test
 To run tests, do:
