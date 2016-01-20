@@ -20,8 +20,14 @@ Install dependencies:
 $ npm install
 ```
 
+Build:
+
+```
+$ npm run build
+```
+
 ## Run
-To run an example in the browser at [http://localhost:8080](http://localhost:8080), do:
+To run in the browser at [http://localhost:8080](http://localhost:8080), do:
 
 ```
 $ npm start
@@ -49,6 +55,14 @@ osc.transitionFrequency(600, 3);
 
 osc.transitionDetune(86, 2);
 // transition the detune setting to 86 over 2 seconds
+```
+
+Dev:
+
+To watch for changes and refresh browser window (requires [LiveReload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) for Chrome):
+
+```
+$ npm run watch
 ```
 
 ## Roadmap
