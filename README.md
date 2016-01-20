@@ -52,11 +52,14 @@ osc.transitionDetune(86, 2);
 ```
 
 ## Roadmap
++ Composable synth
++ Oscillator
 + Mixer
-+ Envelopes (volume, filter)
++ Volume envelope
++ Filter envelope
 + LFO
 + Keys
-+ Polyphony mode
++ *Polyphony mode*
 
 ## Test
 To run tests, do:
