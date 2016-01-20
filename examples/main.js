@@ -12,6 +12,7 @@ let synth = new Synth(ctx);
 let filter = new Filter(ctx);
 
 synth.addModule(osc);
+synth.addModule(filter);
 synth.addModule(mixer);
 synth.connect(osc).to(filter).to(mixer).output();
 
