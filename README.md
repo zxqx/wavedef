@@ -79,5 +79,5 @@ $ npm run watch
 To run tests, do:
 
 ```
-$ npm test
+$ npm run test
 ```
