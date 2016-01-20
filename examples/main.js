@@ -1,3 +1,4 @@
+import Synth from '../lib/Synth.js';
 import Oscillator from '../lib/Oscillator.js';
 import Mixer from '../lib/Mixer.js';
 
@@ -6,8 +7,16 @@ let ctx = new AudioContext();
 
 let osc = new Oscillator(ctx);
 let mixer = new Mixer(ctx);
-osc.node.connect(mixer.node);
-mixer.node.connect(ctx.destination);
+let synth = new Synth(ctx);
+
+synth.addModule(osc);
+synth.addModule(mixer);
+synth.connect(osc, mixer);
+synth.connectToMaster(mixer);
+synth.on();
 
 window.osc = osc;
 window.mixer = mixer;
+window.synth = synth;
+window.ctx = ctx;
+
