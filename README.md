@@ -57,7 +57,7 @@ osc.transitionDetune(86, 2);
 // transition the detune setting to 86 over 2 seconds
 ```
 
-Dev:
+## Development
 
 To watch for changes and refresh browser window (requires [LiveReload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) for Chrome):
 
