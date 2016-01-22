@@ -1,4 +1,4 @@
-import { Synth, Oscillator, Filter, Mixer } from '../lib';
+import { Synth, Oscillator, Filter, Mixer, Slider } from '../lib';
 
 let AudioContext = window.AudioContext || window.webkitAudioContext;
 let ctx = new AudioContext();
@@ -12,6 +12,16 @@ synth.addModule(osc);
 synth.addModule(filter);
 synth.addModule(mixer);
 synth.connect(osc).to(filter).to(mixer).output();
+
+let oscFrequencyControl = new Slider(document, 'Osc Freq');
+
+oscFrequencyControl
+  .setMin(200)
+  .setMax(1500)
+  .setStep(20)
+  .control(osc, osc.setFrequency);
+
+document.body.appendChild(oscFrequencyControl.el);
 
 // testing
 window.osc = osc;
