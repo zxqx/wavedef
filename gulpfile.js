@@ -25,6 +25,7 @@ gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('examples/**/*', ['copy:static']);
   gulp.watch('lib/**/*.js', ['compile:example']);
+  gulp.watch('examples/**/*.js', ['compile:example']);
 });
 
 gulp.task('default', ['client']);
