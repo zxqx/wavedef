@@ -1,5 +1,8 @@
 import { Synth, Oscillator, Filter, Mixer, Slider } from '../lib';
 
+/**
+ * Compose a single oscillator synthesizer
+ */
 export default class SingleOscSynth extends Synth
 {
   constructor(props)
@@ -7,6 +10,10 @@ export default class SingleOscSynth extends Synth
     super(props);
   }
 
+  /**
+   * Set up audio modules and hook up their controls
+   * @return {SingleOscSynth}
+   */
   on()
   {
     let osc1 = new Oscillator(this.ctx);
@@ -67,5 +74,7 @@ let oscFrequencyControl3 = new Slider(document, 'Osc Freq');
     window.osc3 = osc3;
     window.filter = filter;
     window.mixer = mixer;
+
+    return this;
   }
 }
