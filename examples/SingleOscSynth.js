@@ -27,9 +27,7 @@ export default class SingleOscSynth extends Synth
     this.addModule(osc3);
     this.addModule(filter);
     this.addModule(mixer);
-    this.addModule(mixer.ch1);
-    this.addModule(mixer.ch2);
-    this.addModule(mixer.ch3);
+
     this.connect(osc1).to(mixer.ch1);
     this.connect(osc2).to(mixer.ch2);
     this.connect(osc3).to(mixer.ch3);
