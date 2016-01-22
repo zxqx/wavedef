@@ -22,6 +22,7 @@
   "author": "Zak Angelle, Drake Champagne",
   "license": "MIT",
   "dependencies": {
+    "audio-context": "^0.1.0",
     "bluebird": "^2.3.11",
     "debug": "^2.1.0"
   },

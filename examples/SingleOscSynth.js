@@ -16,11 +16,11 @@ export default class SingleOscSynth extends Synth
    */
   on()
   {
-    let osc1 = new Oscillator(this.ctx);
-    let osc2 = new Oscillator(this.ctx);
-    let osc3 = new Oscillator(this.ctx);
-    let filter = new Filter(this.ctx);
-    let mixer = new Mixer(this.ctx);
+    let osc1 = new Oscillator();
+    let osc2 = new Oscillator();
+    let osc3 = new Oscillator();
+    let filter = new Filter();
+    let mixer = new Mixer();
 
     this.addModule(osc1);
     this.addModule(osc2);
