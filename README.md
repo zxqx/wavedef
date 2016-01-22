@@ -68,7 +68,7 @@ $ npm run watch
 ## Roadmap
 + ~~Composable synth~~
 + ~~Oscillator~~
-+ Mixer
++ ~~Mixer~~
 + Volume envelope
 + Filter envelope
 + LFO
