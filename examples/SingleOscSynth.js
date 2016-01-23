@@ -16,11 +16,11 @@ export default class SingleOscSynth extends Synth
    */
   on()
   {
-    let osc1 = new Oscillator(this.ctx);
-    let osc2 = new Oscillator(this.ctx);
-    let osc3 = new Oscillator(this.ctx);
-    let filter = new Filter(this.ctx);
-    let mixer = new Mixer(this.ctx);
+    let osc1 = new Oscillator();
+    let osc2 = new Oscillator();
+    let osc3 = new Oscillator();
+    let filter = new Filter();
+    let mixer = new Mixer();
 
     this.addModule(osc1);
     this.addModule(osc2);
@@ -49,21 +49,19 @@ export default class SingleOscSynth extends Synth
       .setMin(200)
       .setMax(1500)
       .setStep(20)
-      .control(osc1, osc2.setFrequency);
+      .control(osc2, osc2.setFrequency);
 
     document.body.appendChild(oscFrequencyControl2.el);
 
-
-let oscFrequencyControl3 = new Slider(document, 'Osc Freq');
+    let oscFrequencyControl3 = new Slider(document, 'Osc Freq');
 
     oscFrequencyControl3
       .setMin(200)
       .setMax(1500)
       .setStep(20)
-      .control(osc1, osc3.setFrequency);
+      .control(osc3, osc3.setFrequency);
 
     document.body.appendChild(oscFrequencyControl3.el);
-
 
     // testing
     window.synth = this;

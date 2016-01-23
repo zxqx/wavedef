@@ -22,10 +22,13 @@
   "author": "Zak Angelle, Drake Champagne",
   "license": "MIT",
   "dependencies": {
+    "audio-context": "^0.1.0",
     "bluebird": "^2.3.11",
     "debug": "^2.1.0"
   },
   "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-plugin-rewire": "1.0.0-beta-3",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.4.3",
