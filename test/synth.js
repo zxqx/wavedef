@@ -54,11 +54,20 @@ test('Remove module', (t) => {
 
   let module = { that: 'dude' };
   let module2 = { matt: 'tang' };
+  let moduleWithChildren = {
+    dis: 'it',
+    children: [
+      { loch: 'ness' },
+      { twinny: 'twins' }
+    ]
+  };
 
   synth.addModule(module)
   synth.addModule(module2);
+  synth.addModule(moduleWithChildren);
 
   synth.removeModule(module);
+  synth.removeModule(moduleWithChildren);
 
   t.strictEquals(synth._modules.length, 1);
 });
