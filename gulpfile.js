@@ -3,6 +3,7 @@ var browserify = require('browserify');
 var babel = require('gulp-babel');
 var babelify = require('babelify');
 var sass = require('gulp-sass');
+var eslint = require('gulp-eslint');
 var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
 
@@ -31,14 +32,21 @@ gulp.task('compile:sass', function() {
     .pipe(livereload());
 });
 
+gulp.task('lint', function() {
+  return gulp.src(['lib/**/*.js','examples/**/*.js', '!node_modules/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('static/**/*', ['copy:static']);
-  gulp.watch('lib/**/*.js', ['compile:example']);
-  gulp.watch('examples/**/*.js', ['compile:example']);
+  gulp.watch('lib/**/*.js', ['lint', 'compile:example']);
+  gulp.watch('examples/**/*.js', ['lint', 'compile:example']);
   gulp.watch('./style/**/*.scss', ['compile:sass']);
 });
 
 gulp.task('default', ['build']);
 gulp.task('dev', ['build', 'watch']);
-gulp.task('build', ['copy:static', 'compile:example', 'compile:sass']);
+gulp.task('build', ['lint', 'copy:static', 'compile:example', 'compile:sass']);
