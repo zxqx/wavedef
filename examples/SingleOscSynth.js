@@ -33,35 +33,9 @@ export default class SingleOscSynth extends Synth
     this.connect(osc3).to(mixer.ch3);
     this.connect(mixer).to(filter).output();
 
-    let oscFrequencyControl1 = new Slider(document, 'Osc Freq');
-
-    oscFrequencyControl1
-      .setMin(200)
-      .setMax(1500)
-      .setStep(20)
-      .control(osc1, osc1.setFrequency);
-
-    document.body.appendChild(oscFrequencyControl1.el);
-
-    let oscFrequencyControl2 = new Slider(document, 'Osc Freq');
-
-    oscFrequencyControl2
-      .setMin(200)
-      .setMax(1500)
-      .setStep(20)
-      .control(osc2, osc2.setFrequency);
-
-    document.body.appendChild(oscFrequencyControl2.el);
-
-    let oscFrequencyControl3 = new Slider(document, 'Osc Freq');
-
-    oscFrequencyControl3
-      .setMin(200)
-      .setMax(1500)
-      .setStep(20)
-      .control(osc3, osc3.setFrequency);
-
-    document.body.appendChild(oscFrequencyControl3.el);
+    this.wireUpOsc1Control(osc1);
+    this.wireUpOsc2Control(osc2);
+    this.wireUpOsc3Control(osc3);
 
     // testing
     window.synth = this;
@@ -70,7 +44,35 @@ export default class SingleOscSynth extends Synth
     window.osc3 = osc3;
     window.filter = filter;
     window.mixer = mixer;
+  }
 
-    return this;
+  wireUpOsc1Control(osc1)
+  {
+    let slider = new Slider('Osc Freq');
+
+    slider.setMin(200).setMax(1500).setStep(20)
+      .control(osc1, osc1.setFrequency);
+
+    document.body.appendChild(slider.el);
+  }
+
+  wireUpOsc2Control(osc2)
+  {
+    let slider = new Slider('Osc Freq');
+
+    slider.setMin(200).setMax(1500).setStep(20)
+      .control(osc2, osc2.setFrequency);
+
+    document.body.appendChild(slider.el);
+  }
+
+  wireUpOsc3Control(osc3)
+  {
+    let slider = new Slider('Osc Freq');
+
+    slider.setMin(200).setMax(1500).setStep(20)
+      .control(osc3, osc3.setFrequency);
+
+    document.body.appendChild(slider.el);
   }
 }
