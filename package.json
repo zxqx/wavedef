@@ -38,7 +38,6 @@
     "gulp-babel": "^6.1.1",
     "gulp-livereload": "^3.8.1",
     "http-server": "^0.8.5",
-    "jshint": "^2.6.0",
     "nodemock": "^0.3.4",
     "tape": "^3.0.3",
     "vinyl-source-stream": "^1.1.0"
