@@ -5,6 +5,12 @@ import Oscillator from '../lib/Oscillator.js';
 test('Set frequency', (t) => {
   t.plan(1);
 
+  var ctx = nm.mock('createOscillator').takes().returns({
+   frequency: { value: 0 }
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
+
   var osc = new Oscillator();
   osc.setFrequency(500);
 
@@ -13,6 +19,12 @@ test('Set frequency', (t) => {
 
 test('Set detune', (t) => {
   t.plan(1);
+
+  var ctx = nm.mock('createOscillator').takes().returns({
+   detune: { value: 0 }
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
 
   var osc = new Oscillator();
   osc.setDetune(72);
@@ -23,6 +35,12 @@ test('Set detune', (t) => {
 test('Set waveform type', (t) => {
   t.plan(1);
 
+  var ctx = nm.mock('createOscillator').takes().returns({
+   type: ''
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
+
   var osc = new Oscillator();
   osc.setWaveformType('sawtooth');
 
@@ -32,6 +50,12 @@ test('Set waveform type', (t) => {
 test('Get frequency', (t) => {
   t.plan(1);
 
+  var ctx = nm.mock('createOscillator').takes().returns({
+   frequency: { value: 1500 }
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
+
   var osc = new Oscillator();
 
   t.strictEquals(osc.getFrequency(), 1500);
@@ -40,6 +64,12 @@ test('Get frequency', (t) => {
 test('Get detune', (t) => {
   t.plan(1);
 
+  var ctx = nm.mock('createOscillator').takes().returns({
+   detune: { value: 4 }
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
+
   var osc = new Oscillator();
 
   t.strictEquals(osc.getDetune(), 4);
@@ -47,6 +77,12 @@ test('Get detune', (t) => {
 
 test('Get waveform type', (t) => {
   t.plan(1);
+
+  var ctx = nm.mock('createOscillator').takes().returns({
+    type: 'sine'
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
 
   var osc = new Oscillator();
 
