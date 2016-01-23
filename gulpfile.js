@@ -16,14 +16,14 @@ gulp.task('compile:example', function() {
 });
 
 gulp.task('copy:static', function() {
-  return gulp.src('examples/index.html')
+  return gulp.src('static/*')
     .pipe(gulp.dest('dist'))
     .pipe(livereload());
 });
 
 gulp.task('watch', function() {
   livereload.listen();
-  gulp.watch('examples/**/*', ['copy:static']);
+  gulp.watch('static/**/*', ['copy:static']);
   gulp.watch('lib/**/*.js', ['compile:example']);
   gulp.watch('examples/**/*.js', ['compile:example']);
 });
