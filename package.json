@@ -31,7 +31,8 @@
   "author": "Zak Angelle, Drake Champagne",
   "license": "MIT",
   "dependencies": {
-    "audio-context": "^0.1.0"
+    "audio-context": "^0.1.0",
+    "foundation": "^4.2.1-1"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
