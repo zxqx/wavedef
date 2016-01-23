@@ -7,7 +7,8 @@
     "build": "mkdir -p dist && gulp",
     "test": "tape -r ./node_modules/babel-register/lib/node.js test/*.js",
     "start": "http-server dist",
-    "watch": "gulp dev"
+    "watch": "gulp dev",
+    "coverage": "./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "audio-context": "^0.1.0",
+    "codecov": "^1.0.1",
     "foundation": "^4.2.1-1"
   },
   "devDependencies": {
