@@ -24,7 +24,9 @@ gulp.task('copy:static', function() {
 
 gulp.task('compile:sass', function() {
   gulp.src('./style/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({
+      includePaths: ['./node_modules/foundation/scss']
+    }).on('error', sass.logError))
     .pipe(gulp.dest('./dist'))
     .pipe(livereload());
 });
