@@ -49,21 +49,19 @@ export default class SingleOscSynth extends Synth
       .setMin(200)
       .setMax(1500)
       .setStep(20)
-      .control(osc1, osc2.setFrequency);
+      .control(osc2, osc2.setFrequency);
 
     document.body.appendChild(oscFrequencyControl2.el);
 
-
-let oscFrequencyControl3 = new Slider(document, 'Osc Freq');
+    let oscFrequencyControl3 = new Slider(document, 'Osc Freq');
 
     oscFrequencyControl3
       .setMin(200)
       .setMax(1500)
       .setStep(20)
-      .control(osc1, osc3.setFrequency);
+      .control(osc3, osc3.setFrequency);
 
     document.body.appendChild(oscFrequencyControl3.el);
-
 
     // testing
     window.synth = this;
