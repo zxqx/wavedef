@@ -10,26 +10,26 @@ A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/d
 ## Setup
 Clone the repo:
 
-```
+```sh
 $ git clone https://github.com/zakangelle/synth.git
 ```
 
 Install dependencies:
 
-```
+```sh
 $ npm install
 ```
 
-Build:
+## Build
 
-```
+```sh
 $ npm run build
 ```
 
 ## Run
 To run in the browser at [http://localhost:8080](http://localhost:8080), do:
 
-```
+```sh
 $ npm start
 ```
 
@@ -37,7 +37,7 @@ $ npm start
 
 To watch for changes and refresh browser window (requires [LiveReload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) for Chrome):
 
-```
+```sh
 $ npm run watch
 ```
 
@@ -55,6 +55,6 @@ $ npm run watch
 ## Test
 To run tests, do:
 
-```
+```sh
 $ npm run test
 ```
