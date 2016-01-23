@@ -3,7 +3,7 @@
 A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
 [![Circle CI](https://circleci.com/gh/zakangelle/synth/tree/master.svg?style=svg)](https://circleci.com/gh/zakangelle/synth/tree/master)
-[![Coverage Status](https://coveralls.io/repos/github/zakangelle/synth/badge.svg?branch=master)](https://coveralls.io/github/zakangelle/synth?branch=master)
+<a href='https://coveralls.io/github/zakangelle/synth?branch=master'><img src='https://coveralls.io/repos/github/zakangelle/synth/badge.svg?branch=master' alt='Coverage Status' width="91px" /></a>
 
 ## Requirements
 
