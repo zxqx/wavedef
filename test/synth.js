@@ -5,6 +5,12 @@ import Synth from '../lib/Synth.js';
 
 Array.prototype.includes = arrayIncludes.shim();
 
+test('troubleshooting CI', (t) {
+  t.plan(2);
+  t.pass();
+  t.strictEquals(['test'].includes('test'));
+});
+
 test('Add module', (t) => {
   t.plan(7);
 
