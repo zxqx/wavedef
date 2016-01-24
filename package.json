@@ -33,7 +33,6 @@
   "license": "MIT",
   "dependencies": {
     "audio-context": "^0.1.0",
-    "codecov": "^1.0.1",
     "foundation": "^4.2.1-1"
   },
   "devDependencies": {

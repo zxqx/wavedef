@@ -15,7 +15,7 @@ test('Start', (t) => {
   var osc = new Oscillator();
   osc.start();
 
-  t.ok(osc.start());
+  t.ok(osc.start(), 'should start');
 });
 
 test('Stop', (t) => {
@@ -31,7 +31,7 @@ test('Stop', (t) => {
   var osc = new Oscillator();
   osc.stop();
 
-  t.ok(osc.stop());
+  t.ok(osc.stop(), 'should stop');
 });
 
 test('Set frequency', (t) => {
