@@ -115,9 +115,11 @@ test('Connect to input', (t) => {
 
   synth.addModule(output);
   synth.addModule(input);
-  synth.connect(output).to(input);
 
   t.throws(() => synth.to(output));
+
+  synth.connect(output).to(input);
+
   t.strictEquals(synth._connecting, input);
 });
 

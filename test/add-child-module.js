@@ -17,5 +17,5 @@ test('Add child module', (t) => {
 
   t.strictEquals(parentModule.children.length, 1);
   t.strictEquals(parentModule.toast, module);
-  t.throws(() => addChildModule('toast', module));
+  t.throws(() => parentModule::addChildModule('toast', module));
 });
