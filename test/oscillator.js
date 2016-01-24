@@ -2,6 +2,38 @@ import test from 'tape';
 import nm from 'nodemock';
 import Oscillator from '../lib/Oscillator.js';
 
+test('Start', (t) => {
+  t.plan(1);
+
+  var ctx = nm.mock('createOscillator').takes().returns(
+  {
+    start: () => 'start'
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
+
+  var osc = new Oscillator();
+  osc.start();
+
+  t.ok(osc.start());
+});
+
+test('Stop', (t) => {
+  t.plan(1);
+
+  var ctx = nm.mock('createOscillator').takes().returns(
+  {
+    stop: () => 'stop'
+  });
+
+  Oscillator.__Rewire__('ctx', ctx);
+
+  var osc = new Oscillator();
+  osc.stop();
+
+  t.ok(osc.stop());
+});
+
 test('Set frequency', (t) => {
   t.plan(1);
 
