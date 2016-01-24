@@ -26,7 +26,10 @@ gulp.task('copy:static', function() {
 gulp.task('compile:sass', function() {
   gulp.src('./style/**/*.scss')
     .pipe(sass({
-      includePaths: ['./node_modules/foundation/scss']
+      includePaths: [
+        './node_modules/bootstrap/dist/css',
+        './node_modules/react-bootstrap-switch/dist/css/bootstrap3'
+      ]
     }).on('error', sass.logError))
     .pipe(gulp.dest('./dist'))
     .pipe(livereload());

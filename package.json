@@ -33,8 +33,9 @@
   "license": "MIT",
   "dependencies": {
     "audio-context": "^0.1.0",
-    "foundation": "^4.2.1-1",
+    "bootstrap": "^3.3.6",
     "react": "^0.14.6",
+    "react-bootstrap-switch": "^3.4.1",
     "react-dom": "^0.14.6"
   },
   "devDependencies": {
