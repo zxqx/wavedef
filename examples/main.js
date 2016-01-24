@@ -1,4 +1,8 @@
-import SingleOscSynth from '../lib/presets/SingleOscSynth.js';
+import React from 'react';
+import { render } from 'react-dom';
+import ThreeOscSynth from '../lib/presets/ThreeOscSynth.js';
 
-let synth = new SingleOscSynth();
-synth.on();
+render(
+  <ThreeOscSynth />,
+  document.getElementById('root')
+)

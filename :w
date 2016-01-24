@@ -1,4 +1,5 @@
-import { Synth, Oscillator, Filter, Mixer, Slider } from '../index.js';
+import { Synth, Oscillator, Filter, Mixer } from '../index.js';
+import Slider from '../controls/Slider.js';
 
 /**
  * Compose a single oscillator synthesizer
