@@ -3,11 +3,17 @@
 A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
 [![Circle CI](https://circleci.com/gh/zakangelle/synth/tree/master.svg?style=svg)](https://circleci.com/gh/zakangelle/synth/tree/master)
-<a href='https://coveralls.io/github/zakangelle/synth?branch=master'><img src='https://coveralls.io/repos/github/zakangelle/synth/badge.svg?branch=master' alt='Coverage Status' height='18px' /></a>
 
 ## Requirements
 
 + NodeJS
+
+## Tech Stack
+
+* [react](https://facebook.github.io/react/) - View layer
+* [babel](https://babeljs.io/) - ES6/jsx compiler
+* [gulp](http://gulpjs.com/) - Task runner
+* [tape](https://github.com/substack/tape) - Testing
 
 ## Setup
 
