@@ -12,6 +12,11 @@ body {
   float: left;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+
+  h4 {
+    font-size: 16px;
+    margin: 4px 8px 8px;
+  }
 }
 
 .audio-control {
