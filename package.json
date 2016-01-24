@@ -4,8 +4,8 @@
   "description": "A synthesizer built on the Web Audio API",
   "main": "index.js",
   "scripts": {
-    "build": "mkdir -p dist && gulp",
-    "test": "tape -r ./node_modules/babel-register/lib/node.js test/*.js",
+    "build": "gulp build",
+    "test": "tape -r ./node_modules/babel-register test/*.js",
     "start": "http-server dist",
     "watch": "gulp dev",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
