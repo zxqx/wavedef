@@ -2,20 +2,20 @@
 @import 'react-bootstrap-switch';
 
 body {
-  padding: 20px;
+  padding: 10px;
 }
 
 .audio-control-group {
-  padding: 5px;
-  margin: 5px;
-  width: 176px;
+  padding: 12px;
+  margin: 8px;
+  width: 190px;
   float: left;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 
   h4 {
     font-size: 16px;
-    margin: 4px 8px 8px;
+    margin: 0 8px 8px;
   }
 }
 
