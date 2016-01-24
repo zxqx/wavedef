@@ -1,8 +1,10 @@
 @import 'bootstrap';
 @import 'react-bootstrap-switch';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,300,500,700');
 
 body {
   padding: 10px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .audio-control-group {
@@ -13,9 +15,18 @@ body {
   border: 1px solid #ccc;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 
+  > .audio-control {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   h4 {
     font-size: 16px;
     margin: 0 8px 8px;
+    text-transform: uppercase;
   }
 }
 
@@ -29,5 +40,6 @@ body {
   label {
     display: block;
     margin-bottom: 5px;
+    font-weight: 500;
   }
 }
