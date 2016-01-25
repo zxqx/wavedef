@@ -65,4 +65,8 @@ body {
   &.keyboard-key-adjacent-white {
     margin-right: -4px;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
