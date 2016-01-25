@@ -63,6 +63,7 @@ $ npm run watch
 + ~~Mixer~~
 + ~~Filter~~
 + ~~Keys~~
++ VCA
 + ADSR Envelope
 + LFO
 + *MIDI input*
