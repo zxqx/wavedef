@@ -4,5 +4,5 @@ import ThreeOscSynth from '../lib/presets/ThreeOscSynth.js';
 
 render(
   <ThreeOscSynth />,
-  document.getElementById('root')
+  document.getElementById('main')
 )
