@@ -63,8 +63,10 @@ $ npm run watch
 + ~~Mixer~~
 + ~~Filter~~
 + ~~Keys~~
-+ VCA
 + ADSR Envelope
++ VCA
++ VCO
++ VCF
 + LFO
 + *MIDI input*
 + *Polyphony mode*
