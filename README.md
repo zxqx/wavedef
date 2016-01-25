@@ -59,10 +59,11 @@ $ npm run watch
 + ~~Composable synth~~
 + ~~Oscillator~~
 + ~~Mixer~~
-+ Volume envelope
-+ Filter envelope
++ ~~Filter~~
++ ~~Keys~~
++ ADSR Envelope
 + LFO
-+ Keys
++ *MIDI input*
 + *Polyphony mode*
 + *Jam sessions*
 
