@@ -34,6 +34,7 @@
   "dependencies": {
     "audio-context": "^0.1.0",
     "bootstrap": "^3.3.6",
+    "notes-to-frequencies": "^1.0.0",
     "react": "^0.14.6",
     "react-bootstrap-switch": "^3.4.1",
     "react-dom": "^0.14.6"
