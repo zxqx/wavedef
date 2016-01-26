@@ -63,8 +63,8 @@ $ npm run watch
 + ~~Mixer~~
 + ~~Filter~~
 + ~~Keys~~
-+ ADSR Envelope
-+ VCA
++ ~~ADSR Envelope~~
++ ~~VCA~~
 + VCO
 + VCF
 + LFO
