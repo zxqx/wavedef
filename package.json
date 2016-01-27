@@ -8,6 +8,7 @@
     "test": "tape -r ./node_modules/babel-register test/*.js",
     "start": "node ./server/index.js",
     "watch": "gulp dev",
+    "postinstall": "npm run build",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
