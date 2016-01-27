@@ -1,2 +1,2 @@
 import test from 'tape';
-import Envelope from '../lib/Envelope.js';
+import Envelope from '../lib/modules/Envelope.js';

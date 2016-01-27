@@ -1,2 +1,2 @@
 import test from 'tape';
-import AudioControlGroup from '../lib/AudioControlGroup.js';
+import AudioControlGroup from '../lib/modules/AudioControlGroup.js';

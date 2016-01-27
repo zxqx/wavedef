@@ -1,2 +1,2 @@
 import test from 'tape';
-import Gain from '../lib/Gain.js';
+import Gain from '../lib/modules/Gain.js';

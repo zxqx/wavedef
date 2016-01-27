@@ -1,2 +1,2 @@
 import test from 'tape';
-import Filter from '../lib/Filter.js';
+import Filter from '../lib/modules/Filter.js';

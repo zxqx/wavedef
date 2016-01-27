@@ -1,2 +1,2 @@
 import test from 'tape';
-import Switch from '../lib/Switch.js';
+import Switch from '../lib/ui/Switch.js';

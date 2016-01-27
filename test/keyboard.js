@@ -1,2 +1,2 @@
 import test from 'tape';
-import Keyboard from '../lib/Keyboard.js';
+import Keyboard from '../lib/ui/Keyboard.js';

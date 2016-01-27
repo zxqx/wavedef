@@ -1,2 +1,2 @@
 import test from 'tape';
-import Mixer from '../lib/Mixer.js';
+import Mixer from '../lib/modules/Mixer.js';

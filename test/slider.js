@@ -1,2 +1,2 @@
 import test from 'tape';
-import Slider from '../lib/Slider.js';
+import Slider from '../lib/ui/Slider.js';

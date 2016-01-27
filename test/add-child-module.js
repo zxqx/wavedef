@@ -1,5 +1,5 @@
 import test from 'tape';
-import addChildModule from '../lib/addChildModule.js';
+import addChildModule from '../lib/modules/addChildModule.js';
 
 test('Add child module', (t) => {
   t.plan(3);
