@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ThreeOscSynth from '../lib/presets/ThreeOscSynth.js';
+import ThreeOscSynth from '../lib/stock-synths/ThreeOscSynth.js';
 
 render(
   <ThreeOscSynth />,

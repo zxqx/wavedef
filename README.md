@@ -65,8 +65,6 @@ $ npm run watch
 + ~~Keys~~
 + ~~ADSR Envelope~~
 + ~~VCA~~
-+ ~~VCO~~
-+ ~~VCF~~
 + LFO
 + MIDI input
 + *Polyphony mode*
