@@ -65,10 +65,10 @@ $ npm run watch
 + ~~Keys~~
 + ~~ADSR Envelope~~
 + ~~VCA~~
-+ VCO
-+ VCF
++ ~~VCO~~
++ ~~VCF~~
 + LFO
-+ *MIDI input*
++ MIDI input
 + *Polyphony mode*
 + *Jam sessions*
 
