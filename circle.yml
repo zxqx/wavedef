@@ -2,8 +2,7 @@ machine:
   node:
     version: 4.2.4
 deployment:
-    production:
-      branch: master
-      commands:
-        - git push git@heroku.com:dz-synth.git $CIRCLE_SHA1:master
-        - npm start
+  staging:
+    branch: master
+    heroku:
+      appname: dz-synth
