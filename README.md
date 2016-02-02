@@ -69,6 +69,7 @@ $ npm run watch
 + ~~Kick~~
 + Snare
 + Hat
++ Percussion Generator
 + White Noise Generator
 + LFO
 + MIDI input
