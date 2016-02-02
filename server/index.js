@@ -4,6 +4,7 @@ var app = express();
 
 var port = process.env.PORT || 8080;
 
-app.use(express.static(path.join(__dirname, '/dist')));
+process.env.PWD = process.cwd();
+app.use(express.static(process.env.PWD + '/dist'));
 
 app.listen(port);
