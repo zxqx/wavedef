@@ -13,6 +13,7 @@ A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/d
 
 ## Tech Stack
 
+* [express](http://expressjs.com/) - Server HTTP framework
 * [react](https://facebook.github.io/react/) - View layer
 * [babel](https://babeljs.io/) - ES6/jsx compiler
 * [gulp](http://gulpjs.com/) - Task runner
@@ -65,6 +66,10 @@ $ npm run watch
 + ~~Keys~~
 + ~~ADSR Envelope~~
 + ~~VCA~~
++ ~~Kick~~
++ Snare
++ Hat
++ White Noise Generator
 + LFO
 + MIDI input
 + Arpeggiator
