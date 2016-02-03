@@ -66,11 +66,12 @@ $ npm run watch
 + ~~Keys~~
 + ~~ADSR Envelope~~
 + ~~VCA~~
++ ~~Mono to Stereo Splitter~
 + ~~Kick~~
 + Snare
-+ Hat
++ ~~Hat~~
 + Percussion Generator
-+ White Noise Generator
++ ~~White Noise Generator~~
 + LFO
 + MIDI input
 + Arpeggiator
