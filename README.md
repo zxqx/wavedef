@@ -66,7 +66,7 @@ $ npm run watch
 + ~~Keys~~
 + ~~ADSR Envelope~~
 + ~~VCA~~
-+ ~~Mono to Stereo Splitter~
++ ~~Mono to Stereo Splitter~~
 + ~~Kick~~
 + Snare
 + ~~Hat~~
