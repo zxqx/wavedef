@@ -68,7 +68,7 @@ $ npm run watch
 + ~~VCA~~
 + ~~Mono to Stereo Splitter~~
 + ~~Kick~~
-+ Snare
++ ~~Snare~~
 + ~~Hat~~
 + Percussion Generator
 + ~~White Noise Generator~~
