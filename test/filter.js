@@ -64,7 +64,7 @@ test('Get frequency', (t) => {
 
   let filter = new Filter();
 
-  t.strictEquals(filter.node.frequency.value, 62, 'should get frequency');
+  t.strictEquals(filter.getFreq(), 62, 'should get frequency');
 });
 
 test('Get Q', (t) => {
@@ -78,7 +78,7 @@ test('Get Q', (t) => {
 
   let filter = new Filter();
 
-  t.strictEquals(filter.node.Q.value, 18, 'should get Q');
+  t.strictEquals(filter.getQ(), 18, 'should get Q');
 });
 
 test('Get filter type', (t) => {
@@ -92,5 +92,5 @@ test('Get filter type', (t) => {
 
   let filter = new Filter();
 
-  t.strictEquals(filter.node.type, 'highpass', 'should get filter type');
+  t.strictEquals(filter.getFilterType(), 'highpass', 'should get filter type');
 });
