@@ -52,7 +52,7 @@ export default class ThreeOscSynthUI extends React.Component
 
         <AudioControlGroup label='Filter'>
           <Slider label='Cutoff Freq'
-            min='50' max='1200' step='5' defaultValue='1200' onInput={filter::filter.setFreq} />
+            min='50' max='1200' step='5' defaultValue='1200' onInput={filter::filter.setFrequency} />
           <Slider label='Resonance'
             min='1' max = '35' step='1' defaultValue='1' onInput={filter::filter.setQ} />
         </AudioControlGroup>

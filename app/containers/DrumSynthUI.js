@@ -37,7 +37,7 @@ export default class DrumSynthUI extends React.Component
           <Slider label = 'Decay'
             min={0.001} max={0.5} step={0.001} defaultValue={0.05} onInput={hihat.envelope::hihat.envelope.setDecay} />
           <Slider label = 'Filter'
-            min={500} max={2000} step={1} defaultValue={900} onInput={hihat.filter::hihat.filter.setFreq} />
+            min={500} max={2000} step={1} defaultValue={900} onInput={hihat.filter::hihat.filter.setFrequency} />
           <Slider label = 'Resonance'
             min={0} max={10} step={0.01} defaultValue={0} onInput={hihat.filter::hihat.filter.setQ} />
         </AudioControlGroup>
