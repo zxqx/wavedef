@@ -15,7 +15,8 @@ A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/d
 
 * [express](http://expressjs.com/) - Server HTTP framework
 * [react](https://facebook.github.io/react/) - View layer
-* [babel](https://babeljs.io/) - ES6/jsx compiler
+* [redux](https://github.com/rackt/redux) - State management
+* [babel](https://babeljs.io/) - ES6/JSX compiler
 * [gulp](http://gulpjs.com/) - Task runner
 * [tape](https://github.com/substack/tape) - Testing
 
@@ -2221,7 +2222,6 @@ unlet s:cpo_save
 
 + MIDI input
 + Arpeggiator
-+ Pitch wheel
 + *Polyphony mode*
 + *Jam sessions*
 

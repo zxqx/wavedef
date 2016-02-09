@@ -7,10 +7,10 @@ var eslint = require('gulp-eslint');
 var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
 
-gulp.task('compile:example', function() {
+gulp.task('compile:app', function() {
   browserify({ debug: true })
   .transform(babelify.configure())
-  .require('./examples/main.js', { entry: true })
+  .require('./app/index.js', { entry: true })
   .bundle()
   .pipe(source('main.js'))
   .pipe(gulp.dest('dist'))
@@ -45,11 +45,11 @@ gulp.task('lint', function() {
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('static/**/*', ['copy:static']);
-  gulp.watch('lib/**/*.js', ['lint', 'compile:example']);
-  gulp.watch('examples/**/*.js', ['lint', 'compile:example']);
+  gulp.watch('lib/**/*.js', ['lint', 'compile:app']);
+  gulp.watch('app/**/*.js', ['lint', 'compile:app']);
   gulp.watch('./style/**/*.scss', ['compile:sass']);
 });
 
 gulp.task('default', ['build']);
 gulp.task('dev', ['build', 'watch']);
-gulp.task('build', ['lint', 'copy:static', 'compile:example', 'compile:sass']);
+gulp.task('build', ['copy:static', 'compile:app', 'compile:sass']);
