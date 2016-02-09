@@ -75,7 +75,6 @@ $ npm run watch
 + LFO
 + MIDI input
 + Arpeggiator
-+ Pitch wheel
 + *Polyphony mode*
 + *Jam sessions*
 
