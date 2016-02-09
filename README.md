@@ -64,7 +64,6 @@ $ npm run watch
 + ~~Oscillator~~
 + ~~Mixer~~
 + ~~Filter~~
-+ ~~Keys~~
 + ~~ADSR Envelope~~
 + ~~VCA~~
 + ~~Mono to Stereo Splitter~~
@@ -74,10 +73,11 @@ $ npm run watch
 + Percussion Generator
 + ~~White Noise Generator~~
 + ~~LFO~~
++ Sequencer
++ Sampler
 + MIDI input
 + Arpeggiator
 + *Polyphony mode*
-+ *Jam sessions*
 
 ## Test
 
