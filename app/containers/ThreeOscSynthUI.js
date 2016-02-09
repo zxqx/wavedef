@@ -66,6 +66,13 @@ export default class ThreeOscSynthUI extends React.Component
             min={0} max={1} step={0.1} defaultValue={1} onInput={envelope::envelope.setSustain} />
         </AudioControlGroup>
 
+        <AudioControlGroup label='LFO'>
+          <Slider label='Depth'
+            min={0} max={100} step={0.5} defaultValue={1} onInput={lfo::lfo.setDepth} />
+          <Slider label='Speed'
+              min={0} max={20} step={0.001} defaultValue={1} onInput={lfo::lfo.setFrequency} />
+        </AudioControlGroup>
+
         <Keyboard octaves={4} startingOctave={2} onKeypress={[
           osc1::osc1.setFrequency,
           osc2::osc2.setFrequency,
