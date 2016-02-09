@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from '../containers/app';
+import App from '../containers/App.js';
 import DrumSynthUI from '../containers/DrumSynthUI.js';
 import ThreeOscSynthUI from '../containers/ThreeOscSynthUI.js';
 
