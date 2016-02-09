@@ -14,7 +14,7 @@ test('Set frequency', (t) => {
   Filter.__Rewire__('ctx', ctx);
 
   let filter = new Filter();
-  filter.setFreq(88);
+  filter.setFrequency(88);
 
   t.strictEquals(filter.node.frequency.value, 88, 'should set frequency');
 });
@@ -64,7 +64,7 @@ test('Get frequency', (t) => {
 
   let filter = new Filter();
 
-  t.strictEquals(filter.getFreq(), 62, 'should get frequency');
+  t.strictEquals(filter.getFrequency(), 62, 'should get frequency');
 });
 
 test('Get Q', (t) => {

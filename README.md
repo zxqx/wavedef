@@ -72,7 +72,7 @@ $ npm run watch
 + ~~Hat~~
 + Percussion Generator
 + ~~White Noise Generator~~
-+ ~~LFO~~
++ ~~LFO with BPM sync~~
 + Sequencer
 + Sampler
 + MIDI input
