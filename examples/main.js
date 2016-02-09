@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import DrumSynth from '../lib/stock-synths/DrumSynth.js';
+import ThreeOscSynth from '../lib/stock-synths/ThreeOscSynth.js';
 
 render(
-  <DrumSynth />,
+  <ThreeOscSynth />,
   document.getElementById('main')
 )
