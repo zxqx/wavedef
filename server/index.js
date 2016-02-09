@@ -5,6 +5,11 @@ var app = express();
 var port = process.env.PORT || 8080;
 
 process.env.PWD = process.cwd();
+
 app.use(express.static(process.env.PWD + '/dist'));
+
+app.all('/*', function(req, res) {
+  res.sendFile('index.html', { root: process.env.PWD + '/dist' });
+});
 
 app.listen(port);
