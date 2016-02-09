@@ -14,29 +14,40 @@ export default class ThreeOscSynthUI extends React.Component
 
   render()
   {
-    let { osc1, osc2, osc3, filter, envelope } = this.threeOscSynth;
+    let { osc1, osc2, osc3, mixer, filter, envelope } = this.threeOscSynth;
 
     return (
       <div>
         <AudioControlGroup label='Osc 1'>
-          <Switch label='On/Off'
-            onToggleOn={osc1::osc1.start} onToggleOff={osc1::osc1.stop} />
           <Slider label='Frequency'
             min='50' max='1200' step='20' defaultValue='600' onInput={osc1::osc1.setFrequency} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Osc 2'>
-          <Switch label='On/Off'
-            onToggleOn={osc2::osc2.start} onToggleOff={osc2::osc2.stop} />
           <Slider label='Frequency'
             min='50' max='1200' step='20' defaultValue='950' onInput={osc2::osc2.setFrequency} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Osc 3'>
-          <Switch label='On/Off'
-            onToggleOn={osc3::osc3.start} onToggleOff={osc3::osc3.stop} />
           <Slider label='Frequency'
             min='50' max='1200' step='20' defaultValue='300' onInput={osc3::osc3.setFrequency} />
+        </AudioControlGroup>
+
+        <AudioControlGroup label='Mixer'>
+          <Switch label='Osc 1'
+            onToggleOn={() => mixer.ch1.setGain(1)} onToggleOff={() => mixer.ch1.setGain(0)} />
+          <Slider label='Osc 1 Volume'
+            min='0' max='1' step='0.01' defaultValue='0' onInput={(val) => mixer.ch1.setGain(val)} />
+
+          <Switch label='Osc 2'
+            onToggleOn={() => mixer.ch2.setGain(1)} onToggleOff={() => mixer.ch2.setGain(0)} />
+          <Slider label='Osc 2 Volume'
+            min='0' max='1' step='0.01' defaultValue='0' onInput={(val) => mixer.ch2.setGain(val)} />
+
+          <Switch label='Osc 3'
+            onToggleOn={() => mixer.ch3.setGain(1)} onToggleOff={() => mixer.ch3.setGain(0)} />
+          <Slider label='Osc 3 Volume'
+            min='0' max='1' step='0.01' defaultValue='0' onInput={(val) => mixer.ch3.setGain(val)} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Filter'>
@@ -46,7 +57,7 @@ export default class ThreeOscSynthUI extends React.Component
             min='1' max = '35' step='1' defaultValue='1' onInput={filter::filter.setQ} />
         </AudioControlGroup>
 
-        <AudioControlGroup label='Envelope'>
+        <AudioControlGroup label='Volume Envelope'>
           <Slider label='Attack'
             min={0} max={2.25} step={0.1} defaultValue={0.1} onInput={envelope::envelope.setAttack} />
           <Slider label='Decay'
