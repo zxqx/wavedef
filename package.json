@@ -52,6 +52,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.4.3",
     "babelify": "^7.2.0",
+    "bluebird": "^3.2.2",
     "bootstrap": "^3.3.6",
     "browserify": "^13.0.0",
     "coveralls": "^2.11.6",
