@@ -71,6 +71,7 @@
     "notes-to-frequencies": "^1.0.0",
     "nyc": "^5.3.0",
     "path": "^0.12.7",
+    "promise-decode-audio-data": "^0.2.0",
     "react": "^0.14.6",
     "react-bootstrap-switch": "^3.4.1",
     "react-dom": "^0.14.6",
