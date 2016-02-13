@@ -61,6 +61,8 @@ export default class ThreeOscSynthUI extends React.Component
             min={0} max={4.5} step={0.1} defaultValue={0.1} onInput={envelope::envelope.setDecay} />
           <Slider label='Sustain'
             min={0} max={1} step={0.1} defaultValue={1} onInput={envelope::envelope.setSustain} />
+          <Slider label='Release'
+            min={0} max={1} step={0.1} defaultValue={0.1} onInput={envelope::envelope.setRelease} />
         </AudioControlGroup>
 
         <AudioControlGroup label='LFO'>
@@ -97,12 +99,17 @@ export default class ThreeOscSynthUI extends React.Component
             min={0} max={1} step={0.01} defaultValue={0.5} onInput={convolver::convolver.setWetDryMix} />
         </AudioControlGroup>
 
-        <Keyboard octaves={4} startingOctave={2} onKeypress={[
-          osc1::osc1.setFrequency,
-          osc2::osc2.setFrequency,
-          osc3::osc3.setFrequency,
-          envelope::envelope.triggerADS,
-        ]} />
+        <Keyboard octaves={4} startingOctave={2}
+          onKeypress={[
+            osc1::osc1.setFrequency,
+            osc2::osc2.setFrequency,
+            osc3::osc3.setFrequency,
+            envelope::envelope.triggerADS,
+          ]}
+          onKeyRelease={[
+            envelope::envelope.triggerRelease
+          ]}
+          />
       </div>
     )
   }
