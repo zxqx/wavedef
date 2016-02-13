@@ -211,6 +211,9 @@ test('Trigger ADS', (t) => {
 
   class AudioParam
   {
+    cancelScheduledValues() {
+    }
+
     setValueAtTime(val, time) {
       this.val = val;
     }
