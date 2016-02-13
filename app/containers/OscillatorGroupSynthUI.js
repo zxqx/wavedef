@@ -24,12 +24,12 @@ export default class OscillatorGroupSynthUI extends React.Component
 
         <AudioControlGroup label='Osc 2'>
           <Slider label='Frequency Offset'
-            min='-1200' max='1200' step='1' defaultValue='700' onInput={osc2::osc2.setDetune} />
+            min='-1200' max='1200' step='1' defaultValue='400' onInput={osc2::osc2.setDetune} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Osc 3'>
           <Slider label='Frequency Offset'
-            min='-1200' max='1200' step='1' defaultValue='1200' onInput={osc3::osc3.setDetune} />
+            min='-1200' max='1200' step='1' defaultValue='700' onInput={osc3::osc3.setDetune} />
         </AudioControlGroup>
 
         <Keyboard octaves={4} startingOctave={2} onKeypress={[
