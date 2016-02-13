@@ -93,6 +93,11 @@ export default class ThreeOscSynthUI extends React.Component
             min={0} max={25} step={0.01} defaultValue={15} onInput={eq3::eq3.highSetGain} />
         </AudioControlGroup>
 
+        <AudioControlGroup label='Reverb'>
+          <Slider label='Wet/Dry'
+            min={0} max={1} step={0.01} defaultValue={0.5} onInput={convolver::convolver.wetDryMix} />
+        </AudioControlGroup>
+
 
 
 
