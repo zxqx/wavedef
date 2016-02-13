@@ -14,7 +14,8 @@ export default class ThreeOscSynthUI extends React.Component
 
   render()
   {
-    let { osc1, osc2, osc3, mixer, filter, envelope } = this.threeOscSynth;
+    let { oscGroup, mixer, filter, envelope } = this.threeOscSynth;
+    let { osc1, osc2, osc3 } = oscGroup;
 
     return (
       <div>
@@ -24,13 +25,13 @@ export default class ThreeOscSynthUI extends React.Component
         </AudioControlGroup>
 
         <AudioControlGroup label='Osc 2'>
-          <Slider label='Frequency'
-            min='50' max='1200' step='20' defaultValue='950' onInput={osc2::osc2.setFrequency} />
+          <Slider label='Frequency Offset'
+            min='-1200' max='1200' step='10' defaultValue='400' onInput={osc2::osc2.setDetune} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Osc 3'>
-          <Slider label='Frequency'
-            min='50' max='1200' step='20' defaultValue='300' onInput={osc3::osc3.setFrequency} />
+          <Slider label='Frequency Offset'
+            min='-1200' max='1200' step='10' defaultValue='700' onInput={osc3::osc3.setDetune} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Mixer'>
