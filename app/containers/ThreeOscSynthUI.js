@@ -62,7 +62,7 @@ export default class ThreeOscSynthUI extends React.Component
           <Slider label='Sustain'
             min={0} max={1} step={0.1} defaultValue={1} onInput={envelope::envelope.setSustain} />
           <Slider label='Release'
-            min={0} max={1} step={0.1} defaultValue={0.1} onInput={envelope::envelope.setRelease} />
+            min={0} max={3} step={0.1} defaultValue={0.5} onInput={envelope::envelope.setRelease} />
         </AudioControlGroup>
 
         <AudioControlGroup label='LFO'>
