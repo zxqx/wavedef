@@ -80,6 +80,22 @@ export default class ThreeOscSynthUI extends React.Component
             min={0} max={1} step={0.01} defaultValue={0.8} onInput={delay::delay.setFeedback} />
         </AudioControlGroup>
 
+        <AudioControlGroup label='EQ'>
+          <Slider label='Low Frequency'
+            min={50} max={5000} step={1} defaultValue={250} onInput={eq3::eq3.lowFrequency} />
+          <Slider label='Low Gain'
+            min={0} max={25} step={0.01} defaultValue={15} onInput={eq3::eq3.lowSetGain} />
+          <Slider label='Mid Gain'
+            min={0} max={25} step={0.01} defaultValue={15} onInput={eq3::eq3.midSetGain} />
+          <Slider label='High Frequency'
+            min={200} max={18000} step={1} defaultValue={2500} onInput={eq3::eq3.highFrequency} />
+          <Slider label='High Gain'
+            min={0} max={25} step={0.01} defaultValue={15} onInput={eq3::eq3.highSetGain} />
+        </AudioControlGroup>
+
+
+
+
         <Keyboard octaves={4} startingOctave={2} onKeypress={[
           osc1::osc1.setFrequency,
           osc2::osc2.setFrequency,
