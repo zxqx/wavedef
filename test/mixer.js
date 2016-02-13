@@ -6,15 +6,11 @@ import Gain from '../lib/modules/Gain.js';
 test('Mixer', (t) => {
   t.plan(6);
 
-  let ctx = nm.mock('createChannelMerger').takes(6).returns({
-  mixer: 'node',
-  connect: (node) => node
-  });
-  ctx.mock('createGain').takes().returns(
+  let ctx = nm.mock('createGain').takes().returns(
   {
     gain: 'node',
     connect: (node) => node
-  }).times(6);
+  }).times(7);
 
   Mixer.__Rewire__('ctx', ctx);
   Gain.__Rewire__('ctx', ctx);
