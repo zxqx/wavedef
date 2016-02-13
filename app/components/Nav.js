@@ -19,6 +19,10 @@ export default class Nav extends React.Component
         <li className={props.isActive === '/3osc' ? 'active' : null}>
           <a href='3osc'>3 Osc Synth</a>
         </li>
+
+        <li className={props.isActive === '/osc-group' ? 'active' : null}>
+          <a href='osc-group'>Osc Group Synth</a>
+        </li>
       </ul>
     )
   }
