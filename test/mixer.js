@@ -8,14 +8,14 @@ test('Mixer', (t) => {
 
   let ctx = nm.mock('createGain').takes().returns(
   {
-    gain: 'node',
+    gain: { value: 0 },
     connect: (node) => node
-  }).times(7);
+  }).times(13);
 
   Mixer.__Rewire__('ctx', ctx);
   Gain.__Rewire__('ctx', ctx);
 
-  let mixer = new Mixer();
+  let mixer = new Mixer(6);
 
   t.ok(mixer.ch1);
   t.ok(mixer.ch2);
