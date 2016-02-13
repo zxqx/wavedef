@@ -73,6 +73,13 @@ export default class ThreeOscSynthUI extends React.Component
               min={0} max={20} step={0.001} defaultValue={1} onInput={lfo::lfo.setFrequency} />
         </AudioControlGroup>
 
+        <AudioControlGroup label='Delay'>
+          <Slider label='Time'
+            min={0.001} max={6.4} step={0.01} defaultValue={0.5} onInput={delay::delay.setDelayTime} />
+          <Slider label='Feedback'
+            min={0} max={1} step={0.01} defaultValue={0.8} onInput={delay::delay.setFeedback} />
+        </AudioControlGroup>
+
         <Keyboard octaves={4} startingOctave={2} onKeypress={[
           osc1::osc1.setFrequency,
           osc2::osc2.setFrequency,

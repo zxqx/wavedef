@@ -79,7 +79,7 @@ $ npm run watch
 + MIDI input
 + Arpeggiator
 + *Polyphony mode*
-+ Delay
++ ~~Delay~~
 + Multi-Tap Delay
 
 ## Test
