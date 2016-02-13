@@ -17,7 +17,7 @@ export default class Key extends React.Component
 
     return (
       <button className={classNames.join(' ')} value={props.note}
-        onClick={(e) => {
+        onMouseDown={e => {
           let freq = notesToFrequencies(e.target.value);
 
           if (Array.isArray(props.onKeypress)) {
@@ -28,7 +28,18 @@ export default class Key extends React.Component
           else {
             props.onKeypress(freq);
           }
-        }}>
+        }}
+        onMouseUp={e => {
+          if (Array.isArray(props.onKeyRelease)) {
+            for (let callback of props.onKeyRelease) {
+              callback();
+            }
+          }
+          else {
+            props.onKeyRelease();
+          }
+        }}
+        >
       </button>
     )
   }

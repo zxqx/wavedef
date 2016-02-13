@@ -20,6 +20,7 @@ export default class Keyboard extends React.Component
           {return notes.map(note => {
             return <Key key={note + octave} note={note + octave}
               onKeypress={props.onKeypress}
+              onKeyRelease={props.onKeyRelease}
               isBlack={this.isSharpOrFlat(note)}
               isAdjacentWhite={this.isAdjacentToWhiteKey(note)}
             />
