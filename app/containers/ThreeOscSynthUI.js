@@ -21,18 +21,18 @@ export default class ThreeOscSynthUI extends React.Component
       <div className="three-osc-synth">
         <AudioControlGroup label='Osc 1'>
           <Switch label='On/Off'
-            onToggleOn={() => mixer.ch1.setGain(1)} onToggleOff={() => mixer.ch1.setGain(0)} />
+            onToggleOn={() => mixer.ch1.toggleOn()} onToggleOff={() => mixer.ch1.toggleOff()} />
           <Slider label='Osc 1 Volume'
-            min='0' max='1' step='0.01' defaultValue='0' onInput={(val) => mixer.ch1.setGain(val)} />
+            min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch1.setGain(val)} />
           <Slider label='Frequency'
             min='50' max='1200' step='20' defaultValue='600' onInput={osc1::osc1.setFrequency} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Osc 2'>
           <Switch label='On/Off'
-            onToggleOn={() => mixer.ch2.setGain(1)} onToggleOff={() => mixer.ch2.setGain(0)} />
+            onToggleOn={() => mixer.ch2.toggleOn()} onToggleOff={() => mixer.ch2.toggleOff()} />
           <Slider label='Osc 2 Volume'
-            min='0' max='1' step='0.01' defaultValue='0' onInput={(val) => mixer.ch2.setGain(val)} />
+            min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch2.setGain(val)} />
 
           <Slider label='Freq Offset'
             min='-1200' max='1200' step='10' defaultValue='400' onInput={osc2::osc2.setDetune} />
@@ -40,9 +40,9 @@ export default class ThreeOscSynthUI extends React.Component
 
         <AudioControlGroup label='Osc 3'>
           <Switch label='On/Off'
-            onToggleOn={() => mixer.ch3.setGain(1)} onToggleOff={() => mixer.ch3.setGain(0)} />
+            onToggleOn={() => mixer.ch3.toggleOn()} onToggleOff={() => mixer.ch3.toggleOff()} />
           <Slider label='Osc 3 Volume'
-            min='0' max='1' step='0.01' defaultValue='0' onInput={(val) => mixer.ch3.setGain(val)} />
+            min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch3.setGain(val)} />
           <Slider label='Freq Offset'
             min='-1200' max='1200' step='10' defaultValue='700' onInput={osc3::osc3.setDetune} />
         </AudioControlGroup>
