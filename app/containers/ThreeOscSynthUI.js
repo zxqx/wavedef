@@ -30,7 +30,7 @@ export default class ThreeOscSynthUI extends React.Component
             <Button label='SW' value='sawtooth' />
             <Button label='TR' value='triangle' />
           </ButtonGroup>
-          <Slider label='Osc 1 Volume'
+          <Slider label='Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch1.setGain(val)} />
         </AudioControlGroup>
 
@@ -43,7 +43,7 @@ export default class ThreeOscSynthUI extends React.Component
             <Button label='SW' value='sawtooth' />
             <Button label='TR' value='triangle' />
           </ButtonGroup>
-          <Slider label='Osc 2 Volume'
+          <Slider label='Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch2.setGain(val)} />
           <Slider label='Frequency Offset'
             min='-1200' max='1200' step='10' defaultValue='400' onInput={osc2::osc2.setDetune} />
@@ -58,7 +58,7 @@ export default class ThreeOscSynthUI extends React.Component
             <Button label='SW' value='sawtooth' />
             <Button label='TR' value='triangle' />
           </ButtonGroup>
-          <Slider label='Osc 3 Volume'
+          <Slider label='Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch3.setGain(val)} />
           <Slider label='Frequency Offset'
             min='-1200' max='1200' step='10' defaultValue='700' onInput={osc3::osc3.setDetune} />
@@ -66,7 +66,7 @@ export default class ThreeOscSynthUI extends React.Component
 
         <div className='audio-control-column'>
           <AudioControlGroup label='Filter'>
-            <Slider label='Cutoff Freq'
+            <Slider label='Cutoff Frequency'
               min='50' max='1200' step='5' defaultValue='1200' onInput={filter::filter.setFrequency} />
             <Slider label='Resonance'
               min='1' max = '35' step='1' defaultValue='1' onInput={filter::filter.setQ} />
