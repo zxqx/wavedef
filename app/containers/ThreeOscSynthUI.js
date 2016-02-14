@@ -31,7 +31,7 @@ export default class ThreeOscSynthUI extends React.Component
           onKeyRelease={[
             envelope::envelope.triggerRelease
           ]}
-          />
+        />
         <AudioControlGroup label='Osc 1'>
           <Switch label='On/Off'
             onToggleOn={() => mixer.ch1.toggleOn()} onToggleOff={() => mixer.ch1.toggleOff()} state={true} />

@@ -54,6 +54,16 @@ body {
   clear: both;
 }
 
+.frequency-analyzer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-bottom: 10px;
+  width: 350px;
+  height: 100px;
+  background: #337ab7;
+}
+
 input[type='radio'] {
   &:checked + span {
     padding: 5px 8px;
