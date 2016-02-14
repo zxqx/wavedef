@@ -11,8 +11,9 @@
     "test": "tape -r ./node_modules/babel-register test/*.js",
     "start": "node ./server/index.js",
     "watch": "gulp dev",
-    "postinstall": "npm run build",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "postinstall": "npm run doc && npm run build",
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "doc": "esdoc -c esdoc.json"
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,7 @@
     "browserify": "^13.0.0",
     "coveralls": "^2.11.6",
     "debug": "^2.2.0",
+    "esdoc": "^0.4.4",
     "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.16.0",
