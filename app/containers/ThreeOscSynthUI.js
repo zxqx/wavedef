@@ -2,6 +2,8 @@ import React from 'react';
 import { ThreeOscSynth } from '../../lib';
 import AudioControlGroup from '../components/AudioControlGroup.js';
 import Slider from '../components/Slider.js';
+import ButtonGroup from '../components/ButtonGroup.js';
+import Button from '../components/Button.js';
 import Switch from '../components/Switch.js';
 import Keyboard from '../components/Keyboard.js';
 
@@ -19,9 +21,26 @@ export default class ThreeOscSynthUI extends React.Component
 
     return (
       <div className="three-osc-synth">
+        <Keyboard octaves={4} startingOctave={2}
+          onKeypress={[
+            osc1::osc1.setFrequency,
+            osc2::osc2.setFrequency,
+            osc3::osc3.setFrequency,
+            envelope::envelope.triggerADS,
+          ]}
+          onKeyRelease={[
+            envelope::envelope.triggerRelease
+          ]}
+          />
         <AudioControlGroup label='Osc 1'>
           <Switch label='On/Off'
             onToggleOn={() => mixer.ch1.toggleOn()} onToggleOff={() => mixer.ch1.toggleOff()} />
+          <ButtonGroup label='Waveform' name='osc1-waveform' defaultValue='sawtooth' onChange={osc1::osc1.setWaveformType}>
+            <Button label='SN' value='sine' />
+            <Button label='SQ' value='square' />
+            <Button label='SW' value='sawtooth' />
+            <Button label='TR' value='triangle' />
+          </ButtonGroup>
           <Slider label='Osc 1 Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch1.setGain(val)} />
           <Slider label='Frequency'
@@ -31,9 +50,14 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 2'>
           <Switch label='On/Off'
             onToggleOn={() => mixer.ch2.toggleOn()} onToggleOff={() => mixer.ch2.toggleOff()} />
+          <ButtonGroup label='Waveform' name='osc2-waveform' defaultValue='triangle' onChange={osc2::osc2.setWaveformType}>
+            <Button label='SN' value='sine' />
+            <Button label='SQ' value='square' />
+            <Button label='SW' value='sawtooth' />
+            <Button label='TR' value='triangle' />
+          </ButtonGroup>
           <Slider label='Osc 2 Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch2.setGain(val)} />
-
           <Slider label='Freq Offset'
             min='-1200' max='1200' step='10' defaultValue='400' onInput={osc2::osc2.setDetune} />
         </AudioControlGroup>
@@ -41,6 +65,12 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 3'>
           <Switch label='On/Off'
             onToggleOn={() => mixer.ch3.toggleOn()} onToggleOff={() => mixer.ch3.toggleOff()} />
+          <ButtonGroup label='Waveform' name='osc3-waveform' defaultValue='square' onChange={osc3::osc3.setWaveformType}>
+            <Button label='SN' value='sine' />
+            <Button label='SQ' value='square' />
+            <Button label='SW' value='sawtooth' />
+            <Button label='TR' value='triangle' />
+          </ButtonGroup>
           <Slider label='Osc 3 Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch3.setGain(val)} />
           <Slider label='Freq Offset'
@@ -98,18 +128,6 @@ export default class ThreeOscSynthUI extends React.Component
           <Slider label='Wet/Dry'
             min={0} max={1} step={0.01} defaultValue={0.5} onInput={convolver::convolver.setWetDryMix} />
         </AudioControlGroup>
-
-        <Keyboard octaves={4} startingOctave={2}
-          onKeypress={[
-            osc1::osc1.setFrequency,
-            osc2::osc2.setFrequency,
-            osc3::osc3.setFrequency,
-            envelope::envelope.triggerADS,
-          ]}
-          onKeyRelease={[
-            envelope::envelope.triggerRelease
-          ]}
-          />
       </div>
     )
   }

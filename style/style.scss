@@ -26,16 +26,10 @@ body {
     height: 78px;
     float: left;
     border: 1px solid #ccc;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    label {
-      margin-bottom: 5px;
-      display: block;
-      font-weight: 500;
-    }
+  >.audio-control:last-child {
+    margin-bottom: 0;
   }
 
   h4 {
@@ -45,9 +39,27 @@ body {
   }
 }
 
+.audio-control-label {
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 500;
+}
+
+.btn-waveform-type {
+  padding: 4px 8px;
+}
+
 .keyboard {
-  padding: 10px 0 0 5px;
+  padding: 0 0 5px 5px;
   clear: both;
+}
+
+input[type='radio'] {
+  &:checked + span {
+    padding: 5px 8px;
+    margin: -4px -8px;
+    background: #eee;
+  }
 }
 
 .keyboard-key {
