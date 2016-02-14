@@ -7,6 +7,14 @@ import ReactSwitch from 'react-bootstrap-switch';
  */
 export default class Switch extends React.Component
 {
+  componentWillMount()
+  {
+    const { props } = this;
+    if (props.state) {
+      props.onToggleOn();
+    }
+  }
+
   render()
   {
     const { props } = this;
@@ -14,7 +22,7 @@ export default class Switch extends React.Component
     return (
       <div className='audio-control'>
         <label className='audio-control-label'>{props.label}</label>
-        <ReactSwitch state={false} animate={false} size='mini'
+        <ReactSwitch state={props.state} animate={false} size='mini'
           onChange={(state) => {
             if (state && props.onToggleOn) props.onToggleOn();
             if (!state && props.onToggleOff) props.onToggleOff();
