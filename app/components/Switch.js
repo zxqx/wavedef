@@ -13,7 +13,7 @@ export default class Switch extends React.Component
 
     return (
       <div className='audio-control'>
-        <label>{props.label}</label>
+        <label className='audio-control-label'>{props.label}</label>
         <ReactSwitch state={false} animate={false} size='mini'
           onChange={(state) => {
             if (state && props.onToggleOn) props.onToggleOn();

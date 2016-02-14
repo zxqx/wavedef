@@ -18,7 +18,7 @@ export default class Slider extends React.Component
 
     return (
       <div className='audio-control'>
-        <label>{props.label}</label>
+        <label className='audio-control-label'>{props.label}</label>
         <input type='range' defaultValue={props.defaultValue} min={props.min} max={props.max}
           step={props.step} onInput={(e) => props.onInput(e.target.value)} />
       </div>
