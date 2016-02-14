@@ -120,7 +120,7 @@ export default class ThreeOscSynthUI extends React.Component
             min={-50} max={25} step={0.01} defaultValue={0} onInput={eq3::eq3.highSetGain} />
         </AudioControlGroup>
 
-        <Keyboard octaves={6} startingOctave={2}
+        <Keyboard octaves={6} startingOctave={1}
           onKeypress={[
             osc1::osc1.setFrequency,
             osc2::osc2.setFrequency,
