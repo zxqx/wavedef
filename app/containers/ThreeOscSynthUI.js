@@ -21,7 +21,7 @@ export default class ThreeOscSynthUI extends React.Component
 
     return (
       <div className="three-osc-synth">
-        <Keyboard octaves={4} startingOctave={2}
+        <Keyboard octaves={3} startingOctave={2}
           onKeypress={[
             osc1::osc1.setFrequency,
             osc2::osc2.setFrequency,
