@@ -24,7 +24,7 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 1'>
           <Switch
             onToggleOn={() => mixer.ch1.toggleOn()} onToggleOff={() => mixer.ch1.toggleOff()} state={true} className='osc-power-switch' />
-          <ButtonGroup label='Waveform' name='osc1-waveform' defaultValue='sawtooth' onChange={osc1::osc1.setWaveformType}>
+          <ButtonGroup label='Wave' name='osc1-waveform' defaultValue='sawtooth' onChange={osc1::osc1.setWaveformType}>
             <Button label='SN' value='sine' />
             <Button label='SQ' value='square' />
             <Button label='SW' value='sawtooth' />
@@ -37,7 +37,7 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 2'>
           <Switch
             onToggleOn={() => mixer.ch2.toggleOn()} onToggleOff={() => mixer.ch2.toggleOff()} state={true} className='osc-power-switch' />
-          <ButtonGroup label='Waveform' name='osc2-waveform' defaultValue='triangle' onChange={osc2::osc2.setWaveformType}>
+          <ButtonGroup label='Wave' name='osc2-waveform' defaultValue='triangle' onChange={osc2::osc2.setWaveformType}>
             <Button label='SN' value='sine' />
             <Button label='SQ' value='square' />
             <Button label='SW' value='sawtooth' />
@@ -52,7 +52,7 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 3'>
           <Switch
             onToggleOn={() => mixer.ch3.toggleOn()} onToggleOff={() => mixer.ch3.toggleOff()} state={true} className='osc-power-switch' />
-          <ButtonGroup label='Waveform' name='osc3-waveform' defaultValue='square' onChange={osc3::osc3.setWaveformType}>
+          <ButtonGroup label='Wave' name='osc3-waveform' defaultValue='square' onChange={osc3::osc3.setWaveformType}>
             <Button label='SN' value='sine' />
             <Button label='SQ' value='square' />
             <Button label='SW' value='sawtooth' />
