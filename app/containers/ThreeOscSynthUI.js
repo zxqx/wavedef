@@ -108,7 +108,7 @@ export default class ThreeOscSynthUI extends React.Component
           <Slider label='Feedback'
             min={0} max={1} step={0.01} defaultValue={0.8} onInput={delay::delay.setFeedback} />
           <Slider label='Mix'
-            min={0} max={1} step={0.01} defaultValue={0} onInput={delay::delay.setWetDryMix} />
+            min={0} max={1} step={0.01} defaultValue={0.15} onInput={delay::delay.setWetDryMix} />
         </AudioControlGroup>
 
         <AudioControlGroup label='EQ'>
