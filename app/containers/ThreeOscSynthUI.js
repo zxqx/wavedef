@@ -43,8 +43,6 @@ export default class ThreeOscSynthUI extends React.Component
           </ButtonGroup>
           <Slider label='Osc 1 Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch1.setGain(val)} />
-          <Slider label='Frequency'
-            min='50' max='1200' step='20' defaultValue='600' onInput={osc1::osc1.setFrequency} />
         </AudioControlGroup>
 
         <AudioControlGroup label='Osc 2'>
