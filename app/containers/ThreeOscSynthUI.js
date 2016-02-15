@@ -127,7 +127,7 @@ export default class ThreeOscSynthUI extends React.Component
         </AudioControlGroup>
 
         <AudioControlGroup label='Ringmod'>
-          <ButtonGroup label='waveform' name='ringmod-wave' defaultValue='sine' onChange={ringmod::ringmod.setWaveformType}>
+          <ButtonGroup label='Wave' name='ringmod-wave' defaultValue='sine' onChange={ringmod::ringmod.setWaveformType}>
             <Button label='SN' value='sine' />
             <Button label='SQ' value='square' />
             <Button label='SW' value='sawtooth' />
@@ -137,7 +137,7 @@ export default class ThreeOscSynthUI extends React.Component
             min={2} max={4000} step={1} defaultValue={100} onInput={ringmod::ringmod.setFrequency} />
           <Slider label='Mix'
             min={0} max={1} step={0.01} defaultValue={0} onInput={ringmod::ringmod.setDepth} />
-          <ButtonGroup label='waveform' name='rm-lfo-wave' defaultValue='sine' onChange={ringmod::ringmod.setLfoWaveformType}>
+          <ButtonGroup label='LFO Wave' name='ringmod-lfo-wave' defaultValue='sine' onChange={ringmod::ringmod.setLfoWaveformType}>
             <Button label='SN' value='sine' />
             <Button label='SQ' value='square' />
             <Button label='SW' value='sawtooth' />
