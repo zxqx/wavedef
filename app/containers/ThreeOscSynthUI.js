@@ -118,7 +118,7 @@ export default class ThreeOscSynthUI extends React.Component
             min={0} max={1000} step={1} defaultValue={0} onInput={ringmod::ringmod.lfoDepth} />
         </AudioControlGroup>
 
-        <Keyboard octaves={6} startingOctave={1}
+        <Keyboard octaves={7} startingOctave={1}
           onKeypress={[
             osc1::osc1.setFrequency,
             osc2::osc2.setFrequency,
