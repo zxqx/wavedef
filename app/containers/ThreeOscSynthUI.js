@@ -108,7 +108,7 @@ export default class ThreeOscSynthUI extends React.Component
           </AudioControlGroup>
 
           <AudioControlGroup label='Reverb'>
-            <Slider label='Wet/Dry'
+            <Slider label='Mix'
               min={0} max={1} step={0.01} defaultValue={0.5} onInput={convolver::convolver.setWetDryMix} />
           </AudioControlGroup>
         </div>
