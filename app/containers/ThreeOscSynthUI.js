@@ -73,6 +73,12 @@ export default class ThreeOscSynthUI extends React.Component
           </AudioControlGroup>
 
           <AudioControlGroup label='LFO'>
+          <ButtonGroup label='Wave' name='lfo-waveform' defaultValue='sine' onChange={lfo::lfo.setWaveformType}>
+            <Button label='SN' value='sine' />
+            <Button label='SQ' value='square' />
+            <Button label='SW' value='sawtooth' />
+            <Button label='TR' value='triangle' />
+          </ButtonGroup>
             <Slider label='Depth'
               min={0} max={100} step={0.5} defaultValue={1} onInput={lfo::lfo.setDepth} />
             <Slider label='Speed'
