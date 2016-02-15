@@ -36,7 +36,23 @@
     }
 
     &:active {
-      color: #555;
+      img {
+        opacity: 0.3;
+      }
+    }
+
+    input[type=radio] {
+      &:checked {
+        + span {
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    img {
+      opacity: 0.4;
     }
 
     @media(min-width: 930px) {

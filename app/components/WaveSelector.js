@@ -14,10 +14,10 @@ export default class WaveSelector extends React.Component
 
     return (
       <ButtonGroup label={props.label} name={props.name} defaultValue={props.defaultValue} onChange={props.onChange}>
-        <Button label='SN' value='sine' />
-        <Button label='SQ' value='square' />
-        <Button label='SW' value='sawtooth' />
-        <Button label='TR' value='triangle' />
+        <Button icon='waveforms/sine' value='sine' />
+        <Button icon='waveforms/square' value='square' />
+        <Button icon='waveforms/sawtooth' value='sawtooth' />
+        <Button icon='waveforms/triangle' value='triangle' />
       </ButtonGroup>
     )
   }
