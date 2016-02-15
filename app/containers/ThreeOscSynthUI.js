@@ -130,11 +130,19 @@ export default class ThreeOscSynthUI extends React.Component
           <ButtonGroup label='waveform' name='ringmod-wave' defaultValue='sine' onChange={ringmod::ringmod.setWaveformType}>
             <Button label='SN' value='sine' />
             <Button label='SQ' value='square' />
+            <Button label='SW' value='sawtooth' />
+            <Button label='TR' value='triangle' />
           </ButtonGroup>
           <Slider label='Frequency'
             min={2} max={4000} step={1} defaultValue={100} onInput={ringmod::ringmod.setFrequency} />
           <Slider label='Mix'
             min={0} max={1} step={0.01} defaultValue={0} onInput={ringmod::ringmod.setDepth} />
+          <ButtonGroup label='waveform' name='rm-lfo-wave' defaultValue='sine' onChange={ringmod::ringmod.setLfoWaveformType}>
+            <Button label='SN' value='sine' />
+            <Button label='SQ' value='square' />
+            <Button label='SW' value='sawtooth' />
+            <Button label='TR' value='triangle' />
+          </ButtonGroup>
           <Slider label='LFO Rate'
             min={0.1} max={25} step={0.001} defaultValue={0.1} onInput={ringmod::ringmod.lfoRate} />
           <Slider label='LFO Depth'
