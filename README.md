@@ -74,6 +74,9 @@ $ npm run watch
 + ~~White Noise Generator~~
 + ~~LFO with BPM sync~~
 + ~~Convolver~~
++ ~~3-Band EQ~~
++ ~~Ring Modulator~~
++ ~~Frequency Analyzer~~
 + Sequencer
 + Sampler
 + MIDI input
