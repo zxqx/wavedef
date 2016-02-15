@@ -42,6 +42,10 @@ body {
   color: #fff;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 
+  &.envelope {
+    height: 272px;
+  }
+
   .audio-control {
     margin-bottom: 0;
     padding: 15px 8px;
@@ -49,6 +53,18 @@ body {
     height: 78px;
     float: left;
     border: none;
+
+    &.vertical-slider {
+      margin: 0 2px;
+      width: 30px;
+
+      input[type=range] {
+        margin-top: 66px;
+        margin-left: -57px;
+        width: 124px;
+        transform: rotate(270deg);
+      }
+    }
 
     &.btn-group {
       height: 92px;
@@ -62,6 +78,7 @@ body {
   h4 {
     margin: 0 8px 4px;
     font-size: 24px;
+    line-height: 28px;
     text-transform: uppercase;
   }
 
