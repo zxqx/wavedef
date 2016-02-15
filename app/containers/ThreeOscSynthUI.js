@@ -2,9 +2,8 @@ import React from 'react';
 import { ThreeOscSynth } from '../../lib';
 import AudioControlGroup from '../components/AudioControlGroup.js';
 import Slider from '../components/Slider.js';
-import ButtonGroup from '../components/ButtonGroup.js';
-import Button from '../components/Button.js';
 import Switch from '../components/Switch.js';
+import WaveSelector from '../components/WaveSelector.js';
 import Keyboard from '../components/Keyboard.js';
 
 export default class ThreeOscSynthUI extends React.Component
@@ -24,12 +23,7 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 1'>
           <Switch
             onToggleOn={() => mixer.ch1.toggleOn()} onToggleOff={() => mixer.ch1.toggleOff()} state={true} className='osc-power-switch' />
-          <ButtonGroup label='Wave' name='osc1-waveform' defaultValue='sawtooth' onChange={osc1::osc1.setWaveformType}>
-            <Button label='SN' value='sine' />
-            <Button label='SQ' value='square' />
-            <Button label='SW' value='sawtooth' />
-            <Button label='TR' value='triangle' />
-          </ButtonGroup>
+          <WaveSelector name='osc1-waveform' label='Wave' defaultValue='sawtooth' onChange={osc1::osc1.setWaveformType} />
           <Slider label='Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch1.setGain(val)} />
         </AudioControlGroup>
@@ -37,12 +31,7 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 2'>
           <Switch
             onToggleOn={() => mixer.ch2.toggleOn()} onToggleOff={() => mixer.ch2.toggleOff()} state={true} className='osc-power-switch' />
-          <ButtonGroup label='Wave' name='osc2-waveform' defaultValue='triangle' onChange={osc2::osc2.setWaveformType}>
-            <Button label='SN' value='sine' />
-            <Button label='SQ' value='square' />
-            <Button label='SW' value='sawtooth' />
-            <Button label='TR' value='triangle' />
-          </ButtonGroup>
+          <WaveSelector name='osc2-waveform' label='Wave' defaultValue='triangle' onChange={osc2::osc2.setWaveformType} />
           <Slider label='Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch2.setGain(val)} />
           <Slider label='Frequency Offset'
@@ -52,12 +41,7 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Osc 3'>
           <Switch
             onToggleOn={() => mixer.ch3.toggleOn()} onToggleOff={() => mixer.ch3.toggleOff()} state={true} className='osc-power-switch' />
-          <ButtonGroup label='Wave' name='osc3-waveform' defaultValue='square' onChange={osc3::osc3.setWaveformType}>
-            <Button label='SN' value='sine' />
-            <Button label='SQ' value='square' />
-            <Button label='SW' value='sawtooth' />
-            <Button label='TR' value='triangle' />
-          </ButtonGroup>
+          <WaveSelector name='osc3-waveform' label='Wave' defaultValue='square' onChange={osc3::osc3.setWaveformType} />
           <Slider label='Volume'
             min='0' max='1' step='0.01' defaultValue='1' onInput={(val) => mixer.ch3.setGain(val)} />
           <Slider label='Frequency Offset'
@@ -73,12 +57,7 @@ export default class ThreeOscSynthUI extends React.Component
           </AudioControlGroup>
 
           <AudioControlGroup label='LFO'>
-          <ButtonGroup label='Wave' name='lfo-waveform' defaultValue='sine' onChange={lfo::lfo.setWaveformType}>
-            <Button label='SN' value='sine' />
-            <Button label='SQ' value='square' />
-            <Button label='SW' value='sawtooth' />
-            <Button label='TR' value='triangle' />
-          </ButtonGroup>
+          <WaveSelector name='lfo-waveform' label='Wave' defaultValue='sine' onChange={lfo::lfo.setWaveformType} />
             <Slider label='Depth'
               min={0} max={100} step={0.5} defaultValue={1} onInput={lfo::lfo.setDepth} />
             <Slider label='Speed'
@@ -127,22 +106,12 @@ export default class ThreeOscSynthUI extends React.Component
         </AudioControlGroup>
 
         <AudioControlGroup label='Ringmod'>
-          <ButtonGroup label='Wave' name='ringmod-wave' defaultValue='sine' onChange={ringmod::ringmod.setWaveformType}>
-            <Button label='SN' value='sine' />
-            <Button label='SQ' value='square' />
-            <Button label='SW' value='sawtooth' />
-            <Button label='TR' value='triangle' />
-          </ButtonGroup>
+          <WaveSelector name='ringmod-waveform' label='Wave' defaultValue='sine' onChange={ringmod::ringmod.setWaveformType} />
           <Slider label='Frequency'
             min={2} max={4000} step={1} defaultValue={100} onInput={ringmod::ringmod.setFrequency} />
           <Slider label='Mix'
             min={0} max={1} step={0.01} defaultValue={0} onInput={ringmod::ringmod.setDepth} />
-          <ButtonGroup label='LFO Wave' name='ringmod-lfo-wave' defaultValue='sine' onChange={ringmod::ringmod.setLfoWaveformType}>
-            <Button label='SN' value='sine' />
-            <Button label='SQ' value='square' />
-            <Button label='SW' value='sawtooth' />
-            <Button label='TR' value='triangle' />
-          </ButtonGroup>
+          <WaveSelector name='ringmod-lfo-waveform' label='LFO Wave' defaultValue='sine' onChange={ringmod::ringmod.setLfoWaveformType} />
           <Slider label='LFO Rate'
             min={0.1} max={25} step={0.001} defaultValue={0.1} onInput={ringmod::ringmod.lfoRate} />
           <Slider label='LFO Depth'
