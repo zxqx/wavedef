@@ -1,6 +1,6 @@
 # Names
 
-totem
-mandible
-cicada
-nautilus
++ totem
++ mandible
++ cicada
++ nautilus
