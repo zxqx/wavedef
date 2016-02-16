@@ -67,7 +67,7 @@ export default class ThreeOscSynthUI extends React.Component
 
         <AudioControlGroup label='Volume Envelope' className='envelope'>
           <Slider label='A' vertical={true}
-            min={0} max={2.25} step={0.1} defaultValue={0} onInput={envelope::envelope.setAttack} />
+            min={0} max={2.25} step={0.1} defaultValue={0.2} onInput={envelope::envelope.setAttack} />
           <Slider label='D' vertical={true}
             min={0} max={4.5} step={0.1} defaultValue={0.1} onInput={envelope::envelope.setDecay} />
           <Slider label='S' vertical={true}
