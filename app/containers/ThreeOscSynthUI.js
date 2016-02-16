@@ -108,9 +108,11 @@ export default class ThreeOscSynthUI extends React.Component
         <AudioControlGroup label='Ringmod'>
           <WaveSelector name='ringmod-waveform' label='Wave' defaultValue='sine' onChange={ringmod::ringmod.setWaveformType} />
           <Slider label='Frequency'
-            min={2} max={4000} step={1} defaultValue={100} onInput={ringmod::ringmod.setFrequency} />
+            min={2} max={1000} step={1} defaultValue={100} onInput={ringmod::ringmod.setFrequency} />
+          <Slider label='Depth'
+            min={0} max={1} step={0.01} defaultValue={1} onInput={ringmod::ringmod.setDepth} />
           <Slider label='Mix'
-            min={0} max={1} step={0.01} defaultValue={0} onInput={ringmod::ringmod.setDepth} />
+            min={0} max={1} step={0.01} defaultValue={0} onInput={ringmod::ringmod.setWetDryMix} />
           <WaveSelector name='ringmod-lfo-waveform' label='LFO Wave' defaultValue='sine' onChange={ringmod::ringmod.setLfoWaveformType} />
           <Slider label='LFO Rate'
             min={0.1} max={25} step={0.001} defaultValue={0.1} onInput={ringmod::ringmod.lfoRate} />
