@@ -120,6 +120,18 @@ export default class ThreeOscSynthUI extends React.Component
             min={0} max={1000} step={1} defaultValue={0} onInput={ringmod::ringmod.lfoDepth} />
         </AudioControlGroup>
 
+        <AudioControlGroup label='Chorus'>
+          <Slider label='Offset1'
+            min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset1} />
+          <Slider label='Offset2'
+            min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset2} />
+          <Slider label='Width'
+            min={0} max={1} step={0.001} defaultValue={0.25} onInput={chorus::chorus.setWidth} />
+          <Slider label='Mix'
+            min={0} max={1} step={0.001} defaultValue={0.5} onInput={chorus::chorus.setWetDryMix} />
+        </AudioControlGroup>
+
+
         <Keyboard octaves={7} startingOctave={1}
           onKeypress={[
             osc1::osc1.setFrequency,
