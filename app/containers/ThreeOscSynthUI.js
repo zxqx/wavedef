@@ -65,16 +65,29 @@ export default class ThreeOscSynthUI extends React.Component
           </AudioControlGroup>
         </div>
 
-        <AudioControlGroup label='Volume Envelope' className='envelope'>
-          <Slider label='A' vertical={true}
-            min={0} max={2.25} step={0.1} defaultValue={0.2} onInput={envelope::envelope.setAttack} />
-          <Slider label='D' vertical={true}
-            min={0} max={4.5} step={0.1} defaultValue={0.1} onInput={envelope::envelope.setDecay} />
-          <Slider label='S' vertical={true}
-            min={0} max={1} step={0.1} defaultValue={1} onInput={envelope::envelope.setSustain} />
-          <Slider label='R' vertical={true}
-            min={0} max={3} step={0.1} defaultValue={0.5} onInput={envelope::envelope.setRelease} />
-        </AudioControlGroup>
+        <div className='audio-control-column'>
+          <AudioControlGroup label='Volume Envelope' className='envelope'>
+            <Slider label='A' vertical={true}
+              min={0} max={2.25} step={0.1} defaultValue={0.2} onInput={envelope::envelope.setAttack} />
+            <Slider label='D' vertical={true}
+              min={0} max={4.5} step={0.1} defaultValue={0.1} onInput={envelope::envelope.setDecay} />
+            <Slider label='S' vertical={true}
+              min={0} max={1} step={0.1} defaultValue={1} onInput={envelope::envelope.setSustain} />
+            <Slider label='R' vertical={true}
+              min={0} max={3} step={0.1} defaultValue={0.5} onInput={envelope::envelope.setRelease} />
+          </AudioControlGroup>
+
+          <AudioControlGroup label='Chorus'>
+            <Slider label='Offset1'
+              min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset1} />
+            <Slider label='Offset2'
+              min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset2} />
+            <Slider label='Width'
+              min={0} max={1} step={0.001} defaultValue={0.25} onInput={chorus::chorus.setWidth} />
+            <Slider label='Mix'
+              min={0} max={1} step={0.001} defaultValue={0.5} onInput={chorus::chorus.setWetDryMix} />
+          </AudioControlGroup>
+        </div>
 
         <div className='audio-control-column'>
           <AudioControlGroup label='Delay'>
@@ -119,18 +132,6 @@ export default class ThreeOscSynthUI extends React.Component
           <Slider label='LFO Depth'
             min={0} max={1000} step={1} defaultValue={0} onInput={ringmod::ringmod.lfoDepth} />
         </AudioControlGroup>
-
-        <AudioControlGroup label='Chorus'>
-          <Slider label='Offset1'
-            min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset1} />
-          <Slider label='Offset2'
-            min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset2} />
-          <Slider label='Width'
-            min={0} max={1} step={0.001} defaultValue={0.25} onInput={chorus::chorus.setWidth} />
-          <Slider label='Mix'
-            min={0} max={1} step={0.001} defaultValue={0.5} onInput={chorus::chorus.setWetDryMix} />
-        </AudioControlGroup>
-
 
         <Keyboard octaves={7} startingOctave={1}
           onKeypress={[
