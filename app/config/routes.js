@@ -6,7 +6,7 @@ import ThreeOscSynthUI from '../containers/ThreeOscSynthUI.js';
 
 export default (
   <Route path='/' component={App}>
-    <IndexRoute component={DrumSynthUI} />
+    <IndexRoute component={ThreeOscSynthUI} />
     <Route path='drum' component={DrumSynthUI} />
     <Route path='3osc' component={ThreeOscSynthUI} />
   </Route>

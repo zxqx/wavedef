@@ -12,12 +12,12 @@ export default class Nav extends React.Component
 
     return (
       <ul className='nav nav-pills'>
-        <li className={props.isActive === '/drum' || props.isActive === '/' ? 'active' : null}>
-          <a href='drum'>Drum Synth</a>
+        <li className={props.isActive === '/' || props.isActive === '/3osc' ? 'active' : null}>
+          <a href='3osc'>3 Osc Synth</a>
         </li>
 
-        <li className={props.isActive === '/3osc' ? 'active' : null}>
-          <a href='3osc'>3 Osc Synth</a>
+        <li className={props.isActive === '/drum' ? 'active' : null}>
+          <a href='drum'>Drum Synth</a>
         </li>
       </ul>
     )
