@@ -78,14 +78,16 @@ export default class ThreeOscSynthUI extends React.Component
           </AudioControlGroup>
 
           <AudioControlGroup label='Chorus'>
-            <Slider label='Offset1'
+            <Slider label='Offset 1'
               min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset1} />
-            <Slider label='Offset2'
+            <Slider label='Offset 2'
               min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset2} />
             <Slider label='Width'
               min={0} max={1} step={0.001} defaultValue={0.25} onInput={chorus::chorus.setWidth} />
             <Slider label='Mix'
-              min={0} max={1} step={0.001} defaultValue={0.5} onInput={chorus::chorus.setWetDryMix} />
+              min={0} max={1} step={0.001} defaultValue={0} onInput={chorus::chorus.setWetDryMix} />
+            <Slider label='Movement'
+              min={0} max={0.05} step={0.0001} defaultValue={0.005} onInput={chorus::chorus.setMovement} />
           </AudioControlGroup>
         </div>
 
@@ -96,12 +98,12 @@ export default class ThreeOscSynthUI extends React.Component
             <Slider label='Feedback'
               min={0} max={1} step={0.01} defaultValue={0.8} onInput={delay::delay.setFeedback} />
             <Slider label='Mix'
-              min={0} max={1} step={0.01} defaultValue={0.15} onInput={delay::delay.setWetDryMix} />
+              min={0} max={1} step={0.01} defaultValue={0} onInput={delay::delay.setWetDryMix} />
           </AudioControlGroup>
 
           <AudioControlGroup label='Reverb'>
             <Slider label='Mix'
-              min={0} max={1} step={0.01} defaultValue={0.5} onInput={convolver::convolver.setWetDryMix} />
+              min={0} max={1} step={0.01} defaultValue={0} onInput={convolver::convolver.setWetDryMix} />
           </AudioControlGroup>
         </div>
 
