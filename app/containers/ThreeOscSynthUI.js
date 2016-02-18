@@ -81,7 +81,7 @@ export default class ThreeOscSynthUI extends React.Component
             <Slider label='Offset 1'
               min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset1} />
             <Slider label='Offset 2'
-              min={0.001} max={0.1} step={0.001} defaultValue={0.006} onInput={chorus::chorus.setOffset2} />
+              min={0.001} max={0.1} step={0.001} defaultValue={0.020} onInput={chorus::chorus.setOffset2} />
             <Slider label='Width'
               min={0} max={1} step={0.001} defaultValue={0.25} onInput={chorus::chorus.setWidth} />
             <Slider label='Mix'
