@@ -91,7 +91,7 @@ test('Set start', (t) => {
 
   envelope.setStart('19');
 
-  t.strictEquals(envelope.initial, 19, 'should set start');
+  t.strictEquals(envelope.start, 19, 'should set start');
 });
 
 test('Get attack', (t) => {
