@@ -52,12 +52,21 @@ export default class DrumSynthUI extends React.Component
 
         <AudioControlGroup label='Cymbal'>
           <Slider label='FM 1 Modulation'
-            min={0} max={10000} step={1} defaultValue={100} onInput={cymbal::cymbal.setFm1ModulationDepth} />
+            min={0} max={20000} step={1} defaultValue={2206} onInput={cymbal::cymbal.setFm1ModulationDepth} />
           <Slider label='FM 2 Modulation'
-            min={0} max={10000} step={1} defaultValue={100} onInput={cymbal::cymbal.setFm2ModulationDepth} />
+            min={0} max={20000} step={1} defaultValue={294} onInput={cymbal::cymbal.setFm2ModulationDepth} />
           <Slider label='FM 3 Modulation'
-            min={0} max={10000} step={1} defaultValue={100} onInput={cymbal::cymbal.setFm3ModulationDepth} />
+            min={0} max={20000} step={1} defaultValue={9265} onInput={cymbal::cymbal.setFm3ModulationDepth} />
+          <Slider label='Bp Depth'
+            min={-1000} max={1000} step={1} defaultValue={0} onInput={cymbal::cymbal.setBpDepth} />
+          <Slider label='Bp Start'
+            min={0} max={5000} step={1} defaultValue={1050} onInput={cymbal::cymbal.setBpStart} />
+          <Slider label='Hp Depth'
+            min={-1000} max={1000} step={1} defaultValue={0} onInput={cymbal::cymbal.setBpDepth} />
+          <Slider label='Hp Start'
+            min={0} max={5000} step={1} defaultValue={2490} onInput={cymbal::cymbal.setHpStart} />
         </AudioControlGroup>
+
 
       </div>
     )
