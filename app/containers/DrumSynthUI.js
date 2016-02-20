@@ -33,7 +33,6 @@ export default class DrumSynthUI extends React.Component
         </AudioControlGroup>
 
         <AudioControlGroup label='Hi-Hat'>
-
           <Slider label = 'Decay'
             min={0.001} max={0.5} step={0.001} defaultValue={0.05} onInput={hihat.envelope::hihat.envelope.setDecay} />
           <Slider label = 'Filter'
@@ -43,13 +42,23 @@ export default class DrumSynthUI extends React.Component
         </AudioControlGroup>
 
         <AudioControlGroup label='Mixer'>
-          <Slider label = 'Kick'
+          <Slider label ='Kick'
             min={0} max={1} step={0.01} defaultValue={1} onInput={mixer.ch1::mixer.ch1.setGain} />
-          <Slider label = 'Snare'
+          <Slider label ='Snare'
             min={0} max={1} step={0.01} defaultValue={0.1} onInput={snare.gain::snare.gain.setGain} />
-          <Slider label = 'Hi-Hat'
+          <Slider label ='Hi-Hat'
             min={0} max={1} step={0.01} defaultValue={0.1} onInput={mixer.ch2::mixer.ch2.setGain} />
         </AudioControlGroup>
+
+        <AudioControlGroup label='Cymbal'>
+          <Slider label='FM 1 Modulation'
+            min={0} max={10000} step={1} defaultValue={100} onInput={cymbal::cymbal.setFm1ModulationDepth} />
+          <Slider label='FM 2 Modulation'
+            min={0} max={10000} step={1} defaultValue={100} onInput={cymbal::cymbal.setFm2ModulationDepth} />
+          <Slider label='FM 3 Modulation'
+            min={0} max={10000} step={1} defaultValue={100} onInput={cymbal::cymbal.setFm3ModulationDepth} />
+        </AudioControlGroup>
+
       </div>
     )
   }
