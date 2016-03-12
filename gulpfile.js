@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var util = require('gulp-util');
 var browserify = require('browserify');
 var babel = require('gulp-babel');
 var babelify = require('babelify');
@@ -8,7 +9,7 @@ var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
 
 gulp.task('compile:app', function() {
-  browserify({ debug: true })
+  browserify({ debug: util.env.env === 'local' })
   .transform(babelify.configure())
   .require('./app/index.js', { entry: true })
   .bundle()

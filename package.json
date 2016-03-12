@@ -8,9 +8,10 @@
   },
   "scripts": {
     "build": "gulp build",
+    "build-dev": "gulp build --env=local",
     "test": "tape -r ./lib/preamble.js test/*.js",
     "start": "node ./server/index.js",
-    "watch": "gulp dev",
+    "watch": "gulp dev --env=local",
     "postinstall": "npm run doc && npm run build",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "doc": "esdoc -c esdoc.json"
@@ -68,6 +69,7 @@
     "gulp-eslint": "^1.1.1",
     "gulp-livereload": "^3.8.1",
     "gulp-sass": "^2.1.1",
+    "gulp-util": "^3.0.7",
     "http-server": "^0.8.5",
     "mousetrap": "^1.5.3",
     "nodemock": "^0.3.4",
