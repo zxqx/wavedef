@@ -7,15 +7,25 @@ var sass = require('gulp-sass');
 var eslint = require('gulp-eslint');
 var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
+var pkg = require('./package.json');
 
 gulp.task('compile:app', function() {
   browserify({ debug: util.env.env === 'local' })
+  .external(Object.keys(pkg.dependencies))
   .transform(babelify.configure())
   .require('./app/index.js', { entry: true })
   .bundle()
   .pipe(source('main.js'))
   .pipe(gulp.dest('dist'))
   .pipe(livereload());
+});
+
+gulp.task('compile:vendor', function() {
+  browserify({ debug: util.env.env === 'local' })
+  .require(Object.keys(pkg.dependencies))
+  .bundle()
+  .pipe(source('vendor.js'))
+  .pipe(gulp.dest('dist'));
 });
 
 gulp.task('copy:static', function() {
@@ -52,5 +62,5 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['build']);
-gulp.task('dev', ['build', 'watch']);
-gulp.task('build', ['copy:static', 'compile:app', 'compile:sass']);
+gulp.task('dev', ['watch']);
+gulp.task('build', ['copy:static', 'compile:app', 'compile:vendor', 'compile:sass']);

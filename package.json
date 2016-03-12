@@ -44,7 +44,6 @@
   "dependencies": {
     "audio-context": "^0.1.0",
     "bootstrap": "^3.3.6",
-    "debug": "^2.2.0",
     "express": "^4.13.4",
     "mousetrap": "^1.5.3",
     "notes-to-frequencies": "^1.0.0",
