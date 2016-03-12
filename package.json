@@ -68,7 +68,6 @@
     "gulp-eslint": "^1.1.1",
     "gulp-livereload": "^3.8.1",
     "gulp-sass": "^2.1.1",
-    "history": "^1.17.0",
     "http-server": "^0.8.5",
     "mousetrap": "^1.5.3",
     "nodemock": "^0.3.4",
@@ -80,7 +79,7 @@
     "react-bootstrap-switch": "^3.4.1",
     "react-dom": "^0.14.6",
     "react-radio": "^2.1.1",
-    "react-router": "^1.0.3",
+    "react-router": "^2.0.1",
     "tape": "^3.0.3",
     "vinyl-source-stream": "^1.1.0"
   }
