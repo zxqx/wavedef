@@ -44,7 +44,6 @@
   "dependencies": {
     "audio-context": "^0.1.0",
     "bootstrap": "^3.3.6",
-    "express": "^4.13.4",
     "mousetrap": "^1.5.3",
     "notes-to-frequencies": "^1.0.0",
     "promise-decode-audio-data": "^0.2.0",
@@ -73,6 +72,7 @@
     "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.16.0",
+    "express": "^4.13.4",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
     "gulp-eslint": "^1.1.1",
