@@ -11,9 +11,7 @@ var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
 var pkg = require('./package.json');
 
-var gitDescribeSync = require('git-describe').gitDescribeSync;
-var gitInfo = gitDescribeSync();
-var version = gitInfo.raw;
+var version = process.env.COMMIT_HASH || 'local';
 
 gulp.task('compile:app', function() {
   browserify({ debug: util.env.env === 'local' })

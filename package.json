@@ -73,7 +73,6 @@
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.16.0",
     "express": "^4.13.4",
-    "git-describe": "^3.0.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
     "gulp-eslint": "^1.1.1",
