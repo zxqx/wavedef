@@ -4,10 +4,16 @@ var browserify = require('browserify');
 var babel = require('gulp-babel');
 var babelify = require('babelify');
 var sass = require('gulp-sass');
+var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
+var replace = require('gulp-token-replace');
 var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
 var pkg = require('./package.json');
+
+var gitDescribeSync = require('git-describe').gitDescribeSync;
+var gitInfo = gitDescribeSync();
+var version = gitInfo.raw;
 
 gulp.task('compile:app', function() {
   browserify({ debug: util.env.env === 'local' })
@@ -15,7 +21,7 @@ gulp.task('compile:app', function() {
   .transform(babelify.configure())
   .require('./app/index.js', { entry: true })
   .bundle()
-  .pipe(source('main.js'))
+  .pipe(source('main-' + version + '.js'))
   .pipe(gulp.dest('dist'))
   .pipe(livereload());
 });
@@ -24,7 +30,7 @@ gulp.task('compile:vendor', function() {
   browserify({ debug: util.env.env === 'local' })
   .require(Object.keys(pkg.dependencies))
   .bundle()
-  .pipe(source('vendor.js'))
+  .pipe(source('vendor-' + version + '.js'))
   .pipe(gulp.dest('dist'));
 });
 
@@ -34,15 +40,24 @@ gulp.task('copy:static', function() {
     .pipe(livereload());
 });
 
+gulp.task('build:index', function() {
+  var config = { version: version };
+
+  return gulp.src(['./build/index.html'])
+    .pipe(replace({ global: config }))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('compile:sass', function() {
-  gulp.src('./style/**/*.scss')
+  gulp.src('./style/style.scss')
     .pipe(sass({
       includePaths: [
         './node_modules/bootstrap/dist/css',
         './node_modules/react-bootstrap-switch/dist/css/bootstrap3'
       ]
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./dist'))
+    .pipe(rename('style-' + version + '.css'))
+    .pipe(gulp.dest('dist'))
     .pipe(livereload());
 });
 
@@ -63,4 +78,4 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['build']);
 gulp.task('dev', ['watch']);
-gulp.task('build', ['copy:static', 'compile:app', 'compile:vendor', 'compile:sass']);
+gulp.task('build', ['copy:static', 'build:index', 'compile:app', 'compile:vendor', 'compile:sass']);
