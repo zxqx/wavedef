@@ -11,7 +11,8 @@ var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
 var pkg = require('./package.json');
 
-var version = process.env.ENV ? process.env.ENV.COMMIT_HASH : 'local';
+// can't use git rev unfortunately since heroku is a bitch
+var version = + new Date();
 
 gulp.task('compile:app', function() {
   browserify({ debug: util.env.env === 'local' })
