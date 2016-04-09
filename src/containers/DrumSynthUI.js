@@ -1,5 +1,5 @@
 import React from 'react';
-import { DrumSynth } from '../../lib';
+import { DrumSynth } from '../lib';
 import AudioControlGroup from '../components/AudioControlGroup.js';
 import Slider from '../components/Slider.js';
 

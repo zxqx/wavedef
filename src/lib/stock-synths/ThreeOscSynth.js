@@ -14,7 +14,7 @@ import FrequencyAnalyzer from '../modules/FrequencyAnalyzer.js';
 import Ringmod from '../modules/Ringmod.js';
 import Chorus from '../modules/Chorus.js';
 import Panner from '../modules/Panner.js';
-import sethsAmpImpulseResponse from '../../src/static/impulse-responses/seths-amp.wav';
+import sethsAmpImpulseResponse from '../../static/impulse-responses/seths-amp.wav';
 
 export default class ThreeOscSynth
 {
