@@ -33,28 +33,20 @@ Install dependencies:
 $ npm install
 ```
 
-## Build
+## Development
 
-To build the project, do:
-
-```
-$ npm run build
-```
-
-## Run
-
-To run in the browser at [http://localhost:8080](http://localhost:8080), do:
+Start the app in `development` mode at [http://localhost:3000](http://localhost:3000) (this will rebuild the app when code changes are made):
 
 ```
 $ npm start
 ```
 
-## Development
+## Test
 
-To watch for changes and refresh browser window (requires [LiveReload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) for Chrome):
+To run tests, do:
 
 ```
-$ npm run watch
+$ npm test
 ```
 
 ## Roadmap
@@ -83,11 +75,3 @@ $ npm run watch
 + *Polyphony mode*
 + ~~Delay~~
 + Multi-Tap Delay
-
-## Test
-
-To run tests, do:
-
-```
-$ npm test
-```
