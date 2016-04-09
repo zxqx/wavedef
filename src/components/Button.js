@@ -15,7 +15,7 @@ export default class Button extends React.Component
         <input type='radio' value={props.value} />{props.label}
         {(props.icon ?
           <span>
-            <img src={`./images/icons/${props.icon}.png`} className='icon-xs' alt={props.label} />
+            <img src={props.icon} className='icon-xs' alt={props.label} />
           </span>
           : '')}
       </label>

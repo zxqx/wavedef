@@ -1,8 +1,4 @@
-@import 'bootstrap';
-@import 'react-bootstrap-switch';
 @import url('https://fonts.googleapis.com/css?family=Francois+One');
-@import './_variables.scss';
-@import './three-osc-synth.scss';
 
 body {
   padding: 10px;
@@ -17,17 +13,21 @@ body {
 
 .nav-pills > li > a {
   color: #ccc;
+}
 
-  &:hover {
-    background: transparent;
-    color: #fff;
-  }
+.nav-pills > li > a:hover {
+  background: transparent;
+  color: #fff;
 }
 
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   background: #222;
+}
+
+.audio-control-group.envelope {
+  height: 272px;
 }
 
 .audio-control-group {
@@ -42,50 +42,47 @@ body {
   color: #fff;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 
-  &.envelope {
-    height: 272px;
-  }
+}
 
-  .audio-control {
-    margin-bottom: 0;
-    padding: 15px 8px;
-    width: 164px;
-    height: 78px;
-    float: left;
-    border: none;
+.audio-control-group .audio-control.vertical-slider {
+  margin: 0 2px;
+  width: 30px;
+}
 
-    &.vertical-slider {
-      margin: 0 2px;
-      width: 30px;
+.audio-control-group .audio-control.vertical-slider input[type=range] {
+  margin-top: 66px;
+  margin-left: -57px;
+  width: 124px;
+  transform: rotate(270deg);
+}
 
-      input[type=range] {
-        margin-top: 66px;
-        margin-left: -57px;
-        width: 124px;
-        transform: rotate(270deg);
-      }
-    }
+.audio-control-group .audio-control.btn-group {
+  height: 92px;
+}
 
-    &.btn-group {
-      height: 92px;
-    }
-  }
+.audio-control-group .audio-control:last-child {
+  margin-bottom: 0;
+}
 
-  >.audio-control:last-child {
-    margin-bottom: 0;
-  }
+.audio-control-group .audio-control {
+  margin-bottom: 0;
+  padding: 15px 8px;
+  width: 164px;
+  height: 78px;
+  float: left;
+  border: none;
+}
 
-  h4 {
-    margin: 0 8px 4px;
-    font-size: 24px;
-    line-height: 28px;
-    text-transform: uppercase;
-  }
+.audio-control-group h4 {
+  margin: 0 8px 4px;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+}
 
-  .osc-power-switch {
-    padding: 4px 8px;
-    height: 33px;
-  }
+.audio-control-group .osc-power-switch {
+  padding: 4px 8px;
+  height: 33px;
 }
 
 .audio-control-column {
@@ -120,13 +117,11 @@ body {
   z-index: -1;
 }
 
-input[type='radio'] {
-  &:checked + span {
-    padding: 6px 10px;
-    margin: -6px -10px;
-    background: $primary-color;
-    color: #fff;
-  }
+input[type='radio']:checked + span {
+  padding: 6px 10px;
+  margin: -6px -10px;
+  background: #8500FF;
+  color: #fff;
 }
 
 .keyboard-key {
@@ -134,25 +129,25 @@ input[type='radio'] {
   width: 22px;
   height: 100px;
   background: #fff;
+}
 
-  &.keyboard-key-black {
-    position: relative;
-    top: -35px;
-    width: 6px;
-    height: 66px;
-    margin: 0 -9px;
-    padding: 4px;
-    background: #000;
-    border-top: none;
-  }
+.keyboard-key.keyboard-key-black {
+  position: relative;
+  top: -35px;
+  width: 6px;
+  height: 66px;
+  margin: 0 -9px;
+  padding: 4px;
+  background: #000;
+  border-top: none;
+}
 
-  &.keyboard-key-adjacent-white {
-    margin-right: -4px;
-  }
+.keyboard-key.keyboard-key-adjacent-white {
+  margin-right: -4px;
+}
 
-  &:focus {
-    outline: none;
-  }
+.keyboard-key:focus {
+  outline: none;
 }
 
 input[type=range] {
@@ -181,10 +176,11 @@ input[type=range]::-webkit-slider-thumb {
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -8px;
+}
 
-  &:hover {
-    background: #ccc;
-  }
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background: #ccc;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
@@ -205,7 +201,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .bootstrap-switch .bootstrap-switch-label {
-  background: $primary-color;
+  background: #8500FF;
 }
 
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
@@ -214,7 +210,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
-  background: darken($primary-color, 15%);
+  background: #5d00b3;
 }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default {
