@@ -66,8 +66,6 @@ export default class DrumSynthUI extends React.Component
           <Slider label='Hp Start'
             min={0} max={5000} step={1} defaultValue={2490} onInput={cymbal::cymbal.setHpStart} />
         </AudioControlGroup>
-
-
       </div>
     )
   }
