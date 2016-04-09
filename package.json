@@ -11,11 +11,10 @@
   },
   "scripts": {
     "start": "node server/index.js",
+    "start:prod": "cross-env NODE_ENV=production node server/index.js",
     "clean": "rimraf lib dist coverage",
     "lint": "eslint src test",
-    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive --require ./test/setup.js",
-    "test:watch": "npm test -- --watch",
-    "test:cov": "cross-env NODE_ENV=test babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive --require ./test/setup.js",
+    "test": "cross-env NODE_ENV=test tape -r ./lib/preamble.js test/*.js",
     "check": "npm run lint && npm run test ",
     "build": "cross-env NODE_ENV=production webpack src/index.js --config webpack.config.production.js",
     "preversion": "npm run clean && npm run check",
