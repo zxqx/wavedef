@@ -1,6 +1,6 @@
 import test from 'tape';
 import nm from 'nodemock';
-import Gain from '../lib/modules/Gain.js';
+import Gain from '../src/lib/modules/Gain.js';
 
 test('Set gain', (t) => {
   t.plan(1);

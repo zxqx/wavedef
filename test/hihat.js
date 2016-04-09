@@ -1,2 +1,2 @@
 import test from 'tape';
-import HiHat from '../lib/modules/HiHat.js';
+import HiHat from '../src/lib/modules/HiHat.js';

@@ -1,6 +1,6 @@
 import test from 'tape';
 import nm from 'nodemock';
-import Envelope from '../lib/modules/Envelope.js';
+import Envelope from '../src/lib/modules/Envelope.js';
 
 test('Modulate', (t) => {
   t.plan(1);
