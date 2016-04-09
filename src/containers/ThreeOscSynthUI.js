@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThreeOscSynth } from '../../lib';
+import { ThreeOscSynth } from '../../lib/stock-synths/ThreeOscSynth.js';
 import AudioControlGroup from '../components/AudioControlGroup.js';
 import Slider from '../components/Slider.js';
 import Switch from '../components/Switch.js';
