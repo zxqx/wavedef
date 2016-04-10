@@ -35,7 +35,7 @@ $ npm install
 
 ## Development
 
-Start the app in `development` mode at [http://localhost:3000](http://localhost:3000) (this will rebuild the app when code changes are made):
+Start the app in `development` mode at [http://localhost:3000](http://localhost:3000) (rebuilds when code changes are made):
 
 ```
 $ npm start
