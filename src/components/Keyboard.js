@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import Key from './Key.js';
 
 const notes = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];

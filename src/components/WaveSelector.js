@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import ButtonGroup from './ButtonGroup.js';
 import Button from './Button.js';
 import sineIcon from '../static/images/icons/waveforms/sine.png';

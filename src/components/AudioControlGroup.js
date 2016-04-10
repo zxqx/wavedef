@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 /**
  * A wrapper for grouping related audio controls

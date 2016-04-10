@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 /**
  * A slider UI component for controlling audio parameters
