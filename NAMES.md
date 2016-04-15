@@ -4,3 +4,12 @@
 + mandible
 + cicada
 + nautilus
++ vortac
++ qam16
++ coelacanth
++ ibis
++ mox
++ tij
++ myst
++ natalus
++ penumbra
