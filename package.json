@@ -10,11 +10,13 @@
     "node": "5.9.0"
   },
   "scripts": {
-    "test": "tape -r ./preamble.js test/*.js"
+    "test": "tape -r ./preamble.js test/*.js",
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "doc": "esdoc -c esdoc.json"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zakangelle/synth.git"
+    "url": "https://github.com/zakangelle/wavedef.git"
   },
   "keywords": [
     "synth",
