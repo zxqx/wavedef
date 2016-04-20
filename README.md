@@ -10,9 +10,7 @@ A synthesizer library built on the [Web Audio API](https://developer.mozilla.org
 
 ## Installation
 
-Clone the repo:
-
-```
+```sh
 $ npm install wavedef
 ```
 
