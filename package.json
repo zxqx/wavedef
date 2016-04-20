@@ -1,7 +1,7 @@
 {
-  "name": "synth",
+  "name": "wavedef",
   "version": "0.1.0",
-  "description": "A synthesizer built on the Web Audio API",
+  "description": "A synthesizer library built on the Web Audio API",
   "main": "index.js",
   "devEngines": {
     "node": "5.9.0"
@@ -10,20 +10,7 @@
     "node": "5.9.0"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "start:prod": "cross-env NODE_ENV=production node server/index.js",
-    "clean": "rimraf lib dist coverage",
-    "lint": "eslint src test",
-    "build": "cross-env NODE_ENV=production webpack src/index.js --config webpack.config.production.js",
-    "preversion": "npm run clean && npm run check",
-    "test": "cross-env NODE_ENV=test tape -r ./src/lib/preamble.js test/*.js",
-    "check": "npm run lint && npm run test ",
-    "version": "npm run build",
-    "postversion": "git push && git push --tags && npm run clean",
-    "prepublish": "npm run clean && npm run build",
-    "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "doc": "esdoc -c esdoc.json"
+    "test": "tape -r ./preamble.js test/*.js"
   },
   "repository": {
     "type": "git",

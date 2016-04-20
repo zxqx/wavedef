@@ -1,2 +1,2 @@
 import test from 'tape';
-import MIDI from '../src/lib/modules/MIDI.js';
+import MIDI from '../lib/modules/MIDI.js';

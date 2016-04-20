@@ -1,2 +1,2 @@
 import test from 'tape';
-import WhiteNoise from '../src/lib/modules/WhiteNoise.js';
+import WhiteNoise from '../lib/modules/WhiteNoise.js';

@@ -1,8 +1,8 @@
-# Synth
+# wavedef
 
-A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+A synthesizer library built on the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
-[![Circle CI](https://circleci.com/gh/zakangelle/synth/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/synth/tree/master) [![Coverage Status](https://img.shields.io/coveralls/zakangelle/synth.svg)](https://coveralls.io/github/zakangelle/synth?branch=master) [![See Demo](https://img.shields.io/badge/see-demo-8500ff.svg)](http://dz-synth.herokuapp.com/)
+[![Circle CI](https://circleci.com/gh/zakangelle/wavedef/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/wavedef/tree/master) [![Coverage Status](https://img.shields.io/coveralls/zakangelle/wavedef.svg)](https://coveralls.io/github/zakangelle/wavedef?branch=master) [![See Demo](https://img.shields.io/badge/see-demo-8500ff.svg)](http://dz-synth.herokuapp.com/)
 
 <a href="http://dz-synth.herokuapp.com/">
   <img src='http://i.imgur.com/AaNfuK5.jpg?1' width='360px'>
@@ -25,7 +25,7 @@ A synthesizer built on the [Web Audio API](https://developer.mozilla.org/en-US/d
 Clone the repo:
 
 ```
-$ git clone https://github.com/zakangelle/synth.git
+$ git clone https://github.com/zakangelle/wavedef.git
 ```
 
 Install dependencies:

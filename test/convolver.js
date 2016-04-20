@@ -1,2 +1,2 @@
 import test from 'tape';
-import Convolver from '../src/lib/modules/Convolver.js';
+import Convolver from '../lib/modules/Convolver.js';

@@ -1,6 +1,6 @@
 import test from 'tape';
 import nm from 'nodemock';
-import Oscillator from '../src/lib/modules/Oscillator.js';
+import Oscillator from '../lib/modules/Oscillator.js';
 
 test('Start', (t) => {
   t.plan(1);

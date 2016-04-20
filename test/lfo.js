@@ -1,2 +1,2 @@
 import test from 'tape';
-import LFO from '../src/lib/modules/LFO.js';
+import LFO from '../lib/modules/LFO.js';
