@@ -8,16 +8,12 @@ A synthesizer library built on the [Web Audio API](https://developer.mozilla.org
   <img src='http://i.imgur.com/AaNfuK5.jpg?1' width='360px'>
 </a>
 
-## Requirements
-
-+ NodeJS
-
-## Setup
+## Installation
 
 Clone the repo:
 
 ```
-$ git clone https://github.com/zakangelle/wavedef.git
+$ npm install wavedef
 ```
 
 Install dependencies:
