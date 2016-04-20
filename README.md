@@ -14,12 +14,6 @@ A synthesizer library built on the [Web Audio API](https://developer.mozilla.org
 $ npm install wavedef
 ```
 
-Install dependencies:
-
-```
-$ npm install
-```
-
 ## Test
 
 To run tests, do:
