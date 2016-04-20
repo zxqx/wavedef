@@ -14,9 +14,13 @@ A synthesizer library built on the [Web Audio API](https://developer.mozilla.org
 $ npm install wavedef
 ```
 
+## Usage
+
+*need docs here*
+
 ## Test
 
-To run tests, do:
+Run tests with [tape](https://github.com/substack/tape):
 
 ```
 $ npm test
@@ -48,3 +52,7 @@ $ npm test
 + *Polyphony mode*
 + ~~Delay~~
 + Multi-Tap Delay
+
+## License
+
+MIT
