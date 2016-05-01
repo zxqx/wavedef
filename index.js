@@ -13,5 +13,6 @@ import WhiteNoise from './lib/modules/WhiteNoise.js';
 import Envelope from './lib/modules/Envelope.js';
 import DrumSynth from './lib/stock-synths/DrumSynth.js';
 import ThreeOscSynth from './lib/stock-synths/ThreeOscSynth.js';
+import RatPoison from './lib/stock-synths/RatPoison.js';
 
-export { Synth, Gain, HiHat, Kick, Snare, Stereo, MIDI, Oscillator, Filter, Mixer, VCA, WhiteNoise, Envelope, DrumSynth, ThreeOscSynth };
+export { Synth, Gain, HiHat, Kick, Snare, Stereo, MIDI, Oscillator, Filter, Mixer, VCA, WhiteNoise, Envelope, DrumSynth, ThreeOscSynth, RatPoison };
