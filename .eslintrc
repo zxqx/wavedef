@@ -1,21 +1,18 @@
 {
-  "ecmaFeatures": {
-    "modules": true
-  },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "node": true
   },
-  "parser": "babel-eslint",
   "rules": {
-    "quotes": [2, "single"],
-    "strict": [2, "never"],
-    "babel/generator-star-spacing": 1,
-    "babel/new-cap": 1,
-    "babel/object-shorthand": 1,
-    "babel/no-await-in-loop": 1
-  },
-  "plugins": [
-    "babel"
-  ]
+    "react/jsx-no-bind": 0,
+    "react/sort-comp": 0,
+    "comma-dangle": [2, "never"],
+    "no-shadow": 0,
+    "no-new": 0,
+    "new-cap": 0,
+    "max-len": 0,
+    "brace-style": [2, "stroustrup"]
+  }
 }

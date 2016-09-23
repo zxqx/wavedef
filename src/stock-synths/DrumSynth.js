@@ -35,7 +35,6 @@ export default class DrumSynth
 
     //synth.connect(cymbal).to(mixer.ch1);
 
-
     mixer.ch1.toggleOn();
     mixer.ch2.toggleOn();
     mixer.ch3.toggleOn();
@@ -54,20 +53,5 @@ export default class DrumSynth
     setInterval(() => {
       cymbal.trigger();
     }, 1500);
-  }
-
-  /**
-   * Hang our shit off of `window` so we can dick around in console
-   * @private
-   */
-  _setTestVariablesForConsole()
-  {
-    window.synth = this.synth;
-    window.kick = this.kick;
-    window.hihat = this.hihat;
-    window.mixer = this.mixer;
-    window.stereo = this.stereo;
-    window.snare = this.snare;
-    window.cymbal = this.cymbal;
   }
 }

@@ -77,25 +77,4 @@ export default class ThreeOscSynth
 
     this._setTestVariablesForConsole();
   }
-
-  /**
-   * Hang our shit off of `window` so we can dick around in console
-   * @private
-   */
-  _setTestVariablesForConsole()
-  {
-    window.synth = this.synth;
-    window.midi = this.midi;
-    window.oscGroup = this.oscGroup;
-    window.filter = this.filter;
-    window.mixer = this.mixer;
-    window.vca = this.vca;
-    window.envelope = this.envelope;
-    window.lfo = this.lfo;
-    window.delay = this.delay;
-    window.eq3 = this.eq3;
-    window.ringmod = this.ringmod;
-    window.chorus = this.chorus;
-    window.panner = this.panner;
-  }
 }

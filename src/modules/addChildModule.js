@@ -7,8 +7,7 @@
  * @param {object} module
  * @return {instance}
  */
-export default function addChildModule(id, module)
-{
+export default function addChildModule(id, module) {
   if (!Array.isArray(this.children)) {
     this.children = [];
   }
@@ -19,8 +18,8 @@ export default function addChildModule(id, module)
 
   this[id] = module;
 
-  let inputNode = this.inputNode || this.node;
-  let outputNode = this[id].outputNode || this[id].node;
+  const inputNode = this.inputNode || this.node;
+  const outputNode = this[id].outputNode || this[id].node;
 
   outputNode.connect(inputNode);
   this.children.push(module);
