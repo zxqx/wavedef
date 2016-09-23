@@ -16,6 +16,7 @@
     "babel/no-await-in-loop": 1
   },
   "plugins": [
-    "babel"
+    "babel",
+    "react"
   ]
 }

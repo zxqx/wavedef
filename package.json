@@ -10,6 +10,7 @@
     "node": "5.9.0"
   },
   "scripts": {
+    "build": "webpack --mode=build",
     "test": "tape -r ./preamble.js test/*.js",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "doc": "esdoc -c esdoc.json"
@@ -53,8 +54,10 @@
   },
   "devDependencies": {
     "array-includes": "^3.0.1",
+    "babel": "^6.5.2",
     "babel-core": "^6.4.5",
     "babel-eslint": "^5.0.0-beta6",
+    "babel-loader": "^6.2.5",
     "babel-plugin-rewire": "1.0.0-beta-3",
     "babel-plugin-syntax-export-extensions": "^6.3.13",
     "babel-polyfill": "^6.5.0",
@@ -65,10 +68,13 @@
     "esdoc": "^0.4.4",
     "esdoc-es7-plugin": "0.0.3",
     "eslint": "^1.10.3",
+    "eslint-loader": "^1.5.0",
     "eslint-plugin-babel": "^3.0.0",
     "nodemock": "^0.3.4",
     "nyc": "^5.3.0",
     "path": "^0.12.7",
-    "tape": "^3.0.3"
+    "tape": "^3.0.3",
+    "webpack": "^1.13.2",
+    "yargs": "^5.0.0"
   }
 }

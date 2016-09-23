@@ -26,6 +26,16 @@ Run tests with [tape](https://github.com/substack/tape):
 $ npm test
 ```
 
+## Example
+
+Boot up an example app at [http://localhost:3000](http://localhost:3000):
+
+```
+$ cd example
+$ npm install
+$ npm start
+```
+
 ## Roadmap
 
 + ~~Composable synth~~
