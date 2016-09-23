@@ -1,7 +1,7 @@
 import test from 'tape';
 import nm from 'nodemock';
-import Mixer from '../lib/modules/Mixer.js';
-import Gain from '../lib/modules/Gain.js';
+import Mixer from '../src/modules/Mixer.js';
+import Gain from '../src/modules/Gain.js';
 
 test('Mixer', (t) => {
   t.plan(6);

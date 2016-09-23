@@ -1,2 +1,2 @@
 import test from 'tape';
-import Stereo from '../lib/modules/Stereo.js';
+import Stereo from '../src/modules/Stereo.js';

@@ -1,2 +1,2 @@
 import test from 'tape';
-import Snare from '../lib/modules/Snare.js';
+import Snare from '../src/modules/Snare.js';

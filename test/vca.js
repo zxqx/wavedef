@@ -1,2 +1,2 @@
 import test from 'tape';
-import VCA from '../lib/modules/VCA.js';
+import VCA from '../src/modules/VCA.js';

@@ -1,2 +1,2 @@
 import test from 'tape';
-import MixerChannel from '../lib/modules/MixerChannel.js';
+import MixerChannel from '../src/modules/MixerChannel.js';

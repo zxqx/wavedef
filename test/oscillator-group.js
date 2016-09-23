@@ -1,2 +1,2 @@
 import test from 'tape';
-import OscillatorGroup from '../lib/modules/OscillatorGroup.js';
+import OscillatorGroup from '../src/modules/OscillatorGroup.js';

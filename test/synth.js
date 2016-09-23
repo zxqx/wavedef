@@ -1,7 +1,7 @@
 import test from 'tape';
 import nm from 'nodemock';
 import arrayIncludes from 'array-includes';
-import Synth from '../lib/modules/Synth.js';
+import Synth from '../src/modules/Synth.js';
 
 Array.prototype.includes = arrayIncludes.shim();
 

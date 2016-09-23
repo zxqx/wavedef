@@ -1,6 +1,6 @@
 import test from 'tape';
 import nm from 'nodemock';
-import Filter from '../lib/modules/Filter.js';
+import Filter from '../src/modules/Filter.js';
 
 test('Set frequency', (t) => {
   t.plan(1);
