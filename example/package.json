@@ -104,5 +104,9 @@
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.7.1"
+  },
+  "devDependencies": {
+    "webpack-dashboard": "^0.1.8",
+    "webpack-dev-server": "^1.16.1"
   }
 }

@@ -2,7 +2,10 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-const historyApiFallback = require('connect-history-api-fallback');
+
+const WebpackDevServer = require('webpack-dev-server');
+const Dashboard = require('webpack-dashboard');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,22 +15,27 @@ var config = process.env.NODE_ENV === 'production'
   : require('../webpack.config');
 
 const compiler = webpack(config);
+const dashboard = new Dashboard();
 
-app.use(historyApiFallback({
-  verbose: false
-}));
+compiler.apply(new DashboardPlugin(dashboard.setData));
 
-app.use(require('webpack-dev-middleware')(compiler, {
+var bundler = new WebpackDevServer(compiler, {
+  hot: true,
   publicPath: config.output.publicPath,
   stats: {
     colors: true,
-  }
-}));
+  },
+  quiet: true,
+  historyApiFallback: true
+});
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(require('webpack-hot-middleware')(compiler, {
+  log: () => {}
+}));
 
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: process.env.PWD + '/dist' });
 });
 
-app.listen(port);
+app.listen(8080);
+bundler.listen(port);
