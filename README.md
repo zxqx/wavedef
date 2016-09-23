@@ -18,18 +18,7 @@ $ npm install wavedef
 
 *need docs here*
 
-## Test
-
-Run tests with [tape](https://github.com/substack/tape):
-
-```
-$ npm test
-```
-
 ## Example
-
-Boot up an example app at [http://localhost:3000](http://localhost:3000):
-
 
 Install library dependencies:
 
@@ -44,10 +33,18 @@ $ cd example
 $ npm install
 ```
 
-Boot up the app and auto-rebuild on code changes:
+Boot up the example app at [http://localhost:3000](http://localhost:3000) and auto-rebuild on code changes:
 
 ```
 $ npm start
+```
+
+## Test
+
+Run tests with [tape](https://github.com/substack/tape):
+
+```
+$ npm test
 ```
 
 ## Roadmap
