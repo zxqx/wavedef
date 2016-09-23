@@ -30,9 +30,23 @@ $ npm test
 
 Boot up an example app at [http://localhost:3000](http://localhost:3000):
 
+
+Install library dependencies:
+
+```
+$ npm install
+```
+
+Install example app dependencies:
+
 ```
 $ cd example
 $ npm install
+```
+
+Boot up the app and auto-rebuild on code changes:
+
+```
 $ npm start
 ```
 
