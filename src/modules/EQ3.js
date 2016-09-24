@@ -1,14 +1,8 @@
 import Filter from './Filter.js';
 import Gain from './Gain.js';
-/*
-Basic EQ built with 3 filters in series. High and Low have a frequency adjustment
-Mid Frequency is based off of the high and low settings
-*/
 
-export default class EQ3
-{
-  constructor()
-  {
+export default class EQ3 {
+  constructor() {
     this.input = new Gain();
     this.output = new Gain();
     this.eqLow = new Filter();
@@ -18,20 +12,17 @@ export default class EQ3
     this.inputNode = this.input.node;
     this.outputNode = this.output.node;
 
-    //Set Variables
-    let input = this.input;
-    let output = this.output;
-    let low = this.eqLow;
-    let mid = this.eqMid;
-    let high = this.eqHigh;
+    const input = this.input;
+    const output = this.output;
+    const low = this.eqLow;
+    const mid = this.eqMid;
+    const high = this.eqHigh;
 
-    //Audio routing
     input.node.connect(low.node);
     low.node.connect(mid.node);
     mid.node.connect(high.node);
     high.node.connect(output.node);
 
-    //Bootup Defaults. Defaults based on Ableton's 3-band EQ startup
     input.setGain(1);
     output.setGain(1);
 
@@ -46,41 +37,34 @@ export default class EQ3
     high.setFilterType('highshelf');
     high.setFrequency(2500);
     high.setGain(25);
-
   }
 
-  lowSetGain(value)
-  {
+  lowSetGain(value) {
     this.eqLow.setGain(value);
   }
 
-  midSetGain(value)
-  {
+  midSetGain(value) {
     this.eqMid.setGain(value);
   }
 
-  highSetGain(value)
-  {
+  highSetGain(value) {
     this.eqHigh.setGain(value);
   }
 
-  lowFrequency(frequency)
-  {
+  lowFrequency(frequency) {
     this.eqLow.setFrequency(frequency);
     this.midFrequency();
   }
 
-  highFrequency(frequency)
-  {
+  highFrequency(frequency) {
     this.eqHigh.setFrequency(frequency);
     this.midFrequency();
   }
 
-  midFrequency()
-  {
-    let low = parseInt(this.eqLow.getFrequency());
-    let high = parseInt(this.eqHigh.getFrequency());
-    let average = (low + high) / 2;
+  midFrequency() {
+    const low = parseInt(this.eqLow.getFrequency(), 10);
+    const high = parseInt(this.eqHigh.getFrequency(), 10);
+    const average = (low + high) / 2;
     this.eqMid.setFrequency(average);
   }
 }

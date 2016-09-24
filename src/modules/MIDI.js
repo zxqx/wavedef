@@ -2,10 +2,8 @@ import notesToFrequencies from 'notes-to-frequencies';
 
 const notes = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-export default class MIDI
-{
-  constructor()
-  {
+export default class MIDI {
+  constructor() {
     this.midi = null;
     this.inputs = null;
     this.outputs = null;
@@ -15,37 +13,34 @@ export default class MIDI
       .then(this::this.onMIDISuccess, this::this.onMIDIFailure);
   }
 
-  onMIDISuccess(midiAccess)
-  {
+  onMIDISuccess(midiAccess) {
     this.midi = midiAccess;
     this.inputs = midiAccess.inputs;
     this.outputs = midiAccess.outputs;
 
     midiAccess.onstatechange = () => {
-    }
+      // handle state change
+    };
 
     setTimeout(this::this.testOutputs, 500);
   }
 
-  onMIDIFailure(msg)
-  {
+  onMIDIFailure() {
+    // handle midi failure
   }
 
-  trigger(callback)
-  {
+  trigger(callback) {
     this.callback = callback;
   }
 
-  testInputs()
-  {
+  testInputs() {
     this.inputs.forEach(port => {
       port.onmidimessage = this::this.onMidiIn;
     });
     setTimeout(this::this.stopInputs, 5000);
   }
 
-  testOutputs()
-  {
+  testOutputs() {
     this.outputs.forEach(port => {
       port.open();
       port.send([0x90, 60, 0x7f]);
@@ -53,23 +48,21 @@ export default class MIDI
     setTimeout(this::this.stopOutputs, 1000);
   }
 
-  onMidiIn(e)
-  {
-    let midiDataObject = this.translateMIDIDataToObject(e.data);
+  onMidiIn(e) {
+    const midiDataObject = this.translateMIDIDataToObject(e.data);
 
     if (this.callback) {
-      let freq = notesToFrequencies(midiDataObject.note + midiDataObject.octave);
+      const freq = notesToFrequencies(midiDataObject.note + midiDataObject.octave);
       return this.callback(freq);
     }
   }
 
-  translateMIDIDataToObject(midiData)
-  {
-    let noteOnOff = midiData[0];
-    let notePitch = midiData[1];
-    let noteVelocity = midiData[2];
+  translateMIDIDataToObject(midiData) {
+    const noteOnOff = midiData[0];
+    const notePitch = midiData[1];
+    const noteVelocity = midiData[2];
 
-    let midiDataObject = {};
+    const midiDataObject = {};
 
     if (noteOnOff === 147) {
       midiDataObject.on = true;
@@ -85,13 +78,12 @@ export default class MIDI
     return midiDataObject;
   }
 
-  stopInputs()
-  {
+  stopInputs() {
+    // handle stop inputs
   }
 
-  stopOutputs()
-  {
-    this.outputs.forEach(function(port){
+  stopOutputs() {
+    this.outputs.forEach(port => {
       port.send([0x80, 60, 0]);
     });
 

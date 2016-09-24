@@ -3,10 +3,8 @@ import Gain from './Gain.js';
 /**
  * Set up a mixer channel with a toggle on/off switch and volume control
  */
-export default class MixerChannel
-{
-  constructor()
-  {
+export default class MixerChannel {
+  constructor() {
     this.input = new Gain();
     this.output = new Gain();
     this.inputNode = this.input.node;
@@ -20,24 +18,21 @@ export default class MixerChannel
    * Set the gain
    * @param {number} gain
    */
-  setGain(gain)
-  {
+  setGain(gain) {
     this.output.setGain(gain);
   }
 
   /**
    * Turn on the channel
    */
-  toggleOn()
-  {
+  toggleOn() {
     this.input.setGain(1);
   }
 
   /**
    * Turn off the channel
    */
-  toggleOff()
-  {
+  toggleOff() {
     this.input.setGain(0);
   }
 }

@@ -1,50 +1,39 @@
 import ctx from 'audio-context';
 
-export default class Filter
-{
-  constructor()
-  {
+export default class Filter {
+  constructor() {
     this.node = ctx.createBiquadFilter();
   }
 
-  setFrequency(frequency)
-  {
+  setFrequency(frequency) {
     this.node.frequency.value = frequency;
   }
 
-  setQ(resonance)
-  {
+  setQ(resonance) {
     this.node.Q.value = resonance;
   }
 
-  setFilterType(type)
-  {
+  setFilterType(type) {
     this.node.type = type;
   }
 
-  setGain(gain)
-  {
+  setGain(gain) {
     this.node.gain.value = gain;
   }
 
-  getFrequency()
-  {
+  getFrequency() {
     return this.node.frequency.value;
   }
 
-  getQ()
-  {
+  getQ() {
     return this.node.Q.value;
   }
 
-  getFilterType()
-  {
+  getFilterType() {
     return this.node.type;
   }
 
-  getGain()
-  {
+  getGain() {
     return this.node.gain.value;
   }
-
 }

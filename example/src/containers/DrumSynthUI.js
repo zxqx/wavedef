@@ -3,10 +3,8 @@ import { DrumSynth } from '../../../src/index.js';
 import AudioControlGroup from '../components/AudioControlGroup.js';
 import Slider from '../components/Slider.js';
 
-export default class DrumSynthUI extends React.Component
-{
-  constructor()
-  {
+export default class DrumSynthUI extends React.Component {
+  constructor() {
     super();
 
     this.state = {
@@ -14,9 +12,8 @@ export default class DrumSynthUI extends React.Component
     }
   }
 
-  render()
-  {
-    let { kick, hihat, snare } = this.state.drumSynth;
+  render() {
+    const { kick, hihat, snare, cymbal, mixer } = this.state.drumSynth;
 
     return (
       <div>

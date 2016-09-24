@@ -3,10 +3,8 @@ import ctx from 'audio-context';
 /**
  * Composable synth container for connecting audio modules
  */
-export default class Synth
-{
-  constructor()
-  {
+export default class Synth {
+  constructor() {
     this._modules = [];
     this._connecting = null;
   }
@@ -16,14 +14,13 @@ export default class Synth
    * @param {instance} module
    * @return {Synth}
    */
-  addModule(module)
-  {
+  addModule(module) {
     if (!this._modules.includes(module)) {
       this._modules.push(module);
     }
 
     if (Array.isArray(module.children)) {
-      for (let child of module.children) {
+      for (const child of module.children) {
         this.addModule(child);
       }
     }
@@ -36,15 +33,14 @@ export default class Synth
    * @param {instance} module
    * @return {Synth}
    */
-  removeModule(module)
-  {
+  removeModule(module) {
     if (this._modules.includes(module)) {
-      let index = this._modules.indexOf(module);
+      const index = this._modules.indexOf(module);
       this._modules.splice(index, 1);
     }
 
     if (Array.isArray(module.children)) {
-      for (let child of module.children) {
+      for (const child of module.children) {
         this.removeModule(child);
       }
     }
@@ -56,8 +52,7 @@ export default class Synth
    * Get a list of added modules
    * @return {Array}
    */
-  getModules()
-  {
+  getModules() {
     return this._modules;
   }
 
@@ -66,8 +61,7 @@ export default class Synth
    * @param {instance} param
    * @return {Synth}
    */
-  connect(output)
-  {
+  connect(output) {
     this._ensureModuleIsAdded(output);
     this._connecting = output;
 
@@ -80,14 +74,13 @@ export default class Synth
    * @param {instance} input
    * @return {Synth}
    */
-  to(input)
-  {
+  to(input) {
     if (!this._connecting) {
       throw new Error('connect() must be called with a module before calling to()');
     }
 
-    let inputNode = input.inputNode || input.node;
-    let outputNode = this._connecting.outputNode || this._connecting.node;
+    const inputNode = input.inputNode || input.node;
+    const outputNode = this._connecting.outputNode || this._connecting.node;
 
     this._ensureModuleIsAdded(input);
     outputNode.connect(inputNode);
@@ -100,13 +93,12 @@ export default class Synth
    * Hook the last piece of our chain to our audio context
    * @return {Synth}
    */
-  output()
-  {
+  output() {
     if (!this._connecting) {
       throw new Error('connect() must be called with a module before calling output()');
     }
 
-    let outputNode = this._connecting.outputNode || this._connecting.node;
+    const outputNode = this._connecting.outputNode || this._connecting.node;
 
     outputNode.connect(ctx.destination);
     this._connecting = null;
@@ -119,8 +111,7 @@ export default class Synth
    * @param {instance} module
    * @private
    */
-  _ensureModuleIsAdded(module)
-  {
+  _ensureModuleIsAdded(module) {
     if (!this._modules.includes(module)) {
       throw new Error('Module must be added using addModule() before being connected');
     }

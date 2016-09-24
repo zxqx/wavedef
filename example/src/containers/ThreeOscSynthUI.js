@@ -6,10 +6,8 @@ import Switch from '../components/Switch.js';
 import WaveSelector from '../components/WaveSelector.js';
 import Keyboard from '../components/Keyboard.js';
 
-export default class ThreeOscSynthUI extends React.Component
-{
-  constructor()
-  {
+export default class ThreeOscSynthUI extends React.Component {
+  constructor() {
     super();
 
     this.state = {
@@ -17,9 +15,8 @@ export default class ThreeOscSynthUI extends React.Component
     }
   }
 
-  render()
-  {
-    let { oscGroup, mixer, filter, envelope } = this.state.threeOscSynth;
+  render() {
+    let { oscGroup, mixer, filter, envelope, lfo, chorus, delay, eq3, ringmod } = this.state.threeOscSynth;
     let { osc1, osc2, osc3 } = oscGroup;
 
     return (

@@ -13,6 +13,7 @@
     "build": "webpack --mode=build",
     "test": "tape -r ./preamble.js test/*.js",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint src",
     "doc": "esdoc -c esdoc.json"
   },
   "repository": {
@@ -62,6 +63,8 @@
     "esdoc": "^0.4.4",
     "esdoc-es7-plugin": "0.0.3",
     "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.1",
+    "eslint-plugin-react": "^3.16.1",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-babel": "^3.0.0",
     "nodemock": "^0.3.4",

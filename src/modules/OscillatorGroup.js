@@ -1,15 +1,12 @@
-import ctx from 'audio-context';
 import Oscillator, { ON_FREQUENCY_CHANGE } from './Oscillator.js';
 import Gain from './Gain.js';
 import addChildModule from './addChildModule.js';
 
-export default class OscillatorGroup
-{
+export default class OscillatorGroup {
   /**
    * @param {number} amount
    */
-  constructor(amount)
-  {
+  constructor(amount) {
     this.amount = amount || 2;
     this.masterOscillator = null;
     this.frequencySync = true;
@@ -23,24 +20,21 @@ export default class OscillatorGroup
   /**
    * Proxy start calls to all oscillators
    */
-  startAll()
-  {
+  startAll() {
     this.children.forEach(osc => osc.start());
   }
 
   /**
    * Sync all oscillators to one master oscillator
    */
-  setFrequencySyncOn()
-  {
+  setFrequencySyncOn() {
     this.frequencySync = true;
   }
 
   /**
    * Disable frequency sync
    */
-  setFrequencySyncOff()
-  {
+  setFrequencySyncOff() {
     this.frequencySync = false;
     this.masterOscillator.unsubscribe(ON_FREQUENCY_CHANGE);
   }
@@ -48,8 +42,7 @@ export default class OscillatorGroup
   /**
    * @param {OscillatorNode} osc
    */
-  setMasterOscillator(osc)
-  {
+  setMasterOscillator(osc) {
     this.masterOscillator = osc;
   }
 
@@ -57,10 +50,9 @@ export default class OscillatorGroup
    * Boot up the requested number of oscillators
    * @private
    */
-  _createOscillators()
-  {
+  _createOscillators() {
     for (let x = 1; x <= this.amount; x++) {
-      let child = this::addChildModule(`osc${x}`, new Oscillator());
+      const child = this::addChildModule(`osc${x}`, new Oscillator());
 
       if (this.frequencySync) {
         this._setupFrequencySyncCallback(child);
@@ -72,8 +64,7 @@ export default class OscillatorGroup
    * @param {Oscillator} child
    * @private
    */
-  _setupFrequencySyncCallback(child)
-  {
+  _setupFrequencySyncCallback(child) {
     if (this.children.indexOf(child) === 0) {
       this.setMasterOscillator(this.masterOscillator || child);
     }

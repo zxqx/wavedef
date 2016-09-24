@@ -2,10 +2,8 @@ import ctx from 'audio-context';
 import Gain from './Gain.js';
 import 'promise-decode-audio-data';
 
-export default class Convolver
-{
-  constructor()
-  {
+export default class Convolver {
+  constructor() {
     this.node = ctx.createConvolver();
     this.input = new Gain();
     this.output = new Gain();
@@ -15,13 +13,11 @@ export default class Convolver
     this.inputNode = this.input.node;
     this.outputNode = this.output.node;
 
-    let { input, dry, wet, output } = this;
+    const { dry, wet } = this;
 
-    //Dry Bypass Signal
     this.inputNode.connect(dry.node);
     dry.node.connect(this.outputNode);
 
-    //Wet Signal Chain
     this.inputNode.connect(this.node);
     this.node.connect(wet.node);
     wet.node.connect(this.outputNode);
@@ -31,11 +27,10 @@ export default class Convolver
    * Set the buffer to a file
    * @param {string} fileUrl
    */
-  async setBufferAsFile(fileUrl)
-  {
-    let res = await fetch(fileUrl);
-    let buffer = await res.arrayBuffer();
-    let audioBuffer = await ctx.decodeAudioData(buffer);
+  async setBufferAsFile(fileUrl) {
+    const res = await fetch(fileUrl);
+    const buffer = await res.arrayBuffer();
+    const audioBuffer = await ctx.decodeAudioData(buffer);
 
     this.setBuffer(audioBuffer);
   }
@@ -44,22 +39,19 @@ export default class Convolver
    * Set the buffer
    * @param {AudioBuffer} buffer
    */
-  setBuffer(buffer)
-  {
+  setBuffer(buffer) {
     this.node.buffer = buffer;
   }
 
   /**
    * Clear out the current buffer
    */
-  clearBuffer()
-  {
+  clearBuffer() {
     this.node.buffer = null;
   }
 
-  setWetDryMix(value)
-  {
+  setWetDryMix(value) {
     this.wet.setGain(0 + value);
-    this.dry.setGain((1 - value)/3);
+    this.dry.setGain((1 - value) / 3);
   }
 }

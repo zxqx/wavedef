@@ -1,10 +1,8 @@
 import Oscillator from './Oscillator.js';
 import Gain from './Gain.js';
 
-export default class FM
-{
-  constructor()
-  {
+export default class FM {
+  constructor() {
     this.carrier = new Oscillator();
     this.modulator = new Oscillator();
     this.gain = new Gain();
@@ -12,63 +10,53 @@ export default class FM
 
     this.node = this.output.node;
 
-
     this._connect();
     this._bootDefaults();
-
   }
 
-  _connect()
-  {
-    let carrier = this.carrier;
-    let modulator = this.modulator;
-    let gain = this.gain;
-    let output = this.output;
+  _connect() {
+    const carrier = this.carrier;
+    const modulator = this.modulator;
+    const gain = this.gain;
+    const output = this.output;
 
     modulator.node.connect(gain.node);
     gain.node.connect(carrier.node.frequency);
     carrier.node.connect(output.node);
   }
 
-  _bootDefaults()
-  {
-    this.carrier.start()
+  _bootDefaults() {
+    this.carrier.start();
     this.carrier.setFrequency(200);
 
-    this.modulator.start()
+    this.modulator.start();
     this.modulator.setFrequency(2);
 
     this.gain.setGain(40);
-    this.output.setGain(1)
+    this.output.setGain(1);
   }
 
-  setCarrierWaveformType(waveform)
-  {
+  setCarrierWaveformType(waveform) {
     this.carrier.setWaveformType(waveform);
   }
 
-  setModulatorWaveformType(waveform)
-  {
+  setModulatorWaveformType(waveform) {
     this.modulator.setWaveformType(waveform);
   }
 
-  setModulationDepth(depth)
-  {
+  setModulationDepth(depth) {
     this.gain.setGain(depth);
   }
 
-  setCarrierFrequency(frequency)
-  {
+  setCarrierFrequency(frequency) {
     this.carrier.setFrequency(frequency);
   }
 
-  setModulatorFrequency(frequency)
-  {
+  setModulatorFrequency(frequency) {
     this.modulator.setFrequency(frequency);
   }
 
-  getModulationDepth()
-  {
+  getModulationDepth() {
     return this.gain.getGain();
   }
 }
