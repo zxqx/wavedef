@@ -6,10 +6,8 @@ export const ON_FREQUENCY_CHANGE = 'event:onFrequencyChange';
  * Thin wrapper around the OscillatorNode API that exposes
  * convenient methods for interacting with parameters
  */
-export default class Oscillator
-{
-  constructor()
-  {
+export default class Oscillator {
+  constructor() {
     this.node = ctx.createOscillator();
   }
 
@@ -17,8 +15,7 @@ export default class Oscillator
    * Proxy start() to oscillator node
    * @return {Oscillator}
    */
-  start()
-  {
+  start() {
     this.node.start();
 
     return this;
@@ -28,8 +25,7 @@ export default class Oscillator
    * Proxy stop() to oscillator node
    * @return {Oscillator}
    */
-  stop()
-  {
+  stop() {
     this.node.stop();
 
     return this;
@@ -40,8 +36,7 @@ export default class Oscillator
    * @param {number} frequency
    * @return {Oscillator}
    */
-  setFrequency(frequency)
-  {
+  setFrequency(frequency) {
     this.node.frequency.value = frequency;
     this._executeCallbacks(ON_FREQUENCY_CHANGE, frequency);
 
@@ -53,8 +48,7 @@ export default class Oscillator
    * @param {number} detune
    * @return {Oscillator}
    */
-  setDetune(detune)
-  {
+  setDetune(detune) {
     this.node.detune.value = detune;
 
     return this;
@@ -65,8 +59,7 @@ export default class Oscillator
    * @param {string} type
    * @return {Oscillator}
    */
-  setWaveformType(type)
-  {
+  setWaveformType(type) {
     this.node.type = type;
 
     return this;
@@ -76,8 +69,7 @@ export default class Oscillator
    * Get frequency value
    * @return {number}
    */
-  getFrequency()
-  {
+  getFrequency() {
     return this.node.frequency.value;
   }
 
@@ -85,8 +77,7 @@ export default class Oscillator
    * Get frequency audio param
    * @return {AudioParam}
    */
-  getFrequencyParam()
-  {
+  getFrequencyParam() {
     return this.node.frequency;
   }
 
@@ -94,8 +85,7 @@ export default class Oscillator
    * Get detune value
    * @return {number}
    */
-  getDetune()
-  {
+  getDetune() {
     return this.node.detune.value;
   }
 
@@ -103,8 +93,7 @@ export default class Oscillator
    * Get waveform type
    * @return {string}
    */
-  getWaveformType()
-  {
+  getWaveformType() {
     return this.node.type;
   }
 
@@ -114,8 +103,7 @@ export default class Oscillator
    * @param {AudioNode} instance
    * @param {function} callback
    */
-  subscribe(eventName, instance, callback)
-  {
+  subscribe(eventName, instance, callback) {
     if (eventName === ON_FREQUENCY_CHANGE) {
       if (!Array.isArray(instance.onFrequencyChangeCallbacks)) {
         instance.onFrequencyChangeCallbacks = [];
@@ -129,8 +117,7 @@ export default class Oscillator
    * Stop listening to a given event
    * @param {string} eventName
    */
-  unsubscribe(eventName)
-  {
+  unsubscribe(eventName) {
     if (eventName === ON_FREQUENCY_CHANGE) {
       this.onFrequencyChangeCallbacks = null;
     }
@@ -142,8 +129,7 @@ export default class Oscillator
    * @param {*} param
    * @private
    */
-  _executeCallbacks(eventName, param)
-  {
+  _executeCallbacks(eventName, param) {
     if (eventName === ON_FREQUENCY_CHANGE) {
       if (this.onFrequencyChangeCallbacks) {
         this.onFrequencyChangeCallbacks.forEach(cb => cb(param));

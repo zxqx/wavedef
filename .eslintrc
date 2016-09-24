@@ -13,6 +13,7 @@
     "no-new": 0,
     "new-cap": 0,
     "max-len": 0,
+    "no-param-reassign": 0,
     "brace-style": [2, "stroustrup"]
   }
 }

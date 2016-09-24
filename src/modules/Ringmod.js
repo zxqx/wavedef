@@ -1,11 +1,8 @@
 import LFO from './LFO.js';
 import Gain from './Gain.js';
 
-export default class Ringmod
-{
-  constructor()
-  {
-    //Create
+export default class Ringmod {
+  constructor() {
     this.ringmod = new LFO();
     this.lfo = new LFO();
     this.gain = new Gain();
@@ -17,10 +14,8 @@ export default class Ringmod
     this.inputNode = this.input.node;
     this.outputNode = this.output.node;
 
-    //Define
-    let { ringmod, gain, lfo, input, output, dry, post} = this;
+    const { ringmod, gain, lfo, input, output, dry, post } = this;
 
-    //Connect
     input.node.connect(gain.node);
     gain.node.connect(post.node);
     post.node.connect(output.node);
@@ -28,7 +23,6 @@ export default class Ringmod
     input.node.connect(dry.node);
     dry.node.connect(output.node);
 
-    //Bootup Defaults
     gain.setGain(0);
     input.setGain(1);
     dry.setGain(1);
@@ -36,46 +30,37 @@ export default class Ringmod
     lfo.modulate(ringmod.osc.node.frequency);
     lfo.setDepth(0);
     lfo.setFrequency(100);
-
   }
 
-  setFrequency(frequency)
-  {
+  setFrequency(frequency) {
     this.ringmod.setFrequency(frequency);
   }
 
-  setDepth(depth)
-  {
+  setDepth(depth) {
     this.ringmod.setDepth(depth);
   }
 
-  setWaveformType(waveform)
-  {
+  setWaveformType(waveform) {
     this.ringmod.setWaveformType(waveform);
   }
 
-  setGain(gain)
-  {
+  setGain(gain) {
     this.gain.setGain(gain);
   }
 
-  lfoRate(rate)
-  {
+  lfoRate(rate) {
     this.lfo.setFrequency(rate);
   }
 
-  lfoDepth(depth)
-  {
+  lfoDepth(depth) {
     this.lfo.setDepth(depth);
   }
 
-  setLfoWaveformType(waveform)
-  {
+  setLfoWaveformType(waveform) {
     this.lfo.setWaveformType(waveform);
   }
 
-  setWetDryMix(value)
-  {
+  setWetDryMix(value) {
     this.post.setGain(value);
     this.dry.setGain(1 - value);
   }

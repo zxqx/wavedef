@@ -1,14 +1,12 @@
 import ctx from 'audio-context';
 
-export default class FrequencyAnalyzer
-{
-  constructor()
-  {
+export default class FrequencyAnalyzer {
+  constructor() {
     this.node = ctx.createAnalyser();
     this.elem = document.createElement('div');
 
-    let analyzer = this.node;
-    let elem = this.elem;
+    const analyzer = this.node;
+    const elem = this.elem;
 
     elem.className += 'frequency-analyzer';
     document.body.insertBefore(elem, document.querySelector('#main'));
@@ -18,38 +16,38 @@ export default class FrequencyAnalyzer
     analyzer.lineColor = '#191919';
     analyzer.lineThickness = 5;
 
-    var svgNamespace = 'http://www.w3.org/2000/svg';
-    var paper = document.createElementNS(svgNamespace, 'svg');
+    const svgNamespace = 'http://www.w3.org/2000/svg';
+    const paper = document.createElementNS(svgNamespace, 'svg');
     paper.setAttribute('width', analyzer.width);
     paper.setAttribute('height', analyzer.height);
     paper.setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
     elem.appendChild(paper);
 
-    var oscLine = document.createElementNS(svgNamespace, 'path');
+    const oscLine = document.createElementNS(svgNamespace, 'path');
     oscLine.setAttribute('stroke', analyzer.lineColor);
     oscLine.setAttribute('stroke-width', analyzer.lineThickness);
-    oscLine.setAttribute('fill','none');
+    oscLine.setAttribute('fill', 'none');
     paper.appendChild(oscLine);
 
-    var noDataPoints = 10,
-      freqData = new Uint8Array(analyzer.frequencyBinCount);
+    const noDataPoints = 10;
+    const freqData = new Uint8Array(analyzer.frequencyBinCount);
 
-    var drawLine = function () {
+    const drawLine = () => {
       analyzer.getByteTimeDomainData(freqData);
 
-      var graphPoints = [],
-        graphStr = '';
+      const graphPoints = [];
+      let graphStr = '';
 
-      graphPoints.push('M0, ' + (analyzer.height/2));
+      graphPoints.push(`M0, ${analyzer.height / 2}`);
 
-      for (var i = 0; i < freqData.length; i++) {
+      for (let i = 0; i < freqData.length; i++) {
         if (i % noDataPoints) {
-          var point = (freqData[i] / 128) * (analyzer.height / 2);
-          graphPoints.push('L' + i + ', ' + point);
+          const point = (freqData[i] / 128) * (analyzer.height / 2);
+          graphPoints.push(`L${i}, ${point}`);
         }
       }
 
-      for (i = 0; i < graphPoints.length; i++) {
+      for (let i = 0; i < graphPoints.length; i++) {
         graphStr += graphPoints[i];
       }
 

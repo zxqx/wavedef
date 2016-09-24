@@ -1,90 +1,73 @@
 import ctx from 'audio-context';
 
-export default class Envelope
-{
-  modulate(destination)
-  {
+export default class Envelope {
+  modulate(destination) {
     this.destination = destination;
   }
 
-  setAttack(attack)
-  {
+  setAttack(attack) {
     this.attack = parseFloat(attack);
   }
 
-  setDecay(decay)
-  {
+  setDecay(decay) {
     this.decay = parseFloat(decay);
   }
 
-  setSustain(sustain)
-  {
+  setSustain(sustain) {
     this.sustain = parseFloat(sustain);
   }
 
-  setRelease(release)
-  {
+  setRelease(release) {
     this.release = parseFloat(release);
   }
 
-  setDepth(depth)
-  {
-    this.depth = parseInt(depth);
+  setDepth(depth) {
+    this.depth = parseInt(depth, 10);
   }
 
-  setStart(start)
-  {
+  setStart(start) {
     this.start = parseFloat(start);
   }
 
-  getAttack()
-  {
+  getAttack() {
     return this.attack;
   }
-  getDecay()
-  {
+
+  getDecay() {
     return this.decay;
   }
 
-  getSustain()
-  {
+  getSustain() {
     return this.sustain;
   }
 
-  getRelease()
-  {
+  getRelease() {
     return this.release;
   }
 
-  getStart()
-  {
+  getStart() {
     return this.start;
   }
 
-  getDepth()
-  {
+  getDepth() {
     return this.depth;
   }
 
-  trigger()
-  {
+  trigger() {
     this.destination.setValueAtTime(this.start, ctx.currentTime);
     this.destination.linearRampToValueAtTime(this.start + this.depth, ctx.currentTime + this.attack);
     this.destination.linearRampToValueAtTime(this.start, ctx.currentTime + this.decay);
   }
 
-  triggerADS()
-  {
+  triggerADS() {
     this.destination.cancelScheduledValues(ctx.currentTime);
     this.destination.setValueAtTime(0, ctx.currentTime);
     this.destination.linearRampToValueAtTime(1, ctx.currentTime + this.attack);
     this.destination.linearRampToValueAtTime(this.sustain, ctx.currentTime + this.decay);
   }
 
-  triggerRelease()
-  {
+  triggerRelease() {
     this.destination.cancelScheduledValues(ctx.currentTime);
     this.destination.linearRampToValueAtTime(0, ctx.currentTime + this.release);
   }
-
 }

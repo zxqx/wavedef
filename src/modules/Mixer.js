@@ -5,10 +5,8 @@ import addChildModule from './addChildModule.js';
 /**
  * Create a multi-channel mixer to use in synth
  */
-export default class Mixer
-{
-  constructor(amount)
-  {
+export default class Mixer {
+  constructor(amount) {
     this.amount = amount || 2;
     this.gain = new Gain();
     this.node = this.gain.node;
@@ -20,8 +18,7 @@ export default class Mixer
    * Boot up the requested number of mixer channels
    * @private
    */
-  _createChannels()
-  {
+  _createChannels() {
     for (let x = 1; x <= this.amount; x++) {
       this::addChildModule(`ch${x}`, new MixerChannel());
     }

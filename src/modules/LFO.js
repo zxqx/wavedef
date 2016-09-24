@@ -1,26 +1,21 @@
 import Oscillator from './Oscillator.js';
 import Gain from './Gain.js';
 
-export default class LFO
-{
-  constructor()
-  {
+export default class LFO {
+  constructor() {
     this.osc = new Oscillator();
     this.gain = new Gain();
 
-    let osc = this.osc;
-    let gain = this.gain;
+    const osc = this.osc;
+    const gain = this.gain;
 
-    //Set default on creation
     osc.start();
     gain.setGain(1);
 
     osc.node.connect(gain.node);
-
   }
 
-  modulate(destination)
-  {
+  modulate(destination) {
     if (!Array.isArray(this.destination)) {
       this.destination = [];
     }
@@ -29,33 +24,27 @@ export default class LFO
     this.destination.forEach(d => this.gain.node.connect(d));
   }
 
-  setDepth(depth)
-  {
+  setDepth(depth) {
     this.gain.setGain(depth);
   }
 
-  setWaveformType(waveform)
-  {
+  setWaveformType(waveform) {
     this.osc.setWaveformType(waveform);
   }
 
-  setFrequency(frequency)
-  {
+  setFrequency(frequency) {
     this.osc.setFrequency(frequency);
   }
 
-  getModulate()
-  {
+  getModulate() {
     return this.destination;
   }
 
-  bpmSync(bpm, note)
-  {
-    this.osc.setFrequency(1/((60/bpm)/note));
+  bpmSync(bpm, note) {
+    this.osc.setFrequency(1 / ((60 / bpm) / note));
   }
 
-  getFrequency()
-  {
+  getFrequency() {
     return this.osc.node.frequency;
   }
 }

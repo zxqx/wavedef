@@ -6,7 +6,6 @@ import Mixer from '../modules/Mixer.js';
 import VCA from '../modules/VCA.js';
 import Envelope from '../modules/Envelope.js';
 import LFO from '../modules/LFO.js';
-import Convolver from '../modules/Convolver.js';
 import Delay from '../modules/Delay.js';
 import EQ3 from '../modules/EQ3.js';
 import ComputerKeyboard from '../modules/ComputerKeyboard.js';
@@ -15,10 +14,8 @@ import Ringmod from '../modules/Ringmod.js';
 import Chorus from '../modules/Chorus.js';
 import Panner from '../modules/Panner.js';
 
-export default class ThreeOscSynth
-{
-  constructor()
-  {
+export default class ThreeOscSynth {
+  constructor() {
     this.synth = new Synth();
     this.midi = new MIDI();
     this.oscGroup = new OscillatorGroup(3);
@@ -27,7 +24,6 @@ export default class ThreeOscSynth
     this.vca = new VCA();
     this.envelope = new Envelope();
     this.lfo = new LFO();
-    this.convolver = new Convolver();
     this.delay = new Delay();
     this.eq3 = new EQ3();
     this.computerKeyboard = new ComputerKeyboard(3);
@@ -36,8 +32,8 @@ export default class ThreeOscSynth
     this.chorus = new Chorus();
     this.panner = new Panner();
 
-    let { synth, midi, oscGroup, filter, mixer, vca, envelope, lfo, convolver, delay, eq3, computerKeyboard, frequencyAnalyzer, ringmod, chorus, panner } = this;
-    let { osc1, osc2, osc3 } = oscGroup;
+    const { synth, midi, oscGroup, filter, mixer, vca, envelope, lfo, delay, eq3, computerKeyboard, frequencyAnalyzer, ringmod, chorus, panner } = this;
+    const { osc1, osc2, osc3 } = oscGroup;
 
     synth.addModule(oscGroup);
     synth.addModule(filter);
@@ -74,7 +70,5 @@ export default class ThreeOscSynth
     ]);
 
     midi.trigger(osc1::osc1.setFrequency);
-
-    this._setTestVariablesForConsole();
   }
 }

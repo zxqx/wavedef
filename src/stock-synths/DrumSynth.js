@@ -2,17 +2,14 @@ import Synth from '../modules/Synth.js';
 import Kick from '../modules/Kick.js';
 import HiHat from '../modules/HiHat.js';
 import Mixer from'../modules/Mixer.js';
-import Stereo from '../modules/Stereo.js';
 import Snare from '../modules/Snare.js';
 import Cymbal from '../modules/Cymbal.js';
 
-export default class DrumSynth
-{
+export default class DrumSynth {
   /**
    * Set up synth and its modules and wire up module connections
    */
-  constructor()
-  {
+  constructor() {
     this.kick = new Kick();
     this.synth = new Synth();
     this.hihat = new HiHat();
@@ -20,7 +17,7 @@ export default class DrumSynth
     this.snare = new Snare();
     this.cymbal = new Cymbal();
 
-    let { synth, kick, hihat, mixer, stereo, snare, cymbal } = this;
+    const { synth, kick, hihat, mixer, snare, cymbal } = this;
 
     synth.addModule(kick);
     synth.addModule(hihat);
@@ -33,13 +30,9 @@ export default class DrumSynth
     synth.connect(snare).to(mixer.ch3);
     synth.connect(mixer).output();
 
-    //synth.connect(cymbal).to(mixer.ch1);
-
     mixer.ch1.toggleOn();
     mixer.ch2.toggleOn();
     mixer.ch3.toggleOn();
-
-    this._setTestVariablesForConsole();
 
     setInterval(() => {
       kick.envelope.triggerADS();

@@ -1,6 +1,3 @@
-//Based of an image of the 909 synth structure.
-
-import ctx from 'audio-context';
 import Oscillator from './Oscillator.js';
 import Filter from './Filter.js';
 import Envelope from './Envelope.js';
@@ -9,7 +6,6 @@ import WhiteNoise from './WhiteNoise.js';
 
 export default class Snare {
   constructor() {
-    //Create all Modules from prebuild Classes
     this.osc1 = new Oscillator();
     this.osc2 = new Oscillator();
     this.amp1 = new Gain();
@@ -29,28 +25,26 @@ export default class Snare {
     this.ch4 = new Gain();
     this.gain = new Gain();
 
-    //Set Variables to shorter names
-    let osc1 = this.osc1;
-    let osc2 = this.osc2;
-    let amp1 = this.amp1;
-    let amp2 = this.amp2;
-    let amp3 = this.amp3;
-    let amp4 = this.amp4;
-    let env1 = this.env1;
-    let env2 = this.env2;
-    let env3 = this.env3;
-    let env4 = this.env4;
-    let ch1 = this.ch1;
-    let ch2 = this.ch2;
-    let ch3 = this.ch3;
-    let ch4 = this.ch4;
+    const osc1 = this.osc1;
+    const osc2 = this.osc2;
+    const amp1 = this.amp1;
+    const amp2 = this.amp2;
+    const amp3 = this.amp3;
+    const amp4 = this.amp4;
+    const env1 = this.env1;
+    const env2 = this.env2;
+    const env3 = this.env3;
+    const env4 = this.env4;
+    const ch1 = this.ch1;
+    const ch2 = this.ch2;
+    const ch3 = this.ch3;
+    const ch4 = this.ch4;
 
-    let filter1 = this.filter1;
-    let filter2 = this.filter2;
-    let whitenoise = this.whitenoise;
-    let gain = this.gain;
+    const filter1 = this.filter1;
+    const filter2 = this.filter2;
+    const whitenoise = this.whitenoise;
+    const gain = this.gain;
 
-    // set this.node for synth.connect to targer (output of chain)
     this.node = this.gain.node;
 
     osc1.node.connect(amp1.node);
