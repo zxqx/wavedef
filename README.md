@@ -47,33 +47,6 @@ Run tests with [tape](https://github.com/substack/tape):
 $ npm test
 ```
 
-## Roadmap
-
-+ ~~Composable synth~~
-+ ~~Oscillator~~
-+ ~~Mixer~~
-+ ~~Filter~~
-+ ~~ADSR Envelope~~
-+ ~~VCA~~
-+ ~~Mono to Stereo Splitter~~
-+ ~~Kick~~
-+ ~~Snare~~
-+ ~~Hat~~
-+ Percussion Generator
-+ ~~White Noise Generator~~
-+ ~~LFO with BPM sync~~
-+ ~~Convolver~~
-+ ~~3-Band EQ~~
-+ ~~Ring Modulator~~
-+ ~~Frequency Analyzer~~
-+ Sequencer
-+ Sampler
-+ MIDI input
-+ Arpeggiator
-+ *Polyphony mode*
-+ ~~Delay~~
-+ Multi-Tap Delay
-
 ## License
 
 MIT
