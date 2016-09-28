@@ -31,6 +31,7 @@
 + Percussion Generator
 + Arpeggiator
 + Sampler
++ Busses
 + Polyphony mode
 + Multi-Tap Delay
 + Mod Matrix
