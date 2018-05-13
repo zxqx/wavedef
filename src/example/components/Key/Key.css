@@ -1,0 +1,25 @@
+.keyboard-key {
+  margin: 2px;
+  width: 22px;
+  height: 100px;
+  background: #fff;
+}
+
+.keyboard-key.keyboard-key-black {
+  position: relative;
+  top: -35px;
+  width: 6px;
+  height: 66px;
+  margin: 0 -9px;
+  padding: 4px;
+  background: #000;
+  border-top: none;
+}
+
+.keyboard-key.keyboard-key-adjacent-white {
+  margin-right: -4px;
+}
+
+.keyboard-key:focus {
+  outline: none;
+}

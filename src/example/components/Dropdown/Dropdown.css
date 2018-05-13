@@ -1,0 +1,39 @@
+.ant-select-selection {
+  width: 200px;
+  font-family: 'Francois One', monospace;
+  background: #333;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+}
+
+.ant-select-arrow {
+  color: #fff;
+}
+
+.ant-select-dropdown {
+  font-family: 'Francois One', monospace;
+  background: #333;
+  border: 0;
+  border-radius: 0;
+}
+
+.ant-select-dropdown .ant-select-dropdown-menu-item {
+  border-radius: 0;
+  color: #fff;
+}
+.ant-select-dropdown .ant-select-dropdown-menu-item-selected {
+  background: #8500FF;
+}
+
+.ant-select-dropdown .ant-select-dropdown-menu-item:not(.ant-select-dropdown-menu-item-selected):hover {
+  background: #444;
+}
+
+.ant-select-focused .ant-select-selection,
+.ant-select-open .ant-select-selection,
+.ant-select-enabled .ant-select-selection {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}

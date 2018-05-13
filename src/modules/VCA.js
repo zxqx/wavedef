@@ -1,8 +1,8 @@
-import Gain from './Gain.js';
+import Gain from './Gain';
 
 export default class VCA extends Gain {
-  constructor() {
-    super();
+  constructor(ctx) {
+    super(ctx);
 
     this.setGain(0);
   }

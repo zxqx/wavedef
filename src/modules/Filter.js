@@ -1,15 +1,35 @@
 import ctx from 'audio-context';
 
 export default class Filter {
-  constructor() {
-    this.node = ctx.createBiquadFilter();
+  constructor(name) {
+    this.node = ctx().createBiquadFilter();
+    this.name = name || 'Filter';
+  }
+
+  getParams() {
+    const frequency = this.getFrequency();
+
+    return [
+      {
+        label: 'Frequency',
+        context: this,
+        path: 'node.frequency',
+        min: frequency,
+        max: (frequency + 100) * 2,
+      },
+      {
+        label: 'Resonance',
+        context: this,
+        path: 'node.Q',
+      },
+    ];
   }
 
   setFrequency(frequency) {
     this.node.frequency.value = frequency;
   }
 
-  setQ(resonance) {
+  setResonance(resonance) {
     this.node.Q.value = resonance;
   }
 
@@ -25,7 +45,7 @@ export default class Filter {
     return this.node.frequency.value;
   }
 
-  getQ() {
+  getResonance() {
     return this.node.Q.value;
   }
 

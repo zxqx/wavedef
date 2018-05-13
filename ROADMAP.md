@@ -1,33 +1,30 @@
-# Roadmap
+## Roadmap
 
 ## 1.0
++ LFO
+  - Add None value
+  - Fix LFO keeping value after changing option
+    - on disconnect reset to slider value
+    - pass whole instance to LFO?
 + Sequencer
-+ MIDI controller support
+  - grid recording
++ Envelope
+  - handle start value
++ Sync computer keyboard with on-screen keyboard
++ 4 Stock Synths
+  - configured and designed
++ OscillatorGroup
+  - frequency sync
+  - create EventManager to subscribe to changes
++ Port over Chorus, Delay, EQ, Ring Mod
+
+## 2.0
 + User auth
 + Patch persistence
 + More device support
 + 90% unit test coverage
 + Contribution rules
 + Module documentation + hosted docs
-+ ~~Composable synth~~
-+ ~~Oscillator~~
-+ ~~Mixer~~
-+ ~~Filter~~
-+ ~~ADSR Envelope~~
-+ ~~VCA~~
-+ ~~Mono to Stereo Splitter~~
-+ ~~Kick~~
-+ ~~Snare~~
-+ ~~Hat~~
-+ ~~White Noise Generator~~
-+ ~~LFO with BPM sync~~
-+ ~~Convolver~~
-+ ~~3-Band EQ~~
-+ ~~Ring Modulator~~
-+ ~~Frequency Analyzer~~
-+ ~~Delay~~
-
-## 2.0
 + Percussion Generator
 + Arpeggiator
 + Sampler

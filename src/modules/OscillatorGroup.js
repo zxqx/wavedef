@@ -1,6 +1,6 @@
-import Oscillator, { ON_FREQUENCY_CHANGE } from './Oscillator.js';
-import Gain from './Gain.js';
-import addChildModule from './addChildModule.js';
+import Oscillator from './Oscillator';
+import Gain from './Gain';
+import addChildModule from '../helpers/addChildModule';
 
 export default class OscillatorGroup {
   /**
@@ -14,64 +14,32 @@ export default class OscillatorGroup {
     this.gain = new Gain();
     this.node = this.gain.node;
 
-    this._createOscillators();
+    this.createOscillators();
   }
 
-  /**
-   * Proxy start calls to all oscillators
-   */
   startAll() {
     this.children.forEach(osc => osc.start());
   }
 
-  /**
-   * Sync all oscillators to one master oscillator
-   */
+  stopAll() {
+    this.children.forEach(osc => osc.stop());
+  }
+
   setFrequencySyncOn() {
     this.frequencySync = true;
   }
 
-  /**
-   * Disable frequency sync
-   */
-  setFrequencySyncOff() {
-    this.frequencySync = false;
-    this.masterOscillator.unsubscribe(ON_FREQUENCY_CHANGE);
-  }
-
-  /**
-   * @param {OscillatorNode} osc
-   */
   setMasterOscillator(osc) {
     this.masterOscillator = osc;
   }
 
-  /**
-   * Boot up the requested number of oscillators
-   * @private
-   */
-  _createOscillators() {
+  createOscillators() {
     for (let x = 1; x <= this.amount; x++) {
-      const child = this::addChildModule(`osc${x}`, new Oscillator());
-
-      if (this.frequencySync) {
-        this._setupFrequencySyncCallback(child);
-      }
+      addChildModule(this, `osc${x}`, new Oscillator());
     }
   }
 
-  /**
-   * @param {Oscillator} child
-   * @private
-   */
-  _setupFrequencySyncCallback(child) {
-    if (this.children.indexOf(child) === 0) {
-      this.setMasterOscillator(this.masterOscillator || child);
-    }
-    else {
-      child.subscribe(ON_FREQUENCY_CHANGE, this.masterOscillator, (freq) => {
-        child.setFrequency(freq);
-      });
-    }
+  osc(id) {
+    return this[`osc${id}`];
   }
 }

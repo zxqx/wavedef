@@ -1,4 +1,4 @@
-import notesToFrequencies from 'notes-to-frequencies';
+import noteToFrequency from 'note-to-frequency';
 import Mousetrap from 'mousetrap';
 import 'mousetrap/plugins/global-bind/mousetrap-global-bind';
 
@@ -18,12 +18,12 @@ const KEY_TO_NOTE_MAP = {
   y: 'G#',
   h: 'A',
   u: 'A#',
-  j: 'B'
+  j: 'B',
 };
 
 const KEY_TO_OCTAVE_CHANGE_MAP = {
   z: OCTAVE_DOWN,
-  x: OCTAVE_UP
+  x: OCTAVE_UP,
 };
 
 export default class ComputerKeyboard {
@@ -33,7 +33,7 @@ export default class ComputerKeyboard {
   constructor(octave) {
     this.octave = octave;
 
-    this._setupKeyBindings();
+    this.setupKeyBindings();
   }
 
   /**
@@ -49,7 +49,7 @@ export default class ComputerKeyboard {
    * @param {Array:function} callbacks
    */
   triggerOnPress(callbacks) {
-    this._onPressCallbacks = callbacks;
+    this.onPressCallbacks = callbacks;
   }
 
   /**
@@ -57,7 +57,7 @@ export default class ComputerKeyboard {
    * @param {Array:function} callbacks
    */
   triggerOnRelease(callbacks) {
-    this._onReleaseCallbacks = callbacks;
+    this.onReleaseCallbacks = callbacks;
   }
 
   /**
@@ -65,19 +65,19 @@ export default class ComputerKeyboard {
    * to internal methods
    * @private
    */
-  _setupKeyBindings() {
+  setupKeyBindings() {
     Mousetrap.bindGlobal(Object.keys(KEY_TO_NOTE_MAP), (event, key) => {
       const note = KEY_TO_NOTE_MAP[key];
-      this._triggerOnPressCallbacks(key, note);
+      this.triggerOnPressCallbacks(key, note);
     }, 'keydown');
 
     Mousetrap.bindGlobal(Object.keys(KEY_TO_NOTE_MAP), (event, key) => {
-      this._triggerOnReleaseCallbacks(key);
+      this.triggerOnReleaseCallbacks(key);
     }, 'keyup');
 
     Mousetrap.bindGlobal(Object.keys(KEY_TO_OCTAVE_CHANGE_MAP), (event, key) => {
       const octaveChangeDirection = KEY_TO_OCTAVE_CHANGE_MAP[key];
-      this._triggerOctaveChange(octaveChangeDirection);
+      this.triggerOctaveChange(octaveChangeDirection);
     });
   }
 
@@ -89,43 +89,44 @@ export default class ComputerKeyboard {
    * @param {string} note
    * @private
    */
-  _triggerOnPressCallbacks(key, note) {
+  triggerOnPressCallbacks(key, note) {
     if (!note) return;
 
-    if (!Array.isArray(this._keysBeingHeld)) {
-      this._keysBeingHeld = [];
+    if (!Array.isArray(this.keysBeingHeld)) {
+      this.keysBeingHeld = [];
     }
 
-    if (!~this._keysBeingHeld.indexOf(key)) {
-      this._keysBeingHeld.push(key);
+    if (!this.keysBeingHeld.includes(key)) {
+      this.keysBeingHeld.push(key);
     }
 
-    if (key !== this._lastKeyHeld) {
-      this._holding = false;
+    if (key !== this.lastKeyHeld) {
+      this.holding = false;
     }
 
-    if (this._holding) return;
+    if (this.holding) return;
 
-    this._currentPressedTime = new Date() - 0;
+    this.currentPressedTime = new Date() - 0;
 
-    this.keyIsBeingHeld = (this._lastPressedTime > this._currentPressedTime - KEY_HOLD_DELAY_TIME) && (key === this._lastKeyHeld) && !this._justReleased;
+    this.keyIsBeingHeld = (this.lastPressedTime > this.currentPressedTime - KEY_HOLD_DELAY_TIME) &&
+    (key === this.lastKeyHeld) && !this.justReleased;
 
     if (this.keyIsBeingHeld) {
-      this._holding = true;
+      this.holding = true;
       return;
     }
 
-    this._lastPressedTime = this._currentPressedTime;
-    this._lastKeyHeld = key;
+    this.lastPressedTime = this.currentPressedTime;
+    this.lastKeyHeld = key;
 
     const noteAndOctave = note + this.octave;
-    const frequency = notesToFrequencies(noteAndOctave);
+    const frequency = noteToFrequency(noteAndOctave);
 
-    if (this._onPressCallbacks) {
-      this._onPressCallbacks.forEach(cb => cb(frequency));
+    if (this.onPressCallbacks) {
+      this.onPressCallbacks.forEach(cb => cb(frequency));
     }
 
-    this._justReleased = false;
+    this.justReleased = false;
   }
 
   /**
@@ -133,30 +134,30 @@ export default class ComputerKeyboard {
    * @param {string} key
    * @private
    */
-  _triggerOnReleaseCallbacks(key) {
-    this._holding = false;
+  triggerOnReleaseCallbacks(key) {
+    this.holding = false;
 
-    if (key === this._lastKeyHeld) {
-      this._justReleased = true;
+    if (key === this.lastKeyHeld) {
+      this.justReleased = true;
     }
 
-    this._glidingBetweenKeys = this._keysBeingHeld.length > 1;
+    this.glidingBetweenKeys = this.keysBeingHeld.length > 1;
 
-    const index = this._keysBeingHeld.indexOf(key);
-    this._keysBeingHeld.splice(index, 1);
+    const index = this.keysBeingHeld.indexOf(key);
+    this.keysBeingHeld.splice(index, 1);
 
     // Prevent release from being called if we're switching between notes
     // quickly
-    if (this._glidingBetweenKeys) {
-      const key = this._keysBeingHeld[this._keysBeingHeld.length - 1];
-      const note = KEY_TO_NOTE_MAP[key];
-      this._triggerOnPressCallbacks(key, note);
+    if (this.glidingBetweenKeys) {
+      const thisKey = this.keysBeingHeld[this.keysBeingHeld.length - 1];
+      const note = KEY_TO_NOTE_MAP[thisKey];
+      this.triggerOnPressCallbacks(thisKey, note);
 
       return;
     }
 
-    if (this._onReleaseCallbacks) {
-      this._onReleaseCallbacks.forEach(cb => cb(key));
+    if (this.onReleaseCallbacks) {
+      this.onReleaseCallbacks.forEach(cb => cb(key));
     }
   }
 
@@ -165,15 +166,14 @@ export default class ComputerKeyboard {
    * @param {string} octaveChangeDirection
    * @private
    */
-  _triggerOctaveChange(octaveChangeDirection) {
+  triggerOctaveChange(octaveChangeDirection) {
     if (!octaveChangeDirection) return;
 
     if (octaveChangeDirection === OCTAVE_UP) {
-      if (this.octave === 9) return;
+      if (this.octave === 8) return;
       this.setOctave(this.octave + 1);
-    }
-    else if (octaveChangeDirection === OCTAVE_DOWN) {
-      if (this.octave === 0) return;
+    } else if (octaveChangeDirection === OCTAVE_DOWN) {
+      if (this.octave === 1) return;
       this.setOctave(this.octave - 1);
     }
   }

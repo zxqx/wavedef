@@ -1,15 +1,13 @@
-import Oscillator from './Oscillator.js';
-import Gain from './Gain.js';
+import Oscillator from './Oscillator';
+import Gain from './Gain';
 
 export default class LFO {
   constructor() {
     this.osc = new Oscillator();
     this.gain = new Gain();
 
-    const osc = this.osc;
-    const gain = this.gain;
+    const { osc, gain } = this;
 
-    osc.start();
     gain.setGain(1);
 
     osc.node.connect(gain.node);
@@ -22,6 +20,13 @@ export default class LFO {
 
     this.destination.push(destination);
     this.destination.forEach(d => this.gain.node.connect(d));
+  }
+
+  modulateOne(destination) {
+    this.gain.node.disconnect(this.destination);
+
+    this.destination = destination;
+    this.gain.node.connect(destination);
   }
 
   setDepth(depth) {

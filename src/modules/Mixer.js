@@ -1,26 +1,23 @@
-import Gain from './Gain.js';
-import MixerChannel from './MixerChannel.js';
-import addChildModule from './addChildModule.js';
+import Gain from './Gain';
+import MixerChannel from './MixerChannel';
+import addChildModule from '../helpers/addChildModule';
 
-/**
- * Create a multi-channel mixer to use in synth
- */
 export default class Mixer {
   constructor(amount) {
     this.amount = amount || 2;
     this.gain = new Gain();
     this.node = this.gain.node;
 
-    this._createChannels();
+    this.createChannels();
   }
 
-  /**
-   * Boot up the requested number of mixer channels
-   * @private
-   */
-  _createChannels() {
+  createChannels() {
     for (let x = 1; x <= this.amount; x++) {
-      this::addChildModule(`ch${x}`, new MixerChannel());
+      this::addChildModule(new MixerChannel());
     }
+  }
+
+  channel(number) {
+    return this.children[number - 1];
   }
 }

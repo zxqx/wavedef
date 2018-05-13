@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One');
+
+body {
+  padding: 1rem 4rem;
+  background: #111;
+  overflow-x: hidden;
+}
+
+body, h1, h2, h3, h4, h5, h6, label {
+  font-family: 'Francois One', monospace;
+  color: #fff;
+}
+
+.nav {
+  margin-bottom: 10px;
+}
+
+.nav-pills > li > a {
+  color: #ccc;
+}
+
+.nav-pills > li > a:hover {
+  background: transparent;
+  color: #fff;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background: #222;
+}
+
+.frequency-analyzer {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.icon-xs {
+  width: 16px;
+  margin-top: -2px;
+}
+
+.bootstrap-switch {
+  border: none;
+}
+
+.bootstrap-switch.bootstrap-switch-focused {
+  box-shadow: none;
+}
+
+.bootstrap-switch .bootstrap-switch-label {
+  background: #8500FF;
+}
+
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
+  background: #666;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+  background: #5d00b3;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default {
+  background: #333;
+  color: #fff;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
+  background: #333;
+  color: #aaa;
+}
+
+.bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container {
+  transition: margin-left 0.03s;
+}

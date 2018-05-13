@@ -1,14 +1,25 @@
 import ctx from 'audio-context';
 
-export const ON_FREQUENCY_CHANGE = 'event:onFrequencyChange';
-
 /**
  * Thin wrapper around the OscillatorNode API that exposes
  * convenient methods for interacting with parameters
  */
 export default class Oscillator {
-  constructor() {
-    this.node = ctx.createOscillator();
+  constructor(name) {
+    this.node = ctx().createOscillator();
+    this.name = name || 'OSC';
+
+    this.node.start();
+  }
+
+  getParams() {
+    return [
+      {
+        label: 'Frequency',
+        context: this,
+        path: 'node.frequency',
+      },
+    ];
   }
 
   /**
@@ -38,7 +49,6 @@ export default class Oscillator {
    */
   setFrequency(frequency) {
     this.node.frequency.value = frequency;
-    this._executeCallbacks(ON_FREQUENCY_CHANGE, frequency);
 
     return this;
   }
@@ -74,14 +84,6 @@ export default class Oscillator {
   }
 
   /**
-   * Get frequency audio param
-   * @return {AudioParam}
-   */
-  getFrequencyParam() {
-    return this.node.frequency;
-  }
-
-  /**
    * Get detune value
    * @return {number}
    */
@@ -95,45 +97,5 @@ export default class Oscillator {
    */
   getWaveformType() {
     return this.node.type;
-  }
-
-  /**
-   * Subscribe to an event and invoke a callback when it happens
-   * @param {string} eventName
-   * @param {AudioNode} instance
-   * @param {function} callback
-   */
-  subscribe(eventName, instance, callback) {
-    if (eventName === ON_FREQUENCY_CHANGE) {
-      if (!Array.isArray(instance.onFrequencyChangeCallbacks)) {
-        instance.onFrequencyChangeCallbacks = [];
-      }
-
-      instance.onFrequencyChangeCallbacks.push(callback);
-    }
-  }
-
-  /**
-   * Stop listening to a given event
-   * @param {string} eventName
-   */
-  unsubscribe(eventName) {
-    if (eventName === ON_FREQUENCY_CHANGE) {
-      this.onFrequencyChangeCallbacks = null;
-    }
-  }
-
-  /**
-   * Call any callback functions that are subscribed to a given event
-   * @param {string} eventName
-   * @param {*} param
-   * @private
-   */
-  _executeCallbacks(eventName, param) {
-    if (eventName === ON_FREQUENCY_CHANGE) {
-      if (this.onFrequencyChangeCallbacks) {
-        this.onFrequencyChangeCallbacks.forEach(cb => cb(param));
-      }
-    }
   }
 }

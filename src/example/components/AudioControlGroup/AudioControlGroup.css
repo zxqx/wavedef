@@ -1,0 +1,28 @@
+.ant-card {
+  height: 100%;
+  font-family: 'Francois One', monospace;
+  background: #1a1a1a;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ant-card-head {
+  background: #222;
+  border-bottom: none;
+}
+
+.ant-card-head-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.ant-card-body {
+  padding: 14px 24px;
+}
+
+.ant-card .ant-form-item-label label {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}

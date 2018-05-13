@@ -1,12 +1,29 @@
 import ctx from 'audio-context';
+import flatten from 'lodash.flatten';
+
+const startEvents = [
+  'load',
+  'keydown',
+  'mousemove',
+  'mousedown',
+];
 
 /**
  * Composable synth container for connecting audio modules
  */
 export default class Synth {
   constructor() {
-    this._modules = [];
-    this._connecting = null;
+    this.modules = [];
+    this.connecting = null;
+
+    startEvents.forEach(event => document.addEventListener(event, () => ctx().resume()));
+  }
+
+  getParams() {
+    return flatten(this.modules.map((module) => {
+      const params = module.getParams ? module.getParams() : [];
+      return params;
+    }));
   }
 
   /**
@@ -15,14 +32,12 @@ export default class Synth {
    * @return {Synth}
    */
   addModule(module) {
-    if (!this._modules.includes(module)) {
-      this._modules.push(module);
+    if (!this.modules.includes(module)) {
+      this.modules.push(module);
     }
 
     if (Array.isArray(module.children)) {
-      for (const child of module.children) {
-        this.addModule(child);
-      }
+      module.children.forEach(child => this.addModule(child));
     }
 
     return this;
@@ -34,15 +49,13 @@ export default class Synth {
    * @return {Synth}
    */
   removeModule(module) {
-    if (this._modules.includes(module)) {
-      const index = this._modules.indexOf(module);
-      this._modules.splice(index, 1);
+    if (this.modules.includes(module)) {
+      const index = this.modules.indexOf(module);
+      this.modules.splice(index, 1);
     }
 
     if (Array.isArray(module.children)) {
-      for (const child of module.children) {
-        this.removeModule(child);
-      }
+      module.children.forEach(child => this.removeModule(child));
     }
 
     return this;
@@ -53,7 +66,7 @@ export default class Synth {
    * @return {Array}
    */
   getModules() {
-    return this._modules;
+    return this.modules;
   }
 
   /**
@@ -62,8 +75,8 @@ export default class Synth {
    * @return {Synth}
    */
   connect(output) {
-    this._ensureModuleIsAdded(output);
-    this._connecting = output;
+    this.ensureModuleIsAdded(output);
+    this.connecting = output;
 
     return this;
   }
@@ -75,16 +88,16 @@ export default class Synth {
    * @return {Synth}
    */
   to(input) {
-    if (!this._connecting) {
+    if (!this.connecting) {
       throw new Error('connect() must be called with a module before calling to()');
     }
 
     const inputNode = input.inputNode || input.node;
-    const outputNode = this._connecting.outputNode || this._connecting.node;
+    const outputNode = this.connecting.outputNode || this.connecting.node;
 
-    this._ensureModuleIsAdded(input);
+    this.ensureModuleIsAdded(input);
     outputNode.connect(inputNode);
-    this._connecting = input;
+    this.connecting = input;
 
     return this;
   }
@@ -94,26 +107,21 @@ export default class Synth {
    * @return {Synth}
    */
   output() {
-    if (!this._connecting) {
+    if (!this.connecting) {
       throw new Error('connect() must be called with a module before calling output()');
     }
 
-    const outputNode = this._connecting.outputNode || this._connecting.node;
+    const outputNode = this.connecting.outputNode || this.connecting.node;
 
-    outputNode.connect(ctx.destination);
-    this._connecting = null;
+    outputNode.connect(ctx().destination);
+    this.connecting = null;
 
     return this;
   }
 
-  /**
-   * Given a module, throw an error if it wasn't added with addModule()
-   * @param {instance} module
-   * @private
-   */
-  _ensureModuleIsAdded(module) {
-    if (!this._modules.includes(module)) {
-      throw new Error('Module must be added using addModule() before being connected');
+  ensureModuleIsAdded(module) {
+    if (!this.modules.includes(module)) {
+      this.addModule(module);
     }
   }
 }

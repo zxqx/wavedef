@@ -1,0 +1,32 @@
+.ant-slider-step {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #333;
+}
+
+.ant-slider-handle {
+  border: none;
+  border-radius: 0;
+  height: 24px;
+  width: 12px;
+  background: #aaa;
+  cursor: pointer;
+  margin-top: -8px;
+}
+
+.ant-slider-handle.ant-tooltip-open,
+.ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+  border: none;
+}
+
+.ant-slider-handle:hover,
+.ant-slider-handle.ant-tooltip-open {
+  background: #ccc;
+  border: none;
+}
+
+.ant-tooltip-inner {
+  font-family: 'Francois One', monospace;
+}

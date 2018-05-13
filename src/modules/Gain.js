@@ -6,7 +6,7 @@ import ctx from 'audio-context';
  */
 export default class Gain {
   constructor() {
-    this.node = ctx.createGain();
+    this.node = ctx().createGain();
   }
 
   setGain(volume) {

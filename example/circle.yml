@@ -1,8 +1,0 @@
-machine:
-  node:
-    version: 6.1.0
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: wavedef-stg
