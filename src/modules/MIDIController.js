@@ -9,10 +9,10 @@ function translateMIDIDataToObject(midiData) {
 
   const midiDataObject = {};
 
-  if (noteOnOff === 147) {
-    midiDataObject.on = true;
-  } else if (noteOnOff === 131) {
+  if (noteOnOff >= 128 && noteOnOff <= 143) {
     midiDataObject.on = false;
+  } else if (noteOnOff >= 144 && noteOnOff <= 159) {
+    midiDataObject.on = true;
   }
 
   midiDataObject.octave = Math.floor(notePitch / 12);

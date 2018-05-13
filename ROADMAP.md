@@ -17,6 +17,8 @@
   - frequency sync
   - create EventManager to subscribe to changes
 + Port over Chorus, Delay, EQ, Ring Mod
++ MIDI
+  - Keep track of all held notes
 
 ## 2.0
 + User auth
