@@ -6,6 +6,11 @@
 
 .ant-radio-button-wrapper:hover {
   color: #fff;
+  background: #444;
+}
+
+.ant-radio-button-wrapper:active {
+  background: #2a2a2a;
 }
 
 .ant-radio-button-wrapper:first-child {
