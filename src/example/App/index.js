@@ -63,7 +63,7 @@ export default class App extends Component {
           >
             <LFO
               lfo={lfo1}
-              params={params.filter(param => param.context !== lfo1)}
+              params={params}
             />
           </Col>
 
@@ -74,7 +74,7 @@ export default class App extends Component {
           >
             <LFO
               lfo={lfo2}
-              params={params.filter(param => param.context !== lfo2)}
+              params={params}
             />
           </Col>
 

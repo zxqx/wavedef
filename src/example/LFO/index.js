@@ -20,7 +20,7 @@ export default class LFO extends Component {
         <Dropdown
           label="Destination"
           defaultValue={0}
-          options={params}
+          options={params.filter(param => param.context !== lfo)}
           onChange={(paramIndex) => {
             const { context, path } = params[paramIndex];
             lfo.modulateOne(get(context, path));
