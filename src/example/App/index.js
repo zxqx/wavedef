@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import Cyanide from '../../stock-synths/Cyanide';
-import Oscillator from '../components/Oscillator';
-import Filter from '../components/Filter';
-import VolumeEnvelope from '../components/VolumeEnvelope';
-import LFO from '../components/LFO';
-import Delay from '../components/Delay';
-import Keyboard from '../components/Keyboard';
+import Oscillator from '../Oscillator';
+import Filter from '../Filter';
+import VolumeEnvelope from '../VolumeEnvelope';
+import LFO from '../LFO';
+import Delay from '../Delay';
+import Keyboard from '../common/Keyboard';
 import './App.css';
 
 const cyanide = new Cyanide();

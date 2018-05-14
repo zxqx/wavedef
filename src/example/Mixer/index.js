@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AudioControlGroup from './AudioControlGroup';
-import Slider from './Slider';
+import AudioControlGroup from '../common/AudioControlGroup';
+import Slider from '../common/Slider';
 
 export default class Mixer extends Component {
   static propTypes = {

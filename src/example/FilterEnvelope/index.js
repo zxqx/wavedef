@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AudioControlGroup from './AudioControlGroup';
-import Slider from './Slider';
+import AudioControlGroup from '../common/AudioControlGroup';
+import Slider from '../common/Slider';
 
-export default class VolumeEnvelope extends Component {
+export default class FilterEnvelope extends Component {
   static propTypes = {
     envelope: PropTypes.object.isRequired, // eslint-disable-line
   }
@@ -12,14 +12,13 @@ export default class VolumeEnvelope extends Component {
     const { envelope } = this.props;
 
     return (
-      <AudioControlGroup label="Volume Envelope">
+      <AudioControlGroup label="Filter Envelope">
         <Slider
           label="A"
           defaultValue={0}
           min={0}
           max={10}
           step={0.1}
-          vertical
           onChange={envelope::envelope.setAttack}
         />
 
@@ -29,17 +28,15 @@ export default class VolumeEnvelope extends Component {
           min={0}
           max={10}
           step={0.1}
-          vertical
           onChange={envelope::envelope.setDecay}
         />
 
         <Slider
           label="S"
-          defaultValue={1}
+          defaultValue={800}
           min={0}
-          max={1}
-          step={0.001}
-          vertical
+          max={5000}
+          step={0.1}
           onChange={envelope::envelope.setSustain}
         />
 
@@ -49,7 +46,6 @@ export default class VolumeEnvelope extends Component {
           min={0}
           max={10}
           step={0.1}
-          vertical
           onChange={envelope::envelope.setRelease}
         />
       </AudioControlGroup>

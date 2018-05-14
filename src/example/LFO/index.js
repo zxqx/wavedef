@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash.get';
-import AudioControlGroup from './AudioControlGroup';
-import Dropdown from './Dropdown';
-import WaveSelector from './WaveSelector';
-import Slider from './Slider';
+import AudioControlGroup from '../common/AudioControlGroup';
+import Dropdown from '../common/Dropdown';
+import WaveSelector from '../common/WaveSelector';
+import Slider from '../common/Slider';
 
 export default class LFO extends Component {
   static propTypes = {

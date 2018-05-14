@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AudioControlGroup from './AudioControlGroup';
-import WaveSelector from './WaveSelector';
-import Slider from './Slider';
+import AudioControlGroup from '../common/AudioControlGroup';
+import WaveSelector from '../common/WaveSelector';
+import Slider from '../common/Slider';
 
 export default class Oscillator extends Component {
   static propTypes = {
