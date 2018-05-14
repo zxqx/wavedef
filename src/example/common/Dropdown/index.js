@@ -9,6 +9,11 @@ export default class Dropdown extends Component {
     defaultValue: PropTypes.number.isRequired,
     options: PropTypes.array.isRequired, // eslint-disable-line
     onChange: PropTypes.func.isRequired,
+    renderOption: PropTypes.func,
+  }
+
+  static defaultProps = {
+    renderOption: null,
   }
 
   componentDidMount() {
@@ -23,6 +28,7 @@ export default class Dropdown extends Component {
       defaultValue,
       options,
       onChange,
+      renderOption,
     } = this.props;
 
     return (
@@ -40,7 +46,7 @@ export default class Dropdown extends Component {
                 key={option.path}
                 value={index}
               >
-                {`${option.context.name} ${option.label}`}
+                {renderOption ? renderOption(option) : option.label}
               </Select.Option>
             ))}
           </Select>

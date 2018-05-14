@@ -25,6 +25,7 @@ export default class LFO extends Component {
             const { context, path } = params[paramIndex];
             lfo.modulateOne(get(context, path));
           }}
+          renderOption={option => `${option.context.name} ${option.label}`}
         />
 
         <WaveSelector
