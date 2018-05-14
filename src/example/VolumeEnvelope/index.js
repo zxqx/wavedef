@@ -5,7 +5,13 @@ import Slider from '../common/Slider';
 
 export default class VolumeEnvelope extends Component {
   static propTypes = {
-    envelope: PropTypes.object.isRequired, // eslint-disable-line
+    envelope: PropTypes.shape({
+      attack: PropTypes.number,
+      decay: PropTypes.number,
+      sustain: PropTypes.number,
+      release: PropTypes.number,
+      destination: PropTypes.object.isRequired, // eslint-disable-line
+    }).isRequired,
   }
 
   render() {

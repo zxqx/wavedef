@@ -7,7 +7,13 @@ export default class Dropdown extends Component {
   static propTypes = {
     label: PropTypes.string.isRequired,
     defaultValue: PropTypes.number.isRequired,
-    options: PropTypes.array.isRequired, // eslint-disable-line
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        context: PropTypes.object.isRequired, // eslint-disable-line
+        label: PropTypes.string.isRequired,
+        path: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
     onChange: PropTypes.func.isRequired,
     renderOption: PropTypes.func,
   }

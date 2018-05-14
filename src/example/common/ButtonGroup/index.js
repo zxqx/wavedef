@@ -11,7 +11,15 @@ export default class ButtonGroup extends Component {
     ]).isRequired,
     defaultValue: PropTypes.string.isRequired,
     className: PropTypes.string,
-    options: PropTypes.array.isRequired, // eslint-disable-line
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.node,
+        ]).isRequired,
+        value: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
     onChange: PropTypes.func.isRequired,
   }
 
