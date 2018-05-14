@@ -37,9 +37,6 @@ export default class App extends Component {
         <Row type="flex">
           <Col span={5}>
             <Oscillator oscillator={osc} />
-          </Col>
-
-          <Col span={5}>
             <Filter filter={filter} />
           </Col>
 
