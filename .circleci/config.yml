@@ -9,8 +9,3 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: wavedef
