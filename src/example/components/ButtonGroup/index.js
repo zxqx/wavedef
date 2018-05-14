@@ -5,10 +5,18 @@ import './ButtonGroup.css';
 
 export default class ButtonGroup extends Component {
   static propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node,
+    ]).isRequired,
     defaultValue: PropTypes.string.isRequired,
+    className: PropTypes.string,
     options: PropTypes.array.isRequired, // eslint-disable-line
     onChange: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    className: '',
   }
 
   componentDidMount() {
@@ -22,11 +30,12 @@ export default class ButtonGroup extends Component {
       label,
       defaultValue,
       options,
+      className,
       onChange,
     } = this.props;
 
     return (
-      <div className="button-group">
+      <div className={`button-group ${className}`}>
         <Form.Item
           label={label}
           colon={false}

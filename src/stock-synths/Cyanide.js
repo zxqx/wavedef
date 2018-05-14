@@ -19,7 +19,7 @@ export default class Cyanide {
     this.filter = new Filter();
     this.lfo = new LFO();
 
-    this.computerKeyboard = new ComputerKeyboard(3);
+    this.computerKeyboard = new ComputerKeyboard(2);
     this.midiController = new MIDIController();
 
     const {
