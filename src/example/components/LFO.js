@@ -16,10 +16,10 @@ export default class LFO extends Component {
     const { lfo, params } = this.props;
 
     return (
-      <AudioControlGroup label="LFO">
+      <AudioControlGroup label={lfo.name}>
         <Dropdown
           label="Destination"
-          defaultValue={1}
+          defaultValue={0}
           options={params}
           onChange={(paramIndex) => {
             const { context, path } = params[paramIndex];

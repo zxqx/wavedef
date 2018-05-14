@@ -14,7 +14,7 @@ export default class Oscillator extends Component {
     const { oscillator, mixerChannel } = this.props;
 
     return (
-      <AudioControlGroup label="Oscillator">
+      <AudioControlGroup label={oscillator.name}>
         <WaveSelector
           defaultValue="sawtooth"
           onChange={oscillator::oscillator.setWaveformType}

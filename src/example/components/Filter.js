@@ -12,7 +12,7 @@ export default class Filter extends Component {
     const { filter } = this.props;
 
     return (
-      <AudioControlGroup label="Filter">
+      <AudioControlGroup label={filter.name}>
         <Slider
           label="Cutoff"
           defaultValue={350}

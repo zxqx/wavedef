@@ -18,7 +18,8 @@ export default class App extends Component {
       synth,
       osc,
       filter,
-      lfo,
+      lfo1,
+      lfo2,
       mixer,
       volumeEnvelope,
     } = cyanide;
@@ -28,7 +29,7 @@ export default class App extends Component {
     return (
       <div className="app">
         <Row type="flex" justify="center">
-          <Col span={19}>
+          <Col span={23}>
             <h1>wavedef</h1>
           </Col>
         </Row>
@@ -41,7 +42,7 @@ export default class App extends Component {
             />
           </Col>
 
-          <Col span={5}>
+          <Col span={4}>
             <Filter filter={filter} />
           </Col>
 
@@ -50,12 +51,22 @@ export default class App extends Component {
           </Col>
 
           <Col span={5}>
-            <LFO lfo={lfo} params={params} />
+            <LFO
+              lfo={lfo1}
+              params={params.filter(param => param.context !== lfo1)}
+            />
+          </Col>
+
+          <Col span={5}>
+            <LFO
+              lfo={lfo2}
+              params={params.filter(param => param.context !== lfo2)}
+            />
           </Col>
         </Row>
 
         <Row type="flex" justify="center">
-          <Col span={19}>
+          <Col span={23}>
             <Keyboard
               octaves={7}
               startingOctave={1}

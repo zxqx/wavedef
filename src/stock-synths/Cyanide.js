@@ -17,7 +17,8 @@ export default class Cyanide {
     this.vca = new VCA();
     this.volumeEnvelope = new Envelope();
     this.filter = new Filter();
-    this.lfo = new LFO();
+    this.lfo1 = new LFO('LFO 1');
+    this.lfo2 = new LFO('LFO 2');
 
     this.computerKeyboard = new ComputerKeyboard(2);
     this.midiController = new MIDIController();
@@ -29,12 +30,17 @@ export default class Cyanide {
       vca,
       volumeEnvelope,
       filter,
+      lfo1,
+      lfo2,
       computerKeyboard,
       midiController,
     } = this;
 
     synth.connect(osc).to(mixer.channel(1));
     synth.connect(mixer).to(vca).to(filter).output();
+
+    synth.addModule(lfo1);
+    synth.addModule(lfo2);
 
     volumeEnvelope.modulate(vca::param('gain'));
 
