@@ -40,7 +40,7 @@ export default class Dropdown extends Component {
                 key={option.path}
                 value={index}
               >
-                {option.context.name} {option.label}
+                {`${option.context.name} ${option.label}`}
               </Select.Option>
             ))}
           </Select>

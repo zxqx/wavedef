@@ -1,6 +1,9 @@
 ## Roadmap
 
 ## 1.0
++ Redux
+  - State changes dispatched thru actions
+  - Redux side effects update web audio state
 + LFO
   - Add None value
   - Fix LFO keeping value after changing option
@@ -35,5 +38,6 @@
 + Polyphony mode
 + Multi-Tap Delay
 + Mod Matrix
++ Physics controller
 + Share patch
 + Synth creation/persistence
