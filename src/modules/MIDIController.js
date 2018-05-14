@@ -2,24 +2,13 @@ import noteToFrequency from 'note-to-frequency';
 
 const notes = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-function translateMIDIDataToObject(midiData) {
-  const noteOnOff = midiData[0];
-  const notePitch = midiData[1];
-  const noteVelocity = midiData[2];
-
-  const midiDataObject = {};
-
-  if (noteOnOff >= 128 && noteOnOff <= 143) {
-    midiDataObject.on = false;
-  } else if (noteOnOff >= 144 && noteOnOff <= 159) {
-    midiDataObject.on = true;
-  }
-
-  midiDataObject.octave = Math.floor(notePitch / 12);
-  midiDataObject.note = notes[notePitch % 12];
-  midiDataObject.velocity = noteVelocity;
-
-  return midiDataObject;
+function translateMIDIDataToObject([onOff, pitch, velocity]) {
+  return {
+    on: onOff >= 144 && onOff <= 159,
+    octave: Math.floor(pitch / 12),
+    note: notes[pitch % 12],
+    velocity,
+  };
 }
 
 export default class MIDI {
@@ -30,9 +19,17 @@ export default class MIDI {
     this.onPressCallbacks = null;
     this.onReleaseCallbacks = null;
 
+    this.requestMIDIAccess();
+  }
+
+  async requestMIDIAccess() {
     if (navigator.requestMIDIAccess) {
-      navigator.requestMIDIAccess()
-        .then(this::this.onMIDISuccess, this::this.onMIDIFailure);
+      try {
+        const midiAccess = await navigator.requestMIDIAccess();
+        this.onMIDISuccess(midiAccess);
+      } catch (e) {
+        this.onMIDIFailure(e);
+      }
     }
   }
 
@@ -41,16 +38,15 @@ export default class MIDI {
     this.inputs = midiAccess.inputs;
     this.outputs = midiAccess.outputs;
 
-    midiAccess.onstatechange = () => {
-      // handle state change
-      console.log('MIDI success'); // eslint-disable-line
-    };
+    // TODO - communicate state change to user
+    midiAccess.onstatechange = () => {};
 
     setTimeout(this::this.testOutputs, 500);
   }
 
-  onMIDIFailure() {
-    console.log(this, 'handle midi failure'); // eslint-disable-line
+  // eslint-disable-next-line
+  onMIDIFailure(error) {
+    // TODO - handle midi failure
   }
 
   triggerOnPress(callbacks) {
@@ -65,6 +61,7 @@ export default class MIDI {
     this.inputs.forEach((port) => {
       port.onmidimessage = this::this.onMidiIn;
     });
+
     setTimeout(this::this.stopInputs, 5000);
   }
 
@@ -84,6 +81,7 @@ export default class MIDI {
       const freq = noteToFrequency(midiDataObject.note + midiDataObject.octave);
       return this.onPressCallbacks.forEach(callback => callback(freq));
     }
+
     if (!midiDataObject.on && this.onReleaseCallbacks) {
       const freq = noteToFrequency(midiDataObject.note + midiDataObject.octave);
       return this.onReleaseCallbacks.forEach(callback => callback(freq));
@@ -92,8 +90,9 @@ export default class MIDI {
     return false;
   }
 
+  // eslint-disable-next-line
   stopInputs() {
-    console.log(this, 'handle stop inputs'); // eslint-disable-line
+    // TODO - Handle stop inputs
   }
 
   stopOutputs() {

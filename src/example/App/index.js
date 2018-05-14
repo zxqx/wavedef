@@ -3,8 +3,9 @@ import { Row, Col } from 'antd';
 import Cyanide from '../../stock-synths/Cyanide';
 import Oscillator from '../components/Oscillator';
 import Filter from '../components/Filter';
-import LFO from '../components/LFO';
 import VolumeEnvelope from '../components/VolumeEnvelope';
+import LFO from '../components/LFO';
+import Delay from '../components/Delay';
 import Keyboard from '../components/Keyboard';
 import './App.css';
 
@@ -18,6 +19,7 @@ export default class App extends Component {
       filter,
       lfo1,
       lfo2,
+      delay,
       mixer,
       volumeEnvelope,
     } = cyanide;
@@ -38,9 +40,7 @@ export default class App extends Component {
               oscillator={osc}
               mixerChannel={mixer.channel(1)}
             />
-          </Col>
 
-          <Col span={4}>
             <Filter filter={filter} />
           </Col>
 
@@ -60,6 +60,10 @@ export default class App extends Component {
               lfo={lfo2}
               params={params.filter(param => param.context !== lfo2)}
             />
+          </Col>
+
+          <Col span={4}>
+            <Delay delay={delay} />
           </Col>
         </Row>
 

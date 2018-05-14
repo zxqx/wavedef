@@ -5,6 +5,7 @@ import VCA from '../modules/VCA';
 import Envelope from '../modules/Envelope';
 import Filter from '../modules/Filter';
 import LFO from '../modules/LFO';
+import Delay from '../modules/Delay';
 import ComputerKeyboard from '../modules/ComputerKeyboard';
 import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
@@ -19,6 +20,7 @@ export default class Cyanide {
     this.filter = new Filter();
     this.lfo1 = new LFO('LFO 1');
     this.lfo2 = new LFO('LFO 2');
+    this.delay = new Delay();
 
     this.computerKeyboard = new ComputerKeyboard(2);
     this.midiController = new MIDIController();
@@ -32,12 +34,19 @@ export default class Cyanide {
       filter,
       lfo1,
       lfo2,
+      delay,
       computerKeyboard,
       midiController,
     } = this;
 
     synth.connect(osc).to(mixer.channel(1));
-    synth.connect(mixer).to(vca).to(filter).output();
+
+    synth
+      .connect(mixer)
+      .to(vca)
+      .to(filter)
+      .to(delay)
+      .output();
 
     synth.addModule(lfo1);
     synth.addModule(lfo2);
