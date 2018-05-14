@@ -10,6 +10,7 @@
   - grid recording
 + Envelope
   - handle start value
+  - modulate internal gain node?
 + Sync computer keyboard with on-screen keyboard
 + 4 Stock Synths
   - configured and designed
