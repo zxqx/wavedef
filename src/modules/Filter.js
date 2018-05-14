@@ -1,9 +1,9 @@
 import ctx from 'audio-context';
 
 export default class Filter {
-  constructor(name) {
+  constructor(name = 'Filter') {
+    this.name = name;
     this.node = ctx().createBiquadFilter();
-    this.name = name || 'Filter';
   }
 
   getParams() {

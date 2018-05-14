@@ -2,15 +2,14 @@ import Oscillator from './Oscillator';
 import Gain from './Gain';
 
 export default class LFO {
-  constructor(name) {
+  constructor(name = 'LFO') {
+    this.name = name;
     this.osc = new Oscillator();
     this.gain = new Gain();
-    this.name = name || 'LFO';
 
     const { osc, gain } = this;
 
     gain.setGain(1);
-
     osc.node.connect(gain.node);
   }
 
