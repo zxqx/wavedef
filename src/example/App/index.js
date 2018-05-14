@@ -56,7 +56,7 @@ export default class App extends Component {
         <Row>
           <Col>
             <Keyboard
-              octaves={7}
+              octaves={5}
               startingOctave={1}
               onKeypress={[
                 value => osc.setFrequency(value),
