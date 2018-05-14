@@ -29,13 +29,17 @@ export default class App extends Component {
     return (
       <div className="app">
         <Row type="flex" justify="center">
-          <Col span={23}>
+          <Col span={24}>
             <h1>wavedef</h1>
           </Col>
         </Row>
 
         <Row type="flex" justify="center">
-          <Col span={5}>
+          <Col
+            xs={24}
+            md={8}
+            xl={5}
+          >
             <Oscillator
               oscillator={osc}
               mixerChannel={mixer.channel(1)}
@@ -44,31 +48,47 @@ export default class App extends Component {
             <Filter filter={filter} />
           </Col>
 
-          <Col span={4}>
+          <Col
+            xs={24}
+            md={8}
+            xl={5}
+          >
             <VolumeEnvelope envelope={volumeEnvelope} />
           </Col>
 
-          <Col span={5}>
+          <Col
+            xs={24}
+            md={8}
+            xl={5}
+          >
             <LFO
               lfo={lfo1}
               params={params.filter(param => param.context !== lfo1)}
             />
           </Col>
 
-          <Col span={5}>
+          <Col
+            xs={24}
+            md={8}
+            xl={5}
+          >
             <LFO
               lfo={lfo2}
               params={params.filter(param => param.context !== lfo2)}
             />
           </Col>
 
-          <Col span={4}>
+          <Col
+            xs={24}
+            md={8}
+            xl={4}
+          >
             <Delay delay={delay} />
           </Col>
         </Row>
 
         <Row type="flex" justify="center">
-          <Col span={23}>
+          <Col span={24}>
             <Keyboard
               octaves={7}
               startingOctave={1}
