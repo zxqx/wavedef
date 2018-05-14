@@ -4,8 +4,11 @@ import flatten from 'lodash.flatten';
 const startEvents = [
   'load',
   'keydown',
+  'keyup',
+  'keypress',
   'mousemove',
   'mousedown',
+  'mouseup',
 ];
 
 /**

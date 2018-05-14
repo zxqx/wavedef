@@ -10,8 +10,6 @@ import './App.css';
 
 const cyanide = new Cyanide();
 
-console.log(cyanide); // eslint-disable-line
-
 export default class App extends Component {
   render() {
     const {
