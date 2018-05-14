@@ -84,7 +84,7 @@ export default class Envelope {
     this.destination.linearRampToValueAtTime(1, ctx().currentTime + this.attack);
     this.destination.linearRampToValueAtTime(
       this.sustain,
-      ctx().currentTime + this.decay,
+      ctx().currentTime + this.attack + this.decay,
     );
 
     return this;
