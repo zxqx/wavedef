@@ -30,3 +30,28 @@
 .ant-tooltip-inner {
   font-family: 'Francois One', monospace;
 }
+
+.vertical-slider .ant-form-item {
+  float: left;
+  margin-right: 1.5rem;
+}
+
+.ant-slider-vertical {
+  margin: 0;
+  padding: 0;
+  height: 150px;
+}
+
+.vertical-slider .ant-form-item-label {
+  margin-bottom: 0.5rem;
+}
+
+.ant-slider-vertical .ant-slider-step {
+  width: 8.4px;
+}
+
+.ant-slider-vertical .ant-slider-handle {
+  margin-left: -8px;
+  width: 24px;
+  height: 12px;
+}

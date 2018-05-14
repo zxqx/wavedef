@@ -40,7 +40,7 @@ export default class App extends Component {
             <Filter filter={filter} />
           </Col>
 
-          <Col span={5}>
+          <Col span={4}>
             <VolumeEnvelope envelope={volumeEnvelope} />
           </Col>
 
@@ -56,7 +56,7 @@ export default class App extends Component {
         <Row>
           <Col>
             <Keyboard
-              octaves={5}
+              octaves={4}
               startingOctave={1}
               onKeypress={[
                 value => osc.setFrequency(value),

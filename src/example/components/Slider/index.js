@@ -11,11 +11,13 @@ export default class Slider extends Component {
     max: PropTypes.number.isRequired,
     step: PropTypes.number.isRequired,
     vertical: PropTypes.bool,
+    className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     vertical: false,
+    className: '',
   }
 
   componentDidMount() {
@@ -28,6 +30,7 @@ export default class Slider extends Component {
     const {
       label,
       defaultValue,
+      className,
       min,
       max,
       step,
@@ -36,7 +39,7 @@ export default class Slider extends Component {
     } = this.props;
 
     return (
-      <div className="slider">
+      <div className={`slider ${vertical ? 'vertical-slider' : ''} ${className}`}>
         <Form.Item
           label={label}
           colon={false}

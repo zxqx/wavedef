@@ -19,6 +19,7 @@ export default class VolumeEnvelope extends Component {
           min={0}
           max={10}
           step={0.1}
+          vertical
           onChange={envelope::envelope.setAttack}
         />
 
@@ -28,6 +29,7 @@ export default class VolumeEnvelope extends Component {
           min={0}
           max={10}
           step={0.1}
+          vertical
           onChange={envelope::envelope.setDecay}
         />
 
@@ -37,6 +39,7 @@ export default class VolumeEnvelope extends Component {
           min={0}
           max={1}
           step={0.001}
+          vertical
           onChange={envelope::envelope.setSustain}
         />
 
@@ -46,6 +49,7 @@ export default class VolumeEnvelope extends Component {
           min={0}
           max={10}
           step={0.1}
+          vertical
           onChange={envelope::envelope.setRelease}
         />
       </AudioControlGroup>
