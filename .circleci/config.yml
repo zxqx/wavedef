@@ -4,6 +4,7 @@ machine:
     version: 8.9.4
 jobs:
   build:
+    machine: true
     steps:
       - checkout
       - run: npm install
