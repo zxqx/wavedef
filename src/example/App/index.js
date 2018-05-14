@@ -4,7 +4,6 @@ import Cyanide from '../../stock-synths/Cyanide';
 import Oscillator from '../components/Oscillator';
 import Filter from '../components/Filter';
 import LFO from '../components/LFO';
-import Mixer from '../components/Mixer';
 import VolumeEnvelope from '../components/VolumeEnvelope';
 import Keyboard from '../components/Keyboard';
 import './App.css';
@@ -28,15 +27,21 @@ export default class App extends Component {
 
     return (
       <div className="app">
-        <Row>
-          <Col>
+        <Row type="flex" justify="center">
+          <Col span={19}>
             <h1>wavedef</h1>
           </Col>
         </Row>
 
-        <Row type="flex">
+        <Row type="flex" justify="center">
           <Col span={5}>
-            <Oscillator oscillator={osc} />
+            <Oscillator
+              oscillator={osc}
+              mixerChannel={mixer.channel(1)}
+            />
+          </Col>
+
+          <Col span={5}>
             <Filter filter={filter} />
           </Col>
 
@@ -47,16 +52,12 @@ export default class App extends Component {
           <Col span={5}>
             <LFO lfo={lfo} params={params} />
           </Col>
-
-          <Col span={4}>
-            <Mixer mixer={mixer} />
-          </Col>
         </Row>
 
-        <Row>
-          <Col>
+        <Row type="flex" justify="center">
+          <Col span={19}>
             <Keyboard
-              octaves={4}
+              octaves={7}
               startingOctave={1}
               onKeypress={[
                 value => osc.setFrequency(value),
