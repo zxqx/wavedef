@@ -5,7 +5,10 @@ import './AudioControlGroup.css';
 
 export default class AudioControlGroup extends Component {
   static propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node,
+    ]).isRequired,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,

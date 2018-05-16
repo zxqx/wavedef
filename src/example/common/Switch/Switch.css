@@ -1,0 +1,41 @@
+.ant-switch {
+  margin-top: 6px;
+  padding: 1px 3px;
+  float: right;
+  min-width: 60px;
+  height: 23px;
+  font-family: 'Francois One', monospace;
+  text-transform: uppercase;
+  background: #666;
+  border-radius: 4px;
+  zoom: 0.9;
+}
+
+.ant-switch-checked {
+  background: #8500FF;
+}
+
+.ant-switch:after {
+  top: -1px;
+  margin-left: -2px;
+  width: 28px;
+  height: 23px;
+  background: #333;
+  color: #aaa;
+  border-radius: 4px 0 0 4px;
+}
+
+.ant-switch-checked:after {
+  margin-left: -27px;
+  background: #5d00b3;
+  border-radius: 0 4px 4px 0;
+}
+
+.ant-switch-inner {
+  margin-left: 34px;
+  font-size: 12px;
+}
+
+.ant-switch-checked .ant-switch-inner {
+  margin-left: 5px;
+}

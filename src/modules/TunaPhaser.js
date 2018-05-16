@@ -30,6 +30,6 @@ export default class TunaPhaser {
   }
 
   setBypass(bypass) {
-    this.node.bypass = bypass;
+    this.node.bypass = bypass ? 1 : 0;
   }
 }

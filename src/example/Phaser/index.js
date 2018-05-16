@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import AudioControlGroup from '../common/AudioControlGroup';
+import Switch from '../common/Switch';
 import Slider from '../common/Slider';
 
 export default class Phaser extends Component {
@@ -12,7 +13,18 @@ export default class Phaser extends Component {
     const { phaser } = this.props;
 
     return (
-      <AudioControlGroup label={phaser.name}>
+      <AudioControlGroup
+        label={
+          <Fragment>
+            {phaser.name}
+            <Switch
+              defaultValue={false}
+              onChange={value => phaser.setBypass(!value)}
+            />
+          </Fragment>
+        }
+      >
+
         <Slider
           label="Rate"
           defaultValue={1.2}
@@ -56,15 +68,6 @@ export default class Phaser extends Component {
           max={1500}
           step={1}
           onChange={phaser::phaser.setBaseModulationFrequency}
-        />
-
-        <Slider
-          label="Bypass"
-          defaultValue={0}
-          min={0}
-          max={1}
-          step={1}
-          onChange={phaser::phaser.setBypass}
         />
       </AudioControlGroup>
     );

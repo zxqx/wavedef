@@ -44,38 +44,3 @@ body, h1, h2, h3, h4, h5, h6, label {
   width: 16px;
   margin-top: -2px;
 }
-
-.bootstrap-switch {
-  border: none;
-}
-
-.bootstrap-switch.bootstrap-switch-focused {
-  box-shadow: none;
-}
-
-.bootstrap-switch .bootstrap-switch-label {
-  background: #8500FF;
-}
-
-.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
-  background: #666;
-}
-
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
-.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
-  background: #5d00b3;
-}
-
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default {
-  background: #333;
-  color: #fff;
-}
-
-.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
-  background: #333;
-  color: #aaa;
-}
-
-.bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container {
-  transition: margin-left 0.03s;
-}

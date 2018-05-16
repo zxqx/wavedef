@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import AudioControlGroup from '../common/AudioControlGroup';
+import Switch from '../common/Switch';
 import Slider from '../common/Slider';
 
 export default class Overdrive extends Component {
@@ -12,7 +13,17 @@ export default class Overdrive extends Component {
     const { overdrive } = this.props;
 
     return (
-      <AudioControlGroup label={overdrive.name}>
+      <AudioControlGroup
+        label={
+          <Fragment>
+            {overdrive.name}
+            <Switch
+              defaultValue={false}
+              onChange={value => overdrive.setBypass(!value)}
+            />
+          </Fragment>
+        }
+      >
         <Slider
           label="Output Gain"
           defaultValue={0.8}
@@ -47,15 +58,6 @@ export default class Overdrive extends Component {
           max={5}
           step={1}
           onChange={overdrive::overdrive.setAlgorithmIndex}
-        />
-
-        <Slider
-          label="Bypass"
-          defaultValue={0}
-          min={0}
-          max={1}
-          step={1}
-          onChange={overdrive::overdrive.setBypass}
         />
       </AudioControlGroup>
     );

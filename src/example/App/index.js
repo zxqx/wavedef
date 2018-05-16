@@ -88,8 +88,8 @@ export default class App extends Component {
             md={8}
             xl={4}
           >
-            <Delay delay={delay} />
             <Phaser phaser={phaser} />
+            <Delay delay={delay} />
           </Col>
         </Row>
 
