@@ -7,15 +7,11 @@ export default class Filter {
   }
 
   getParams() {
-    const frequency = this.getFrequency();
-
     return [
       {
         label: 'Frequency',
         context: this,
         path: 'node.frequency',
-        min: frequency,
-        max: (frequency + 100) * 2,
       },
       {
         label: 'Resonance',

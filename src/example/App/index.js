@@ -5,6 +5,8 @@ import Oscillator from '../Oscillator';
 import Filter from '../Filter';
 import VolumeEnvelope from '../VolumeEnvelope';
 import LFO from '../LFO';
+import Overdrive from '../Overdrive';
+import Phaser from '../Phaser';
 import Delay from '../Delay';
 import Keyboard from '../common/Keyboard';
 import './App.css';
@@ -19,6 +21,8 @@ export default class App extends Component {
       filter,
       lfo1,
       lfo2,
+      overdrive,
+      phaser,
       delay,
       mixer,
       volumeEnvelope,
@@ -46,13 +50,6 @@ export default class App extends Component {
             />
 
             <Filter filter={filter} />
-          </Col>
-
-          <Col
-            xs={24}
-            md={8}
-            xl={5}
-          >
             <VolumeEnvelope envelope={volumeEnvelope} />
           </Col>
 
@@ -81,9 +78,18 @@ export default class App extends Component {
           <Col
             xs={24}
             md={8}
+            xl={5}
+          >
+            <Overdrive overdrive={overdrive} />
+          </Col>
+
+          <Col
+            xs={24}
+            md={8}
             xl={4}
           >
             <Delay delay={delay} />
+            <Phaser phaser={phaser} />
           </Col>
         </Row>
 

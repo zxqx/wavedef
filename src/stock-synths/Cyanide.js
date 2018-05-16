@@ -5,6 +5,8 @@ import VCA from '../modules/VCA';
 import Envelope from '../modules/Envelope';
 import Filter from '../modules/Filter';
 import LFO from '../modules/LFO';
+import Phaser from '../modules/TunaPhaser';
+import Overdrive from '../modules/TunaOverdrive';
 import Delay from '../modules/Delay';
 import ComputerKeyboard from '../modules/ComputerKeyboard';
 import MIDIController from '../modules/MIDIController';
@@ -20,6 +22,8 @@ export default class Cyanide {
     this.filter = new Filter();
     this.lfo1 = new LFO('LFO 1');
     this.lfo2 = new LFO('LFO 2');
+    this.overdrive = new Overdrive();
+    this.phaser = new Phaser();
     this.delay = new Delay();
 
     this.computerKeyboard = new ComputerKeyboard(2);
@@ -34,6 +38,8 @@ export default class Cyanide {
       filter,
       lfo1,
       lfo2,
+      overdrive,
+      phaser,
       delay,
       computerKeyboard,
       midiController,
@@ -45,6 +51,8 @@ export default class Cyanide {
       .connect(mixer)
       .to(vca)
       .to(filter)
+      .to(overdrive)
+      .to(phaser)
       .to(delay)
       .output();
 
