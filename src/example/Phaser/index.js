@@ -19,7 +19,7 @@ export default class Phaser extends Component {
             {phaser.name}
             <Switch
               defaultValue={false}
-              onChange={value => phaser.setBypass(!value)}
+              onChange={on => phaser.setBypass(!on)}
             />
           </Fragment>
         }

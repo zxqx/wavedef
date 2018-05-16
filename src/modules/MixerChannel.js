@@ -13,24 +13,14 @@ export default class MixerChannel {
     this.inputNode.connect(this.outputNode);
   }
 
-  /**
-   * Set the gain
-   * @param {number} gain
-   */
   setGain(gain) {
     this.output.setGain(gain);
   }
 
-  /**
-   * Turn on the channel
-   */
   toggleOn() {
     this.input.setGain(1);
   }
 
-  /**
-   * Turn off the channel
-   */
   toggleOff() {
     this.input.setGain(0);
   }

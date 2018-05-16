@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import AudioControlGroup from '../common/AudioControlGroup';
 import WaveSelector from '../common/WaveSelector';
+import Switch from '../common/Switch';
 import Slider from '../common/Slider';
 
 export default class Oscillator extends Component {
@@ -13,11 +14,28 @@ export default class Oscillator extends Component {
     mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
   }
 
+  toggle(on) {
+    const { mixerChannel } = this.props;
+
+    return on ? mixerChannel.toggleOn() : mixerChannel.toggleOff();
+  }
+
   render() {
     const { oscillator, mixerChannel } = this.props;
 
     return (
-      <AudioControlGroup label={oscillator.name}>
+      <AudioControlGroup
+        label={
+          <Fragment>
+            {oscillator.name}
+            <Switch
+              defaultValue
+              onChange={this::this.toggle}
+            />
+          </Fragment>
+        }
+      >
+
         <WaveSelector
           defaultValue="sawtooth"
           onChange={oscillator::oscillator.setWaveformType}

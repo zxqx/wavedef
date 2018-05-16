@@ -19,7 +19,7 @@ export default class Overdrive extends Component {
             {overdrive.name}
             <Switch
               defaultValue={false}
-              onChange={value => overdrive.setBypass(!value)}
+              onChange={on => overdrive.setBypass(!on)}
             />
           </Fragment>
         }
