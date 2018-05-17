@@ -1,10 +1,6 @@
 ## Roadmap
 
 ## 1.0
-+ React-Router
-+ Redux
-  - State changes dispatched thru actions
-  - Redux side effects update web audio state
 + LFO
   - Limit LFO depth to current destination value
     - higher values cause clicking
@@ -22,7 +18,7 @@
 + OscillatorGroup
   - frequency sync
   - create EventManager to subscribe to changes
-+ Port over Chorus, Delay, EQ, Ring Mod
++ Port over Chorus, EQ, Ring Mod
 + MIDI
   - Keep track of all held notes
 

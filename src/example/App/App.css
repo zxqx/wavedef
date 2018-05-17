@@ -1,4 +1,3 @@
-.app > .ant-row > div,
-.app > .ant-row-flex > div {
-  padding: 0.5rem;
+.ant-layout {
+  background: none;
 }

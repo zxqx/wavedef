@@ -1,0 +1,4 @@
+.cyanide > .ant-row > div,
+.cyanide > .ant-row-flex > div {
+  padding: 0.5rem;
+}
