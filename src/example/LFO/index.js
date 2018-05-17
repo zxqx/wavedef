@@ -15,16 +15,26 @@ export default class LFO extends Component {
   getOptions() {
     const { lfo, params } = this.props;
 
-    return params
-      .filter(param => param.context !== lfo)
-      .map(param => ({
-        label: `${param.context.name} ${param.label}`,
-        value: `${param.context.name}.${param.path}`,
-      }));
+    return [
+      {
+        label: 'None',
+        value: 'none',
+      },
+      ...params
+        .filter(param => param.context !== lfo)
+        .map(param => ({
+          label: `${param.context.name} ${param.label}`,
+          value: `${param.context.name}.${param.path}`,
+        })),
+    ];
+  }
+
+  getParamByValue(value) {
+    return this.props.params.find(param => `${param.context.name}.${param.path}` === value);
   }
 
   render() {
-    const { lfo, params } = this.props;
+    const { lfo } = this.props;
 
     const options = this.getOptions();
 
@@ -32,11 +42,15 @@ export default class LFO extends Component {
       <AudioControlGroup label={lfo.name}>
         <Dropdown
           label="Destination"
-          defaultValue={options[0].value}
+          defaultValue={options[1].value}
           options={options}
           onChange={(value) => {
-            const { context, path } = params.find(param => `${param.context.name}.${param.path}` === value);
-            lfo.modulateOne(get(context, path));
+            if (value === 'none') {
+              return lfo.disconnect();
+            }
+
+            const { context, path } = this.getParamByValue(value);
+            return lfo.modulateOne(get(context, path));
           }}
         />
 
