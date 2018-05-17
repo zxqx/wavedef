@@ -34,7 +34,17 @@ $ npm start
 
 ## Test
 
-*add tests*
+Run tests (implicitly re-runs on code changes):
+
+```
+$ npm test
+```
+
+Generate test coverage:
+
+```sh
+$ npm run coverage
+```
 
 ## License
 
