@@ -1,9 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './App';
+import createHistory from 'history/createBrowserHistory';
+import Root from './Root';
 import './index.css';
 
+const history = createHistory();
+
 render(
-  <App />,
+  <Root history={history} />,
   document.getElementById('root'),
 );

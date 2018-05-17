@@ -58,6 +58,7 @@
   "dependencies": {
     "antd": "^3.5.1",
     "audio-context": "^1.0.3",
+    "history": "^4.7.2",
     "lodash.capitalize": "^4.2.1",
     "lodash.flatten": "^4.4.0",
     "lodash.get": "^4.4.2",
@@ -68,6 +69,9 @@
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-prop-types": "^1.0.3",
     "tunajs": "^1.0.1",
     "whatwg-fetch": "2.0.3"
   },
