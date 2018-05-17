@@ -6,10 +6,11 @@
   - State changes dispatched thru actions
   - Redux side effects update web audio state
 + LFO
-  - Add None value
+  - Limit LFO depth to current destination value
+    - higher values cause clicking
+    - normalize depth to 0-127?
   - Fix LFO keeping value after changing option
     - on disconnect reset to slider value
-    - pass whole instance to LFO?
 + Sequencer
   - grid recording
 + Envelope

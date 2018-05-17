@@ -44,6 +44,11 @@ export default class LFO {
     this.gain.node.connect(destination);
   }
 
+  disconnect() {
+    this.gain.node.disconnect(this.destination);
+    this.destination = null;
+  }
+
   setDepth(depth) {
     this.gain.setGain(depth);
   }
