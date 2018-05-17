@@ -82,7 +82,8 @@ export default class Envelope {
     this.destination.cancelScheduledValues(ctx().currentTime);
     this.destination.setValueAtTime(0, ctx().currentTime);
     this.destination.linearRampToValueAtTime(1, ctx().currentTime + this.attack);
-    this.destination.linearRampToValueAtTime(this.sustain,
+    this.destination.linearRampToValueAtTime(
+      this.sustain,
       ctx().currentTime + this.attack + this.decay,
     );
 
