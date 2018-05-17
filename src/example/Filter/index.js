@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import capitalize from 'lodash.capitalize';
 import AudioControlGroup from '../common/AudioControlGroup';
+import Dropdown from '../common/Dropdown';
 import Slider from '../common/Slider';
 
 export default class Filter extends Component {
@@ -8,11 +10,27 @@ export default class Filter extends Component {
     filter: PropTypes.object.isRequired, // eslint-disable-line
   }
 
+  getOptions() {
+    const { filter } = this.props;
+
+    return filter.types.map(type => ({
+      label: capitalize(type),
+      value: type,
+    }));
+  }
+
   render() {
     const { filter } = this.props;
 
     return (
       <AudioControlGroup label={filter.name}>
+        <Dropdown
+          label="Type"
+          defaultValue="lowpass"
+          options={this.getOptions()}
+          onChange={filter::filter.setFilterType}
+        />
+
         <Slider
           label="Cutoff"
           defaultValue={350}
