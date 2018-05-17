@@ -48,8 +48,6 @@ export default class App extends Component {
               oscillator={osc}
               mixerChannel={mixer.channel(1)}
             />
-
-            <Filter filter={filter} />
             <VolumeEnvelope envelope={volumeEnvelope} />
           </Col>
 
@@ -80,6 +78,7 @@ export default class App extends Component {
             md={8}
             xl={5}
           >
+            <Filter filter={filter} />
             <Overdrive overdrive={overdrive} />
           </Col>
 

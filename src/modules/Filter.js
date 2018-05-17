@@ -6,6 +6,14 @@ export default class Filter {
     this.node = ctx().createBiquadFilter();
   }
 
+  types = [
+    'lowpass',
+    'highpass',
+    'bandpass',
+    'notch',
+    'allpass',
+  ]
+
   getParams() {
     return [
       {

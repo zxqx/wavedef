@@ -12,20 +12,32 @@ export default class LFO extends Component {
     params: PropTypes.array.isRequired, // eslint-disable-line
   }
 
+  getOptions() {
+    const { lfo, params } = this.props;
+
+    return params
+      .filter(param => param.context !== lfo)
+      .map(param => ({
+        label: `${param.context.name} ${param.label}`,
+        value: `${param.context.name}.${param.path}`,
+      }));
+  }
+
   render() {
     const { lfo, params } = this.props;
+
+    const options = this.getOptions();
 
     return (
       <AudioControlGroup label={lfo.name}>
         <Dropdown
           label="Destination"
-          defaultValue={0}
-          options={params.filter(param => param.context !== lfo)}
-          onChange={(paramIndex) => {
-            const { context, path } = params[paramIndex];
+          defaultValue={options[0].value}
+          options={options}
+          onChange={(value) => {
+            const { context, path } = params.find(param => `${param.context.name}.${param.path}` === value);
             lfo.modulateOne(get(context, path));
           }}
-          renderOption={option => `${option.context.name} ${option.label}`}
         />
 
         <WaveSelector

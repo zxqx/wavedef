@@ -58,6 +58,7 @@
   "dependencies": {
     "antd": "^3.5.1",
     "audio-context": "^1.0.3",
+    "lodash.capitalize": "^4.2.1",
     "lodash.flatten": "^4.4.0",
     "lodash.get": "^4.4.2",
     "mousetrap": "^1.6.1",
