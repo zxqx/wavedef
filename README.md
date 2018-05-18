@@ -2,7 +2,7 @@
 
 A synthesizer library built on the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
 
-[![Circle CI](https://circleci.com/gh/zakangelle/wavedef/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/wavedef/tree/master) [![Coverage Status](https://coveralls.io/repos/github/zakangelle/wavedef/badge.svg?branch=master)](https://coveralls.io/github/zakangelle/wavedef?branch=master) [![See Demo](https://img.shields.io/badge/see-demo-8500ff.svg)](http://wavedef.com/)
+[![Circle CI](https://circleci.com/gh/zakangelle/wavedef/tree/master.svg?style=shield)](https://circleci.com/gh/zakangelle/wavedef/tree/master) [![Coverage Status](https://coveralls.io/repos/github/zakangelle/wavedef/badge.svg?branch=master&service=github)](https://coveralls.io/github/zakangelle/wavedef?branch=master) [![See Demo](https://img.shields.io/badge/see-demo-8500ff.svg)](http://wavedef.com/)
 
 
 <a href="http://wavedef.com/">
