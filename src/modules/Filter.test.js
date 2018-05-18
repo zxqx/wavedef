@@ -96,4 +96,3 @@ describe('Filter', () => {
     expect(filter.getGain()).toEqual(0.44);
   });
 });
-
