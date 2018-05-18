@@ -8,6 +8,7 @@ import LFO from '../../LFO';
 import Overdrive from '../../Overdrive';
 import Phaser from '../../Phaser';
 import Delay from '../../Delay';
+import Sequencer from '../../Sequencer';
 import Keyboard from '../../common/Keyboard';
 import './CyanidePage.css';
 
@@ -26,12 +27,20 @@ export default class CyanidePage extends Component {
       delay,
       mixer,
       volumeEnvelope,
+      sequencer,
     } = cyanide;
 
     const params = synth.getParams();
 
     return (
       <div className="cyanide">
+        <Row>
+          <Col span={24}>
+            <h2 className="cyanide-header">[cyanide]</h2>
+            <Sequencer sequencer={sequencer} />
+          </Col>
+        </Row>
+
         <Row type="flex" justify="center">
           <Col
             xs={24}

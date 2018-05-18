@@ -59,6 +59,7 @@
   "dependencies": {
     "antd": "^3.5.1",
     "audio-context": "^1.0.3",
+    "classnames": "^2.2.5",
     "history": "^4.7.2",
     "lodash.capitalize": "^4.2.1",
     "lodash.flatten": "^4.4.0",

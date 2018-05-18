@@ -1,5 +1,5 @@
-import Envelope from './index';
 import 'web-audio-test-api';
+import Envelope from './Envelope';
 
 describe('Envelope', () => {
   it('should modulate', () => {
@@ -99,6 +99,45 @@ describe('Envelope', () => {
     envelope.triggerRelease();
 
     ctx.$processTo('00:05.920');
+    expect(envelope.destination.value).toEqual(0);
+  });
+
+  it('should trigger ADSR', () => {
+    const ctx = new AudioContext();
+    const envelope = new Envelope();
+    const node = ctx.createGain();
+
+    envelope
+      .setAttack(0.8)
+      .setDecay(0.2)
+      .setSustain(0.5)
+      .setRelease(4);
+
+    envelope.modulate(node.gain);
+    envelope.trigger();
+
+    ctx.$processTo('00:00.000');
+    expect(envelope.destination.value).toEqual(0);
+
+    ctx.$processTo('00:00.400');
+    expect(envelope.destination.value).toEqual(0.5);
+
+    ctx.$processTo('00:00.800');
+    expect(envelope.destination.value).toEqual(1);
+
+    ctx.$processTo('00:00.900');
+    expect(envelope.destination.value).toEqual(0.75);
+
+    ctx.$processTo('00:01.000');
+    expect(envelope.destination.value).toEqual(0.5);
+
+    ctx.$processTo('00:02.000');
+    expect(envelope.destination.value).toEqual(0.375);
+
+    ctx.$processTo('00:04.000');
+    expect(envelope.destination.value).toEqual(0.125);
+
+    ctx.$processTo('00:05.000');
     expect(envelope.destination.value).toEqual(0);
   });
 });
