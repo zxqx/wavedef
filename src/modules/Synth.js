@@ -22,13 +22,6 @@ export default class Synth {
     startEvents.forEach(event => document.addEventListener(event, () => ctx().resume()));
   }
 
-  getParams() {
-    return flatten(this.modules.map((module) => {
-      const params = module.getParams ? module.getParams() : [];
-      return params;
-    }));
-  }
-
   /**
    * Recursively add modules and their children to the synth
    * @param {instance} module
@@ -120,6 +113,13 @@ export default class Synth {
     this.connecting = null;
 
     return this;
+  }
+
+  getParams() {
+    return flatten(this.modules.map((module) => {
+      const params = module.getParams ? module.getParams() : [];
+      return params;
+    }));
   }
 
   ensureModuleIsAdded(module) {

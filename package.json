@@ -47,7 +47,6 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "^22.4.2",
     "lodash.capitalize": "^4.2.1",
-    "lodash.flatten": "^4.4.0",
     "lodash.get": "^4.4.2",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -70,6 +69,7 @@
   },
   "dependencies": {
     "audio-context": "^1.0.3",
+    "lodash.flatten": "^4.4.0",
     "mousetrap": "^1.6.1",
     "note-to-frequency": "^1.4.1",
     "object-assign": "4.1.1",
