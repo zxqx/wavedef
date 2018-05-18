@@ -64,6 +64,8 @@
 + Sampler
 + Busses
 + Polyphony mode
++ Speech synthesizer
++ Websocket jam sessions
 + Multi-Tap Delay
 + Mod Matrix
 + Physics controller
