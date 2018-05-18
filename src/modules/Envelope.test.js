@@ -59,6 +59,54 @@ describe('Envelope', () => {
     expect(envelope.start).toEqual(441);
   });
 
+  it('should get attack', () => {
+    const envelope = new Envelope();
+
+    envelope.setAttack(0.2);
+
+    expect(envelope.getAttack()).toEqual(0.2);
+  });
+
+  it('should get decay', () => {
+    const envelope = new Envelope();
+
+    envelope.setDecay(0.1);
+
+    expect(envelope.getDecay()).toEqual(0.1);
+  });
+
+  it('should get sustain', () => {
+    const envelope = new Envelope();
+
+    envelope.setSustain(0.8);
+
+    expect(envelope.getSustain()).toEqual(0.8);
+  });
+
+  it('should get release', () => {
+    const envelope = new Envelope();
+
+    envelope.setRelease(1.6);
+
+    expect(envelope.getRelease()).toEqual(1.6);
+  });
+
+  it('should get start', () => {
+    const envelope = new Envelope();
+
+    envelope.setStart(1.5);
+
+    expect(envelope.getStart()).toEqual(1.5);
+  });
+
+  it('should get depth', () => {
+    const envelope = new Envelope();
+
+    envelope.setDepth(420);
+
+    expect(envelope.getDepth()).toEqual(420);
+  });
+
   it('should trigger ADS', () => {
     const ctx = new AudioContext();
     const envelope = new Envelope();
