@@ -1,4 +1,4 @@
-## Roadmap
+# Roadmap
 
 ## 1.0
 + Sequencer
@@ -38,6 +38,14 @@
 + MIDI
   - Keep track of all held notes
 
++ Document all modules
+  - host docs
+
++ UI help screens
+  - Keyboard layout
+
++ Define contribution standards
+
 ## 2.0
 + Port OG modules
   - Kick
@@ -51,9 +59,6 @@
 + User auth
 + Patch persistence
 + More device support
-+ 90% unit test coverage
-+ Contribution rules
-+ Module documentation + hosted docs
 + Percussion Generator
 + Arpeggiator
 + Sampler
