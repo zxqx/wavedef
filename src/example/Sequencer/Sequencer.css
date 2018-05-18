@@ -1,0 +1,86 @@
+.sequencer-bpm {
+  position: absolute;
+  top: 2px;
+  left: 49px;
+}
+
+.sequencer-btn {
+  margin-right: 1rem;
+  padding: 1.5rem 2rem 2.5rem;
+  font-size: 16px;
+  color: #bbb;
+  background: #333;
+  border: none;
+}
+
+.sequencer-btn:hover {
+  background: #444;
+  color: #fff;
+}
+
+.sequencer-btn:focus {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+.sequencer-btn:disabled,
+.sequencer-btn:disabled:hover {
+  background: #2a2a2a;
+  color: #666;
+}
+
+.sequencer-transport-btn {
+  padding: 1.5rem 4rem 3rem;
+}
+
+.sequencer-transport-btn img {
+  width: 22px;
+}
+
+.sequencer-transport-play-btn img {
+  width: 26px;
+}
+
+.sequencer-steps {
+  margin-top: 1rem;
+}
+
+.sequencer-step {
+  transition: color 0.4s;
+}
+
+.sequencer-step:after {
+  content: '';
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 6px;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  display: block;
+  opacity: 1;
+  background: #1a1a1a;
+  border-radius: 100%;
+  animation: none;
+  -webkit-animation: none;
+}
+
+.sequencer-step.sequencer-step-selected {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+.sequencer-step.sequencer-step-selected:after {
+  background: #4bff0094;
+}
+
+.sequencer-step.sequencer-step-active {
+  background: #444;
+  color: #fff;
+}
+
+.sequencer-step.sequencer-step-trigger:after {
+  background: #4bff00;
+}

@@ -67,17 +67,6 @@ export default class Envelope {
     return this.depth;
   }
 
-  trigger() {
-    this.destination.setValueAtTime(this.start, ctx().currentTime);
-    this.destination.linearRampToValueAtTime(
-      this.start + this.depth,
-      ctx().currentTime + this.attack,
-    );
-    this.destination.linearRampToValueAtTime(this.start, ctx().currentTime + this.decay);
-
-    return this;
-  }
-
   triggerADS() {
     this.destination.cancelScheduledValues(ctx().currentTime);
     this.destination.setValueAtTime(0, ctx().currentTime);
@@ -93,6 +82,22 @@ export default class Envelope {
   triggerRelease() {
     this.destination.cancelScheduledValues(ctx().currentTime);
     this.destination.linearRampToValueAtTime(0, ctx().currentTime + this.release);
+
+    return this;
+  }
+
+  trigger() {
+    this.destination.cancelScheduledValues(ctx().currentTime);
+    this.destination.setValueAtTime(0, ctx().currentTime);
+    this.destination.linearRampToValueAtTime(1, ctx().currentTime + this.attack);
+    this.destination.linearRampToValueAtTime(
+      this.sustain,
+      ctx().currentTime + this.attack + this.decay,
+    );
+    this.destination.linearRampToValueAtTime(
+      0,
+      ctx().currentTime + this.attack + this.decay + this.release,
+    );
 
     return this;
   }

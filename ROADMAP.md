@@ -1,28 +1,53 @@
 ## Roadmap
 
 ## 1.0
-+ LFO
-  - Limit LFO depth to current destination value
-    - higher values cause clicking
-    - normalize depth to 0-127?
-  - Fix LFO keeping value after changing option
-    - on disconnect reset to slider value
 + Sequencer
-  - grid recording
+  - Grid recording
+  - Live recording
+
++ Synth
+  - Global settings
+
++ LFO
+  - Normalize depth
+
++ Oscillator Group
+  - Frequency sync
+
++ Keyboard
+  - Add octave +/- buttons
+  - Sync with computer keyboard
+
 + Envelope
-  - handle start value
-  - modulate internal gain node?
-+ Sync computer keyboard with on-screen keyboard
-+ 4 Stock Synths
-  - configured and designed
-+ OscillatorGroup
-  - frequency sync
-  - create EventManager to subscribe to changes
-+ Port over Chorus, EQ, Ring Mod
+  - preserve start value (modulate internal gain node?)
+
++ Stock Synths
+  - Configure and design 3 stock synths
+
++ Port OG modules
+  - Chorus
+  - Convolver
+  - Stereo
+  - FM
+  - Panner
+  - EQ3
+  - Ring Mod
+  - Frequency Analyzer
+  - White Noise
+
 + MIDI
   - Keep track of all held notes
 
 ## 2.0
++ Port OG modules
+  - Kick
+  - Snare
+  - HiHat
+  - Cymbal
+  - Stereo
+  - FM
+  - Panner
+  - EQ3
 + User auth
 + Patch persistence
 + More device support

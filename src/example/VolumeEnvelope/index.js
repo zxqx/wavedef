@@ -51,7 +51,7 @@ export default class VolumeEnvelope extends Component {
 
         <Slider
           label="R"
-          defaultValue={0.5}
+          defaultValue={0.1}
           min={0}
           max={10}
           step={0.1}

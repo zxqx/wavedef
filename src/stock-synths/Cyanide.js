@@ -8,6 +8,7 @@ import LFO from '../modules/LFO';
 import Phaser from '../modules/TunaPhaser';
 import Overdrive from '../modules/TunaOverdrive';
 import Delay from '../modules/Delay';
+import Sequencer from '../modules/Sequencer';
 import ComputerKeyboard from '../modules/ComputerKeyboard';
 import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
@@ -25,6 +26,7 @@ export default class Cyanide {
     this.overdrive = new Overdrive();
     this.phaser = new Phaser();
     this.delay = new Delay();
+    this.sequencer = new Sequencer(90);
 
     this.computerKeyboard = new ComputerKeyboard(2);
     this.midiController = new MIDIController();
@@ -41,6 +43,7 @@ export default class Cyanide {
       overdrive,
       phaser,
       delay,
+      sequencer,
       computerKeyboard,
       midiController,
     } = this;
@@ -58,6 +61,12 @@ export default class Cyanide {
 
     synth.addModule(lfo1);
     synth.addModule(lfo2);
+    synth.addModule(sequencer);
+
+    sequencer.triggerAtStep(1, volumeEnvelope::volumeEnvelope.trigger);
+    sequencer.triggerAtStep(5, volumeEnvelope::volumeEnvelope.trigger);
+    sequencer.triggerAtStep(9, volumeEnvelope::volumeEnvelope.trigger);
+    sequencer.triggerAtStep(13, volumeEnvelope::volumeEnvelope.trigger);
 
     volumeEnvelope.modulate(vca::param('gain'));
 
