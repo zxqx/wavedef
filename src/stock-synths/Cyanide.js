@@ -9,8 +9,7 @@ import Phaser from '../modules/TunaPhaser';
 import Overdrive from '../modules/TunaOverdrive';
 import Delay from '../modules/Delay';
 import Sequencer from '../modules/Sequencer';
-import ComputerKeyboard from '../modules/ComputerKeyboard';
-import MIDIController from '../modules/MIDIController';
+import ComputerKeyboard from '../modules/ComputerKeyboard'; import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
 
 export default class Cyanide {
@@ -63,16 +62,15 @@ export default class Cyanide {
     synth.addModule(lfo2);
     synth.addModule(sequencer);
 
-    sequencer.triggerAtStep(1, volumeEnvelope::volumeEnvelope.trigger);
-    sequencer.triggerAtStep(5, volumeEnvelope::volumeEnvelope.trigger);
-    sequencer.triggerAtStep(9, volumeEnvelope::volumeEnvelope.trigger);
-    sequencer.triggerAtStep(13, volumeEnvelope::volumeEnvelope.trigger);
-
     volumeEnvelope.modulate(vca::param('gain'));
 
     computerKeyboard.triggerOnPress([
       osc::osc.setFrequency,
       volumeEnvelope::volumeEnvelope.triggerADS,
+      freq => sequencer.triggerAtSelectedStep(() => {
+        osc.setFrequency(freq);
+        volumeEnvelope.trigger();
+      }),
     ]);
 
     computerKeyboard.triggerOnRelease([

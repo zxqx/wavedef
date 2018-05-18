@@ -13,6 +13,10 @@
   border: none;
 }
 
+.sequencer-btn:after {
+  border: 0 solid #666;
+}
+
 .sequencer-btn:hover {
   background: #444;
   color: #fff;
@@ -31,14 +35,20 @@
 
 .sequencer-transport-btn {
   padding: 1.5rem 4rem 3rem;
+  color: #fff;
 }
 
 .sequencer-transport-btn img {
   width: 22px;
+  transition: opacity 0.2s;
 }
 
 .sequencer-transport-play-btn img {
-  width: 26px;
+  width: 25px;
+}
+
+.sequencer-btn:disabled img {
+  opacity: 0.285;
 }
 
 .sequencer-steps {
@@ -46,6 +56,7 @@
 }
 
 .sequencer-step {
+  padding-top: 1.75rem;
   transition: color 0.4s;
 }
 
@@ -65,6 +76,7 @@
   border-radius: 100%;
   animation: none;
   -webkit-animation: none;
+  transition: background 0.2s;
 }
 
 .sequencer-step.sequencer-step-selected {
@@ -73,7 +85,11 @@
 }
 
 .sequencer-step.sequencer-step-selected:after {
-  background: #4bff0094;
+  background: #ff005294;
+}
+
+.sequencer-step.sequencer-step-trigger {
+  background: #333;
 }
 
 .sequencer-step.sequencer-step-active {
@@ -81,6 +97,11 @@
   color: #fff;
 }
 
-.sequencer-step.sequencer-step-trigger:after {
+.sequencer-step.sequencer-step-trigger:after,
+.sequencer-step.sequencer-step-trigger.sequencer-step-selected:after {
   background: #4bff00;
+}
+
+.sequencer-step.sequencer-step-trigger:not(.sequencer-step-active) {
+  transition: none;
 }

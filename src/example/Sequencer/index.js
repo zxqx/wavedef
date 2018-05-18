@@ -15,12 +15,13 @@ export default class Sequencer extends Component {
 
   state = {
     playing: false,
-    selectedStep: null,
-    stepTriggers: this.props.sequencer.stepTriggers,
   }
 
   componentDidMount() {
-    this.props.sequencer.trigger(this::this.forceUpdate);
+    const { sequencer } = this.props;
+
+    sequencer.trigger(this::this.forceUpdate);
+    sequencer.onSetTrigger(this::this.forceUpdate);
   }
 
   getSteps() {
@@ -29,9 +30,19 @@ export default class Sequencer extends Component {
     return new Array(sequencer.steps).fill().map((step, index) => index + 1);
   }
 
+  getNumberOfTriggers() {
+    const { sequencer } = this.props;
+
+    return Object.keys(sequencer.stepTriggers)
+      .map(step => sequencer.stepTriggers[step])
+      .filter(trigger => trigger !== null)
+      .length;
+  }
+
   render() {
     const { sequencer } = this.props;
-    const { playing, selectedStep, stepTriggers } = this.state;
+    const { playing } = this.state;
+
     const steps = this.getSteps();
 
     return (
@@ -53,7 +64,7 @@ export default class Sequencer extends Component {
             <h2 className="sequencer-bpm">{sequencer.bpm}</h2>
           </Col>
 
-          <Col span={6} offset={3}>
+          <Col span={9} offset={1}>
             <Button
               className="sequencer-btn sequencer-transport-btn sequencer-transport-play-btn"
               disabled={playing}
@@ -75,6 +86,17 @@ export default class Sequencer extends Component {
             >
               <img src={stopButton} alt="Stop" />
             </Button>
+
+            <Button
+              className="sequencer-btn sequencer-transport-btn"
+              disabled={this.getNumberOfTriggers() === 0}
+              onClick={() => {
+                sequencer.clearPattern();
+                this.forceUpdate();
+              }}
+            >
+              Clear
+            </Button>
           </Col>
         </Row>
 
@@ -87,15 +109,15 @@ export default class Sequencer extends Component {
                   className={classnames({
                     'sequencer-btn': true,
                     'sequencer-step': true,
-                    'sequencer-step-selected': selectedStep === step,
-                    'sequencer-step-active': sequencer.activeStep === step,
-                    'sequencer-step-trigger': stepTriggers[step],
+                    'sequencer-step-selected': sequencer.selectedStep === step,
+                    'sequencer-step-active': sequencer.activeStep === step && playing,
+                    'sequencer-step-trigger': sequencer.stepTriggers[step],
                   })}
-                  onClick={() =>
-                    this.setState({
-                      selectedStep: step,
-                    })
-                  }
+                  onClick={() => {
+                    sequencer.clearTriggerAtStep(step);
+                    sequencer.setSelectedStep(step);
+                    this.forceUpdate();
+                  }}
                 >
                   {step}
                 </Button>

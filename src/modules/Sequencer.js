@@ -6,12 +6,25 @@ export default class Sequencer {
     this.bpm = bpm;
     this.steps = 16;
     this.activeStep = 1;
+    this.selectedStep = null;
     this.stepTriggers = {};
-    this.callbacks = [];
+    this.triggerCallbacks = [];
+    this.onStepSelectCallbacks = [];
+    this.onSetTriggerCallbacks = [];
   }
 
   setBpm(bpm) {
     this.bpm = bpm;
+  }
+
+  setSelectedStep(step) {
+    this.selectedStep = step;
+
+    this.onStepSelectCallbacks.forEach(cb => cb());
+  }
+
+  onStepSelect(callback) {
+    this.onStepSelectCallbacks.push(callback);
   }
 
   getStepInterval() {
@@ -19,7 +32,7 @@ export default class Sequencer {
   }
 
   trigger(callback) {
-    this.callbacks.push(callback);
+    this.triggerCallbacks.push(callback);
   }
 
   triggerStep() {
@@ -29,11 +42,25 @@ export default class Sequencer {
       stepTrigger();
     }
 
-    this.callbacks.forEach(cb => cb());
+    this.triggerCallbacks.forEach(cb => cb());
   }
 
   triggerAtStep(step, callback) {
     this.stepTriggers[step] = callback;
+
+    this.onSetTriggerCallbacks.forEach(cb => cb());
+  }
+
+  clearTriggerAtStep(step) {
+    this.stepTriggers[step] = null;
+  }
+
+  triggerAtSelectedStep(callback) {
+    this.triggerAtStep(this.selectedStep, callback);
+  }
+
+  onSetTrigger(callback) {
+    this.onSetTriggerCallbacks.push(callback);
   }
 
   stop() {
@@ -55,5 +82,10 @@ export default class Sequencer {
 
       this.start();
     }, interval);
+  }
+
+  clearPattern() {
+    this.stepTriggers = {};
+    this.selectedStep = null;
   }
 }
