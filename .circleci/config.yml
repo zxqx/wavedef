@@ -3,9 +3,14 @@ machine:
   node:
     version: 8.9.4
 jobs:
-  build:
+  test:
     machine: true
     steps:
       - checkout
       - run: npm install
+      - run: npm run coverage:report
+  build:
+    machine: true
+    steps:
+      - checkout
       - run: npm run build
