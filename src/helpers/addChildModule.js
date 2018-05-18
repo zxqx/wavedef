@@ -10,7 +10,6 @@ export default function addChildModule(module) {
   if (!Array.isArray(this.children)) {
     this.children = [];
   }
-
   const inputNode = this.inputNode || this.node;
   const outputNode = module.outputNode || module.node;
 
