@@ -7,8 +7,6 @@ export default class TunaOverdrive {
   constructor(name = 'Overdrive') {
     this.name = name;
     this.node = new tuna.Overdrive();
-
-    window.node = this.node;
   }
 
   setOutputGain(outputGain) {
