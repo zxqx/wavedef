@@ -9,7 +9,7 @@ export default class Oscillator {
     this.name = name;
     this.node = ctx().createOscillator();
 
-    this.node.start();
+    this.start();
   }
 
   getParams() {
