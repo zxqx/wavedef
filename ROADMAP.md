@@ -46,7 +46,7 @@
 
 + Define contribution standards
 
-## 2.0
+## Future
 + Port OG modules
   - Kick
   - Snare
