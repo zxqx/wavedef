@@ -2,7 +2,6 @@
   "name": "wavedef",
   "version": "0.1.1",
   "description": "A synthesizer library built on the Web Audio API",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/zakangelle/wavedef.git"
