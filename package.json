@@ -85,13 +85,17 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
+      "src/modules/**/*.{js,jsx,mjs}",
+      "src/helpers/**/*.{js,jsx,mjs}",
+      "src/stock-synths/**/*.{js,jsx,mjs}"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
     "testMatch": [
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+      "<rootDir>/src/modules/**/?(*.)(spec|test).{js,jsx,mjs}",
+      "<rootDir>/src/stock-synths/**/?(*.)(spec|test).{js,jsx,mjs}",
+      "<rootDir>/src/helpers/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
