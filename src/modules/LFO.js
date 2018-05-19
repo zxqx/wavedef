@@ -70,6 +70,6 @@ export default class LFO {
   }
 
   getFrequency() {
-    return this.osc.node.frequency;
+    return this.osc.node.frequency.value;
   }
 }

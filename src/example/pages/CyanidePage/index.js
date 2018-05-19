@@ -8,6 +8,7 @@ import LFO from '../../LFO';
 import Overdrive from '../../Overdrive';
 import Phaser from '../../Phaser';
 import Delay from '../../Delay';
+import Ringmod from '../../Ringmod';
 import Sequencer from '../../Sequencer';
 import Keyboard from '../../common/Keyboard';
 import './CyanidePage.css';
@@ -26,6 +27,7 @@ export default class CyanidePage extends Component {
       phaser,
       delay,
       mixer,
+      ringmod,
       volumeEnvelope,
       sequencer,
     } = cyanide;
@@ -92,6 +94,7 @@ export default class CyanidePage extends Component {
           >
             <Phaser phaser={phaser} />
             <Delay delay={delay} />
+            <Ringmod ringmod={ringmod} />
           </Col>
         </Row>
 
