@@ -4,7 +4,7 @@ import Gain from './Gain';
 export default class Ringmod {
   constructor(name = 'Ringmod') {
     this.name = name;
-    this.ringmod = new LFO();
+    this.lfo = new LFO();
     this.gain = new Gain();
     this.post = new Gain();
     this.input = new Gain();
@@ -15,7 +15,7 @@ export default class Ringmod {
     this.outputNode = this.output.node;
 
     const {
-      ringmod,
+      lfo,
       gain,
       input,
       output,
@@ -33,19 +33,19 @@ export default class Ringmod {
     gain.setGain(0);
     input.setGain(1);
     dry.setGain(1);
-    ringmod.modulate(gain.node.gain);
+    lfo.modulate(gain.node.gain);
   }
 
   setFrequency(frequency) {
-    this.ringmod.setFrequency(frequency);
+    this.lfo.setFrequency(frequency);
   }
 
   setDepth(depth) {
-    this.ringmod.setDepth(depth);
+    this.lfo.setDepth(depth);
   }
 
   setWaveformType(waveform) {
-    this.ringmod.setWaveformType(waveform);
+    this.lfo.setWaveformType(waveform);
   }
 
   setGain(gain) {
