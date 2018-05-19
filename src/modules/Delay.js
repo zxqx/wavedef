@@ -5,17 +5,17 @@ export default class Delay {
   constructor(name = 'Delay') {
     this.name = name;
     this.delay = ctx().createDelay();
-    this.feedback = new Gain();
     this.input = new Gain();
     this.output = new Gain();
+    this.feedback = new Gain();
     this.dry = new Gain();
     this.wet = new Gain();
 
     const {
       delay,
-      feedback,
       dry,
       wet,
+      feedback,
     } = this;
 
     this.inputNode = this.input.node;
@@ -29,10 +29,6 @@ export default class Delay {
     feedback.node.connect(delay);
     delay.connect(wet.node);
     wet.node.connect(this.outputNode);
-
-    this.setDelayTime(0.5);
-    this.setFeedback(0.5);
-    this.setWetDryMix(0.5);
   }
 
   getParams() {
@@ -58,14 +54,6 @@ export default class Delay {
     this.delay.delayTime.value = time;
   }
 
-  getFeedback() {
-    return this.feedback.getGain();
-  }
-
-  getDelayTime() {
-    return this.delay.delayTime.value;
-  }
-
   setBpmSync(bpm, note) {
     this.delay.delayTime.value = (60 / bpm) / note;
   }
@@ -73,5 +61,13 @@ export default class Delay {
   setWetDryMix(value) {
     this.wet.setGain(0 + value);
     this.dry.setGain(1 - value);
+  }
+
+  getFeedback() {
+    return this.feedback.getGain();
+  }
+
+  getDelayTime() {
+    return this.delay.delayTime.value;
   }
 }
