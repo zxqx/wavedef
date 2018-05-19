@@ -72,4 +72,12 @@ export default class LFO {
   getFrequency() {
     return this.osc.node.frequency.value;
   }
+
+  getDepth() {
+    return this.gain.getGain();
+  }
+
+  getWaveformType() {
+    return this.osc.getWaveformType();
+  }
 }
