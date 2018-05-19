@@ -6,6 +6,7 @@ import Slider from '../common/Slider';
 import AudioControlGroup from '../common/AudioControlGroup';
 import playButton from '../assets/transport/play.png';
 import stopButton from '../assets/transport/stop.png';
+import clearButton from '../assets/transport/clear.png';
 import './Sequencer.css';
 
 export default class Sequencer extends Component {
@@ -88,14 +89,14 @@ export default class Sequencer extends Component {
             </Button>
 
             <Button
-              className="sequencer-btn sequencer-transport-btn"
+              className="sequencer-btn sequencer-transport-btn sequencer-transport-clear-btn"
               disabled={this.getNumberOfTriggers() === 0}
               onClick={() => {
                 sequencer.clearPattern();
                 this.forceUpdate();
               }}
             >
-              Clear
+              <img src={clearButton} alt="Clear" />
             </Button>
           </Col>
         </Row>
@@ -112,6 +113,7 @@ export default class Sequencer extends Component {
                     'sequencer-step-selected': sequencer.selectedStep === step,
                     'sequencer-step-active': sequencer.activeStep === step && playing,
                     'sequencer-step-trigger': sequencer.stepTriggers[step],
+                    'sequencer-step-marker': (step - 1) % 4 === 0,
                   })}
                   onClick={() => {
                     sequencer.clearTriggerAtStep(step);

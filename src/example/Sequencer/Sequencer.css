@@ -47,6 +47,10 @@
   width: 25px;
 }
 
+.sequencer-transport-clear-btn img {
+  width: 21px;
+}
+
 .sequencer-btn:disabled img {
   opacity: 0.285;
 }
@@ -104,4 +108,16 @@
 
 .sequencer-step.sequencer-step-trigger:not(.sequencer-step-active) {
   transition: none;
+}
+
+.sequencer-step.sequencer-step-marker:before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  margin-left: -25px;
+  width: 50px;
+  height: 4px;
+  display: block;
+  background: #999;
 }
