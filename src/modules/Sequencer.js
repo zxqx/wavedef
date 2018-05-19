@@ -46,9 +46,10 @@ export default class Sequencer {
   }
 
   triggerAtStep(step, callback) {
-    this.stepTriggers[step] = callback;
-
-    this.onSetTriggerCallbacks.forEach(cb => cb());
+    if (step) {
+      this.stepTriggers[step] = callback;
+      this.onSetTriggerCallbacks.forEach(cb => cb());
+    }
   }
 
   clearTriggerAtStep(step) {
