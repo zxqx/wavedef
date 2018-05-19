@@ -1,48 +1,48 @@
 # Roadmap
 
 ## 1.0
-+ Sequencer
-  - Grid recording
-  - Live recording
-
-+ Synth
-  - Global settings
-
-+ LFO
-  - Normalize depth
-
-+ Oscillator Group
-  - Frequency sync
-
-+ Keyboard
-  - Add octave +/- buttons
-  - Sync with computer keyboard
 
 + Envelope
   - preserve start value (modulate internal gain node?)
 
-+ Stock Synths
-  - Configure and design 3 stock synths
-
 + Port OG modules
   - Chorus
-  - Convolver
-  - Stereo
-  - FM
-  - Panner
-  - EQ3
   - Ring Mod
   - Frequency Analyzer
   - White Noise
 
-+ MIDI
++ Oscillator Group
+  - Frequency sync
+
++ Synth
+  - Global settings
+
++ On-Screen Keyboard
+  - Add octave +/- buttons
+  - Sync with computer keyboard
+
++ LFO
+  - Normalize depth
+
++ MIDI Controller
+  - Improve attack/release tracking
   - Keep track of all held notes
 
++ Sequencer
+  - Live recording
+
++ Stock Synths
+  - Configure and design 3 stock synths
+
 + Document all modules
-  - host docs
+  - Host docs
 
 + UI help screens
-  - Keyboard layout
+  - Press any key
+  - Sequencer how-to
+  - Computer Keyboard layout
+
++ Support Chrome/Firefox/Safari
 
 + Define contribution standards
 
@@ -52,10 +52,11 @@
   - Snare
   - HiHat
   - Cymbal
+  - Convolver
   - Stereo
-  - FM
   - Panner
   - EQ3
+  - FM
 + User auth
 + Patch persistence
 + More device support
