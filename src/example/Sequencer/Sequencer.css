@@ -120,5 +120,6 @@
   width: 50px;
   height: 4px;
   display: block;
-  background: #999;
+  opacity: 1;
+  background: #666;
 }
