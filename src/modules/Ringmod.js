@@ -5,7 +5,6 @@ export default class Ringmod {
   constructor(name = 'Ringmod') {
     this.name = name;
     this.ringmod = new LFO();
-    this.lfo = new LFO();
     this.gain = new Gain();
     this.post = new Gain();
     this.input = new Gain();
@@ -18,7 +17,6 @@ export default class Ringmod {
     const {
       ringmod,
       gain,
-      lfo,
       input,
       output,
       dry,
@@ -36,9 +34,6 @@ export default class Ringmod {
     input.setGain(1);
     dry.setGain(1);
     ringmod.modulate(gain.node.gain);
-    lfo.modulate(ringmod.osc.node.frequency);
-    lfo.setDepth(0);
-    lfo.setFrequency(100);
   }
 
   setFrequency(frequency) {
@@ -55,18 +50,6 @@ export default class Ringmod {
 
   setGain(gain) {
     this.gain.setGain(gain);
-  }
-
-  lfoRate(rate) {
-    this.lfo.setFrequency(rate);
-  }
-
-  lfoDepth(depth) {
-    this.lfo.setDepth(depth);
-  }
-
-  setLfoWaveformType(waveform) {
-    this.lfo.setWaveformType(waveform);
   }
 
   setWetDryMix(value) {
