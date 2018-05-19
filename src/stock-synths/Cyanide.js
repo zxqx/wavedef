@@ -80,6 +80,10 @@ export default class Cyanide {
     midiController.triggerOnPress([
       osc::osc.setFrequency,
       volumeEnvelope::volumeEnvelope.triggerADS,
+      freq => sequencer.triggerAtSelectedStep(() => {
+        osc.setFrequency(freq);
+        volumeEnvelope.trigger();
+      }),
     ]);
 
     midiController.triggerOnRelease([

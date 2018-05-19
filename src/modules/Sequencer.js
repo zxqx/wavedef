@@ -58,6 +58,8 @@ export default class Sequencer {
 
   triggerAtSelectedStep(callback) {
     this.triggerAtStep(this.selectedStep, callback);
+
+    this.selectedStep = null;
   }
 
   onSetTrigger(callback) {
