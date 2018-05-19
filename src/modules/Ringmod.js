@@ -2,7 +2,8 @@ import LFO from './LFO';
 import Gain from './Gain';
 
 export default class Ringmod {
-  constructor() {
+  constructor(name = 'Ringmod') {
+    this.name = name;
     this.ringmod = new LFO();
     this.lfo = new LFO();
     this.gain = new Gain();
