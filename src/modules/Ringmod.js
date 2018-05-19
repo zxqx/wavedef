@@ -1,5 +1,5 @@
-import LFO from './LFO.js';
-import Gain from './Gain.js';
+import LFO from './LFO';
+import Gain from './Gain';
 
 export default class Ringmod {
   constructor() {
@@ -14,7 +14,15 @@ export default class Ringmod {
     this.inputNode = this.input.node;
     this.outputNode = this.output.node;
 
-    const { ringmod, gain, lfo, input, output, dry, post } = this;
+    const {
+      ringmod,
+      gain,
+      lfo,
+      input,
+      output,
+      dry,
+      post,
+    } = this;
 
     input.node.connect(gain.node);
     gain.node.connect(post.node);

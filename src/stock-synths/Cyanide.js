@@ -12,6 +12,7 @@ import Sequencer from '../modules/Sequencer';
 import ComputerKeyboard from '../modules/ComputerKeyboard';
 import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
+import Ringmod from '../modules/Ringmod';
 
 export default class Cyanide {
   constructor() {
@@ -23,6 +24,7 @@ export default class Cyanide {
     this.filter = new Filter();
     this.lfo1 = new LFO('LFO 1');
     this.lfo2 = new LFO('LFO 2');
+    this.ringmod = new Ringmod();
     this.overdrive = new Overdrive();
     this.phaser = new Phaser();
     this.delay = new Delay();
@@ -46,6 +48,7 @@ export default class Cyanide {
       sequencer,
       computerKeyboard,
       midiController,
+      ringmod,
     } = this;
 
     synth.connect(osc).to(mixer.channel(1));
@@ -57,6 +60,7 @@ export default class Cyanide {
       .to(overdrive)
       .to(phaser)
       .to(delay)
+      .to(ringmod)
       .output();
 
     synth.addModule(lfo1);
