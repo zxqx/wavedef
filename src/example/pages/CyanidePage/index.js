@@ -103,6 +103,10 @@ export default class CyanidePage extends Component {
               onKeypress={[
                 value => osc.setFrequency(value),
                 value => volumeEnvelope.triggerADS(value),
+                freq => sequencer.triggerAtSelectedStep(() => {
+                  osc.setFrequency(freq);
+                  volumeEnvelope.trigger();
+                }),
               ]}
               onKeyRelease={[
                 value => volumeEnvelope.triggerRelease(value),

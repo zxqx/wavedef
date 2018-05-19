@@ -9,7 +9,8 @@ import Phaser from '../modules/TunaPhaser';
 import Overdrive from '../modules/TunaOverdrive';
 import Delay from '../modules/Delay';
 import Sequencer from '../modules/Sequencer';
-import ComputerKeyboard from '../modules/ComputerKeyboard'; import MIDIController from '../modules/MIDIController';
+import ComputerKeyboard from '../modules/ComputerKeyboard';
+import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
 
 export default class Cyanide {
