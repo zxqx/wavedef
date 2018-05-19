@@ -61,7 +61,7 @@ export default class LFO {
     this.osc.setFrequency(frequency);
   }
 
-  getModulate() {
+  getDestinations() {
     return this.destination;
   }
 

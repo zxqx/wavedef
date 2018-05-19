@@ -1,5 +1,6 @@
 import 'web-audio-test-api';
 import LFO from './LFO';
+import Filter from './Filter';
 
 describe ('LFO', () => {
   it('should set default name', () => {
@@ -46,4 +47,23 @@ describe ('LFO', () => {
     expect(lfo.getFrequency()).toEqual(1);
   });
 
+  it('should add a destination', () => {
+    const lfo = new LFO();
+    const filter = new Filter();
+
+    lfo.modulate(filter.node.frequency);
+
+    expect(lfo.getDestinations()).toEqual([filter.node.frequency]);
+  });
+
+  it('should connect to destination', () => {
+    const lfo = new LFO();
+    const filter = new Filter();
+
+    const spy = jest.spyOn(lfo.gain.node, 'connect');
+
+    lfo.modulate(filter.node.frequency);
+
+    expect(spy).toHaveBeenCalled();
+  });
 })
