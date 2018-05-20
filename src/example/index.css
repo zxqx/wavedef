@@ -30,16 +30,6 @@ body, h1, h2, h3, h4, h5, h6, label {
   background: #222;
 }
 
-.frequency-analyzer {
-  position: absolute;
-  top: 0;
-  left: 15px;
-  margin-bottom: 10px;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
 .icon-xs {
   width: 16px;
   margin-top: -2px;

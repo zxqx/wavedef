@@ -64,12 +64,12 @@ export default class Cyanide {
       .to(ringmod)
       .to(phaser)
       .to(delay)
+      .to(frequencyAnalyzer)
       .output();
 
     synth.addModule(lfo1);
     synth.addModule(lfo2);
     synth.addModule(sequencer);
-    synth.addModule(frequencyAnalyzer);
 
     volumeEnvelope.modulate(vca::param('gain'));
 
