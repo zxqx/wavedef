@@ -39,6 +39,9 @@ export default class CyanidePage extends Component {
         <Row>
           <Col span={24}>
             <h2 className="cyanide-header">[cyanide]</h2>
+          </Col>
+
+          <Col span={24}>
             <Sequencer sequencer={sequencer} />
           </Col>
         </Row>
