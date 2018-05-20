@@ -1,5 +1,5 @@
-.cyanide > .ant-row > div,
-.cyanide > .ant-row-flex > div {
+.cyanide .ant-row > div,
+.cyanide .ant-row-flex > div {
   padding: 0 0.5rem;
 }
 
@@ -8,4 +8,9 @@
   top: -56px;
   left: 117px;
   z-index: 1;
+}
+
+.cyanide .ant-row > .multi-column-span,
+.cyanide .ant-row-flex > .multi-column-span {
+  padding: 0;
 }

@@ -10,6 +10,7 @@ import Phaser from '../../Phaser';
 import Delay from '../../Delay';
 import Ringmod from '../../Ringmod';
 import Sequencer from '../../Sequencer';
+import Oscilloscope from '../../Oscilloscope';
 import Keyboard from '../../common/Keyboard';
 import './CyanidePage.css';
 
@@ -30,6 +31,7 @@ export default class CyanidePage extends Component {
       ringmod,
       volumeEnvelope,
       sequencer,
+      frequencyAnalyzer,
     } = cyanide;
 
     const params = synth.getParams();
@@ -37,11 +39,11 @@ export default class CyanidePage extends Component {
     return (
       <div className="cyanide">
         <Row>
-          <Col span={24}>
+          <Col>
             <h2 className="cyanide-header">[cyanide]</h2>
           </Col>
 
-          <Col span={24}>
+          <Col>
             <Sequencer sequencer={sequencer} />
           </Col>
         </Row>
@@ -83,26 +85,39 @@ export default class CyanidePage extends Component {
           </Col>
 
           <Col
+            className="multi-column-span"
             xs={24}
-            md={8}
-            xl={5}
+            md={16}
+            xl={9}
           >
-            <Filter filter={filter} />
-            <Overdrive overdrive={overdrive} />
-          </Col>
+            <Row>
+              <Col span={24}>
+                <Oscilloscope frequencyAnalyzer={frequencyAnalyzer} />
+              </Col>
+            </Row>
 
-          <Col
-            xs={24}
-            md={8}
-            xl={4}
-          >
-            <Phaser phaser={phaser} />
-            <Delay delay={delay} />
+            <Row>
+              <Col
+                xs={24}
+                md={12}
+              >
+                <Filter filter={filter} />
+                <Overdrive overdrive={overdrive} />
+              </Col>
+
+              <Col
+                xs={24}
+                md={12}
+              >
+                <Phaser phaser={phaser} />
+                <Delay delay={delay} />
+              </Col>
+            </Row>
           </Col>
         </Row>
 
         <Row type="flex" justify="center">
-          <Col span={24}>
+          <Col>
             <Keyboard
               octaves={7}
               startingOctave={1}
