@@ -13,6 +13,7 @@ import ComputerKeyboard from '../modules/ComputerKeyboard';
 import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
 import Ringmod from '../modules/Ringmod';
+import FrequencyAnalyzer from '../modules/FrequencyAnalyzer';
 
 export default class Cyanide {
   constructor() {
@@ -29,6 +30,7 @@ export default class Cyanide {
     this.phaser = new Phaser();
     this.delay = new Delay();
     this.sequencer = new Sequencer(90);
+    this.frequencyAnalyzer = new FrequencyAnalyzer();
 
     this.computerKeyboard = new ComputerKeyboard(2);
     this.midiController = new MIDIController();
@@ -49,6 +51,7 @@ export default class Cyanide {
       computerKeyboard,
       midiController,
       ringmod,
+      frequencyAnalyzer,
     } = this;
 
     synth.connect(osc).to(mixer.channel(1));
@@ -66,6 +69,7 @@ export default class Cyanide {
     synth.addModule(lfo1);
     synth.addModule(lfo2);
     synth.addModule(sequencer);
+    synth.addModule(frequencyAnalyzer);
 
     volumeEnvelope.modulate(vca::param('gain'));
 
