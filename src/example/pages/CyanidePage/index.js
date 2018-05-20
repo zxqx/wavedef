@@ -76,6 +76,7 @@ export default class CyanidePage extends Component {
               lfo={lfo2}
               params={params}
             />
+            <Ringmod ringmod={ringmod} />
           </Col>
 
           <Col
@@ -94,7 +95,6 @@ export default class CyanidePage extends Component {
           >
             <Phaser phaser={phaser} />
             <Delay delay={delay} />
-            <Ringmod ringmod={ringmod} />
           </Col>
         </Row>
 
