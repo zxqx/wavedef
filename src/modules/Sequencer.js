@@ -66,25 +66,22 @@ export default class Sequencer {
     this.onSetTriggerCallbacks.push(callback);
   }
 
-  stop() {
-    this.activeStep = 1;
-    clearInterval(this.sequence);
-  }
-
   start() {
     const interval = this.getStepInterval();
 
     this.triggerStep();
 
     this.sequence = setTimeout(() => {
-      if (this.activeStep === 16) {
-        this.activeStep = 1;
-      } else {
-        this.activeStep = this.activeStep + 1;
-      }
+      const { activeStep } = this;
 
+      this.activeStep = activeStep === 16 ? 1 : activeStep + 1;
       this.start();
     }, interval);
+  }
+
+  stop() {
+    this.activeStep = 1;
+    clearInterval(this.sequence);
   }
 
   clearPattern() {
