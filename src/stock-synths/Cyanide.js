@@ -58,9 +58,9 @@ export default class Cyanide {
       .to(vca)
       .to(filter)
       .to(overdrive)
+      .to(ringmod)
       .to(phaser)
       .to(delay)
-      .to(ringmod)
       .output();
 
     synth.addModule(lfo1);
