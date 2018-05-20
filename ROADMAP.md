@@ -3,7 +3,7 @@
 ## 1.0
 
 + Envelope
-  - preserve start value (modulate internal gain node?)
+  - Preserve start value (modulate internal gain node?)
 
 + Port OG modules
   - Chorus

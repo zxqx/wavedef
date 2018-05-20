@@ -67,13 +67,12 @@ export default class Sequencer {
   }
 
   start() {
+    const { activeStep } = this;
     const interval = this.getStepInterval();
 
     this.triggerStep();
 
     this.sequence = setTimeout(() => {
-      const { activeStep } = this;
-
       this.activeStep = activeStep === 16 ? 1 : activeStep + 1;
       this.start();
     }, interval);
