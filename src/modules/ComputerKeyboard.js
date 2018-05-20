@@ -30,7 +30,7 @@ export default class ComputerKeyboard {
   /**
    * @param {number} octave
    */
-  constructor(octave) {
+  constructor(octave = 3) {
     this.octave = octave;
 
     this.setupKeyBindings();
