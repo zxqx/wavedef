@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Francois+One');
 
 body {
-  padding: 1rem 2rem;
   background: #111;
   overflow-x: hidden;
 }
@@ -9,28 +8,4 @@ body {
 body, h1, h2, h3, h4, h5, h6, label {
   font-family: 'Francois One', monospace;
   color: #fff;
-}
-
-.nav {
-  margin-bottom: 10px;
-}
-
-.nav-pills > li > a {
-  color: #ccc;
-}
-
-.nav-pills > li > a:hover {
-  background: transparent;
-  color: #fff;
-}
-
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-  background: #222;
-}
-
-.icon-xs {
-  width: 16px;
-  margin-top: -2px;
 }

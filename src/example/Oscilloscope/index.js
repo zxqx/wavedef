@@ -19,6 +19,10 @@ export default class Oscilloscope extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.props.frequencyAnalyzer.destroy();
+  }
+
   frequencyAnalyzer = React.createRef();
 
   render() {

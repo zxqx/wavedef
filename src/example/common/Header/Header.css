@@ -1,3 +1,32 @@
-.header > div {
-  padding: 0.5rem;
+.ant-layout-header {
+  margin: 0.5rem auto 0;
+  padding: 1rem 2.5rem 0;
+  max-width: 1560px;
+  height: auto;
+  background: none;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.logo img {
+  width: 110px;
+}
+
+.menu {
+  background: none;
+  border-bottom: 0;
+  font-family: 'Francois One', monospace;
+}
+
+.ant-menu-item {
+  padding-top: 4px;
+  margin-right: 1.5rem;
+  font-size: 18px;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item.ant-menu-item-selected {
+  background: none;
+  border-bottom: 3px solid #8500ff;
 }

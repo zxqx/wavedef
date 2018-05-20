@@ -87,4 +87,14 @@ export default class Sequencer {
     this.stepTriggers = {};
     this.selectedStep = null;
   }
+
+  reset() {
+    this.steps = 16;
+    this.activeStep = 1;
+    this.selectedStep = null;
+    this.stepTriggers = {};
+    this.triggerCallbacks = [];
+    this.onStepSelectCallbacks = [];
+    this.onSetTriggerCallbacks = [];
+  }
 }

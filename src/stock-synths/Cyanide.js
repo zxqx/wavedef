@@ -48,8 +48,6 @@ export default class Cyanide {
       phaser,
       delay,
       sequencer,
-      computerKeyboard,
-      midiController,
       ringmod,
       frequencyAnalyzer,
     } = this;
@@ -72,6 +70,16 @@ export default class Cyanide {
     synth.addModule(sequencer);
 
     volumeEnvelope.modulate(vca::param('gain'));
+  }
+
+  connectControllers() {
+    const {
+      computerKeyboard,
+      midiController,
+      sequencer,
+      osc,
+      volumeEnvelope,
+    } = this;
 
     computerKeyboard.triggerOnPress([
       osc::osc.setFrequency,
@@ -98,5 +106,12 @@ export default class Cyanide {
     midiController.triggerOnRelease([
       volumeEnvelope::volumeEnvelope.triggerRelease,
     ]);
+  }
+
+  disconnectControllers() {
+    this.computerKeyboard.triggerOnPress([]);
+    this.midiController.triggerOnPress([]);
+    this.sequencer.reset();
+    this.sequencer.stop();
   }
 }

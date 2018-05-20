@@ -14,6 +14,8 @@ export default class FrequencyAnalyzer {
   }) {
     const { node, elem } = this;
 
+    this.target = target;
+
     node.fftSize = fftSize;
     node.height = height;
     node.lineThickness = lineThickness;
@@ -64,5 +66,9 @@ export default class FrequencyAnalyzer {
     oscLine.setAttribute('d', svgDValue.join(''));
 
     setTimeout(() => this.drawLine(freqData, oscLine), 100);
+  }
+
+  destroy() {
+    this.elem.innerHTML = '';
   }
 }

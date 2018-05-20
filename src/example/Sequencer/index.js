@@ -25,6 +25,10 @@ export default class Sequencer extends Component {
     sequencer.onSetTrigger(this::this.forceUpdate);
   }
 
+  componentWillUnmount() {
+    this.props.sequencer.reset();
+  }
+
   getSteps() {
     const { sequencer } = this.props;
 
