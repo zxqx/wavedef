@@ -3,13 +3,6 @@
   padding: 0 0.5rem;
 }
 
-.cyanide-header {
-  position: absolute;
-  top: -56px;
-  left: 117px;
-  z-index: 1;
-}
-
 .cyanide .ant-row > .multi-column-span,
 .cyanide .ant-row-flex > .multi-column-span {
   padding: 0;

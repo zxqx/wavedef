@@ -14,7 +14,7 @@ export default class Root extends Component {
 
     return (
       <Router history={history}>
-        <App>
+        <App location={history.location}>
           {routes}
         </App>
       </Router>

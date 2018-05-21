@@ -17,6 +17,14 @@ import './CyanidePage.css';
 const cyanide = new Cyanide();
 
 export default class CyanidePage extends Component {
+  componentWillMount() {
+    cyanide.connectControllers();
+  }
+
+  componentWillUnmount() {
+    cyanide.disconnectControllers();
+  }
+
   render() {
     const {
       synth,
@@ -39,10 +47,6 @@ export default class CyanidePage extends Component {
     return (
       <div className="cyanide">
         <Row>
-          <Col>
-            <h2 className="cyanide-header">[cyanide]</h2>
-          </Col>
-
           <Col>
             <Sequencer sequencer={sequencer} />
           </Col>
