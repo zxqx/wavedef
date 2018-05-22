@@ -9,6 +9,7 @@ import Overdrive from '../../Overdrive';
 import Phaser from '../../Phaser';
 import Delay from '../../Delay';
 import Ringmod from '../../Ringmod';
+import Chorus from '../../Chorus';
 import Sequencer from '../../Sequencer';
 import Oscilloscope from '../../Oscilloscope';
 import Keyboard from '../../common/Keyboard';
@@ -37,6 +38,7 @@ export default class CyanidePage extends Component {
       delay,
       mixer,
       ringmod,
+      chorus,
       volumeEnvelope,
       sequencer,
       frequencyAnalyzer,
@@ -74,6 +76,7 @@ export default class CyanidePage extends Component {
               lfo={lfo1}
               params={params}
             />
+            <Chorus chorus={chorus} />
           </Col>
 
           <Col

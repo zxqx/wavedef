@@ -13,6 +13,7 @@ import ComputerKeyboard from '../modules/ComputerKeyboard';
 import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
 import Ringmod from '../modules/Ringmod';
+import Chorus from '../modules/Chorus';
 import FrequencyAnalyzer from '../modules/FrequencyAnalyzer';
 
 export default class Cyanide {
@@ -29,6 +30,7 @@ export default class Cyanide {
     this.overdrive = new Overdrive();
     this.phaser = new Phaser();
     this.delay = new Delay();
+    this.chorus = new Chorus();
     this.sequencer = new Sequencer(90);
     this.frequencyAnalyzer = new FrequencyAnalyzer();
 
@@ -49,6 +51,7 @@ export default class Cyanide {
       delay,
       sequencer,
       ringmod,
+      chorus,
       frequencyAnalyzer,
     } = this;
 
@@ -62,6 +65,7 @@ export default class Cyanide {
       .to(ringmod)
       .to(phaser)
       .to(delay)
+      .to(chorus)
       .to(frequencyAnalyzer)
       .output();
 
