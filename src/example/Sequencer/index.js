@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Button } from 'antd';
 import classnames from 'classnames';
-import Slider from '../common/Slider';
+import DragInput from '../common/DragInput';
 import AudioControlGroup from '../common/AudioControlGroup';
 import playButton from '../assets/transport/play.png';
 import stopButton from '../assets/transport/stop.png';
@@ -51,22 +51,19 @@ export default class Sequencer extends Component {
     const steps = this.getSteps();
 
     return (
-      <AudioControlGroup label="Sequencer">
+      <AudioControlGroup>
         <Row>
           <Col span={6}>
-            <Slider
+            <DragInput
               label="BPM"
               defaultValue={90}
               min={30}
               max={300}
-              step={1}
               onChange={(bpm) => {
                 sequencer.setBpm(bpm);
                 this.forceUpdate();
               }}
             />
-
-            <h2 className="sequencer-bpm">{sequencer.bpm}</h2>
           </Col>
 
           <Col span={9} offset={1}>
@@ -79,6 +76,7 @@ export default class Sequencer extends Component {
               }}
             >
               <img src={playButton} alt="Play" />
+              <span>Play</span>
             </Button>
 
             <Button
@@ -90,6 +88,7 @@ export default class Sequencer extends Component {
               }}
             >
               <img src={stopButton} alt="Stop" />
+              <span>Stop</span>
             </Button>
 
             <Button
@@ -101,6 +100,7 @@ export default class Sequencer extends Component {
               }}
             >
               <img src={clearButton} alt="Clear" />
+              <span>Clear</span>
             </Button>
           </Col>
         </Row>

@@ -34,22 +34,28 @@
 }
 
 .sequencer-transport-btn {
-  padding: 1.5rem 4rem 3rem;
-  width: 150px;
+  margin: 1rem 0.5rem;
+  padding: 1rem 2.5rem 2.6rem;
   color: #fff;
 }
 
+.sequencer-transport-btn span {
+  position: relative;
+  top: 1px;
+  margin-left: 12px;
+}
+
 .sequencer-transport-btn img {
-  width: 22px;
+  width: 15px;
   transition: opacity 0.2s;
 }
 
 .sequencer-transport-play-btn img {
-  width: 25px;
+  width: 16px;
 }
 
 .sequencer-transport-clear-btn img {
-  width: 21px;
+  width: 14px;
 }
 
 .sequencer-btn:disabled img {

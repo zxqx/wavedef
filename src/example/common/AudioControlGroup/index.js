@@ -8,11 +8,15 @@ export default class AudioControlGroup extends Component {
     label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node,
-    ]).isRequired,
+    ]),
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
     ]).isRequired,
+  }
+
+  static defaultProps = {
+    label: '',
   }
 
   render() {
