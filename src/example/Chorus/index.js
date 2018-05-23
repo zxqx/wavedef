@@ -51,7 +51,7 @@ export default class Chorus extends Component {
         />
 
         <Slider
-          label="Movemenet"
+          label="Movement"
           defaultValue={0.005}
           min={0.05}
           max={1}
