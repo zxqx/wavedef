@@ -10,6 +10,7 @@ import Phaser from '../../Phaser';
 import Delay from '../../Delay';
 import Ringmod from '../../Ringmod';
 import Chorus from '../../Chorus';
+import WhiteNoise from '../../WhiteNoise';
 import Sequencer from '../../Sequencer';
 import Oscilloscope from '../../Oscilloscope';
 import Keyboard from '../../common/Keyboard';
@@ -30,6 +31,7 @@ export default class CyanidePage extends Component {
     const {
       synth,
       osc,
+      noise,
       filter,
       lfo1,
       lfo2,
@@ -64,6 +66,12 @@ export default class CyanidePage extends Component {
               oscillator={osc}
               mixerChannel={mixer.channel(1)}
             />
+
+            <WhiteNoise
+              noise={noise}
+              mixerChannel={mixer.channel(2)}
+            />
+
             <VolumeEnvelope envelope={volumeEnvelope} />
           </Col>
 
@@ -89,6 +97,7 @@ export default class CyanidePage extends Component {
               params={params}
             />
             <Ringmod ringmod={ringmod} />
+
           </Col>
 
           <Col

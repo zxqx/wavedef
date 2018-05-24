@@ -6,10 +6,17 @@ import Slider from '../common/Slider';
 export default class WhiteNoise extends Component {
   static propTypes = {
     noise: PropTypes.object.isRequired, // eslint-disable-line
+    mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
+  }
+
+  toggle(on) {
+    const { mixerChannel } = this.props;
+
+    return on ? mixerChannel.toggleOn() : mixerChannel.toggleOff();
   }
 
   render() {
-    const { noise, mixer } = this.props;
+    const { noise, mixerChannel } = this.props;
 
     return (
       <AudioControlGroup label={noise.name}>
@@ -20,7 +27,7 @@ export default class WhiteNoise extends Component {
           min={0}
           max={1}
           step={0.001}
-          onChange={mixer::mixer(2).setOffset1}
+          onChange={mixerChannel::mixerChannel.setGain}
         />
       </AudioControlGroup>
     );
