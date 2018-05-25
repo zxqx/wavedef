@@ -39,6 +39,10 @@
   color: #fff;
 }
 
+.sequencer-transport-btn:active img {
+  opacity: 0.5;
+}
+
 .sequencer-transport-btn span {
   position: relative;
   top: 1px;

@@ -7,6 +7,19 @@
   text-align: center;
 }
 
+.drag-input-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.drag-input-overlay:hover {
+  cursor: ns-resize;
+}
+
 .drag-input-label {
   font-family: 'LCD Bold', monospace;
   font-size: 16px;
@@ -24,6 +37,10 @@
   color: #fff;
   background: none;
   border: none;
+}
+
+.drag-input:hover {
+  cursor: ns-resize;
 }
 
 .drag-input-buttons {

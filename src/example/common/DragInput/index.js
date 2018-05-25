@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import playButton from '../../assets/transport/play.png';
 import './DragInput.css';
@@ -72,6 +72,8 @@ export default class DragInput extends Component {
   }
 
   render() {
+    const { dragging } = this.state;
+
     const {
       label,
       min,
@@ -82,63 +84,68 @@ export default class DragInput extends Component {
     const { value } = this.state;
 
     return (
-      <div
-        className="drag-input-container"
-        onMouseDown={(e) => {
-          this.setState({
-            dragging: true,
-            mouseYPosition: e.pageY,
-          });
-        }}
-        onMouseUp={() => this.setState({ dragging: false })}
-      >
-        <label
-          htmlFor="drag-input"
-          className="drag-input-label"
+      <Fragment>
+        {dragging &&
+          <div className="drag-input-overlay" />
+        }
+        <div
+          className="drag-input-container"
+          onMouseDown={(e) => {
+            this.setState({
+              dragging: true,
+              mouseYPosition: e.pageY,
+            });
+          }}
+          onMouseUp={() => this.setState({ dragging: false })}
         >
-          {label}
-        </label>
-
-        <span
-          role="textbox"
-          name="drag-input"
-          className="drag-input"
-        >
-          {value}
-        </span>
-
-        <div className="drag-input-buttons">
-          <button
-            className="drag-input-button drag-input-up-button"
-            disabled={value === max}
-            onClick={() => {
-              const newValue = value + 1;
-
-              if (this.isInRange(newValue)) {
-                this.setState({ value: newValue });
-                onChange(newValue);
-              }
-            }}
+          <label
+            htmlFor="drag-input"
+            className="drag-input-label"
           >
-            <img src={playButton} alt="Up" />
-          </button>
+            {label}
+          </label>
 
-          <button
-            className="drag-input-button drag-input-down-button"
-            disabled={value === min}
-            onClick={() => {
-              const newValue = value - 1;
-
-              if (this.isInRange(newValue)) {
-                this.setState({ value: newValue });
-                onChange(newValue);
-              }
-            }}
+          <span
+            role="textbox"
+            name="drag-input"
+            className="drag-input"
           >
-            <img src={playButton} alt="Down" />
-          </button>
+            {value}
+          </span>
+
+          <div className="drag-input-buttons">
+            <button
+              className="drag-input-button drag-input-up-button"
+              disabled={value === max}
+              onClick={() => {
+                const newValue = value + 1;
+
+                if (this.isInRange(newValue)) {
+                  this.setState({ value: newValue });
+                  onChange(newValue);
+                }
+              }}
+            >
+              <img src={playButton} alt="Up" />
+            </button>
+
+            <button
+              className="drag-input-button drag-input-down-button"
+              disabled={value === min}
+              onClick={() => {
+                const newValue = value - 1;
+
+                if (this.isInRange(newValue)) {
+                  this.setState({ value: newValue });
+                  onChange(newValue);
+                }
+              }}
+            >
+              <img src={playButton} alt="Down" />
+            </button>
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
