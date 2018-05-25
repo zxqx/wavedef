@@ -91,6 +91,12 @@ export default class DragInput extends Component {
         <div
           className="drag-input-container"
           onMouseDown={(e) => {
+            const { tagName } = e.target;
+
+            if (tagName === 'BUTTON') {
+              return;
+            }
+
             this.setState({
               dragging: true,
               mouseYPosition: e.pageY,

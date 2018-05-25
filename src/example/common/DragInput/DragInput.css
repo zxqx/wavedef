@@ -81,4 +81,5 @@
 
 .drag-input-button img {
   width: 15px;
+  pointer-events: none;
 }
