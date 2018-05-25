@@ -25,7 +25,7 @@ export default class WhiteNoise extends Component {
           <Fragment>
             {noise.name}
             <Switch
-              defaultValue
+              defaultValue={false}
               onChange={this::this.toggle}
             />
           </Fragment>
