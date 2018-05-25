@@ -5,34 +5,26 @@
 + Envelope
   - Preserve start value (modulate internal gain node?)
 
-+ Port OG modules
-  - Chorus
-  - Ring Mod
-  - Frequency Analyzer
-  - White Noise
++ LFO
+  - Normalize depth
 
 + Oscillator Group
   - Frequency sync
-
-+ Synth
-  - Global settings
 
 + On-Screen Keyboard
   - Add octave +/- buttons
   - Sync with computer keyboard
 
-+ LFO
-  - Normalize depth
-
 + MIDI Controller
   - Improve attack/release tracking
   - Keep track of all held notes
-
-+ Sequencer
-  - Live recording
+  - Centralize key tracking from Computer Keyboard
 
 + Stock Synths
   - Configure and design 3 stock synths
+
++ Sequencer
+  - Live recording
 
 + Document all modules
   - Host docs
@@ -42,9 +34,11 @@
   - Sequencer how-to
   - Computer Keyboard layout
 
-+ Support Chrome/Firefox/Safari
++ Support Chrome/Firefox/Safari desktop
 
 + Define contribution standards
+
++ Define GitHub issue template
 
 ## Future
 + Port OG modules
@@ -65,6 +59,7 @@
 + Sampler
 + Busses
 + Polyphony mode
++ BPM sync
 + Speech synthesizer
 + Websocket jam sessions
 + Multi-Tap Delay

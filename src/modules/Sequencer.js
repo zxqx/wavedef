@@ -4,6 +4,7 @@ const ONE_SECOND = 1000;
 export default class Sequencer {
   constructor(bpm = 120) {
     this.bpm = bpm;
+    this.originalBpm = bpm;
     this.steps = 16;
     this.activeStep = 1;
     this.selectedStep = null;
@@ -89,6 +90,7 @@ export default class Sequencer {
   }
 
   reset() {
+    this.bpm = this.originalBpm;
     this.steps = 16;
     this.activeStep = 1;
     this.selectedStep = null;

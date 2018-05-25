@@ -1,0 +1,67 @@
+.drag-input-container {
+  margin-top: 6px;
+  padding: 10px 0 5px;
+  width: 190px;
+  background: #111;
+  font-family: 'LCD Bold', monospace;
+  text-align: center;
+}
+
+.drag-input-label {
+  font-family: 'LCD Bold', monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.drag-input {
+  position: relative;
+  top: 1px;
+  margin-left: 15px;
+  width: 60px;
+  display: inline-block;
+  font-size: 38px;
+  text-align: right;
+  color: #fff;
+  background: none;
+  border: none;
+}
+
+.drag-input-buttons {
+  margin: 2px 10px 0 0;
+  float: right;
+}
+
+.drag-input-button {
+  display: block;
+  background: none;
+  border: none;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.drag-input-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.drag-input-button:focus {
+  outline: none;
+}
+
+.drag-input-button[disabled] {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.drag-input-up-button {
+  margin-left: 3px;
+  transform: rotate(-90deg);
+}
+
+.drag-input-down-button {
+  transform: rotate(90deg);
+}
+
+.drag-input-button img {
+  width: 15px;
+}
