@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import AudioControlGroup from '../common/AudioControlGroup';
 import Slider from '../common/Slider';
+import Switch from '../common/Switch';
 
 export default class WhiteNoise extends Component {
   static propTypes = {
@@ -19,7 +20,17 @@ export default class WhiteNoise extends Component {
     const { noise, mixerChannel } = this.props;
 
     return (
-      <AudioControlGroup label={noise.name}>
+      <AudioControlGroup
+        label={
+          <Fragment>
+            {noise.name}
+            <Switch
+              defaultValue
+              onChange={this::this.toggle}
+            />
+          </Fragment>
+        }
+      >
 
         <Slider
           label="Noise"
