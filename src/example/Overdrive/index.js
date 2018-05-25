@@ -52,7 +52,7 @@ export default class Overdrive extends Component {
         />
 
         <Slider
-          label="Algorithm Index"
+          label="Algorithm"
           defaultValue={3}
           min={0}
           max={5}

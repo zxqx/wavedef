@@ -1,7 +1,7 @@
 import ctx from 'audio-context';
 
 export default class WhiteNoise {
-  constructor(name = 'Noise') {
+  constructor(name = 'White Noise') {
     this.name = name;
 
     const bufferSize = 2 * ctx().sampleRate;

@@ -31,6 +31,10 @@
   border-radius: 0 4px 4px 0;
 }
 
+.ant-switch-checked:active:after {
+  margin-left: -23px;
+}
+
 .ant-switch-inner {
   margin-left: 34px;
   font-size: 12px;

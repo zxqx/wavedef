@@ -42,21 +42,21 @@ export default class Chorus extends Component {
         />
 
         <Slider
-          label="Mix"
-          defaultValue={0}
-          min={0}
-          max={1}
-          step={0.001}
-          onChange={chorus::chorus.setWetDryMix}
-        />
-
-        <Slider
           label="Movement"
           defaultValue={0.005}
           min={0.05}
           max={1}
           step={0.001}
           onChange={chorus::chorus.setMovement}
+        />
+
+        <Slider
+          label="Mix"
+          defaultValue={0}
+          min={0}
+          max={1}
+          step={0.001}
+          onChange={chorus::chorus.setWetDryMix}
         />
       </AudioControlGroup>
     );

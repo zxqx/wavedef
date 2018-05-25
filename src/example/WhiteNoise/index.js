@@ -33,7 +33,7 @@ export default class WhiteNoise extends Component {
       >
 
         <Slider
-          label="Noise"
+          label="Volume"
           defaultValue={0}
           min={0}
           max={1}
