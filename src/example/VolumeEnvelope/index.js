@@ -32,9 +32,9 @@ export default class VolumeEnvelope extends Component {
         <Slider
           label="D"
           defaultValue={0.1}
-          min={0.1}
-          max={10}
-          step={0.1}
+          min={0.001}
+          max={1}
+          step={0.001}
           vertical
           onChange={envelope::envelope.setDecay}
         />

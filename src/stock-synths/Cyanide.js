@@ -9,6 +9,7 @@ import Phaser from '../modules/TunaPhaser';
 import Overdrive from '../modules/TunaOverdrive';
 import Delay from '../modules/Delay';
 import Sequencer from '../modules/Sequencer';
+import WhiteNoise from '../modules/WhiteNoise';
 import ComputerKeyboard from '../modules/ComputerKeyboard';
 import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
@@ -19,7 +20,7 @@ import FrequencyAnalyzer from '../modules/FrequencyAnalyzer';
 export default class Cyanide {
   constructor() {
     this.synth = new Synth();
-    this.mixer = new Mixer(1);
+    this.mixer = new Mixer(2);
     this.osc = new Oscillator('OSC 1');
     this.vca = new VCA();
     this.volumeEnvelope = new Envelope();
@@ -31,6 +32,7 @@ export default class Cyanide {
     this.phaser = new Phaser();
     this.delay = new Delay();
     this.chorus = new Chorus();
+    this.noise = new WhiteNoise();
     this.sequencer = new Sequencer(90);
     this.frequencyAnalyzer = new FrequencyAnalyzer();
 
@@ -52,11 +54,12 @@ export default class Cyanide {
       sequencer,
       ringmod,
       chorus,
+      noise,
       frequencyAnalyzer,
     } = this;
 
     synth.connect(osc).to(mixer.channel(1));
-
+    synth.connect(noise).to(mixer.channel(2));
     synth
       .connect(mixer)
       .to(vca)
