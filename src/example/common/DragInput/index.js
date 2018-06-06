@@ -24,11 +24,16 @@ export default class DragInput extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mousemove', this::this.updateInput);
-    document.addEventListener('mouseup', this::this.stopInput);
+    document.addEventListener('mousemove', this.updateInput);
+    document.addEventListener('mouseup', this.stopInput);
   }
 
-  stopInput() {
+  componentWillUnmount() {
+    document.removeEventListener('mousemove', this.updateInput);
+    document.removeEventListener('mouseup', this.stopInput);
+  }
+
+  stopInput = () => {
     this.setState({ dragging: false });
   }
 
@@ -52,7 +57,7 @@ export default class DragInput extends Component {
     return value;
   }
 
-  updateInput(e) {
+  updateInput = (e) => {
     const { dragging } = this.state;
     const { onChange } = this.props;
     const { pageY } = e;
