@@ -1,23 +1,20 @@
 .keyboard-key {
-  margin: 2px;
-  width: 22px;
-  height: 100px;
+  width: 34px;
+  height: 180px;
   background: #fff;
+  border: 0;
+  border-right: 1px solid #ccc;
 }
 
 .keyboard-key.keyboard-key-black {
-  position: relative;
-  top: -35px;
-  width: 6px;
-  height: 66px;
-  margin: 0 -9px;
+  position: absolute;
+  top: 0;
+  width: 16px;
+  height: 116px;
+  margin: 0 -7px;
   padding: 4px;
   background: #000;
-  border-top: none;
-}
-
-.keyboard-key.keyboard-key-adjacent-white {
-  margin-right: -4px;
+  border: 0;
 }
 
 .keyboard-key:focus {

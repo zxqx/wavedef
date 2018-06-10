@@ -1,5 +1,5 @@
 .keyboard {
-  height: 102px;
+  position: relative;
+  height: 180px;
   overflow: hidden;
-  zoom: 1.9;
 }
