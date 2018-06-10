@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import Header from '../common/Header';
-import ComputerKeyboardMap from '../ComputerKeyboardMap';
 import './App.css';
 
 const { Content } = Layout;
@@ -31,8 +30,6 @@ export default class App extends Component {
         <Content className="content">
           {children}
         </Content>
-
-        <ComputerKeyboardMap />
       </Layout>
     );
   }

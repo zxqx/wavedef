@@ -9,9 +9,9 @@
 .keyboard-key.keyboard-key-black {
   position: absolute;
   top: 0;
-  width: 16px;
+  width: 15px;
   height: 116px;
-  margin: 0 -7px;
+  margin: 0 -8px;
   padding: 4px;
   background: #000;
   border: 0;
