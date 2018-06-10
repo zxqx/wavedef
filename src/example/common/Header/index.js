@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Layout, Row, Col, Menu } from 'antd';
+import { Layout, Row, Col, Menu, Button } from 'antd';
+import ComputerKeyboardMap from '../../ComputerKeyboardMap';
 import logo from '../../assets/wavedef-logo.png';
+import computerKeyboardIcon from '../../assets/icons/computer-keyboard-icon.png';
 import './Header.css';
 
 const { Header: AntHeader } = Layout;
@@ -12,7 +14,16 @@ export default class Header extends Component {
     pageId: PropTypes.string.isRequired,
   }
 
+  state = {
+    keyboardMapIsVisible: !localStorage.getItem('keyboardMapShown'),
+  }
+
+  componentDidMount() {
+    localStorage.setItem('keyboardMapShown', true);
+  }
+
   render() {
+    const { keyboardMapIsVisible } = this.state;
     const { pageId } = this.props;
 
     return (
@@ -25,7 +36,7 @@ export default class Header extends Component {
               </div>
             </Col>
 
-            <Col span={20}>
+            <Col span={18}>
               <Menu
                 theme="dark"
                 mode="horizontal"
@@ -46,7 +57,21 @@ export default class Header extends Component {
                 </Menu.Item>
               </Menu>
             </Col>
+
+            <Col span={2}>
+              <Button
+                className="computer-keyboard-btn"
+                onClick={() => this.setState({ keyboardMapIsVisible: true })}
+              >
+                <img src={computerKeyboardIcon} alt="Computer Keyboard" />
+              </Button>
+            </Col>
           </Row>
+
+          <ComputerKeyboardMap
+            visible={keyboardMapIsVisible}
+            close={() => this.setState({ keyboardMapIsVisible: false })}
+          />
         </AntHeader>
       </div>
     );

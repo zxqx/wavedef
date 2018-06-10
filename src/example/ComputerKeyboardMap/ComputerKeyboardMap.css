@@ -1,0 +1,39 @@
+.computer-keyboard-map .ant-modal-content {
+  font-family: 'Francois One', monospace;
+  background: #202020;
+  color: #ccc;
+}
+
+.computer-keyboard-map .ant-modal-body {
+  font-size: 18px;
+}
+
+.computer-keyboard-map .ant-modal-footer {
+  border-top: 0;
+}
+
+.computer-keyboard-map .ant-modal-close {
+  color: #aaa;
+}
+
+.computer-keyboard-map .ant-modal-close:hover {
+  color: #fff;
+}
+
+.close-computer-keyboard-map-btn {
+  width: 100%;
+  color: #aaa;
+  background: #333;
+  border: 0;
+}
+
+.close-computer-keyboard-map-btn:hover {
+  color: #fff;
+  background: #444;
+}
+
+.computer-keyboard-map-image {
+  margin: 1rem auto;
+  display: block;
+  width: 90%;
+}
