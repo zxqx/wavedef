@@ -16,7 +16,10 @@ export default class Overdrive extends Component {
       <AudioControlGroup
         label={
           <Fragment>
-            {overdrive.name}
+            <span className="audio-control-label">
+              {overdrive.name}
+            </span>
+
             <Switch
               defaultValue={false}
               onChange={on => overdrive.setBypass(!on)}

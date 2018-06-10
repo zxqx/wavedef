@@ -27,7 +27,10 @@ export default class Oscillator extends Component {
       <AudioControlGroup
         label={
           <Fragment>
-            {oscillator.name}
+            <span className="audio-control-label">
+              {oscillator.name}
+            </span>
+
             <Switch
               defaultValue
               onChange={this::this.toggle}

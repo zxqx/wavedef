@@ -26,3 +26,7 @@
   font-weight: 400;
   color: #fff;
 }
+
+.audio-control-label {
+  float: left;
+}

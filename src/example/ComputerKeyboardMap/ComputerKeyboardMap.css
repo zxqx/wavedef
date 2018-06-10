@@ -1,0 +1,33 @@
+.computer-keyboard-guide .ant-modal-content {
+  font-family: 'Francois One', monospace;
+  background: #222;
+  color: #ccc;
+}
+
+.computer-keyboard-guide .ant-modal-body {
+  font-size: 18px;
+}
+
+.computer-keyboard-guide .ant-modal-footer {
+  border-top: 0;
+}
+
+.computer-keyboard-guide .ant-modal-close {
+  color: #aaa;
+}
+
+.computer-keyboard-guide .ant-modal-close:hover {
+  color: #fff;
+}
+
+.close-computer-keyboard-guide-btn {
+  width: 100%;
+  color: #aaa;
+  background: #333;
+  border: 0;
+}
+
+.close-computer-keyboard-guide-btn:hover {
+  color: #fff;
+  background: #444;
+}
