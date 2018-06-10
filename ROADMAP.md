@@ -2,8 +2,15 @@
 
 ## 1.0
 
++ Set sane module defaults
+  + allow boot up params object
+  + set default value, min, max
+
 + LFO
   - Normalize depth
+
++ Sequencer
+  - Live recording
 
 + Oscillator Group
   - Frequency sync
@@ -37,8 +44,6 @@
 
 ## Future
 
-+ Sequencer
-  - Live recording
 + Port OG modules
   - Kick
   - Snare
