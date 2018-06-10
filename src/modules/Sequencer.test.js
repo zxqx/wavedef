@@ -14,6 +14,14 @@ describe('Sequencer', () => {
     expect(sequencer.bpm).toEqual(88);
   });
 
+  it('should create metronome', () => {
+    const sequencer = new Sequencer();
+
+    expect(sequencer.metronome.constructor.name).toEqual('Oscillator');
+    expect(sequencer.metronomeEnvelope.constructor.name).toEqual('Envelope');
+    expect(sequencer.metronomeVCA.constructor.name).toEqual('VCA');
+  });
+
   it('should set bpm', () => {
     const sequencer = new Sequencer();
 
@@ -99,6 +107,39 @@ describe('Sequencer', () => {
     expect(spy.mock.calls.length).toEqual(1);
   });
 
+  it('should trigger metronome on metronome steps', () => {
+    const sequencer = new Sequencer();
+    const spy = jest.spyOn(sequencer.metronomeEnvelope, 'trigger');
+    sequencer.triggerMetronome();
+
+    expect(spy.mock.calls.length).toEqual(1);
+
+    sequencer.activeStep = 3;
+    sequencer.triggerMetronome();
+
+    expect(spy.mock.calls.length).toEqual(1);
+
+    sequencer.activeStep = 5;
+    sequencer.triggerMetronome();
+
+    expect(spy.mock.calls.length).toEqual(2);
+
+    sequencer.activeStep = 8;
+    sequencer.triggerMetronome();
+
+    expect(spy.mock.calls.length).toEqual(2);
+
+    sequencer.activeStep = 9;
+    sequencer.triggerMetronome();
+
+    expect(spy.mock.calls.length).toEqual(3);
+
+    sequencer.activeStep = 13;
+    sequencer.triggerMetronome();
+
+    expect(spy.mock.calls.length).toEqual(4);
+  });
+
   it('should call trigger callbacks', () => {
     const sequencer = new Sequencer();
     const setFrequency = jest.fn();
@@ -161,6 +202,30 @@ describe('Sequencer', () => {
     expect(sequencer.stepTriggers[5]).toEqual(null);
   });
 
+  it('should quantize step trigger', () => {
+    const sequencer = new Sequencer();
+
+    sequencer.sequenceTimestamp = 1000;
+    global.Date.now = () => 1070;
+
+    sequencer.setSelectedStep(1);
+    sequencer.record();
+
+    expect(sequencer.quantizeStepTrigger()).toEqual(2);
+  });
+
+  it('should not quantize step trigger', () => {
+    const sequencer = new Sequencer();
+
+    sequencer.sequenceTimestamp = 1000;
+    global.Date.now = () => 1060;
+
+    sequencer.setSelectedStep(1);
+    sequencer.record();
+
+    expect(sequencer.quantizeStepTrigger()).toEqual(1);
+  });
+
   it('should trigger at selected step', () => {
     const sequencer = new Sequencer();
     const fn = jest.fn();
@@ -207,6 +272,35 @@ describe('Sequencer', () => {
     expect(sequencer.activeStep).toEqual(1);
   });
 
+  it('should start in live recording mode', () => {
+    jest.useFakeTimers();
+
+    const sequencer = new Sequencer(120);
+    const triggerStep = jest.spyOn(sequencer, 'triggerStep');
+    const triggerMetronome = jest.spyOn(sequencer, 'triggerMetronome');
+
+    sequencer.record();
+    sequencer.start();
+
+    jest.advanceTimersByTime(500);
+
+    expect(triggerStep.mock.calls.length).toEqual(5);
+    expect(triggerMetronome.mock.calls.length).toEqual(5);
+    expect(sequencer.activeStep).toEqual(5);
+
+    jest.advanceTimersByTime(300);
+
+    expect(triggerStep.mock.calls.length).toEqual(7);
+    expect(triggerMetronome.mock.calls.length).toEqual(7);
+    expect(sequencer.activeStep).toEqual(7);
+
+    jest.advanceTimersByTime(1200);
+
+    expect(triggerStep.mock.calls.length).toEqual(17);
+    expect(triggerMetronome.mock.calls.length).toEqual(17);
+    expect(sequencer.activeStep).toEqual(1);
+  });
+
   it('should stop', () => {
     const sequencer = new Sequencer();
     const spy = jest.spyOn(window, 'clearInterval');
@@ -215,7 +309,26 @@ describe('Sequencer', () => {
     sequencer.stop();
 
     expect(sequencer.activeStep).toEqual(1);
+    expect(sequencer.playing).toEqual(false);
     expect(spy).toHaveBeenCalledWith(sequencer.sequence);
+  });
+
+  it('should record', () => {
+    const sequencer = new Sequencer();
+
+    sequencer.record();
+
+    expect(sequencer.recording).toEqual(true);
+  });
+
+  it('should stop record', () => {
+    const sequencer = new Sequencer();
+
+    sequencer.record();
+    sequencer.stopRecord();
+
+    expect(sequencer.recording).toEqual(false);
+    expect(sequencer.selectedStep).toEqual(null);
   });
 
   it('should clear pattern', () => {
@@ -230,5 +343,42 @@ describe('Sequencer', () => {
 
     expect(sequencer.stepTriggers).toEqual({});
     expect(sequencer.selectedStep).toEqual(null);
+  });
+
+  it('should set metronome status', () => {
+    const sequencer = new Sequencer();
+
+    sequencer.setMetronomeStatus(true);
+
+    expect(sequencer.metronomeOn).toEqual(true);
+  });
+
+  it('should reset', () => {
+    const sequencer = new Sequencer();
+
+    sequencer.bpm = 135;
+    sequencer.steps = 8;
+    sequencer.activeStep = 5;
+    sequencer.selectedStep = 2;
+    sequencer.stepTriggers = {
+      1: () => {},
+      3: () => {},
+      8: () => {},
+    };
+
+    sequencer.triggerCallbacks = [() => {}];
+    sequencer.onStepSelectCallbacks = [() => {}];
+    sequencer.onSetTriggerCallbacks = [() => {}];
+
+    sequencer.reset();
+
+    expect(sequencer.bpm).toEqual(120);
+    expect(sequencer.steps).toEqual(16);
+    expect(sequencer.activeStep).toEqual(1);
+    expect(sequencer.selectedStep).toEqual(null);
+    expect(sequencer.stepTriggers).toEqual({});
+    expect(sequencer.triggerCallbacks).toEqual([]);
+    expect(sequencer.onStepSelectCallbacks).toEqual([]);
+    expect(sequencer.onSetTriggerCallbacks).toEqual([]);
   });
 });

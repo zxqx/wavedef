@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Button } from 'antd';
 import classnames from 'classnames';
-import DragInput from '../common/DragInput';
 import AudioControlGroup from '../common/AudioControlGroup';
-import playButton from '../assets/transport/play.png';
-import stopButton from '../assets/transport/stop.png';
-import clearButton from '../assets/transport/clear.png';
+import Switch from '../common/Switch';
+import DragInput from '../common/DragInput';
+import recordIcon from '../assets/transport/record.png';
+import playIcon from '../assets/transport/play.png';
+import stopIcon from '../assets/transport/stop.png';
+import clearIcon from '../assets/transport/clear.png';
+import metronomeIcon from '../assets/icons/metronome.png';
 import './Sequencer.css';
 
 export default class Sequencer extends Component {
@@ -15,6 +18,7 @@ export default class Sequencer extends Component {
   }
 
   state = {
+    recording: false,
     playing: false,
   }
 
@@ -46,7 +50,7 @@ export default class Sequencer extends Component {
 
   render() {
     const { sequencer } = this.props;
-    const { playing } = this.state;
+    const { recording, playing } = this.state;
 
     const steps = this.getSteps();
 
@@ -66,16 +70,49 @@ export default class Sequencer extends Component {
             />
           </Col>
 
-          <Col span={9} offset={1}>
+          <Col span={12}>
+            <Button
+              className={classnames({
+                'sequencer-btn': true,
+                'sequencer-transport-btn': true,
+                'sequencer-transport-record-btn': true,
+                'sequencer-transport-record-btn-recording': recording,
+              })}
+              onClick={() => {
+                if (sequencer.recording) {
+                  sequencer.stopRecord();
+                  this.setState({ recording: false });
+                } else {
+                  sequencer.record();
+
+                  this.setState({
+                    recording: true,
+                    playing: true,
+                  });
+
+                  if (!sequencer.playing) {
+                    sequencer.start();
+                  }
+                }
+              }}
+            >
+              <img src={recordIcon} alt="Record" />
+
+              <span>
+                {`${recording ? 'Recording...' : 'Record'}`}
+              </span>
+            </Button>
+
             <Button
               className="sequencer-btn sequencer-transport-btn sequencer-transport-play-btn"
               disabled={playing}
               onClick={() => {
                 sequencer.start();
+
                 this.setState({ playing: true });
               }}
             >
-              <img src={playButton} alt="Play" />
+              <img src={playIcon} alt="Play" />
               <span>Play</span>
             </Button>
 
@@ -84,10 +121,15 @@ export default class Sequencer extends Component {
               disabled={!playing}
               onClick={() => {
                 sequencer.stop();
-                this.setState({ playing: false });
+                sequencer.stopRecord();
+
+                this.setState({
+                  recording: false,
+                  playing: false,
+                });
               }}
             >
-              <img src={stopButton} alt="Stop" />
+              <img src={stopIcon} alt="Stop" />
               <span>Stop</span>
             </Button>
 
@@ -99,15 +141,32 @@ export default class Sequencer extends Component {
                 this.forceUpdate();
               }}
             >
-              <img src={clearButton} alt="Clear" />
+              <img src={clearIcon} alt="Clear" />
               <span>Clear</span>
             </Button>
+          </Col>
+
+          <Col offset={2} span={4}>
+            <div className="sequencer-metronome-switch">
+              <img src={metronomeIcon} alt="Metronome" />
+
+              <Switch
+                label="Metronome"
+                defaultValue
+                onChange={sequencer::sequencer.setMetronomeStatus}
+              />
+            </div>
           </Col>
         </Row>
 
         <Row>
           <Col>
-            <div className="sequencer-steps">
+            <div
+              className={classnames({
+                'sequencer-steps': true,
+                'sequencer-steps-recording': recording,
+              })}
+            >
               {steps.map(step => (
                 <Button
                   key={step}

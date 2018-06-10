@@ -1,7 +1,6 @@
 .ant-switch {
-  margin-top: 6px;
+  margin-top: 10px;
   padding: 1px 3px;
-  float: right;
   min-width: 60px;
   height: 23px;
   font-family: 'Francois One', monospace;
@@ -9,6 +8,11 @@
   background: #666;
   border-radius: 4px;
   zoom: 0.9;
+}
+
+.ant-switch.switch-floating {
+  margin-top: 6px;
+  float: right;
 }
 
 .ant-switch-checked {
@@ -42,4 +46,14 @@
 
 .ant-switch-checked .ant-switch-inner {
   margin-left: 5px;
+}
+
+.switch-label,
+.switch-label .ant-form-item-control-wrapper {
+  margin: 0;
+  display: inline-block;
+}
+
+.switch-label.ant-row .ant-form-item-control-wrapper {
+  padding: 0;
 }
