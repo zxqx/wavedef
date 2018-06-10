@@ -3,6 +3,7 @@ import ctx from 'audio-context';
 export default class Envelope {
   modulate(destination) {
     this.destination = destination;
+    this.setStart(destination.value);
 
     return this;
   }
@@ -27,6 +28,12 @@ export default class Envelope {
 
   setRelease(release) {
     this.release = parseFloat(release);
+
+    return this;
+  }
+
+  setPeakLevel(peakLevel) {
+    this.peakLevel = parseFloat(peakLevel);
 
     return this;
   }
@@ -59,6 +66,10 @@ export default class Envelope {
     return this.release;
   }
 
+  getPeakLevel() {
+    return this.peakLevel;
+  }
+
   getStart() {
     return this.start;
   }
@@ -67,35 +78,55 @@ export default class Envelope {
     return this.depth;
   }
 
-  triggerADS() {
-    this.destination.cancelScheduledValues(ctx().currentTime);
-    this.destination.setValueAtTime(0, ctx().currentTime);
-    this.destination.linearRampToValueAtTime(1, ctx().currentTime + this.attack);
+  computeNormalizedSustain() {
+    const peakLevel = this.computeNormalizedPeakLevel();
+
+    return ((peakLevel - this.start) * this.sustain) + this.start;
+  }
+
+  computeNormalizedPeakLevel() {
+    return this.peakLevel + this.start;
+  }
+
+  triggerAttack() {
+    const peakLevel = this.computeNormalizedPeakLevel();
+
+    this.destination.linearRampToValueAtTime(peakLevel, ctx().currentTime + this.attack);
+  }
+
+  triggerDecay() {
+    const sustain = this.computeNormalizedSustain();
+
     this.destination.linearRampToValueAtTime(
-      this.sustain,
+      sustain,
       ctx().currentTime + this.attack + this.decay,
     );
-
-    return this;
   }
 
   triggerRelease() {
     this.destination.cancelScheduledValues(ctx().currentTime);
-    this.destination.linearRampToValueAtTime(0, ctx().currentTime + this.release);
+    this.destination.setValueAtTime(this.destination.value, ctx().currentTime);
+    this.destination.linearRampToValueAtTime(this.start, ctx().currentTime + this.release);
+
+    return this;
+  }
+
+  triggerADS() {
+    this.destination.cancelScheduledValues(ctx().currentTime);
+    this.destination.setValueAtTime(this.start, ctx().currentTime);
+    this.triggerAttack();
+    this.triggerDecay();
 
     return this;
   }
 
   trigger() {
     this.destination.cancelScheduledValues(ctx().currentTime);
-    this.destination.setValueAtTime(0, ctx().currentTime);
-    this.destination.linearRampToValueAtTime(1, ctx().currentTime + this.attack);
+    this.destination.setValueAtTime(this.start, ctx().currentTime);
+    this.triggerADS();
+
     this.destination.linearRampToValueAtTime(
-      this.sustain,
-      ctx().currentTime + this.attack + this.decay,
-    );
-    this.destination.linearRampToValueAtTime(
-      0,
+      this.start,
       ctx().currentTime + this.attack + this.decay + this.release,
     );
 

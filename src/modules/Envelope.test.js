@@ -11,6 +11,15 @@ describe('Envelope', () => {
     expect(envelope.destination).toEqual(destination);
   });
 
+  it('should set start time to destination value', () => {
+    const envelope = new Envelope();
+    const destination = { value: 72 };
+
+    envelope.modulate(destination);
+
+    expect(envelope.getStart()).toEqual(72);
+  });
+
   it('should set attack', () => {
     const envelope = new Envelope();
 
@@ -41,6 +50,14 @@ describe('Envelope', () => {
     envelope.setRelease(1.57002);
 
     expect(envelope.release).toEqual(1.57002);
+  });
+
+  it('should set peak level', () => {
+    const envelope = new Envelope();
+
+    envelope.setPeakLevel(224);
+
+    expect(envelope.peakLevel).toEqual(224);
   });
 
   it('should set depth', () => {
@@ -91,6 +108,14 @@ describe('Envelope', () => {
     expect(envelope.getRelease()).toEqual(1.6);
   });
 
+  it('should get peak level', () => {
+    const envelope = new Envelope();
+
+    envelope.setPeakLevel(360);
+
+    expect(envelope.getPeakLevel()).toEqual(360);
+  });
+
   it('should get start', () => {
     const envelope = new Envelope();
 
@@ -107,15 +132,72 @@ describe('Envelope', () => {
     expect(envelope.getDepth()).toEqual(420);
   });
 
+  it('should trigger attack', () => {
+    const ctx = new AudioContext();
+    const envelope = new Envelope();
+    const node = ctx.createGain();
+    node.gain.value = 0;
+
+    envelope
+      .setAttack(2)
+      .setPeakLevel(600);
+
+    envelope.modulate(node.gain);
+    envelope.triggerAttack();
+
+    ctx.$processTo('00:00.000');
+    expect(envelope.destination.value).toEqual(0);
+
+    ctx.$processTo('00:02.000');
+    expect(envelope.destination.value).toEqual(600);
+  });
+
+  it('should trigger decay', () => {
+    const ctx = new AudioContext();
+    const envelope = new Envelope();
+    const node = ctx.createGain();
+    node.gain.value = 0;
+
+    envelope
+      .setAttack(2)
+      .setDecay(1)
+      .setSustain(0.5)
+      .setPeakLevel(1000);
+
+    envelope.modulate(node.gain);
+    envelope.triggerAttack();
+    envelope.triggerDecay();
+
+    ctx.$processTo('00:03.000');
+    expect(envelope.destination.value).toEqual(500);
+  });
+
+  it('should trigger release', () => {
+    const ctx = new AudioContext();
+    const envelope = new Envelope();
+    const node = ctx.createGain();
+    node.gain.value = 0;
+
+    envelope.setRelease(5.92);
+
+    envelope.modulate(node.gain);
+    envelope.triggerRelease();
+
+    ctx.$processTo('00:05.920');
+    expect(envelope.destination.value).toEqual(0);
+  });
+
   it('should trigger ADS', () => {
     const ctx = new AudioContext();
     const envelope = new Envelope();
     const node = ctx.createGain();
+    node.gain.value = 0;
 
     envelope
       .setAttack(0.8)
       .setDecay(0.2)
-      .setSustain(0.5);
+      .setSustain(0.5)
+      .setPeakLevel(1);
 
     envelope.modulate(node.gain);
     envelope.triggerADS();
@@ -136,30 +218,18 @@ describe('Envelope', () => {
     expect(envelope.destination.value).toEqual(0.5);
   });
 
-  it('should trigger release', () => {
-    const ctx = new AudioContext();
-    const envelope = new Envelope();
-    const node = ctx.createGain();
-
-    envelope.setRelease(5.92);
-
-    envelope.modulate(node.gain);
-    envelope.triggerRelease();
-
-    ctx.$processTo('00:05.920');
-    expect(envelope.destination.value).toEqual(0);
-  });
-
   it('should trigger ADSR', () => {
     const ctx = new AudioContext();
     const envelope = new Envelope();
     const node = ctx.createGain();
+    node.gain.value = 0;
 
     envelope
       .setAttack(0.8)
       .setDecay(0.2)
       .setSustain(0.5)
-      .setRelease(4);
+      .setRelease(4)
+      .setPeakLevel(1);
 
     envelope.modulate(node.gain);
     envelope.trigger();
@@ -184,6 +254,40 @@ describe('Envelope', () => {
 
     ctx.$processTo('00:04.000');
     expect(envelope.destination.value).toEqual(0.125);
+
+    ctx.$processTo('00:05.000');
+    expect(envelope.destination.value).toEqual(0);
+  });
+
+  it('should trigger release properly if attack phase is not completed', () => {
+    const ctx = new AudioContext();
+    const envelope = new Envelope();
+    const node = ctx.createGain();
+    node.gain.value = 0;
+
+    envelope
+      .setAttack(2)
+      .setDecay(0.2)
+      .setSustain(0.5)
+      .setRelease(5)
+      .setPeakLevel(1);
+
+    envelope.modulate(node.gain);
+    envelope.trigger();
+
+    ctx.$processTo('00:00.000');
+    expect(envelope.destination.value).toEqual(0);
+
+    ctx.$processTo('00:00.500');
+    expect(envelope.destination.value).toEqual(0.25);
+
+    envelope.triggerRelease();
+
+    ctx.$processTo('00:01.000');
+    expect(envelope.destination.value).toEqual(0.2);
+
+    ctx.$processTo('00:03.000');
+    expect(envelope.destination.value).toEqual(0.1);
 
     ctx.$processTo('00:05.000');
     expect(envelope.destination.value).toEqual(0);

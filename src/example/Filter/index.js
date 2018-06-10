@@ -8,6 +8,7 @@ import Slider from '../common/Slider';
 export default class Filter extends Component {
   static propTypes = {
     filter: PropTypes.object.isRequired, // eslint-disable-line
+    envelope: PropTypes.object.isRequired, // eslint-disable-line
   }
 
   getOptions() {
@@ -20,7 +21,7 @@ export default class Filter extends Component {
   }
 
   render() {
-    const { filter } = this.props;
+    const { filter, envelope } = this.props;
 
     return (
       <AudioControlGroup label={filter.name}>
@@ -37,7 +38,10 @@ export default class Filter extends Component {
           min={10}
           max={2000}
           step={1}
-          onChange={filter::filter.setFrequency}
+          onChange={(value) => {
+            filter.setFrequency(value);
+            envelope.setStart(value);
+          }}
         />
 
         <Slider
