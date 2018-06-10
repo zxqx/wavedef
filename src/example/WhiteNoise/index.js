@@ -23,7 +23,10 @@ export default class WhiteNoise extends Component {
       <AudioControlGroup
         label={
           <Fragment>
-            {noise.name}
+            <span className="audio-control-label">
+              {noise.name}
+            </span>
+
             <Switch
               defaultValue={false}
               onChange={this::this.toggle}

@@ -16,7 +16,10 @@ export default class Phaser extends Component {
       <AudioControlGroup
         label={
           <Fragment>
-            {phaser.name}
+            <span className="audio-control-label">
+              {phaser.name}
+            </span>
+
             <Switch
               defaultValue={false}
               onChange={on => phaser.setBypass(!on)}
