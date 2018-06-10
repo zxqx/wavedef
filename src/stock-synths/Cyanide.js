@@ -24,6 +24,7 @@ export default class Cyanide {
     this.osc = new Oscillator('OSC 1');
     this.vca = new VCA();
     this.volumeEnvelope = new Envelope();
+    this.filterEnvelope = new Envelope();
     this.filter = new Filter();
     this.lfo1 = new LFO('LFO 1');
     this.lfo2 = new LFO('LFO 2');
@@ -45,6 +46,7 @@ export default class Cyanide {
       osc,
       vca,
       volumeEnvelope,
+      filterEnvelope,
       filter,
       lfo1,
       lfo2,
@@ -76,7 +78,11 @@ export default class Cyanide {
     synth.addModule(lfo2);
     synth.addModule(sequencer);
 
-    volumeEnvelope.modulate(vca::param('gain'));
+    volumeEnvelope
+      .modulate(vca::param('gain'))
+      .setPeakLevel(1);
+
+    filterEnvelope.modulate(filter::param('frequency'));
   }
 
   connectControllers() {
@@ -86,32 +92,39 @@ export default class Cyanide {
       sequencer,
       osc,
       volumeEnvelope,
+      filterEnvelope,
     } = this;
 
     computerKeyboard.triggerOnPress([
       osc::osc.setFrequency,
       volumeEnvelope::volumeEnvelope.triggerADS,
+      filterEnvelope::filterEnvelope.triggerADS,
       freq => sequencer.triggerAtSelectedStep(() => {
         osc.setFrequency(freq);
         volumeEnvelope.trigger();
+        filterEnvelope.trigger();
       }),
     ]);
 
     computerKeyboard.triggerOnRelease([
       volumeEnvelope::volumeEnvelope.triggerRelease,
+      filterEnvelope::filterEnvelope.triggerRelease,
     ]);
 
     midiController.triggerOnPress([
       osc::osc.setFrequency,
       volumeEnvelope::volumeEnvelope.triggerADS,
+      filterEnvelope::filterEnvelope.triggerADS,
       freq => sequencer.triggerAtSelectedStep(() => {
         osc.setFrequency(freq);
         volumeEnvelope.trigger();
+        filterEnvelope.trigger();
       }),
     ]);
 
     midiController.triggerOnRelease([
       volumeEnvelope::volumeEnvelope.triggerRelease,
+      filterEnvelope::filterEnvelope.triggerRelease,
     ]);
   }
 

@@ -4,6 +4,7 @@ import Cyanide from '../../../stock-synths/Cyanide';
 import Oscillator from '../../Oscillator';
 import Filter from '../../Filter';
 import VolumeEnvelope from '../../VolumeEnvelope';
+import FilterEnvelope from '../../FilterEnvelope';
 import LFO from '../../LFO';
 import Overdrive from '../../Overdrive';
 import Phaser from '../../Phaser';
@@ -42,6 +43,7 @@ export default class CyanidePage extends Component {
       ringmod,
       chorus,
       volumeEnvelope,
+      filterEnvelope,
       sequencer,
       frequencyAnalyzer,
     } = cyanide;
@@ -73,6 +75,7 @@ export default class CyanidePage extends Component {
             />
 
             <VolumeEnvelope envelope={volumeEnvelope} />
+            <FilterEnvelope envelope={filterEnvelope} />
           </Col>
 
           <Col
@@ -117,7 +120,11 @@ export default class CyanidePage extends Component {
                 xs={24}
                 md={12}
               >
-                <Filter filter={filter} />
+                <Filter
+                  filter={filter}
+                  envelope={filterEnvelope}
+                />
+
                 <Overdrive overdrive={overdrive} />
               </Col>
 
@@ -139,14 +146,19 @@ export default class CyanidePage extends Component {
               startingOctave={1}
               onKeypress={[
                 value => osc.setFrequency(value),
-                value => volumeEnvelope.triggerADS(value),
+                (value) => {
+                  volumeEnvelope.triggerADS(value);
+                  filterEnvelope.triggerADS(value);
+                },
                 freq => sequencer.triggerAtSelectedStep(() => {
                   osc.setFrequency(freq);
                   volumeEnvelope.trigger();
+                  filterEnvelope.trigger();
                 }),
               ]}
               onKeyRelease={[
                 value => volumeEnvelope.triggerRelease(value),
+                value => filterEnvelope.triggerRelease(value),
               ]}
             />
           </Col>

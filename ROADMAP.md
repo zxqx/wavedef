@@ -23,9 +23,6 @@
 + Stock Synths
   - Configure and design 3 stock synths
 
-+ Sequencer
-  - Live recording
-
 + Document all modules
   - Host docs
 
@@ -44,6 +41,9 @@
 + Define GitHub issue template
 
 ## Future
+
++ Sequencer
+  - Live recording
 + Port OG modules
   - Kick
   - Snare
