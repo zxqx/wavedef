@@ -34,7 +34,10 @@
   - Sequencer how-to
   - Computer Keyboard layout
 
-+ Support Chrome/Firefox/Safari desktop
++ FF
+  - Fix sequencer start timing
+  - Fix transport button transition styles
+  - Fix phaser
 
 + Define contribution standards
 

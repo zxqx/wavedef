@@ -8,7 +8,7 @@ export default class ComputerKeyboardMap extends Component {
   }
 
   componentDidMount() {
-    // localStorage.setItem('guideShown', true);
+    localStorage.setItem('guideShown', true);
   }
 
   close = () => {
