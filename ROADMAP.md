@@ -2,9 +2,6 @@
 
 ## 1.0
 
-+ Envelope
-  - Preserve start value (modulate internal gain node?)
-
 + LFO
   - Normalize depth
 
@@ -23,18 +20,16 @@
 + Stock Synths
   - Configure and design 3 stock synths
 
-+ Document all modules
-  - Host docs
-
-+ UI help screens
-  - Press any key
-  - Sequencer how-to
-  - Computer Keyboard layout
-
 + FF
   - Fix sequencer start timing
   - Fix transport button transition styles
   - Fix phaser
+
++ Document all modules
+  - Host docs
+
++ UI help screens
+  - Sequencer how-to
 
 + Define contribution standards
 
