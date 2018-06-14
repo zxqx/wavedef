@@ -12,6 +12,15 @@ export default class Oscillator extends Component {
       node: PropTypes.object.isRequired, // eslint-disable-line
     }).isRequired,
     mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
+    waveformType: PropTypes.string,
+    frequency: PropTypes.number,
+    showFrequencyControl: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    waveformType: 'sawtooth',
+    frequency: 250,
+    showFrequencyControl: false,
   }
 
   toggle(on) {
@@ -21,7 +30,13 @@ export default class Oscillator extends Component {
   }
 
   render() {
-    const { oscillator, mixerChannel } = this.props;
+    const {
+      oscillator,
+      mixerChannel,
+      waveformType,
+      frequency,
+      showFrequencyControl,
+    } = this.props;
 
     return (
       <AudioControlGroup
@@ -40,9 +55,20 @@ export default class Oscillator extends Component {
       >
 
         <WaveSelector
-          defaultValue="sawtooth"
+          defaultValue={waveformType}
           onChange={oscillator::oscillator.setWaveformType}
         />
+
+        {showFrequencyControl &&
+          <Slider
+            label="Frequency"
+            defaultValue={frequency}
+            min={0}
+            max={1000}
+            step={1}
+            onChange={oscillator::oscillator.setFrequency}
+          />
+        }
 
         <Slider
           label="Volume"

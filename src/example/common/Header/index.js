@@ -50,6 +50,12 @@ export default class Header extends Component {
                   </Link>
                 </Menu.Item>
 
+                <Menu.Item key="hydra">
+                  <Link to="/hydra">
+                    hydra
+                  </Link>
+                </Menu.Item>
+
                 <Menu.Item key="drake">
                   <Link to="/drake">
                     drake

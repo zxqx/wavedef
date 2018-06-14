@@ -1,0 +1,9 @@
+.hydra .ant-row > div,
+.hydra .ant-row-flex > div {
+  padding: 0 0.5rem;
+}
+
+.hydra .ant-row > .multi-column-span,
+.hydra .ant-row-flex > .multi-column-span {
+  padding: 0;
+}

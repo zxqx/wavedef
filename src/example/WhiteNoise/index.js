@@ -8,6 +8,11 @@ export default class WhiteNoise extends Component {
   static propTypes = {
     noise: PropTypes.object.isRequired, // eslint-disable-line
     mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
+    volume: PropTypes.number,
+  }
+
+  static defaultProps = {
+    volume: 0,
   }
 
   toggle(on) {
@@ -17,7 +22,7 @@ export default class WhiteNoise extends Component {
   }
 
   render() {
-    const { noise, mixerChannel } = this.props;
+    const { noise, mixerChannel, volume } = this.props;
 
     return (
       <AudioControlGroup
@@ -28,7 +33,7 @@ export default class WhiteNoise extends Component {
             </span>
 
             <Switch
-              defaultValue={false}
+              defaultValue
               onChange={this::this.toggle}
             />
           </Fragment>
@@ -37,7 +42,7 @@ export default class WhiteNoise extends Component {
 
         <Slider
           label="Volume"
-          defaultValue={0}
+          defaultValue={volume}
           min={0}
           max={1}
           step={0.001}

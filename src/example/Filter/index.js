@@ -8,7 +8,13 @@ import Slider from '../common/Slider';
 export default class Filter extends Component {
   static propTypes = {
     filter: PropTypes.object.isRequired, // eslint-disable-line
-    envelope: PropTypes.object.isRequired, // eslint-disable-line
+    envelope: PropTypes.object, // eslint-disable-line
+    cutoff: PropTypes.number,
+  }
+
+  static defaultProps = {
+    envelope: null,
+    cutoff: 350,
   }
 
   getOptions() {
@@ -21,7 +27,7 @@ export default class Filter extends Component {
   }
 
   render() {
-    const { filter, envelope } = this.props;
+    const { filter, envelope, cutoff } = this.props;
 
     return (
       <AudioControlGroup label={filter.name}>
@@ -34,13 +40,16 @@ export default class Filter extends Component {
 
         <Slider
           label="Cutoff"
-          defaultValue={350}
+          defaultValue={cutoff}
           min={10}
           max={2000}
           step={1}
           onChange={(value) => {
             filter.setFrequency(value);
-            envelope.setStart(value);
+
+            if (envelope) {
+              envelope.setStart(value);
+            }
           }}
         />
 
