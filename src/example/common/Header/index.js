@@ -41,18 +41,24 @@ export default class Header extends Component {
                 theme="dark"
                 mode="horizontal"
                 className="menu"
-                selectedKeys={[pageId || 'cyanide']}
+                selectedKeys={[pageId || 'playground']}
                 style={{ lineHeight: '64px' }}
               >
-                <Menu.Item key="cyanide">
+                <Menu.Item key="playground">
                   <Link to="/">
-                    cyanide
+                    playground
                   </Link>
                 </Menu.Item>
 
-                <Menu.Item key="drake">
-                  <Link to="/drake">
-                    drake
+                <Menu.Item key="docs">
+                  <Link to="/docs">
+                    docs
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item key="contribute">
+                  <Link to="/contribute">
+                    contribute
                   </Link>
                 </Menu.Item>
               </Menu>
