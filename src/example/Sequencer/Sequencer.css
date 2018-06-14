@@ -6,18 +6,24 @@
 
 .sequencer-btn {
   margin-right: 1rem;
-  padding: 1.5rem 2rem 2.5rem;
+  padding: 1.5rem 2.034rem 2.5rem;
   font-size: 16px;
   color: #bbb;
   background: #333;
   border: none;
 }
 
+.sequencer-btn:last-child {
+  margin-right: 0;
+}
+
 .sequencer-btn:after {
   border: 0 solid #666;
 }
 
-.sequencer-btn:hover {
+.sequencer-btn:hover,
+.sequencer-btn.sequencer-step.sequencer-step-trigger:hover,
+.sequencer-transport-btn:focus:hover {
   background: #444;
   color: #fff;
 }
@@ -33,10 +39,29 @@
   color: #666;
 }
 
+.sequencer-transport-record-btn {
+  width: 180px;
+}
+
+.sequencer-transport-record-btn.sequencer-transport-record-btn-recording,
+.sequencer-transport-record-btn.sequencer-transport-record-btn-recording:focus {
+  background: #b64a4a;
+  color: #fff;
+}
+
+.sequencer-transport-record-btn.sequencer-transport-record-btn-recording:hover {
+  background: #ce6262;
+}
+
 .sequencer-transport-btn {
   margin: 1rem 0.5rem;
   padding: 1rem 2.5rem 2.6rem;
   color: #fff;
+}
+
+.sequencer-transport-btn:focus {
+  color: #fff;
+  background: #333;
 }
 
 .sequencer-transport-btn:active img {
@@ -71,7 +96,8 @@
 }
 
 .sequencer-step {
-  padding-top: 1.75rem;
+  width: 76.5px;
+  padding: 1.9rem 0 2.5rem;
   transition: color 0.4s;
 }
 
@@ -91,16 +117,11 @@
   border-radius: 100%;
   animation: none;
   -webkit-animation: none;
-  transition: background 0.2s;
 }
 
 .sequencer-step.sequencer-step-selected {
   background: #2a2a2a;
   color: #aaa;
-}
-
-.sequencer-step.sequencer-step-selected:after {
-  background: #ff005294;
 }
 
 .sequencer-step.sequencer-step-trigger {
@@ -115,6 +136,11 @@
 .sequencer-step.sequencer-step-trigger:after,
 .sequencer-step.sequencer-step-trigger.sequencer-step-selected:after {
   background: #4bff00;
+}
+
+.sequencer-steps-recording .sequencer-step-active.sequencer-step-selected:after,
+.sequencer-step.sequencer-step-selected:after {
+  background: #b64a4a;
 }
 
 .sequencer-step.sequencer-step-trigger:not(.sequencer-step-active) {
@@ -132,4 +158,18 @@
   display: block;
   opacity: 1;
   background: #666;
+}
+
+.sequencer-metronome-switch {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem 0.6rem 1.6rem;
+  width: 222px;
+  float: right;
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.sequencer-metronome-switch img {
+  margin: 9px 3px 0 0;
+  width: 12px;
 }

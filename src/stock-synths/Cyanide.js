@@ -74,6 +74,8 @@ export default class Cyanide {
       .to(frequencyAnalyzer)
       .output();
 
+    synth.connect(sequencer).output();
+
     synth.addModule(lfo1);
     synth.addModule(lfo2);
     synth.addModule(sequencer);

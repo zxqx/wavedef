@@ -10,7 +10,8 @@
   - Normalize depth
 
 + Sequencer
-  - Live recording
+  - Support +/- bars
+  - Figure out how to handle manually selected step in record mode
 
 + Oscillator Group
   - Frequency sync
@@ -34,9 +35,6 @@
 
 + Document all modules
   - Host docs
-
-+ UI help screens
-  - Sequencer how-to
 
 + Define contribution standards
 
