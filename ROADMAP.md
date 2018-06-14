@@ -2,6 +2,10 @@
 
 ## 1.0
 
++ Move name stuff out of modules
+
++ Rethink how we expose module params
+
 + Set sane module defaults
   + allow boot up params object
   + set default value, min, max
@@ -13,9 +17,6 @@
   - Support +/- bars
   - Figure out how to handle manually selected step in record mode
 
-+ Oscillator Group
-  - Frequency sync
-
 + On-Screen Keyboard
   - Add octave +/- buttons
   - Sync with computer keyboard
@@ -24,9 +25,6 @@
   - Improve attack/release tracking
   - Keep track of all held notes
   - Centralize key tracking from Computer Keyboard
-
-+ Stock Synths
-  - Configure and design 3 stock synths
 
 + FF
   - Fix sequencer start timing
