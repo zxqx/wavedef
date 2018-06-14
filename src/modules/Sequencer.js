@@ -74,6 +74,10 @@ export default class Sequencer {
     this.triggerCallbacks.push(callback);
   }
 
+  clearTrigger(callback) {
+    this.triggerCallbacks = this.triggerCallbacks.filter(cb => cb !== callback);
+  }
+
   triggerStep() {
     const stepTrigger = this.stepTriggers[this.activeStep];
 
@@ -125,6 +129,10 @@ export default class Sequencer {
 
   onSetTrigger(callback) {
     this.onSetTriggerCallbacks.push(callback);
+  }
+
+  clearOnSetTrigger(callback) {
+    this.onSetTriggerCallbacks = this.onSetTriggerCallbacks.filter(cb => cb !== callback);
   }
 
   start() {
@@ -181,6 +189,7 @@ export default class Sequencer {
     this.activeStep = 1;
     this.selectedStep = null;
     this.stepTriggers = {};
+
     this.triggerCallbacks = [];
     this.onStepSelectCallbacks = [];
     this.onSetTriggerCallbacks = [];

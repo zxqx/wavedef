@@ -133,7 +133,6 @@ export default class Cyanide {
   disconnectControllers() {
     this.computerKeyboard.triggerOnPress([]);
     this.midiController.triggerOnPress([]);
-    this.sequencer.reset();
     this.sequencer.stop();
   }
 }

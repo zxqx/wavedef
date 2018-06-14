@@ -17,6 +17,12 @@ export default class Sequencer extends Component {
     sequencer: PropTypes.object.isRequired, // eslint-disable-line
   }
 
+  constructor() {
+    super();
+
+    this.forceUpdate = this::this.forceUpdate;
+  }
+
   state = {
     recording: false,
     playing: false,
@@ -25,12 +31,16 @@ export default class Sequencer extends Component {
   componentDidMount() {
     const { sequencer } = this.props;
 
-    sequencer.trigger(this::this.forceUpdate);
-    sequencer.onSetTrigger(this::this.forceUpdate);
+    sequencer.trigger(this.forceUpdate);
+    sequencer.onSetTrigger(this.forceUpdate);
   }
 
   componentWillUnmount() {
-    this.props.sequencer.reset();
+    const { sequencer } = this.props;
+
+    sequencer.stopRecord();
+    sequencer.clearTrigger(this.forceUpdate);
+    sequencer.clearOnSetTrigger(this.forceUpdate);
   }
 
   getSteps() {
@@ -60,7 +70,7 @@ export default class Sequencer extends Component {
           <Col span={6}>
             <DragInput
               label="BPM"
-              defaultValue={90}
+              defaultValue={sequencer.bpm}
               min={30}
               max={300}
               onChange={(bpm) => {
@@ -152,7 +162,7 @@ export default class Sequencer extends Component {
 
               <Switch
                 label="Metronome"
-                defaultValue
+                defaultValue={sequencer.metronomeOn}
                 onChange={sequencer::sequencer.setMetronomeStatus}
               />
             </div>
