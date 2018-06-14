@@ -28,6 +28,10 @@
   color: #fff;
 }
 
+.sequencer-transport-btn:disabled {
+  cursor: default;
+}
+
 .sequencer-btn:focus {
   background: #2a2a2a;
   color: #aaa;

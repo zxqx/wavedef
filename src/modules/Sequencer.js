@@ -120,7 +120,9 @@ export default class Sequencer {
 
     this.triggerAtStep(step, callback);
 
-    this.selectedStep = null;
+    if (!this.recording) {
+      this.selectedStep = null;
+    }
   }
 
   onSetTrigger(callback) {

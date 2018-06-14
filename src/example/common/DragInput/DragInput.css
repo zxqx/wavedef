@@ -65,9 +65,9 @@
   outline: none;
 }
 
-.drag-input-button[disabled] {
+.drag-input-button:disabled {
   opacity: 0.3;
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .drag-input-up-button {
