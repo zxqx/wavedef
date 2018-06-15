@@ -55,7 +55,7 @@ export default class Sequencer extends Component {
     const steps = this.getSteps();
 
     return (
-      <AudioControlGroup>
+      <AudioControlGroup className="sequencer">
         <Row>
           <Col span={6}>
             <DragInput

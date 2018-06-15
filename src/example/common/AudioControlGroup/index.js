@@ -13,17 +13,23 @@ export default class AudioControlGroup extends Component {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
     ]).isRequired,
+    className: PropTypes.string,
   }
 
   static defaultProps = {
     label: '',
+    className: '',
   }
 
   render() {
-    const { label, children } = this.props;
+    const { label, children, className } = this.props;
 
     return (
-      <Card title={label} bordered={false}>
+      <Card
+        title={label}
+        bordered={false}
+        className={className}
+      >
         {children}
       </Card>
     );

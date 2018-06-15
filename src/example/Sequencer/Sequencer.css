@@ -1,3 +1,7 @@
+.sequencer .ant-card-body {
+  padding: 24px;
+}
+
 .sequencer-bpm {
   position: absolute;
   top: 2px;
@@ -100,7 +104,7 @@
 }
 
 .sequencer-step {
-  width: 76.5px;
+  width: 77.5px;
   padding: 1.9rem 0 2.5rem;
   transition: color 0.4s;
 }
