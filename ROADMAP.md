@@ -34,8 +34,6 @@
 + Document all modules
   - Host docs
 
-+ Define contribution standards
-
 + Define GitHub issue template
 
 ## Future
