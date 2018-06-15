@@ -1,3 +1,8 @@
+.wave-selector .ant-radio-button-wrapper {
+  padding: 2px 18px;
+  height: 36px;
+}
+
 .wave-selector img {
   width: 16px;
 }

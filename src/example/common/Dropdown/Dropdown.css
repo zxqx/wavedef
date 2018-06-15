@@ -1,14 +1,17 @@
 .ant-select-selection {
-  width: 200px;
+  width: 208px;
+  height: 36px;
   font-family: 'Francois One', monospace;
   background: #333;
   border: 0;
-  border-radius: 0;
+  border-radius: 4px;
   color: #fff;
 }
 
 .ant-select-arrow {
-  color: #fff;
+  margin-top: -5px;
+  color: #aaa;
+  font-weight: 800;
 }
 
 .ant-select-dropdown {
@@ -36,4 +39,7 @@
   border: 0;
   outline: none;
   box-shadow: none;
+}
+.ant-select-selection__rendered {
+  line-height: 37px;
 }
