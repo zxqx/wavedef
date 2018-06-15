@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Layout, Row, Col, Menu, Button } from 'antd';
+import { Icon } from 'react-fa';
 import ComputerKeyboardMap from '../../ComputerKeyboardMap';
 import logo from '../../assets/wavedef-logo.png';
 import computerKeyboardIcon from '../../assets/icons/computer-keyboard-icon.png';
@@ -57,9 +58,18 @@ export default class Header extends Component {
                 </Menu.Item>
 
                 <Menu.Item key="contribute">
-                  <Link to="/contribute">
+                  <a
+                    href="http://github.com/zakangelle/wavedef"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     contribute
-                  </Link>
+
+                    <Icon
+                      name="external-link"
+                      className="external-link-icon"
+                    />
+                  </a>
                 </Menu.Item>
               </Menu>
             </Col>

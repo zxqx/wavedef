@@ -31,6 +31,13 @@
   border-bottom: 3px solid #8500ff;
 }
 
+.external-link-icon {
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 900;
+  color: #777;
+}
+
 .computer-keyboard-btn {
   margin-top: 1rem;
   padding: 0.5rem;
