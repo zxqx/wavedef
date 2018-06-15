@@ -14,6 +14,7 @@
   - Normalize depth
 
 + Sequencer
+  - Move selected step stuff into UI component
   - Support +/- bars
   - Figure out how to handle manually selected step in record mode
 
@@ -33,8 +34,6 @@
 
 + Document all modules
   - Host docs
-
-+ Define GitHub issue template
 
 ## Future
 
