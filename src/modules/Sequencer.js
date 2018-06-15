@@ -186,5 +186,8 @@ export default class Sequencer {
     this.triggerCallbacks = [];
     this.onStepSelectCallbacks = [];
     this.onSetTriggerCallbacks = [];
+
+    this.stop();
+    this.stopRecord();
   }
 }
