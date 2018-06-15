@@ -58,6 +58,7 @@
 
 .computer-keyboard-btn img {
   width: 30px;
+  opacity: 0.7;
 }
 
 .computer-keyboard-btn:after {
