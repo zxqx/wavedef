@@ -35,6 +35,8 @@
 + Document all modules
   - Host docs
 
++ Add 404 page
+
 ## Future
 
 + Port OG modules
