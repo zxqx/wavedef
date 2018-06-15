@@ -31,21 +31,6 @@ export default class Delay {
     wet.node.connect(this.outputNode);
   }
 
-  getParams() {
-    return [
-      {
-        label: 'Time',
-        context: this,
-        path: 'delay.delayTime',
-      },
-      {
-        label: 'Feedback',
-        context: this,
-        path: 'feedback.node',
-      },
-    ];
-  }
-
   setFeedback(value) {
     this.feedback.setGain(value);
   }

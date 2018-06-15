@@ -18,7 +18,7 @@
   font-family: 'Francois One', monospace;
   background: #333;
   border: 0;
-  border-radius: 0;
+  border-radius: 0 0 4px 4px;
 }
 
 .ant-select-dropdown .ant-select-dropdown-menu-item {
