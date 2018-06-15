@@ -5,7 +5,7 @@ describe ('Ringmod', () => {
   it('should set default name', () => {
     const ringmod = new Ringmod();
 
-    expect(ringmod.name).toEqual('Ringmod');
+    expect(ringmod.name).toEqual('Ring Modulator');
   });
 
   it('should set name', () => {
