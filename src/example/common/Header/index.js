@@ -57,13 +57,13 @@ export default class Header extends Component {
                   </Link>
                 </Menu.Item>
 
-                <Menu.Item key="contribute">
+                <Menu.Item key="github">
                   <a
                     href="http://github.com/zakangelle/wavedef"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    contribute
+                    github
 
                     <Icon
                       name="external-link"
