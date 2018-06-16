@@ -3,16 +3,14 @@
 ## 1.0
 
 + Set sane module defaults
-  + allow boot up params object
-  + set default value, min, max
+  - allow boot up params object
+  - set default value, min, max
 
 + LFO
   - Normalize depth
 
 + Sequencer
-  - Move selected step stuff into UI component
   - Support +/- bars
-  - Figure out how to handle manually selected step in record mode
 
 + On-Screen Keyboard
   - Add octave +/- buttons
@@ -24,9 +22,7 @@
   - Centralize key tracking from Computer Keyboard
 
 + FF
-  - Fix sequencer start timing
   - Fix transport button transition styles
-  - Fix phaser
 
 + Document all modules
   - Host docs

@@ -127,6 +127,11 @@
   -webkit-animation: none;
 }
 
+.sequencer-step:focus {
+  color: #bbb;
+  background: #333;
+}
+
 .sequencer-step.sequencer-step-selected {
   background: #2a2a2a;
   color: #aaa;
