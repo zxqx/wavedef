@@ -17,8 +17,8 @@ export default class Chorus {
     };
 
     this.input = new Gain();
-    this.direct = new Gain();
     this.output = new Gain();
+    this.direct = new Gain();
     this.mix = new Gain();
     this.offset1 = new Delay();
     this.offset2 = new Delay();
@@ -53,8 +53,6 @@ export default class Chorus {
     offset2pan.node.connect(mix.node);
     mix.node.connect(output.node);
 
-    offset1pan.setPanPosition(-0.5);
-    offset2pan.setPanPosition(0.05);
     offset1.setFeedback(0);
     offset2.setFeedback(0);
     mix.setGain(1);
@@ -94,5 +92,17 @@ export default class Chorus {
   setWetDryMix(mix) {
     this.direct.setGain(1 - mix);
     this.mix.setGain(mix / 2);
+  }
+
+  getOffset1DelayTime() {
+    return this.offset1.getDelayTime();
+  }
+
+  getOffset2DelayTime() {
+    return this.offset2.getDelayTime();
+  }
+
+  getMovement() {
+    return this.lfo.getFrequency();
   }
 }

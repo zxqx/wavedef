@@ -8,4 +8,8 @@ export default class Panner {
   setPanPosition(pan) {
     this.node.pan.value = pan;
   }
+
+  getPanPosition() {
+    return this.node.pan.value;
+  }
 }

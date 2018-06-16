@@ -31,13 +31,6 @@ describe('Delay', () => {
     expect(delay.outputNode.constructor.name).toEqual('GainNode');
   });
 
-  it('should set up node connections', () => {
-    const delay = new Delay();
-
-    expect(delay.inputNode.constructor.name).toEqual('GainNode');
-    expect(delay.outputNode.constructor.name).toEqual('GainNode');
-  });
-
   it('should set feedback', () => {
     const delay = new Delay();
 
