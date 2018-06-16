@@ -42,7 +42,6 @@ export default class Chorus {
     offset2pan.node.connect(mix.node);
     mix.node.connect(output.node);
 
-    // Bootup Defaults
     offset1.setFeedback(0);
     offset1.setWetDryMix(1);
     offset1.setDelayTime(0.0006);
