@@ -5,30 +5,29 @@
 + Set sane module defaults
   - allow boot up params object
 
-+ Sequencer
-  - Support +/- bars
-
-+ On-Screen Keyboard
-  - Add octave +/- buttons
-  - Sync with computer keyboard
-
 + MIDI Controller
   - Improve attack/release tracking
   - Keep track of all held notes
   - Centralize key tracking from Computer Keyboard
 
-+ FF
-  - Fix transport button transition styles
++ On-Screen Keyboard
+  - Sync with computer keyboard
+
++ LFO
+  - Normalize depth
 
 + Document all modules
   - Host docs
 
 + Add 404 page
 
++ FF
+  - Fix transport button transition styles
+
 ## Future
 
-+ LFO
-  - Normalize depth
++ Sequencer
+  - Support +/- bars
 + Port OG modules
   - Kick
   - Snare
