@@ -122,8 +122,13 @@
   -webkit-animation: none;
 }
 
-.sequencer-step:focus,
-.sequencer-transport-btn:focus:hover {
+.sequencer-step:focus {
+  color: #bbb;
+  background: #333;
+}
+
+.sequencer-transport-btn:focus:not(.sequencer-transport-record-btn-recording),
+.sequencer-transport-btn:focus:hover:not(.sequencer-transport-record-btn-recording) {
   color: #bbb;
   background: #333;
   transition: all 0.2s;
