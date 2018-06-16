@@ -21,8 +21,10 @@
 
 + Add 404 page
 
-+ FF
-  - Fix transport button transition styles
++ Bugs
+  Fix Record :focus state after stopping record
+  + FF
+    - Fix transport button transition styles
 
 ## Future
 
