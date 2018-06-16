@@ -1,6 +1,20 @@
 import ctx from 'audio-context';
+import applyParams from '../helpers/applyParams';
+
+const defaults = {
+  attack: 0,
+  decay: 0.1,
+  sustain: 1,
+  release: 0.1,
+  peakLevel: 1,
+  start: 0,
+};
 
 export default class Envelope {
+  constructor(params = {}) {
+    this::applyParams(params, defaults);
+  }
+
   modulate(destination) {
     this.destination = destination;
     this.setStart(destination.value);
@@ -38,12 +52,6 @@ export default class Envelope {
     return this;
   }
 
-  setDepth(depth) {
-    this.depth = parseInt(depth, 10);
-
-    return this;
-  }
-
   setStart(start) {
     this.start = parseFloat(start);
 
@@ -72,10 +80,6 @@ export default class Envelope {
 
   getStart() {
     return this.start;
-  }
-
-  getDepth() {
-    return this.depth;
   }
 
   computeNormalizedSustain() {

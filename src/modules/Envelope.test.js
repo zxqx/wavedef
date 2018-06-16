@@ -2,6 +2,36 @@ import 'web-audio-test-api';
 import Envelope from './Envelope';
 
 describe('Envelope', () => {
+  it('should set default params', () => {
+    const envelope = new Envelope();
+
+    expect(envelope.getAttack()).toEqual(0);
+    expect(envelope.getDecay()).toEqual(0.1);
+    expect(envelope.getSustain()).toEqual(1);
+    expect(envelope.getRelease()).toEqual(0.1);
+    expect(envelope.getPeakLevel()).toEqual(1);
+    expect(envelope.getStart()).toEqual(0);
+  });
+
+  it('should override default params', () => {
+    const envelope = new Envelope({
+      attack: 0.2,
+      decay: 1.5,
+      sustain: 0.5,
+      release: 3,
+      peakLevel: 2.4,
+      start: 0.1,
+    });
+
+    expect(envelope.getAttack()).toEqual(0.2);
+    expect(envelope.getDecay()).toEqual(1.5);
+    expect(envelope.getSustain()).toEqual(0.5);
+    expect(envelope.getRelease()).toEqual(3);
+    expect(envelope.getPeakLevel()).toEqual(2.4);
+    expect(envelope.getStart()).toEqual(0.1);
+  });
+
+
   it('should modulate', () => {
     const envelope = new Envelope();
     const destination = { node: 'osc' };
@@ -60,14 +90,6 @@ describe('Envelope', () => {
     expect(envelope.peakLevel).toEqual(224);
   });
 
-  it('should set depth', () => {
-    const envelope = new Envelope();
-
-    envelope.setDepth(162);
-
-    expect(envelope.depth).toEqual(162);
-  });
-
   it('should set start', () => {
     const envelope = new Envelope();
 
@@ -122,14 +144,6 @@ describe('Envelope', () => {
     envelope.setStart(1.5);
 
     expect(envelope.getStart()).toEqual(1.5);
-  });
-
-  it('should get depth', () => {
-    const envelope = new Envelope();
-
-    envelope.setDepth(420);
-
-    expect(envelope.getDepth()).toEqual(420);
   });
 
   it('should trigger attack', () => {

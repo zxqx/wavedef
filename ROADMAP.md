@@ -4,10 +4,6 @@
 
 + Set sane module defaults
   - allow boot up params object
-  - set default value, min, max
-
-+ LFO
-  - Normalize depth
 
 + Sequencer
   - Support +/- bars
@@ -31,6 +27,8 @@
 
 ## Future
 
++ LFO
+  - Normalize depth
 + Port OG modules
   - Kick
   - Snare

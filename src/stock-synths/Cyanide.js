@@ -76,10 +76,7 @@ export default class Cyanide {
     synth.addModule(lfo2);
     synth.addModule(sequencer);
 
-    volumeEnvelope
-      .modulate(vca::param('gain'))
-      .setPeakLevel(1);
-
+    volumeEnvelope.modulate(vca::param('gain'));
     filterEnvelope.modulate(filter::param('frequency'));
   }
 

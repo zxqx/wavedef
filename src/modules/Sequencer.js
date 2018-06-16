@@ -34,18 +34,11 @@ export default class Sequencer {
 
   createMetronome() {
     this.metronome = new Oscillator();
-    this.metronomeEnvelope = new Envelope();
+    this.metronomeEnvelope = new Envelope({ release: 0.2 });
     this.metronomeVCA = new VCA();
 
     this.metronome.node.connect(this.metronomeVCA.node);
     this.metronomeEnvelope.modulate(this.metronomeVCA::param('gain'));
-
-    this.metronomeEnvelope
-      .setAttack(0)
-      .setDecay(0.1)
-      .setSustain(1)
-      .setRelease(0.2)
-      .setPeakLevel(1);
 
     this.metronome.setWaveformType('triangle');
 
