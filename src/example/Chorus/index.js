@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import stereoPannerNode from 'stereo-panner-node';
@@ -17,7 +16,51 @@ export default class Chorus extends Component {
 
     return (
       <AudioControlGroup label="Chorus">
-        chorus
+
+        <Slider
+          label="Offset 1"
+          defaultValue={0.006}
+          min={0.001}
+          max={0.1}
+          step={0.001}
+          onChange={chorus::chorus.setOffset1DelayTime}
+        />
+
+        <Slider
+          label="Offset 2"
+          defaultValue={0.020}
+          min={0.001}
+          max={0.1}
+          step={0.001}
+          onChange={chorus::chorus.setOffset2DelayTime}
+        />
+
+        <Slider
+          label="Width"
+          defaultValue={0}
+          min={0}
+          max={1}
+          step={0.01}
+          onChange={chorus::chorus.setWidth}
+        />
+
+        <Slider
+          label="Movement"
+          defaultValue={0.005}
+          min={0.05}
+          max={1}
+          step={0.001}
+          onChange={chorus::chorus.setMovement}
+        />
+
+        <Slider
+          label="Mix"
+          defaultValue={0}
+          min={0}
+          max={1}
+          step={0.001}
+          onChange={chorus::chorus.setWetDryMix}
+        />
       </AudioControlGroup>
     );
   }
