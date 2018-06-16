@@ -11,16 +11,6 @@ export default class Oscillator {
     this.start();
   }
 
-  getParams() {
-    return [
-      {
-        label: 'Frequency',
-        context: this,
-        path: 'node.frequency',
-      },
-    ];
-  }
-
   /**
    * Proxy start() to oscillator node
    * @return {Oscillator}

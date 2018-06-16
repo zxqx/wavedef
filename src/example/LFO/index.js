@@ -7,8 +7,13 @@ import Slider from '../common/Slider';
 
 export default class LFO extends Component {
   static propTypes = {
+    label: PropTypes.string,
     lfo: PropTypes.object.isRequired, // eslint-disable-line
     params: PropTypes.array.isRequired, // eslint-disable-line
+  }
+
+  static defaultProps = {
+    label: 'LFO',
   }
 
   getOptions() {
@@ -24,11 +29,11 @@ export default class LFO extends Component {
   }
 
   render() {
-    const { lfo, params } = this.props;
+    const { label, lfo, params } = this.props;
     const options = this.getOptions();
 
     return (
-      <AudioControlGroup label="LFO">
+      <AudioControlGroup label={label}>
         <Dropdown
           label="Destination"
           defaultValue={options[0].value}

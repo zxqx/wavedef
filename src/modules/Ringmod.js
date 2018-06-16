@@ -35,15 +35,6 @@ export default class Ringmod {
     lfo.modulate(gain.node.gain);
   }
 
-  getParams() {
-    return [
-      {
-        label: 'Frequency',
-        context: this,
-        path: 'lfo.osc.node.frequency',
-      },
-    ];
-  }
   setFrequency(frequency) {
     this.lfo.setFrequency(frequency);
   }

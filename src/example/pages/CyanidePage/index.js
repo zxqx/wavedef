@@ -38,6 +38,11 @@ const {
 
 const lfoParams = [
   {
+    label: 'Oscillator Frequency',
+    value: 'oscillator-frequency',
+    path: osc.node.frequency,
+  },
+  {
     label: 'Filter Cutoff',
     value: 'filter-cutoff',
     path: filter.node.frequency,
@@ -46,6 +51,11 @@ const lfoParams = [
     label: 'Filter Resonance',
     value: 'filter-resonance',
     path: filter.node.Q,
+  },
+  {
+    label: 'Ring Modulator Frequency',
+    value: 'ring-modulator-frequency',
+    path: ringmod.lfo.osc.node.frequency,
   },
 ];
 
@@ -92,6 +102,7 @@ export default class CyanidePage extends Component {
             xl={5}
           >
             <LFO
+              label="LFO 1"
               lfo={lfo1}
               params={[
                 ...lfoParams,
@@ -117,6 +128,7 @@ export default class CyanidePage extends Component {
             xl={5}
           >
             <LFO
+              label="LFO 2"
               lfo={lfo2}
               params={[
                 ...lfoParams,
