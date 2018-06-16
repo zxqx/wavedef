@@ -185,7 +185,7 @@ export default class CyanidePage extends Component {
           <Col>
             <Keyboard
               octaves={5}
-              startingOctave={1}
+              startingOctave={2}
               onKeypress={[
                 value => osc.setFrequency(value),
                 (value) => {

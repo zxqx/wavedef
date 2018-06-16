@@ -1,5 +1,20 @@
 .keyboard {
   position: relative;
   height: 180px;
+  display: inline-block;
   overflow: hidden;
+}
+
+.octave-buttons {
+  display: inline-block;
+}
+
+.octave-buttons button {
+  position: relative;
+  top: -28px;
+  margin: 0 0 1rem 1rem;
+  padding: 0 2rem;
+  height: 83px;
+  display: block;
+  font-size: 32px;
 }

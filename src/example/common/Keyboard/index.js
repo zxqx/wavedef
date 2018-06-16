@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
 import Key from '../Key';
 import './Keyboard.css';
 
@@ -29,10 +30,16 @@ export default class Keyboard extends Component {
   static propTypes = {
     octaves: PropTypes.number.isRequired,
     startingOctave: PropTypes.number,
+    onKeypress: PropTypes.arrayOf(PropTypes.func).isRequired,
+    onKeyRelease: PropTypes.arrayOf(PropTypes.func).isRequired,
   }
 
   static defaultProps = {
     startingOctave: 1,
+  }
+
+  state = {
+    startingOctave: this.props.startingOctave,
   }
 
   /**
@@ -41,7 +48,8 @@ export default class Keyboard extends Component {
    * @return {array}
    */
   getOctaveList() {
-    const { octaves, startingOctave } = this.props;
+    const { octaves } = this.props;
+    const { startingOctave } = this.state;
 
     const octaveList = [];
     for (let o = startingOctave; o <= octaves + startingOctave; o++) {
@@ -52,24 +60,53 @@ export default class Keyboard extends Component {
   }
 
   render() {
-    const { props } = this;
+    const { octaves, onKeypress, onKeyRelease } = this.props;
+    const { startingOctave } = this.state;
+
     const octaveList = this.getOctaveList();
+    const endingOctave = startingOctave + octaves;
 
     return (
-      <div className="keyboard">
-        {octaveList.map(octave => (
-          notes.map(note => (
-            <Key
-              key={note + octave}
-              note={note + octave}
-              onKeypress={props.onKeypress}
-              onKeyRelease={props.onKeyRelease}
-              isBlack={isSharpOrFlat(note)}
-              isAdjacentWhite={isAdjacentToWhiteKey(note)}
-            />
-          ))
-        ))}
-      </div>
+      <Fragment>
+        <div className="keyboard">
+          {octaveList.map(octave => (
+            notes.map(note => (
+              <Key
+                key={note + octave}
+                note={note + octave}
+                onKeypress={onKeypress}
+                onKeyRelease={onKeyRelease}
+                isBlack={isSharpOrFlat(note)}
+                isAdjacentWhite={isAdjacentToWhiteKey(note)}
+              />
+            ))
+          ))}
+        </div>
+
+        <div className="octave-buttons">
+          <Button
+            disabled={endingOctave === 8}
+            onClick={() => {
+              this.setState({
+                startingOctave: endingOctave < 8 ? startingOctave + 1 : (endingOctave - octaves),
+              });
+            }}
+          >
+            +
+          </Button>
+
+          <Button
+            disabled={startingOctave === 1}
+            onClick={() => {
+              this.setState({
+                startingOctave: startingOctave > 1 ? startingOctave - 1 : 1,
+              });
+            }}
+          >
+            -
+          </Button>
+        </div>
+      </Fragment>
     );
   }
 }
