@@ -7,7 +7,6 @@ import VolumeEnvelope from '../../VolumeEnvelope';
 import FilterEnvelope from '../../FilterEnvelope';
 import LFO from '../../LFO';
 import Overdrive from '../../Overdrive';
-import Phaser from '../../Phaser';
 import Delay from '../../Delay';
 import Ringmod from '../../Ringmod';
 import Chorus from '../../Chorus';
@@ -25,7 +24,6 @@ const {
   lfo1,
   lfo2,
   overdrive,
-  phaser,
   delay,
   mixer,
   ringmod,
@@ -177,7 +175,6 @@ export default class CyanidePage extends Component {
                 xs={24}
                 md={12}
               >
-                <Phaser phaser={phaser} />
                 <Delay delay={delay} />
               </Col>
             </Row>

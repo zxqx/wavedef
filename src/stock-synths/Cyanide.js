@@ -5,7 +5,6 @@ import VCA from '../modules/VCA';
 import Envelope from '../modules/Envelope';
 import Filter from '../modules/Filter';
 import LFO from '../modules/LFO';
-import Phaser from '../modules/TunaPhaser';
 import Overdrive from '../modules/TunaOverdrive';
 import Delay from '../modules/Delay';
 import Sequencer from '../modules/Sequencer';
@@ -30,7 +29,6 @@ export default class Cyanide {
     this.lfo2 = new LFO('LFO 2');
     this.ringmod = new Ringmod();
     this.overdrive = new Overdrive();
-    this.phaser = new Phaser();
     this.delay = new Delay();
     this.chorus = new Chorus();
     this.noise = new WhiteNoise();
@@ -51,7 +49,6 @@ export default class Cyanide {
       lfo1,
       lfo2,
       overdrive,
-      phaser,
       delay,
       sequencer,
       ringmod,
@@ -68,7 +65,6 @@ export default class Cyanide {
       .to(filter)
       .to(overdrive)
       .to(ringmod)
-      .to(phaser)
       .to(delay)
       .to(chorus)
       .to(frequencyAnalyzer)

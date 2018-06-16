@@ -2,10 +2,6 @@
 
 ## 1.0
 
-+ Move name stuff out of modules
-
-+ Rethink how we expose module params
-
 + Set sane module defaults
   + allow boot up params object
   + set default value, min, max
