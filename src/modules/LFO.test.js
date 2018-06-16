@@ -1,6 +1,12 @@
-import 'web-audio-test-api';
+import WebAudioTestApi from 'web-audio-test-api';
 import LFO from './LFO';
 import Filter from './Filter';
+import Oscillator from './Oscillator';
+import Gain from './Gain';
+
+WebAudioTestAPI.setState({
+  'AudioNode#disconnect': 'selective',
+});
 
 describe ('LFO', () => {
   it('should set depth', () => {
@@ -35,15 +41,6 @@ describe ('LFO', () => {
     expect(lfo.getFrequency()).toEqual(1);
   });
 
-  it('should add a destination', () => {
-    const lfo = new LFO();
-    const filter = new Filter();
-
-    lfo.modulate(filter.node.frequency);
-
-    expect(lfo.getDestinations()).toEqual([filter.node.frequency]);
-  });
-
   it('should connect to destination', () => {
     const lfo = new LFO();
     const filter = new Filter();
@@ -53,5 +50,60 @@ describe ('LFO', () => {
     lfo.modulate(filter.node.frequency);
 
     expect(spy).toHaveBeenCalled();
+    expect(lfo.getDestinations()).toEqual([filter.node.frequency]);
+  });
+
+  it('should connect to multiple destinations', () => {
+    const lfo = new LFO();
+    const filter = new Filter();
+    const osc = new Oscillator();
+    const gain = new Gain();
+
+    const spy = jest.spyOn(lfo.gain.node, 'connect');
+
+    lfo.modulate(filter.node.frequency);
+    lfo.modulate(osc.node.frequency);
+    lfo.modulate(gain.node.gain);
+
+    expect(spy).toHaveBeenCalledWith(filter.node.frequency);
+    expect(spy).toHaveBeenCalledWith(osc.node.frequency);
+    expect(spy).toHaveBeenCalledWith(gain.node.gain);
+    expect(lfo.destinations).toEqual([
+      filter.node.frequency,
+      osc.node.frequency,
+      gain.node.gain,
+    ]);
+  });
+
+  it('should disconnect from destination', () => {
+    const lfo = new LFO();
+    const filter = new Filter();
+
+    const spy = jest.spyOn(lfo.gain.node, 'disconnect');
+
+    lfo.modulate(filter.node.frequency);
+    lfo.disconnect(filter.node.frequency);
+
+    expect(spy).toHaveBeenCalledWith(filter.node.frequency);
+    expect(lfo.destinations).toEqual([]);
+  });
+
+  it('should disconnect from all destinations', () => {
+    const lfo = new LFO();
+    const filter = new Filter();
+    const osc = new Oscillator();
+    const gain = new Gain();
+
+    const spy = jest.spyOn(lfo.gain.node, 'disconnect');
+
+    lfo.modulate(filter.node.frequency);
+    lfo.modulate(osc.node.frequency);
+    lfo.modulate(gain.node.gain);
+    lfo.disconnectAll();
+
+    expect(spy).toHaveBeenCalledWith(filter.node.frequency);
+    expect(spy).toHaveBeenCalledWith(osc.node.frequency);
+    expect(spy).toHaveBeenCalledWith(gain.node.gain);
+    expect(lfo.destinations).toEqual([]);
   });
 })
