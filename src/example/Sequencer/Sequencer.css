@@ -67,11 +67,6 @@
   color: #fff;
 }
 
-.sequencer-transport-btn:focus {
-  color: #fff;
-  background: #333;
-}
-
 .sequencer-transport-btn:active img {
   opacity: 0.5;
 }
@@ -127,9 +122,11 @@
   -webkit-animation: none;
 }
 
-.sequencer-step:focus {
+.sequencer-step:focus,
+.sequencer-transport-btn:focus:hover {
   color: #bbb;
   background: #333;
+  transition: all 0.2s;
 }
 
 .sequencer-step.sequencer-step-selected {

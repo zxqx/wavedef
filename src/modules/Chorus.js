@@ -8,12 +8,10 @@ export default class Chorus {
   constructor(params = {}) {
     this.defaults = {
       offset1DelayTime: 0.006,
-      offset1WetDryMix: 1,
       offset2DelayTime: 0.02,
-      offset2WetDryMix: 1,
-      movement: 0.005,
       width: 0.2,
-      wetDryMix: 1,
+      movement: 0.005,
+      mix: 1,
     };
 
     this.input = new Gain();
@@ -55,6 +53,8 @@ export default class Chorus {
 
     offset1.setFeedback(0);
     offset2.setFeedback(0);
+    offset1.setWetDryMix(1);
+    offset2.setWetDryMix(1);
     mix.setGain(1);
 
     lfo.modulate(this.offset1.delay.delayTime);
@@ -89,7 +89,7 @@ export default class Chorus {
     this.offset2pan.setPanPosition(width);
   }
 
-  setWetDryMix(mix) {
+  setMix(mix) {
     this.direct.setGain(1 - mix);
     this.mix.setGain(mix / 2);
   }

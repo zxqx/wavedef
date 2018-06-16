@@ -59,7 +59,7 @@ export default class Chorus extends Component {
           min={0}
           max={1}
           step={0.001}
-          onChange={chorus::chorus.setWetDryMix}
+          onChange={chorus::chorus.setMix}
         />
       </AudioControlGroup>
     );

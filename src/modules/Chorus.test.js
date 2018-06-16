@@ -10,11 +10,7 @@ describe('Chorus', () => {
     const chorus = new Chorus();
 
     expect(chorus.getOffset1DelayTime()).toEqual(0.006);
-    expect(chorus.offset1.wet.getGain()).toEqual(1);
-    expect(chorus.offset1.dry.getGain()).toEqual(0);
     expect(chorus.getOffset2DelayTime()).toEqual(0.02);
-    expect(chorus.offset2.wet.getGain()).toEqual(1);
-    expect(chorus.offset2.dry.getGain()).toEqual(0);
     expect(chorus.getMovement()).toEqual(0.005);
     expect(chorus.offset1pan.getPanPosition()).toEqual(-0.2);
     expect(chorus.offset2pan.getPanPosition()).toEqual(0.2);
@@ -25,20 +21,14 @@ describe('Chorus', () => {
   it('should override default params', () => {
     const chorus = new Chorus({
       offset1DelayTime: 0.3,
-      offset1WetDryMix: 0.1,
       offset2DelayTime: 0.22,
-      offset2WetDryMix: 0.35,
       movement: 0.308,
       width: 0.4,
-      wetDryMix: 0.5,
+      mix: 0.5,
     });
 
     expect(chorus.getOffset1DelayTime()).toEqual(0.3);
-    expect(chorus.offset1.wet.getGain()).toEqual(0.1);
-    expect(chorus.offset1.dry.getGain()).toEqual(0.9);
     expect(chorus.getOffset2DelayTime()).toEqual(0.22);
-    expect(chorus.offset2.wet.getGain()).toEqual(0.35);
-    expect(chorus.offset2.dry.getGain()).toEqual(0.65);
     expect(chorus.getMovement()).toEqual(0.308);
     expect(chorus.offset1pan.getPanPosition()).toEqual(-0.4);
     expect(chorus.offset2pan.getPanPosition()).toEqual(0.4);
@@ -83,6 +73,10 @@ describe('Chorus', () => {
 
     expect(chorus.offset1.getFeedback()).toEqual(0);
     expect(chorus.offset2.getFeedback()).toEqual(0);
+    expect(chorus.offset1.wet.getGain()).toEqual(1);
+    expect(chorus.offset1.dry.getGain()).toEqual(0);
+    expect(chorus.offset2.wet.getGain()).toEqual(1);
+    expect(chorus.offset2.dry.getGain()).toEqual(0);
     expect(chorus.lfo.getDepth()).toEqual(0.01);
   });
 
@@ -142,7 +136,7 @@ describe('Chorus', () => {
 
   it('should set wet/dry mix', () => {
     const chorus = new Chorus();
-    chorus.setWetDryMix(0.2);
+    chorus.setMix(0.2);
 
     expect(chorus.direct.getGain()).toEqual(0.8);
     expect(chorus.mix.getGain()).toEqual(0.1);
