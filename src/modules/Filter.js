@@ -1,8 +1,7 @@
 import ctx from 'audio-context';
 
 export default class Filter {
-  constructor(name = 'Filter') {
-    this.name = name;
+  constructor() {
     this.node = ctx().createBiquadFilter();
   }
 
@@ -13,21 +12,6 @@ export default class Filter {
     'notch',
     'allpass',
   ]
-
-  getParams() {
-    return [
-      {
-        label: 'Frequency',
-        context: this,
-        path: 'node.frequency',
-      },
-      {
-        label: 'Resonance',
-        context: this,
-        path: 'node.Q',
-      },
-    ];
-  }
 
   setFrequency(frequency) {
     this.node.frequency.value = frequency;

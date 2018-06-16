@@ -4,8 +4,7 @@ import Tuna from 'tunajs';
 const tuna = new Tuna(ctx());
 
 export default class TunaOverdrive {
-  constructor(name = 'Overdrive') {
-    this.name = name;
+  constructor() {
     this.node = new tuna.Overdrive();
   }
 

@@ -2,18 +2,6 @@ import 'web-audio-test-api';
 import Oscillator from './Oscillator';
 
 describe('Oscillator', () => {
-  it('should set default name', () => {
-    const osc = new Oscillator();
-
-    expect(osc.name).toEqual('OSC');
-  });
-
-  it('should set name', () => {
-    const osc = new Oscillator('Big Daddy OSC');
-
-    expect(osc.name).toEqual('Big Daddy OSC');
-  });
-
   it('should create oscillator node', () => {
     const osc = new Oscillator();
 

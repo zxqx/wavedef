@@ -13,7 +13,7 @@ export default class Ringmod extends Component {
     const { ringmod } = this.props;
 
     return (
-      <AudioControlGroup label={ringmod.name}>
+      <AudioControlGroup label="Ring Modulator">
 
         <WaveSelector
           defaultValue="sine"

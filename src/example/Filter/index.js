@@ -24,7 +24,7 @@ export default class Filter extends Component {
     const { filter, envelope } = this.props;
 
     return (
-      <AudioControlGroup label={filter.name}>
+      <AudioControlGroup label="Filter">
         <Dropdown
           label="Type"
           defaultValue="lowpass"

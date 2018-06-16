@@ -2,18 +2,6 @@ import 'web-audio-test-api';
 import Filter from './Filter';
 
 describe('Filter', () => {
-  it('should set default name', () => {
-    const filter = new Filter();
-
-    expect(filter.name).toEqual('Filter');
-  });
-
-  it('should set name', () => {
-    const filter = new Filter('Filter 2');
-
-    expect(filter.name).toEqual('Filter 2');
-  });
-
   it('should create filter node', () => {
     const filter = new Filter();
 

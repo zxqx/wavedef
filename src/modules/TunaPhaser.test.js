@@ -2,18 +2,6 @@ import 'web-audio-test-api';
 import TunaPhaser from './TunaPhaser';
 
 describe('TunaPhaser', () => {
-  it('should set default name', () => {
-    const phaser = new TunaPhaser();
-
-    expect(phaser.name).toEqual('Phaser');
-  });
-
-  it('should set name', () => {
-    const phaser = new TunaPhaser('Max VOABC');
-
-    expect(phaser.name).toEqual('Max VOABC');
-  });
-
   it('should set rate', () => {
     const phaser = new TunaPhaser();
 

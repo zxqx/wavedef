@@ -2,8 +2,7 @@ import Oscillator from './Oscillator';
 import Gain from './Gain';
 
 export default class LFO {
-  constructor(name = 'LFO') {
-    this.name = name;
+  constructor() {
     this.osc = new Oscillator();
     this.gain = new Gain();
 
@@ -11,21 +10,6 @@ export default class LFO {
 
     gain.setGain(1);
     osc.node.connect(gain.node);
-  }
-
-  getParams() {
-    return [
-      {
-        label: 'Depth',
-        context: this,
-        path: 'gain.node.gain',
-      },
-      {
-        label: 'Speed',
-        context: this,
-        path: 'osc.node.frequency',
-      },
-    ];
   }
 
   modulate(destination) {

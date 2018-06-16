@@ -3,18 +3,6 @@ import LFO from './LFO';
 import Filter from './Filter';
 
 describe ('LFO', () => {
-  it('should set default name', () => {
-    const lfo = new LFO();
-
-    expect(lfo.name).toEqual('LFO');
-  });
-
-  it('should set name', () => {
-    const lfo = new LFO('Woobles');
-
-    expect(lfo.name).toEqual('Woobles');
-  });
-
   it('should set depth', () => {
     const lfo = new LFO();
 

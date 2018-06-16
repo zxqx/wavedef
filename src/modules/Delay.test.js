@@ -2,18 +2,6 @@ import 'web-audio-test-api';
 import Delay from './Delay';
 
 describe('Delay', () => {
-  it('should set default name', () => {
-    const delay = new Delay();
-
-    expect(delay.name).toEqual('Delay');
-  });
-
-  it('should set name', () => {
-    const delay = new Delay('Glassing');
-
-    expect(delay.name).toEqual('Glassing');
-  });
-
   it('should create delay', () => {
     const delay = new Delay();
 

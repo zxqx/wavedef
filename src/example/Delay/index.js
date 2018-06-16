@@ -12,7 +12,7 @@ export default class Delay extends Component {
     const { delay } = this.props;
 
     return (
-      <AudioControlGroup label={delay.name}>
+      <AudioControlGroup label="Delay">
         <Slider
           label="Time"
           defaultValue={0.5}

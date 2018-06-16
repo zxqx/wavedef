@@ -221,56 +221,6 @@ describe('Synth', () => {
     expect(() => synth.output()).toThrow();
   });
 
-  it('get all module params', () => {
-    const synth = new Synth();
-
-    const osc = {
-      getParams: () => [
-        {
-          label: 'Frequency',
-          context: this,
-          path: 'node.frequency',
-        },
-      ],
-    };
-
-    const filter = {
-      getParams: () => [
-        {
-          label: 'Frequency',
-          context: this,
-          path: 'node.frequency',
-        },
-        {
-          label: 'Resonance',
-          context: this,
-          path: 'node.Q',
-        },
-      ],
-    };
-
-    synth.addModule(osc);
-    synth.addModule(filter);
-
-    expect(synth.getParams()).toEqual([
-      {
-        label: 'Frequency',
-        context: this,
-        path: 'node.frequency',
-      },
-      {
-        label: 'Frequency',
-        context: this,
-        path: 'node.frequency',
-      },
-      {
-        label: 'Resonance',
-        context: this,
-        path: 'node.Q',
-      },
-    ]);
-  });
-
   it('should ensure module is added', () => {
     const synth = new Synth();
 

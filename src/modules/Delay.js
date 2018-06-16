@@ -2,8 +2,7 @@ import ctx from 'audio-context';
 import Gain from './Gain';
 
 export default class Delay {
-  constructor(name = 'Delay') {
-    this.name = name;
+  constructor() {
     this.delay = ctx().createDelay();
     this.input = new Gain();
     this.output = new Gain();

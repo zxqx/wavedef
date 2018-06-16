@@ -4,8 +4,7 @@ import Panner from './Panner';
 import LFO from './LFO';
 
 export default class Chorus {
-  constructor(name = 'Chorus') {
-    this.name = name;
+  constructor() {
     this.input = new Gain();
     this.direct = new Gain();
     this.output = new Gain();
@@ -15,7 +14,6 @@ export default class Chorus {
     this.offset1pan = new Panner();
     this.offset2pan = new Panner();
     this.lfo = new LFO();
-
 
     const {
       input,
@@ -31,8 +29,6 @@ export default class Chorus {
 
     this.inputNode = this.input.node;
     this.outputNode = this.output.node;
-
-    // connect Dry thru signal with 2 offset delays (offset summed in mix/gain)
 
     input.node.connect(direct.node);
     direct.node.connect(output.node);

@@ -19,6 +19,36 @@ import './CyanidePage.css';
 
 const cyanide = new Cyanide();
 
+const {
+  osc,
+  filter,
+  lfo1,
+  lfo2,
+  overdrive,
+  phaser,
+  delay,
+  mixer,
+  ringmod,
+  chorus,
+  volumeEnvelope,
+  filterEnvelope,
+  sequencer,
+  frequencyAnalyzer,
+} = cyanide;
+
+const lfoParams = [
+  {
+    label: 'Filter Cutoff',
+    value: 'filter-cutoff',
+    path: filter.node.frequency,
+  },
+  {
+    label: 'Filter Resonance',
+    value: 'filter-resonance',
+    path: filter.node.Q,
+  },
+];
+
 export default class CyanidePage extends Component {
   componentWillMount() {
     cyanide.connectControllers();
@@ -29,27 +59,6 @@ export default class CyanidePage extends Component {
   }
 
   render() {
-    const {
-      synth,
-      osc,
-      noise,
-      filter,
-      lfo1,
-      lfo2,
-      overdrive,
-      phaser,
-      delay,
-      mixer,
-      ringmod,
-      chorus,
-      volumeEnvelope,
-      filterEnvelope,
-      sequencer,
-      frequencyAnalyzer,
-    } = cyanide;
-
-    const params = synth.getParams();
-
     return (
       <div className="cyanide">
         <Row>
@@ -70,7 +79,6 @@ export default class CyanidePage extends Component {
             />
 
             <WhiteNoise
-              noise={noise}
               mixerChannel={mixer.channel(2)}
             />
 
@@ -85,8 +93,21 @@ export default class CyanidePage extends Component {
           >
             <LFO
               lfo={lfo1}
-              params={params}
+              params={[
+                ...lfoParams,
+                {
+                  label: 'LFO 2 Depth',
+                  value: 'lfo-2-depth',
+                  path: lfo2.gain.node.gain,
+                },
+                {
+                  label: 'LFO 2 Speed',
+                  value: 'lfo-2-speed',
+                  path: lfo2.osc.node.frequency,
+                },
+              ]}
             />
+
             <Chorus chorus={chorus} />
           </Col>
 
@@ -97,10 +118,22 @@ export default class CyanidePage extends Component {
           >
             <LFO
               lfo={lfo2}
-              params={params}
+              params={[
+                ...lfoParams,
+                {
+                  label: 'LFO 1 Depth',
+                  value: 'lfo-1-depth',
+                  path: lfo1.gain.node.gain,
+                },
+                {
+                  label: 'LFO 1 Speed',
+                  value: 'lfo-1-speed',
+                  path: lfo1.osc.node.frequency,
+                },
+              ]}
             />
-            <Ringmod ringmod={ringmod} />
 
+            <Ringmod ringmod={ringmod} />
           </Col>
 
           <Col

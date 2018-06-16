@@ -4,8 +4,7 @@ import Tuna from 'tunajs';
 const tuna = new Tuna(ctx());
 
 export default class TunaPhaser {
-  constructor(name = 'Phaser') {
-    this.name = name;
+  constructor() {
     this.node = new tuna.Phaser();
   }
 

@@ -17,7 +17,7 @@ export default class Phaser extends Component {
         label={
           <Fragment>
             <span className="audio-control-label">
-              {phaser.name}
+              Phaser
             </span>
 
             <Switch

@@ -5,8 +5,7 @@ import ctx from 'audio-context';
  * convenient methods for interacting with parameters
  */
 export default class Oscillator {
-  constructor(name = 'OSC') {
-    this.name = name;
+  constructor() {
     this.node = ctx().createOscillator();
 
     this.start();

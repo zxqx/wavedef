@@ -8,7 +8,6 @@ import Slider from '../common/Slider';
 export default class Oscillator extends Component {
   static propTypes = {
     oscillator: PropTypes.shape({
-      name: PropTypes.string.isRequired,
       node: PropTypes.object.isRequired, // eslint-disable-line
     }).isRequired,
     mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
@@ -28,7 +27,7 @@ export default class Oscillator extends Component {
         label={
           <Fragment>
             <span className="audio-control-label">
-              {oscillator.name}
+              Oscillator
             </span>
 
             <Switch

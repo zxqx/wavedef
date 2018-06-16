@@ -2,18 +2,6 @@ import 'web-audio-test-api';
 import TunaOverdrive from './TunaOverdrive';
 
 describe('TunaOverdrive', () => {
-  it('should set default name', () => {
-    const overdrive = new TunaOverdrive();
-
-    expect(overdrive.name).toEqual('Overdrive');
-  });
-
-  it('should set name', () => {
-    const overdrive = new TunaOverdrive('SCOD');
-
-    expect(overdrive.name).toEqual('SCOD');
-  });
-
   it('should set output gain', () => {
     const overdrive = new TunaOverdrive();
 

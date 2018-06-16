@@ -1,5 +1,4 @@
 import ctx from 'audio-context';
-import flatten from 'lodash.flatten';
 
 const startEvents = [
   'load',
@@ -113,13 +112,6 @@ export default class Synth {
     this.connecting = null;
 
     return this;
-  }
-
-  getParams() {
-    return flatten(this.modules.map((module) => {
-      const params = module.getParams ? module.getParams() : [];
-      return params;
-    }));
   }
 
   ensureModuleIsAdded(module) {

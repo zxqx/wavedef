@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash.get';
 import AudioControlGroup from '../common/AudioControlGroup';
 import Dropdown from '../common/Dropdown';
 import WaveSelector from '../common/WaveSelector';
@@ -13,44 +12,34 @@ export default class LFO extends Component {
   }
 
   getOptions() {
-    const { lfo, params } = this.props;
+    const { params } = this.props;
 
     return [
       {
         label: 'None',
         value: 'none',
       },
-      ...params
-        .filter(param => param.context !== lfo)
-        .map(param => ({
-          label: `${param.context.name} ${param.label}`,
-          value: `${param.context.name}.${param.path}`,
-        })),
+      ...params,
     ];
   }
 
-  getParamByValue(value) {
-    return this.props.params.find(param => `${param.context.name}.${param.path}` === value);
-  }
-
   render() {
-    const { lfo } = this.props;
-
+    const { lfo, params } = this.props;
     const options = this.getOptions();
 
     return (
-      <AudioControlGroup label={lfo.name}>
+      <AudioControlGroup label="LFO">
         <Dropdown
           label="Destination"
-          defaultValue={options[1].value}
+          defaultValue={options[0].value}
           options={options}
           onChange={(value) => {
             if (value === 'none') {
               return lfo.disconnect();
             }
 
-            const { context, path } = this.getParamByValue(value);
-            return lfo.modulateOne(get(context, path));
+            const { path } = params.find(param => param.value === value);
+            return lfo.modulateOne(path);
           }}
         />
 

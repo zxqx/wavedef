@@ -17,7 +17,7 @@ export default class Overdrive extends Component {
         label={
           <Fragment>
             <span className="audio-control-label">
-              {overdrive.name}
+              Overdrive
             </span>
 
             <Switch

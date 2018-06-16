@@ -6,7 +6,6 @@ import Switch from '../common/Switch';
 
 export default class WhiteNoise extends Component {
   static propTypes = {
-    noise: PropTypes.object.isRequired, // eslint-disable-line
     mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
   }
 
@@ -17,14 +16,14 @@ export default class WhiteNoise extends Component {
   }
 
   render() {
-    const { noise, mixerChannel } = this.props;
+    const { mixerChannel } = this.props;
 
     return (
       <AudioControlGroup
         label={
           <Fragment>
             <span className="audio-control-label">
-              {noise.name}
+              White Noise
             </span>
 
             <Switch

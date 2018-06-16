@@ -15,7 +15,7 @@ export default class Chorus extends Component {
     const { chorus } = this.props;
 
     return (
-      <AudioControlGroup label={chorus.name}>
+      <AudioControlGroup label="Chorus">
 
         <Slider
           label="Offset 1"
