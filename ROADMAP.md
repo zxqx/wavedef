@@ -8,8 +8,6 @@
 + Document all modules
   - Host docs
 
-+ Add UMD build
-
 + Add 404 page
 
 + Bugs
