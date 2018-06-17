@@ -5,15 +5,15 @@ import LFO from './LFO';
 import applyParams from '../helpers/applyParams';
 
 export default class Chorus {
-  constructor(params = {}) {
-    this.defaults = {
-      offset1DelayTime: 0.006,
-      offset2DelayTime: 0.02,
-      width: 0.2,
-      movement: 0.005,
-      mix: 1,
-    };
+  defaults = {
+    offset1DelayTime: 0.006,
+    offset2DelayTime: 0.02,
+    width: 0.2,
+    movement: 0.005,
+    mix: 1,
+  }
 
+  constructor(params = {}) {
     this.input = new Gain();
     this.output = new Gain();
     this.direct = new Gain();

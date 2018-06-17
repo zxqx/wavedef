@@ -2,16 +2,16 @@ import ctx from 'audio-context';
 import applyParams from '../helpers/applyParams';
 
 export default class Envelope {
-  constructor(params = {}) {
-    this.defaults = {
-      attack: 0,
-      decay: 0.1,
-      sustain: 1,
-      release: 0.1,
-      peakLevel: 1,
-      start: 0,
-    };
+  defaults = {
+    attack: 0,
+    decay: 0.1,
+    sustain: 1,
+    release: 0.1,
+    peakLevel: 1,
+    start: 0,
+  }
 
+  constructor(params = {}) {
     this::applyParams(params);
   }
 
