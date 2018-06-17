@@ -56,14 +56,23 @@
   background: #333;
 }
 
-.sequencer-transport-record-btn.sequencer-transport-record-btn-recording,
-.sequencer-transport-record-btn.sequencer-transport-record-btn-recording:focus {
+.sequencer-transport-record-btn.sequencer-transport-record-btn-recording {
   background: #b64a4a;
   color: #fff;
 }
 
 .sequencer-transport-record-btn.sequencer-transport-record-btn-recording:hover {
   background: #ce6262;
+}
+
+.sequencer-transport-record-btn.sequencer-transport-record-btn-recording:active {
+  background: #824545;
+  transition: all 0.3s;
+}
+
+.sequencer-transport-record-btn.sequencer-transport-record-btn-recording:active span {
+  opacity: 0.6;
+  transition: all 0.3s;
 }
 
 .sequencer-transport-btn {
@@ -84,7 +93,7 @@
 
 .sequencer-transport-btn img {
   width: 15px;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s;
 }
 
 .sequencer-transport-play-btn img {
@@ -106,7 +115,7 @@
 .sequencer-step {
   width: 77.5px;
   padding: 1.9rem 0 2.5rem;
-  transition: color 0.4s;
+  transition: color 0.3s;
 }
 
 .sequencer-step:after {
@@ -136,7 +145,7 @@
 .sequencer-transport-btn:active:hover:not(.sequencer-transport-record-btn-recording) {
   color: #bbb;
   background: #333;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .sequencer-step.sequencer-step-selected {
