@@ -10,6 +10,26 @@ WebAudioTestApi.setState({
 });
 
 describe('LFO', () => {
+  it('should set default params', () => {
+    const lfo = new LFO();
+
+    expect(lfo.getType()).toEqual('sine');
+    expect(lfo.getDepth()).toEqual(100);
+    expect(lfo.getRate()).toEqual(1);
+  });
+
+  it('should override default params', () => {
+    const lfo = new LFO({
+      type: 'sawtooth',
+      depth: 180,
+      rate: 36,
+    });
+
+    expect(lfo.getType()).toEqual('sawtooth');
+    expect(lfo.getDepth()).toEqual(180);
+    expect(lfo.getRate()).toEqual(36);
+  });
+
   it('should set depth', () => {
     const lfo = new LFO();
 
@@ -18,20 +38,20 @@ describe('LFO', () => {
     expect(lfo.getDepth()).toEqual(0.5);
   });
 
-  it('should set waveform type', () => {
+  it('should set type', () => {
     const lfo = new LFO();
 
-    lfo.setWaveformType('sawtooth');
+    lfo.setType('sawtooth');
 
-    expect(lfo.getWaveformType()).toEqual('sawtooth');
+    expect(lfo.getType()).toEqual('sawtooth');
   });
 
-  it('should set frequency', () => {
+  it('should set rate', () => {
     const lfo = new LFO();
 
-    lfo.setFrequency(777);
+    lfo.setRate(777);
 
-    expect(lfo.getFrequency()).toEqual(777);
+    expect(lfo.getRate()).toEqual(777);
   });
 
   it('should set calculate bpm sync', () => {
@@ -39,7 +59,7 @@ describe('LFO', () => {
 
     lfo.bpmSync(120, 0.5);
 
-    expect(lfo.getFrequency()).toEqual(1);
+    expect(lfo.getRate()).toEqual(1);
   });
 
   it('should connect to destination', () => {

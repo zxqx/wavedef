@@ -7,7 +7,7 @@ describe('Ringmod', () => {
 
     ringmod.setFrequency(525);
 
-    expect(ringmod.lfo.getFrequency()).toEqual(525);
+    expect(ringmod.lfo.getRate()).toEqual(525);
   });
 
   it('should set depth', () => {

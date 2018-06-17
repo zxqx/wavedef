@@ -53,7 +53,7 @@ export default class LFO extends Component {
 
         <WaveSelector
           defaultValue="sine"
-          onChange={lfo::lfo.setWaveformType}
+          onChange={lfo::lfo.setType}
         />
 
         <Slider
@@ -66,12 +66,12 @@ export default class LFO extends Component {
         />
 
         <Slider
-          label="Speed"
+          label="Rate"
           defaultValue={1}
           min={0.1}
           max={20}
           step={0.01}
-          onChange={lfo::lfo.setFrequency}
+          onChange={lfo::lfo.setRate}
         />
       </AudioControlGroup>
     );

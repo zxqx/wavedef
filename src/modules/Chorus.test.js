@@ -123,7 +123,7 @@ describe('Chorus', () => {
     const chorus = new Chorus();
     chorus.setMovement(30);
 
-    expect(chorus.lfo.getFrequency()).toEqual(30);
+    expect(chorus.lfo.getRate()).toEqual(30);
   });
 
   it('should set width', () => {

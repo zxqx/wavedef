@@ -36,15 +36,15 @@ export default class Ringmod {
   }
 
   setFrequency(frequency) {
-    this.lfo.setFrequency(frequency);
+    this.lfo.setRate(frequency);
   }
 
   setDepth(depth) {
     this.lfo.setDepth(depth);
   }
 
-  setWaveformType(waveform) {
-    this.lfo.setWaveformType(waveform);
+  setWaveformType(type) {
+    this.lfo.setType(type);
   }
 
   setGain(gain) {

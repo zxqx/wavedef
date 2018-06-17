@@ -81,7 +81,7 @@ export default class Chorus {
   }
 
   setMovement(amount) {
-    this.lfo.setFrequency(amount);
+    this.lfo.setRate(amount);
   }
 
   setWidth(width) {
@@ -103,6 +103,6 @@ export default class Chorus {
   }
 
   getMovement() {
-    return this.lfo.getFrequency();
+    return this.lfo.getRate();
   }
 }

@@ -1,8 +1,15 @@
 import Oscillator from './Oscillator';
 import Gain from './Gain';
+import applyParams from '../helpers/applyParams';
 
 export default class LFO {
-  constructor() {
+  defaults = {
+    type: 'sine',
+    depth: 100,
+    rate: 1,
+  }
+
+  constructor(params = {}) {
     this.osc = new Oscillator();
     this.gain = new Gain();
     this.destinations = [];
@@ -11,6 +18,8 @@ export default class LFO {
 
     gain.setGain(1);
     osc.node.connect(gain.node);
+
+    this::applyParams(params);
   }
 
   modulate(destination) {
@@ -40,14 +49,14 @@ export default class LFO {
     return this;
   }
 
-  setWaveformType(waveform) {
-    this.osc.setType(waveform);
+  setType(type) {
+    this.osc.setType(type);
 
     return this;
   }
 
-  setFrequency(frequency) {
-    this.osc.setFrequency(frequency);
+  setRate(rate) {
+    this.osc.setFrequency(rate);
 
     return this;
   }
@@ -62,7 +71,7 @@ export default class LFO {
     return this;
   }
 
-  getFrequency() {
+  getRate() {
     return this.osc.node.frequency.value;
   }
 
@@ -70,7 +79,7 @@ export default class LFO {
     return this.gain.getGain();
   }
 
-  getWaveformType() {
+  getType() {
     return this.osc.getType();
   }
 }
