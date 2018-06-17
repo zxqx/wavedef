@@ -51,6 +51,11 @@
   width: 180px;
 }
 
+.sequencer-transport-record-btn:focus {
+  color: #fff;
+  background: #333;
+}
+
 .sequencer-transport-record-btn.sequencer-transport-record-btn-recording,
 .sequencer-transport-record-btn.sequencer-transport-record-btn-recording:focus {
   background: #b64a4a;
@@ -127,8 +132,8 @@
   background: #333;
 }
 
-.sequencer-transport-btn:focus:not(.sequencer-transport-record-btn-recording),
-.sequencer-transport-btn:focus:hover:not(.sequencer-transport-record-btn-recording) {
+.sequencer-transport-btn:active:not(.sequencer-transport-record-btn-recording),
+.sequencer-transport-btn:active:hover:not(.sequencer-transport-record-btn-recording) {
   color: #bbb;
   background: #333;
   transition: all 0.2s;
