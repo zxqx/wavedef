@@ -45,8 +45,8 @@
     "test": "node scripts/test.js --env=jsdom",
     "coverage": "npm test -- --coverage",
     "coverage:report": "npm run coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "exit 0",
-    "heroku-postbuild": "cd example && npm install"
+    "build": "echo build",
+    "heroku-postbuild": "cd example && npm install && npm run start:prod"
   },
   "jest": {
     "collectCoverageFrom": [
