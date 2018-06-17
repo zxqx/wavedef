@@ -13,9 +13,6 @@
 + On-Screen Keyboard
   - Sync with computer keyboard
 
-+ LFO
-  - Normalize depth
-
 + Document all modules
   - Host docs
 
@@ -30,6 +27,10 @@
 
 + Sequencer
   - Support +/- bars
+
++ LFO
+  - Normalize depth
+
 + Port OG modules
   - Kick
   - Snare
@@ -40,6 +41,7 @@
   - Panner
   - EQ3
   - FM
+
 + User auth
 + Patch persistence
 + More device support
