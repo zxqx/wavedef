@@ -20,7 +20,7 @@ export default class Chorus extends Component {
           min={0.001}
           max={0.1}
           step={0.001}
-          onChange={chorus::chorus.setOffset1DelayTime}
+          onChange={chorus::chorus.setOffset1Time}
         />
 
         <Slider
@@ -29,7 +29,7 @@ export default class Chorus extends Component {
           min={0.001}
           max={0.1}
           step={0.001}
-          onChange={chorus::chorus.setOffset2DelayTime}
+          onChange={chorus::chorus.setOffset2Time}
         />
 
         <Slider

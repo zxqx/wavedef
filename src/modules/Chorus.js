@@ -6,8 +6,8 @@ import applyParams from '../helpers/applyParams';
 
 export default class Chorus {
   defaults = {
-    offset1DelayTime: 0.006,
-    offset2DelayTime: 0.02,
+    offset1Time: 0.006,
+    offset2Time: 0.02,
     width: 0.2,
     movement: 0.005,
     mix: 1,
@@ -53,8 +53,8 @@ export default class Chorus {
 
     offset1.setFeedback(0);
     offset2.setFeedback(0);
-    offset1.setWetDryMix(1);
-    offset2.setWetDryMix(1);
+    offset1.setMix(1);
+    offset2.setMix(1);
     mix.setGain(1);
 
     lfo.modulate(this.offset1.delay.delayTime);
@@ -64,20 +64,20 @@ export default class Chorus {
     this::applyParams(params);
   }
 
-  setOffset1DelayTime(time) {
-    this.offset1.setDelayTime(time);
+  setOffset1Time(time) {
+    this.offset1.setTime(time);
   }
 
-  setOffset2DelayTime(time) {
-    this.offset2.setDelayTime(time);
+  setOffset2Time(time) {
+    this.offset2.setTime(time);
   }
 
   setOffset1WetDryMix(mix) {
-    this.offset1.setWetDryMix(mix);
+    this.offset1.setMix(mix);
   }
 
   setOffset2WetDryMix(mix) {
-    this.offset2.setWetDryMix(mix);
+    this.offset2.setMix(mix);
   }
 
   setMovement(amount) {
@@ -94,12 +94,12 @@ export default class Chorus {
     this.mix.setGain(mix / 2);
   }
 
-  getOffset1DelayTime() {
-    return this.offset1.getDelayTime();
+  getOffset1Time() {
+    return this.offset1.getTime();
   }
 
-  getOffset2DelayTime() {
-    return this.offset2.getDelayTime();
+  getOffset2Time() {
+    return this.offset2.getTime();
   }
 
   getMovement() {

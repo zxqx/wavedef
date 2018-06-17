@@ -9,8 +9,8 @@ describe('Chorus', () => {
   it('should set default params', () => {
     const chorus = new Chorus();
 
-    expect(chorus.getOffset1DelayTime()).toEqual(0.006);
-    expect(chorus.getOffset2DelayTime()).toEqual(0.02);
+    expect(chorus.getOffset1Time()).toEqual(0.006);
+    expect(chorus.getOffset2Time()).toEqual(0.02);
     expect(chorus.getMovement()).toEqual(0.005);
     expect(chorus.offset1pan.getPanPosition()).toEqual(-0.2);
     expect(chorus.offset2pan.getPanPosition()).toEqual(0.2);
@@ -20,15 +20,15 @@ describe('Chorus', () => {
 
   it('should override default params', () => {
     const chorus = new Chorus({
-      offset1DelayTime: 0.3,
-      offset2DelayTime: 0.22,
+      offset1Time: 0.3,
+      offset2Time: 0.22,
       movement: 0.308,
       width: 0.4,
       mix: 0.5,
     });
 
-    expect(chorus.getOffset1DelayTime()).toEqual(0.3);
-    expect(chorus.getOffset2DelayTime()).toEqual(0.22);
+    expect(chorus.getOffset1Time()).toEqual(0.3);
+    expect(chorus.getOffset2Time()).toEqual(0.22);
     expect(chorus.getMovement()).toEqual(0.308);
     expect(chorus.offset1pan.getPanPosition()).toEqual(-0.4);
     expect(chorus.offset2pan.getPanPosition()).toEqual(0.4);
@@ -91,16 +91,16 @@ describe('Chorus', () => {
 
   it('should set offset 1 delay time', () => {
     const chorus = new Chorus();
-    chorus.setOffset1DelayTime(0.24);
+    chorus.setOffset1Time(0.24);
 
-    expect(chorus.offset1.getDelayTime()).toEqual(0.24);
+    expect(chorus.offset1.getTime()).toEqual(0.24);
   });
 
   it('should set offset 2 delay time', () => {
     const chorus = new Chorus();
-    chorus.setOffset2DelayTime(0.37);
+    chorus.setOffset2Time(0.37);
 
-    expect(chorus.offset2.getDelayTime()).toEqual(0.37);
+    expect(chorus.offset2.getTime()).toEqual(0.37);
   });
 
   it('should set offset 1 wet/dry mix', () => {
@@ -144,16 +144,16 @@ describe('Chorus', () => {
 
   it('should get offset 1 delay time', () => {
     const chorus = new Chorus();
-    chorus.setOffset1DelayTime(0.7);
+    chorus.setOffset1Time(0.7);
 
-    expect(chorus.getOffset1DelayTime()).toEqual(0.7);
+    expect(chorus.getOffset1Time()).toEqual(0.7);
   });
 
   it('should get offset 2 delay time', () => {
     const chorus = new Chorus();
-    chorus.setOffset2DelayTime(0.12);
+    chorus.setOffset2Time(0.12);
 
-    expect(chorus.getOffset2DelayTime()).toEqual(0.12);
+    expect(chorus.getOffset2Time()).toEqual(0.12);
   });
 
   it('should get movement', () => {

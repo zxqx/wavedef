@@ -19,7 +19,7 @@ export default class Delay extends Component {
           min={0.01}
           max={1}
           step={0.01}
-          onChange={delay::delay.setDelayTime}
+          onChange={delay::delay.setTime}
         />
 
         <Slider
@@ -37,7 +37,7 @@ export default class Delay extends Component {
           min={0}
           max={1}
           step={0.01}
-          onChange={delay::delay.setWetDryMix}
+          onChange={delay::delay.setMix}
         />
       </AudioControlGroup>
     );

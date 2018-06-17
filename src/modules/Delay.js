@@ -1,8 +1,15 @@
 import ctx from 'audio-context';
 import Gain from './Gain';
+import applyParams from '../helpers/applyParams';
 
 export default class Delay {
-  constructor() {
+  defaults = {
+    time: 0.5,
+    feedback: 0.25,
+    mix: 0,
+  }
+
+  constructor(params = {}) {
     this.delay = ctx().createDelay();
     this.input = new Gain();
     this.output = new Gain();
@@ -28,13 +35,15 @@ export default class Delay {
     feedback.node.connect(delay);
     delay.connect(wet.node);
     wet.node.connect(this.outputNode);
+
+    this::applyParams(params);
   }
 
   setFeedback(value) {
     this.feedback.setGain(value);
   }
 
-  setDelayTime(time) {
+  setTime(time) {
     this.delay.delayTime.value = time;
   }
 
@@ -42,7 +51,7 @@ export default class Delay {
     this.delay.delayTime.value = (60 / bpm) / note;
   }
 
-  setWetDryMix(value) {
+  setMix(value) {
     this.wet.setGain(0 + value);
     this.dry.setGain(1 - value);
   }
@@ -51,7 +60,7 @@ export default class Delay {
     return this.feedback.getGain();
   }
 
-  getDelayTime() {
+  getTime() {
     return this.delay.delayTime.value;
   }
 }
