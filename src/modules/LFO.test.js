@@ -3,6 +3,7 @@ import LFO from './LFO';
 import Filter from './Filter';
 import Oscillator from './Oscillator';
 import Gain from './Gain';
+import param from '../helpers/param';
 
 WebAudioTestAPI.setState({
   'AudioNode#disconnect': 'selective',
@@ -47,10 +48,10 @@ describe ('LFO', () => {
 
     const spy = jest.spyOn(lfo.gain.node, 'connect');
 
-    lfo.modulate(filter.node.frequency);
+    lfo.modulate(filter::param('frequency'));
 
     expect(spy).toHaveBeenCalled();
-    expect(lfo.getDestinations()).toEqual([filter.node.frequency]);
+    expect(lfo.getDestinations()).toEqual([filter::param('frequency')]);
   });
 
   it('should connect to multiple destinations', () => {
@@ -61,17 +62,17 @@ describe ('LFO', () => {
 
     const spy = jest.spyOn(lfo.gain.node, 'connect');
 
-    lfo.modulate(filter.node.frequency);
-    lfo.modulate(osc.node.frequency);
-    lfo.modulate(gain.node.gain);
+    lfo.modulate(filter::param('frequency'));
+    lfo.modulate(osc::param('frequency'));
+    lfo.modulate(gain::param('gain'));
 
-    expect(spy).toHaveBeenCalledWith(filter.node.frequency);
-    expect(spy).toHaveBeenCalledWith(osc.node.frequency);
-    expect(spy).toHaveBeenCalledWith(gain.node.gain);
+    expect(spy).toHaveBeenCalledWith(filter::param('frequency'));
+    expect(spy).toHaveBeenCalledWith(osc::param('frequency'));
+    expect(spy).toHaveBeenCalledWith(gain::param('gain'));
     expect(lfo.destinations).toEqual([
-      filter.node.frequency,
-      osc.node.frequency,
-      gain.node.gain,
+      filter::param('frequency'),
+      osc::param('frequency'),
+      gain::param('gain'),
     ]);
   });
 
@@ -81,10 +82,10 @@ describe ('LFO', () => {
 
     const spy = jest.spyOn(lfo.gain.node, 'disconnect');
 
-    lfo.modulate(filter.node.frequency);
-    lfo.disconnect(filter.node.frequency);
+    lfo.modulate(filter::param('frequency'));
+    lfo.disconnect(filter::param('frequency'));
 
-    expect(spy).toHaveBeenCalledWith(filter.node.frequency);
+    expect(spy).toHaveBeenCalledWith(filter::param('frequency'));
     expect(lfo.destinations).toEqual([]);
   });
 
@@ -96,14 +97,14 @@ describe ('LFO', () => {
 
     const spy = jest.spyOn(lfo.gain.node, 'disconnect');
 
-    lfo.modulate(filter.node.frequency);
-    lfo.modulate(osc.node.frequency);
-    lfo.modulate(gain.node.gain);
+    lfo.modulate(filter::param('frequency'));
+    lfo.modulate(osc::param('frequency'));
+    lfo.modulate(gain::param('gain'));
     lfo.disconnectAll();
 
-    expect(spy).toHaveBeenCalledWith(filter.node.frequency);
-    expect(spy).toHaveBeenCalledWith(osc.node.frequency);
-    expect(spy).toHaveBeenCalledWith(gain.node.gain);
+    expect(spy).toHaveBeenCalledWith(filter::param('frequency'));
+    expect(spy).toHaveBeenCalledWith(osc::param('frequency'));
+    expect(spy).toHaveBeenCalledWith(gain::param('gain'));
     expect(lfo.destinations).toEqual([]);
   });
 })
