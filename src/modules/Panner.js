@@ -1,18 +1,25 @@
 import ctx from 'audio-context';
 import stereoPannerNode from 'stereo-panner-node';
+import applyParams from '../helpers/applyParams';
 
 stereoPannerNode.polyfill();
 
 export default class Panner {
-  constructor() {
-    this.node = ctx().createStereoPanner();
+  defaults = {
+    pan: 0,
   }
 
-  setPanPosition(pan) {
+  constructor(params = {}) {
+    this.node = ctx().createStereoPanner();
+
+    this::applyParams(params);
+  }
+
+  setPan(pan) {
     this.node.pan.value = pan;
   }
 
-  getPanPosition() {
+  getPan() {
     return this.node.pan.value;
   }
 }

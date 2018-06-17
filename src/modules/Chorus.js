@@ -85,8 +85,8 @@ export default class Chorus {
   }
 
   setWidth(width) {
-    this.offset1pan.setPanPosition(0 - width);
-    this.offset2pan.setPanPosition(width);
+    this.offset1pan.setPan(0 - width);
+    this.offset2pan.setPan(width);
   }
 
   setMix(mix) {

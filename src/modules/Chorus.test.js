@@ -12,8 +12,8 @@ describe('Chorus', () => {
     expect(chorus.getOffset1Time()).toEqual(0.006);
     expect(chorus.getOffset2Time()).toEqual(0.02);
     expect(chorus.getMovement()).toEqual(0.005);
-    expect(chorus.offset1pan.getPanPosition()).toEqual(-0.2);
-    expect(chorus.offset2pan.getPanPosition()).toEqual(0.2);
+    expect(chorus.offset1pan.getPan()).toEqual(-0.2);
+    expect(chorus.offset2pan.getPan()).toEqual(0.2);
     expect(chorus.direct.getGain()).toEqual(0);
     expect(chorus.mix.getGain()).toEqual(0.5);
   });
@@ -30,8 +30,8 @@ describe('Chorus', () => {
     expect(chorus.getOffset1Time()).toEqual(0.3);
     expect(chorus.getOffset2Time()).toEqual(0.22);
     expect(chorus.getMovement()).toEqual(0.308);
-    expect(chorus.offset1pan.getPanPosition()).toEqual(-0.4);
-    expect(chorus.offset2pan.getPanPosition()).toEqual(0.4);
+    expect(chorus.offset1pan.getPan()).toEqual(-0.4);
+    expect(chorus.offset2pan.getPan()).toEqual(0.4);
     expect(chorus.direct.getGain()).toEqual(0.5);
     expect(chorus.mix.getGain()).toEqual(0.25);
   });
@@ -130,8 +130,8 @@ describe('Chorus', () => {
     const chorus = new Chorus();
     chorus.setWidth(0.8);
 
-    expect(chorus.offset1pan.getPanPosition()).toEqual(-0.8);
-    expect(chorus.offset2pan.getPanPosition()).toEqual(0.8);
+    expect(chorus.offset1pan.getPan()).toEqual(-0.8);
+    expect(chorus.offset2pan.getPan()).toEqual(0.8);
   });
 
   it('should set wet/dry mix', () => {
