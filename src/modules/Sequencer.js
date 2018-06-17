@@ -45,7 +45,7 @@ export default class Sequencer {
     this.metronome.node.connect(this.metronomeVCA.node);
     this.metronomeEnvelope.modulate(this.metronomeVCA::param('gain'));
 
-    this.metronome.setWaveformType('triangle');
+    this.metronome.setType('triangle');
 
     this.node = this.metronomeVCA.node;
   }

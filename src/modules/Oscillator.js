@@ -1,13 +1,21 @@
 import ctx from 'audio-context';
+import applyParams from '../helpers/applyParams';
 
 /**
  * Thin wrapper around the OscillatorNode API that exposes
  * convenient methods for interacting with parameters
  */
 export default class Oscillator {
-  constructor() {
+  defaults = {
+    type: 'sine',
+    frequency: 440,
+    detune: 0,
+  }
+
+  constructor(params = {}) {
     this.node = ctx().createOscillator();
 
+    this::applyParams(params);
     this.start();
   }
 
@@ -58,7 +66,7 @@ export default class Oscillator {
    * @param {string} type
    * @return {Oscillator}
    */
-  setWaveformType(type) {
+  setType(type) {
     this.node.type = type;
 
     return this;
@@ -84,7 +92,7 @@ export default class Oscillator {
    * Get waveform type
    * @return {string}
    */
-  getWaveformType() {
+  getType() {
     return this.node.type;
   }
 }

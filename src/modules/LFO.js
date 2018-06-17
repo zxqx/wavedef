@@ -41,7 +41,7 @@ export default class LFO {
   }
 
   setWaveformType(waveform) {
-    this.osc.setWaveformType(waveform);
+    this.osc.setType(waveform);
 
     return this;
   }
@@ -71,6 +71,6 @@ export default class LFO {
   }
 
   getWaveformType() {
-    return this.osc.getWaveformType();
+    return this.osc.getType();
   }
 }

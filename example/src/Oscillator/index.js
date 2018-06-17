@@ -40,7 +40,7 @@ export default class Oscillator extends Component {
 
         <WaveSelector
           defaultValue="sawtooth"
-          onChange={oscillator::oscillator.setWaveformType}
+          onChange={oscillator::oscillator.setType}
         />
 
         <Slider

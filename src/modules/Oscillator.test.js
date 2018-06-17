@@ -2,6 +2,26 @@ import 'web-audio-test-api';
 import Oscillator from './Oscillator';
 
 describe('Oscillator', () => {
+  it('should set default params', () => {
+    const osc = new Oscillator();
+
+    expect(osc.getType()).toEqual('sine');
+    expect(osc.getFrequency()).toEqual(440);
+    expect(osc.getDetune()).toEqual(0);
+  });
+
+  it('should override default params', () => {
+    const osc = new Oscillator({
+      type: 'triangle',
+      frequency: 800,
+      detune: 12,
+    });
+
+    expect(osc.getType()).toEqual('triangle');
+    expect(osc.getFrequency()).toEqual(800);
+    expect(osc.getDetune()).toEqual(12);
+  });
+
   it('should create oscillator node', () => {
     const osc = new Oscillator();
 
@@ -56,10 +76,10 @@ describe('Oscillator', () => {
     expect(osc.node.detune.value).toEqual(12);
   });
 
-  it('should set waveform type', () => {
+  it('should set type', () => {
     const osc = new Oscillator();
 
-    osc.setWaveformType('sawtooth');
+    osc.setType('sawtooth');
 
     expect(osc.node.type).toEqual('sawtooth');
   });
@@ -80,11 +100,11 @@ describe('Oscillator', () => {
     expect(osc.getDetune()).toEqual(16);
   });
 
-  it('should get waveform type', () => {
+  it('should get type', () => {
     const osc = new Oscillator();
 
-    osc.setWaveformType('triangle');
+    osc.setType('triangle');
 
-    expect(osc.getWaveformType()).toEqual('triangle');
+    expect(osc.getType()).toEqual('triangle');
   });
 });
