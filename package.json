@@ -46,7 +46,7 @@
     "coverage": "npm test -- --coverage",
     "coverage:report": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "build": "echo build",
-    "heroku-postbuild": "cd example && npm install && npm run start:prod"
+    "heroku-postbuild": "cd example && npm install && npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
