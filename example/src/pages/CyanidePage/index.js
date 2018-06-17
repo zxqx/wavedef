@@ -188,9 +188,9 @@ export default class CyanidePage extends Component {
               startingOctave={2}
               onKeypress={[
                 value => osc.setFrequency(value),
-                (value) => {
-                  volumeEnvelope.triggerADS(value);
-                  filterEnvelope.triggerADS(value);
+                () => {
+                  volumeEnvelope.triggerADS();
+                  filterEnvelope.triggerADS();
                 },
                 freq => sequencer.triggerAtSelectedStep(() => {
                   osc.setFrequency(freq);
@@ -199,8 +199,8 @@ export default class CyanidePage extends Component {
                 }),
               ]}
               onKeyRelease={[
-                value => volumeEnvelope.triggerRelease(value),
-                value => filterEnvelope.triggerRelease(value),
+                () => volumeEnvelope.triggerRelease(),
+                () => filterEnvelope.triggerRelease(),
               ]}
             />
           </Col>

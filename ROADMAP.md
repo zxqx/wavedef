@@ -5,18 +5,11 @@
 + Set sane module defaults
   - allow boot up params object
 
-+ MIDI Controller
-  - Improve attack/release tracking
-  - Keep track of all held notes
-  - Centralize key tracking from Computer Keyboard
-
-+ On-Screen Keyboard
-  - Sync with computer keyboard
-
 + Document all modules
   - Host docs
 
 + Add UMD build
+
 + Add 404 page
 
 + Bugs

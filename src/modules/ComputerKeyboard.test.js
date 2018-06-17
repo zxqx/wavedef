@@ -144,26 +144,26 @@ describe('ComputerKeyboard', () => {
       callback2,
     ]);
 
-    kb.triggerOnPressCallbacks('d', 'E');
-    kb.triggerOnPressCallbacks('d', 'E');
+    kb.triggerOnPressCallbacks('C#2');
+    kb.triggerOnPressCallbacks('C#2');
 
-    expect(kb.keysBeingHeld).toEqual(['d']);
+    expect(kb.notesBeingHeld).toEqual(['C#2']);
 
-    kb.triggerOnPressCallbacks('a', 'C');
+    kb.triggerOnPressCallbacks('C3');
 
-    expect(kb.keysBeingHeld).toEqual(['d', 'a']);
+    expect(kb.notesBeingHeld).toEqual(['C#2', 'C3']);
     expect(kb.holding).toEqual(false);
-    expect(kb.keyIsBeingHeld).toEqual(false);
+    expect(kb.noteIsBeingHeld).toEqual(false);
 
-    kb.triggerOnPressCallbacks('a', 'C');
+    kb.triggerOnPressCallbacks('C3');
     expect(kb.holding).toEqual(true);
-    expect(kb.keyIsBeingHeld).toEqual(true);
+    expect(kb.noteIsBeingHeld).toEqual(true);
 
-    expect(kb.lastKeyHeld).toEqual('a');
+    expect(kb.lastNoteHeld).toEqual('C3');
 
     expect(callback1.mock.calls).toHaveLength(2);
     expect(callback1).toHaveBeenCalledWith(130.81);
-    expect(callback1).toHaveBeenCalledWith(164.81);
+    expect(callback1).toHaveBeenCalledWith(69.3);
 
     expect(kb.justReleased).toEqual(false);
   });
@@ -179,24 +179,24 @@ describe('ComputerKeyboard', () => {
       callback2,
     ]);
 
-    kb.triggerOnPressCallbacks('d', 'E');
-    kb.triggerOnReleaseCallbacks('d', 'E');
+    kb.triggerOnPressCallbacks('E2');
+    kb.triggerOnReleaseCallbacks('E2');
 
     expect(kb.holding).toEqual(false);
     expect(kb.justReleased).toEqual(true);
-    expect(kb.glidingBetweenKeys).toEqual(false);
+    expect(kb.glidingBetweenNotes).toEqual(false);
 
     expect(callback1).toHaveBeenCalled();
     expect(callback2).toHaveBeenCalled();
 
     const spy = jest.spyOn(kb, 'triggerOnPressCallbacks');
 
-    kb.triggerOnPressCallbacks('d', 'E');
-    kb.triggerOnPressCallbacks('a', 'C');
-    kb.triggerOnReleaseCallbacks('d', 'E');
+    kb.triggerOnPressCallbacks('E2');
+    kb.triggerOnPressCallbacks('C2');
+    kb.triggerOnReleaseCallbacks('E2');
 
-    expect(kb.glidingBetweenKeys).toEqual(true);
-    expect(kb.keysBeingHeld).toEqual(['a']);
+    expect(kb.glidingBetweenNotes).toEqual(true);
+    expect(kb.notesBeingHeld).toEqual(['C2']);
     expect(spy.mock.calls).toHaveLength(3);
     expect(callback1.mock.calls).toHaveLength(1);
     expect(callback2.mock.calls).toHaveLength(1);

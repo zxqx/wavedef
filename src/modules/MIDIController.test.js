@@ -128,10 +128,6 @@ describe('MIDIController', () => {
       data: [144, 56, 127],
     };
 
-    midiController.onMidiIn(midiData);
-    expect(callbacks[0].mock.calls).toHaveLength(0);
-    expect(callbacks[1].mock.calls).toHaveLength(0);
-
     midiController.triggerOnPress(callbacks);
     midiController.onMidiIn(midiData);
 
@@ -147,19 +143,25 @@ describe('MIDIController', () => {
       jest.fn(),
     ];
 
-    const midiData = {
+    const midiDataOn = {
+      data: [146, 40, 127],
+    };
+
+    const midiDataOff = {
       data: [162, 40, 127],
     };
 
-    midiController.onMidiIn(midiData);
+    midiController.onMidiIn(midiDataOn);
+    midiController.onMidiIn(midiDataOff);
     expect(callbacks[0].mock.calls).toHaveLength(0);
     expect(callbacks[1].mock.calls).toHaveLength(0);
 
     midiController.triggerOnRelease(callbacks);
-    midiController.onMidiIn(midiData);
+    midiController.onMidiIn(midiDataOn);
+    midiController.onMidiIn(midiDataOff);
 
-    expect(callbacks[0]).toHaveBeenCalledWith(164.81);
-    expect(callbacks[1]).toHaveBeenCalledWith(164.81);
+    expect(callbacks[0]).toHaveBeenCalledWith('E3');
+    expect(callbacks[1]).toHaveBeenCalledWith('E3');
   });
 
 
