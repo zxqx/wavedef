@@ -3,17 +3,16 @@ import ctx from 'audio-context';
 export default class WhiteNoise {
   constructor() {
     const bufferSize = 2 * ctx().sampleRate;
-    const myArrayBuffer = ctx().createBuffer(1, bufferSize, ctx().sampleRate);
-    const nowBuffering = myArrayBuffer.getChannelData(0);
+    const buffer = ctx().createBuffer(1, bufferSize, ctx().sampleRate);
 
     for (let i = 0; i < bufferSize; i++) {
-      nowBuffering[i] = (Math.random() * 2) - 1;
+      buffer.getChannelData(0)[i] = (Math.random() * 2) - 1;
     }
 
     this.node = ctx().createBufferSource();
-
-    this.node.buffer = myArrayBuffer;
+    this.node.buffer = buffer;
     this.node.loop = true;
+
     this.node.start();
   }
 }
