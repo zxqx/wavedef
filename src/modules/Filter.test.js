@@ -12,9 +12,9 @@ describe('Filter', () => {
 
   it('should override default params', () => {
     const filter = new Filter({
+      type: 'highpass',
       cutoff: 860,
       resonance: 3.5,
-      type: 'highpass',
     });
 
     expect(filter.getCutoff()).toEqual(860);

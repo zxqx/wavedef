@@ -1,16 +1,23 @@
 import ctx from 'audio-context';
+import applyParams from '../helpers/applyParams';
 
 /**
  * Creating a Gain class to use Globally in multiple
  * applications (such as multi-channel mixer)
  */
 export default class Gain {
-  constructor() {
-    this.node = ctx().createGain();
+  defaults = {
+    gain: 1,
   }
 
-  setGain(volume) {
-    this.node.gain.value = volume;
+  constructor(params = {}) {
+    this.node = ctx().createGain();
+
+    this::applyParams(params);
+  }
+
+  setGain(gain) {
+    this.node.gain.value = gain;
   }
 
   getGain() {

@@ -2,6 +2,20 @@ import 'web-audio-test-api';
 import Gain from './Gain';
 
 describe('Gain', () => {
+  it('should set default params', () => {
+    const gain = new Gain();
+
+    expect(gain.getGain()).toEqual(1);
+  });
+
+  it('should override default params', () => {
+    const gain = new Gain({
+      gain: 0.7,
+    });
+
+    expect(gain.getGain()).toEqual(0.7);
+  });
+
   it('should create gain node', () => {
     const gain = new Gain();
 

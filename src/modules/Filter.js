@@ -3,9 +3,9 @@ import applyParams from '../helpers/applyParams';
 
 export default class Filter {
   defaults = {
+    type: 'lowpass',
     cutoff: 350,
     resonance: 1,
-    type: 'lowpass',
   }
 
   constructor(params = {}) {
