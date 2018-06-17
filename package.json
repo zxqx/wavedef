@@ -15,6 +15,7 @@
   "author": "Zak Angelle, Drake Champagne",
   "license": "MIT",
   "devDependencies": {
+    "ajv": "^6.5.1",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -28,17 +29,15 @@
     "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.17.0",
     "jest": "^22.4.2",
     "lodash.capitalize": "^4.2.1",
     "web-audio-test-api": "^0.5.2"
   },
   "dependencies": {
     "audio-context": "^1.0.3",
-    "babel-preset-react-app": "^3.1.1",
     "mousetrap": "^1.6.1",
     "note-to-frequency": "^1.4.1",
-    "object-assign": "4.1.1",
-    "promise": "8.0.1",
     "stereo-panner-node": "^1.4.0",
     "tunajs": "^1.0.1"
   },
@@ -56,13 +55,13 @@
       "src/helpers/**/*.js"
     ],
     "testMatch": [
-      "<rootDir>/src/modules/**/?(*.)test.js",
-      "<rootDir>/src/helpers/**/?(*.)test.js"
+      "<rootDir>/src/modules/**/*.test.js",
+      "<rootDir>/src/helpers/**/*.test.js"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
     "transform": {
-      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
@@ -90,23 +89,20 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": "airbnb-base",
+    "extends": [
+      "airbnb-base",
+      "plugin:jest/recommended"
+    ],
     "env": {
       "browser": true,
       "node": true
     },
     "rules": {
-      "func-names": 0,
       "no-new": 0,
       "no-plusplus": 0,
       "no-param-reassign": 0,
-      "no-return-assign": 0,
       "function-paren-newline": 0,
-      "import/prefer-default-export": 0,
-      "import/no-extraneous-dependencies": 0
+      "import/prefer-default-export": 0
     }
-  },
-  "eslintIgnore": [
-    "*.test.js"
-  ]
+  }
 }

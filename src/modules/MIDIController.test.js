@@ -4,7 +4,7 @@ describe('MIDIController', () => {
   it('should request midi access', () => {
     global.navigator.requestMIDIAccess = jest.fn();
 
-    const midiController = new MIDIController();
+    new MIDIController();
     const spy = jest.spyOn(global.navigator, 'requestMIDIAccess');
 
     expect(spy).toHaveBeenCalled();
@@ -129,8 +129,8 @@ describe('MIDIController', () => {
     };
 
     midiController.onMidiIn(midiData);
-    expect(callbacks[0].mock.calls.length).toEqual(0);
-    expect(callbacks[1].mock.calls.length).toEqual(0);
+    expect(callbacks[0].mock.calls).toHaveLength(0);
+    expect(callbacks[1].mock.calls).toHaveLength(0);
 
     midiController.triggerOnPress(callbacks);
     midiController.onMidiIn(midiData);
@@ -152,8 +152,8 @@ describe('MIDIController', () => {
     };
 
     midiController.onMidiIn(midiData);
-    expect(callbacks[0].mock.calls.length).toEqual(0);
-    expect(callbacks[1].mock.calls.length).toEqual(0);
+    expect(callbacks[0].mock.calls).toHaveLength(0);
+    expect(callbacks[1].mock.calls).toHaveLength(0);
 
     midiController.triggerOnRelease(callbacks);
     midiController.onMidiIn(midiData);

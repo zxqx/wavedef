@@ -10,7 +10,7 @@ describe('Oscillator', () => {
 
   it('should start oscillator on instantiation', () => {
     const spy = jest.spyOn(Oscillator.prototype, 'start');
-    const osc = new Oscillator();
+    new Oscillator();
 
     expect(spy).toHaveBeenCalled();
 
@@ -20,7 +20,7 @@ describe('Oscillator', () => {
 
   it('should start oscillator node', () => {
     const spy = jest.spyOn(OscillatorNode.prototype, 'start');
-    const osc = new Oscillator();
+    new Oscillator();
 
     expect(spy).toHaveBeenCalled();
 

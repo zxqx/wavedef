@@ -77,13 +77,12 @@ describe('FrequencyAnalyzer', () => {
 
     jest.advanceTimersByTime(500);
 
-    expect(spy.mock.calls.length).toEqual(6);
+    expect(spy.mock.calls).toHaveLength(6);
   });
 
   it('should destroy', () => {
     const frequencyAnalyzer = new FrequencyAnalyzer();
     const target = document.createElement('div');
-    const spy = jest.spyOn(frequencyAnalyzer, 'drawLine');
 
     frequencyAnalyzer.draw(target, {
       fftSize: 1024,

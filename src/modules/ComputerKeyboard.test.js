@@ -1,4 +1,5 @@
 import 'web-audio-test-api';
+import Mousetrap from 'mousetrap';
 import ComputerKeyboard from './ComputerKeyboard';
 
 describe('ComputerKeyboard', () => {
@@ -45,26 +46,26 @@ describe('ComputerKeyboard', () => {
 
     kb.setupKeyBindings();
 
-    Mousetrap.trigger('a', 'keydown')
-    Mousetrap.trigger('s', 'keydown')
-    Mousetrap.trigger('d', 'keydown')
-    Mousetrap.trigger('f', 'keydown')
-    Mousetrap.trigger('g', 'keydown')
-    Mousetrap.trigger('h', 'keydown')
-    Mousetrap.trigger('j', 'keydown')
-    Mousetrap.trigger('w', 'keydown')
-    Mousetrap.trigger('e', 'keydown')
-    Mousetrap.trigger('t', 'keydown')
-    Mousetrap.trigger('y', 'keydown')
-    Mousetrap.trigger('u', 'keydown')
+    Mousetrap.trigger('a', 'keydown');
+    Mousetrap.trigger('s', 'keydown');
+    Mousetrap.trigger('d', 'keydown');
+    Mousetrap.trigger('f', 'keydown');
+    Mousetrap.trigger('g', 'keydown');
+    Mousetrap.trigger('h', 'keydown');
+    Mousetrap.trigger('j', 'keydown');
+    Mousetrap.trigger('w', 'keydown');
+    Mousetrap.trigger('e', 'keydown');
+    Mousetrap.trigger('t', 'keydown');
+    Mousetrap.trigger('y', 'keydown');
+    Mousetrap.trigger('u', 'keydown');
 
-    expect(spy.mock.calls.length).toEqual(12);
+    expect(spy.mock.calls).toHaveLength(12);
 
-    Mousetrap.trigger('r', 'keydown')
-    Mousetrap.trigger('3', 'keydown')
-    Mousetrap.trigger('n', 'keydown')
+    Mousetrap.trigger('r', 'keydown');
+    Mousetrap.trigger('3', 'keydown');
+    Mousetrap.trigger('n', 'keydown');
 
-    expect(spy.mock.calls.length).toEqual(12);
+    expect(spy.mock.calls).toHaveLength(12);
   });
 
   it('should set up keyboard keyup key bindings', () => {
@@ -73,41 +74,41 @@ describe('ComputerKeyboard', () => {
 
     kb.setupKeyBindings();
 
-    Mousetrap.trigger('a', 'keydown')
-    Mousetrap.trigger('a', 'keyup')
-    Mousetrap.trigger('s', 'keydown')
-    Mousetrap.trigger('s', 'keyup')
-    Mousetrap.trigger('d', 'keydown')
-    Mousetrap.trigger('d', 'keyup')
-    Mousetrap.trigger('f', 'keydown')
-    Mousetrap.trigger('f', 'keyup')
-    Mousetrap.trigger('g', 'keydown')
-    Mousetrap.trigger('g', 'keyup')
-    Mousetrap.trigger('h', 'keydown')
-    Mousetrap.trigger('h', 'keyup')
-    Mousetrap.trigger('j', 'keydown')
-    Mousetrap.trigger('j', 'keyup')
-    Mousetrap.trigger('w', 'keydown')
-    Mousetrap.trigger('w', 'keyup')
-    Mousetrap.trigger('e', 'keydown')
-    Mousetrap.trigger('e', 'keyup')
-    Mousetrap.trigger('t', 'keydown')
-    Mousetrap.trigger('t', 'keyup')
-    Mousetrap.trigger('y', 'keydown')
-    Mousetrap.trigger('y', 'keyup')
-    Mousetrap.trigger('u', 'keydown')
-    Mousetrap.trigger('u', 'keyup')
+    Mousetrap.trigger('a', 'keydown');
+    Mousetrap.trigger('a', 'keyup');
+    Mousetrap.trigger('s', 'keydown');
+    Mousetrap.trigger('s', 'keyup');
+    Mousetrap.trigger('d', 'keydown');
+    Mousetrap.trigger('d', 'keyup');
+    Mousetrap.trigger('f', 'keydown');
+    Mousetrap.trigger('f', 'keyup');
+    Mousetrap.trigger('g', 'keydown');
+    Mousetrap.trigger('g', 'keyup');
+    Mousetrap.trigger('h', 'keydown');
+    Mousetrap.trigger('h', 'keyup');
+    Mousetrap.trigger('j', 'keydown');
+    Mousetrap.trigger('j', 'keyup');
+    Mousetrap.trigger('w', 'keydown');
+    Mousetrap.trigger('w', 'keyup');
+    Mousetrap.trigger('e', 'keydown');
+    Mousetrap.trigger('e', 'keyup');
+    Mousetrap.trigger('t', 'keydown');
+    Mousetrap.trigger('t', 'keyup');
+    Mousetrap.trigger('y', 'keydown');
+    Mousetrap.trigger('y', 'keyup');
+    Mousetrap.trigger('u', 'keydown');
+    Mousetrap.trigger('u', 'keyup');
 
-    expect(spy.mock.calls.length).toEqual(12);
+    expect(spy.mock.calls).toHaveLength(12);
 
-    Mousetrap.trigger('r', 'keydown')
-    Mousetrap.trigger('r', 'keyup')
-    Mousetrap.trigger('3', 'keydown')
-    Mousetrap.trigger('3', 'keyup')
-    Mousetrap.trigger('n', 'keydown')
-    Mousetrap.trigger('n', 'keyup')
+    Mousetrap.trigger('r', 'keydown');
+    Mousetrap.trigger('r', 'keyup');
+    Mousetrap.trigger('3', 'keydown');
+    Mousetrap.trigger('3', 'keyup');
+    Mousetrap.trigger('n', 'keydown');
+    Mousetrap.trigger('n', 'keyup');
 
-    expect(spy.mock.calls.length).toEqual(12);
+    expect(spy.mock.calls).toHaveLength(12);
   });
 
   it('should set up octave up key binding', () => {
@@ -160,7 +161,7 @@ describe('ComputerKeyboard', () => {
 
     expect(kb.lastKeyHeld).toEqual('a');
 
-    expect(callback1.mock.calls.length).toEqual(2);
+    expect(callback1.mock.calls).toHaveLength(2);
     expect(callback1).toHaveBeenCalledWith(130.81);
     expect(callback1).toHaveBeenCalledWith(164.81);
 
@@ -196,9 +197,9 @@ describe('ComputerKeyboard', () => {
 
     expect(kb.glidingBetweenKeys).toEqual(true);
     expect(kb.keysBeingHeld).toEqual(['a']);
-    expect(spy.mock.calls.length).toEqual(3);
-    expect(callback1.mock.calls.length).toEqual(1);
-    expect(callback2.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls).toHaveLength(3);
+    expect(callback1.mock.calls).toHaveLength(1);
+    expect(callback2.mock.calls).toHaveLength(1);
   });
 
   it('should trigger octave change', () => {
@@ -232,7 +233,7 @@ describe('ComputerKeyboard', () => {
     kb.triggerOctaveChange('octaveUp');
 
     expect(kb.octave).toEqual(8);
- });
+  });
 
   it('should require octave direction to trigger octave change', () => {
     const kb = new ComputerKeyboard();
@@ -240,5 +241,5 @@ describe('ComputerKeyboard', () => {
     kb.triggerOctaveChange();
 
     expect(kb.octave).toEqual(3);
- });
+  });
 });

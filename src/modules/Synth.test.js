@@ -8,7 +8,7 @@ describe('Synth', () => {
 
     synth.addModule(osc);
 
-    expect(synth.modules.length).toEqual(1);
+    expect(synth.modules).toHaveLength(1);
     expect(synth.modules[0]).toEqual(osc);
   });
 
@@ -26,7 +26,7 @@ describe('Synth', () => {
 
     synth.addModule(mixer);
 
-    expect(synth.modules.length).toEqual(5);
+    expect(synth.modules).toHaveLength(5);
     expect(synth.modules[0]).toEqual(mixer);
     expect([
       synth.modules[1],
@@ -44,7 +44,7 @@ describe('Synth', () => {
     synth.addModule(osc);
     synth.addModule(osc);
 
-    expect(synth.modules.length).toEqual(1);
+    expect(synth.modules).toHaveLength(1);
   });
 
   it('should remove module', () => {
@@ -54,7 +54,7 @@ describe('Synth', () => {
     synth.addModule(osc);
     synth.removeModule(osc);
 
-    expect(synth.modules.length).toEqual(0);
+    expect(synth.modules).toHaveLength(0);
   });
 
   it('should recursively remove modules', () => {
@@ -72,7 +72,7 @@ describe('Synth', () => {
     synth.addModule(mixer);
     synth.removeModule(mixer);
 
-    expect(synth.modules.length).toEqual(0);
+    expect(synth.modules).toHaveLength(0);
   });
 
   it('should prevent removing more than once', () => {
@@ -83,7 +83,7 @@ describe('Synth', () => {
     synth.removeModule(osc);
     synth.removeModule(osc);
 
-    expect(synth.modules.length).toEqual(0);
+    expect(synth.modules).toHaveLength(0);
   });
 
   it('should get modules', () => {
@@ -103,7 +103,7 @@ describe('Synth', () => {
 
     synth.connect(osc);
 
-    expect(synth.modules.length).toEqual(1);
+    expect(synth.modules).toHaveLength(1);
     expect(synth.modules).toEqual([osc]);
     expect(synth.connecting).toEqual(osc);
   });
@@ -118,10 +118,8 @@ describe('Synth', () => {
     };
 
     const module2 = {
-      node: 'parent input'
+      node: 'parent input',
     };
-
-    const spy = jest.spyOn(module1.node, 'connect');
 
     synth.connect(module1).to(module2);
 
@@ -138,10 +136,8 @@ describe('Synth', () => {
     };
 
     const module2 = {
-      inputNode: 'parent input'
+      inputNode: 'parent input',
     };
-
-    const spy = jest.spyOn(module1.node, 'connect');
 
     synth.connect(module1).to(module2);
 
@@ -158,10 +154,8 @@ describe('Synth', () => {
     };
 
     const module2 = {
-      inputNode: 'parent input'
+      inputNode: 'parent input',
     };
-
-    const spy = jest.spyOn(module1.outputNode, 'connect');
 
     synth.connect(module1).to(module2);
 
@@ -190,8 +184,6 @@ describe('Synth', () => {
       },
     };
 
-    const spy = jest.spyOn(module.node, 'connect');
-
     synth.connect(module).output();
 
     expect(module.node.connect).toHaveBeenCalledWith(ctx.destination);
@@ -207,15 +199,12 @@ describe('Synth', () => {
       },
     };
 
-    const spy = jest.spyOn(module.outputNode, 'connect');
-
     synth.connect(module).output();
 
     expect(module.outputNode.connect).toHaveBeenCalledWith(ctx.destination);
   });
 
   it('should throw if no connection chain is active', () => {
-    const ctx = new AudioContext();
     const synth = new Synth();
 
     expect(() => synth.output()).toThrow();
@@ -228,11 +217,11 @@ describe('Synth', () => {
 
     synth.ensureModuleIsAdded(osc);
 
-    expect(synth.modules.length).toEqual(1);
+    expect(synth.modules).toHaveLength(1);
     expect(synth.modules[0]).toEqual(osc);
 
     synth.ensureModuleIsAdded(osc);
-    expect(synth.modules.length).toEqual(1);
+    expect(synth.modules).toHaveLength(1);
     expect(synth.modules[0]).toEqual(osc);
   });
 });

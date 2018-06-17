@@ -44,6 +44,8 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "2.29.0",
     "jest": "^22.4.2",
+    "lodash.capitalize": "^4.2.1",
+    "note-to-frequency": "^1.4.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "prop-types": "^15.6.1",
@@ -92,14 +94,11 @@
       "node": true
     },
     "rules": {
-      "func-names": 0,
       "no-new": 0,
       "no-plusplus": 0,
       "no-param-reassign": 0,
-      "no-return-assign": 0,
       "function-paren-newline": 0,
       "import/prefer-default-export": 0,
-      "import/no-extraneous-dependencies": 0,
       "react/jsx-no-bind": 0,
       "react/jsx-filename-extension": 0,
       "react/prefer-stateless-function": 0,

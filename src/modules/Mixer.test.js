@@ -29,10 +29,10 @@ describe('Mixer', () => {
   it('should create channels', () => {
     const mixer = new Mixer(4);
 
-    expect(mixer.children.length).toEqual(4);
+    expect(mixer.children).toHaveLength(4);
 
     expect(mixer.children.every(channel =>
-      channel.constructor.name === 'MixerChannel'
+      channel.constructor.name === 'MixerChannel',
     )).toBe(true);
   });
 

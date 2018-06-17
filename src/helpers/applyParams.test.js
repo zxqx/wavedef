@@ -9,10 +9,18 @@ describe('Apply params helper', () => {
         sustain: 1,
         release: 0.5,
       },
-      setAttack: attack => envelope.attack = attack,
-      setDecay: decay => envelope.decay = decay,
-      setSustain: sustain => envelope.sustain = sustain,
-      setRelease: release => envelope.release = release,
+      setAttack: (attack) => {
+        envelope.attack = attack;
+      },
+      setDecay: (decay) => {
+        envelope.decay = decay;
+      },
+      setSustain: (sustain) => {
+        envelope.sustain = sustain;
+      },
+      setRelease: (release) => {
+        envelope.release = release;
+      },
     };
 
     envelope::applyParams({

@@ -5,11 +5,11 @@ import Oscillator from './Oscillator';
 import Gain from './Gain';
 import param from '../helpers/param';
 
-WebAudioTestAPI.setState({
+WebAudioTestApi.setState({
   'AudioNode#disconnect': 'selective',
 });
 
-describe ('LFO', () => {
+describe('LFO', () => {
   it('should set depth', () => {
     const lfo = new LFO();
 
@@ -37,7 +37,7 @@ describe ('LFO', () => {
   it('should set calculate bpm sync', () => {
     const lfo = new LFO();
 
-    lfo.bpmSync(120,0.5);
+    lfo.bpmSync(120, 0.5);
 
     expect(lfo.getFrequency()).toEqual(1);
   });
@@ -107,4 +107,4 @@ describe ('LFO', () => {
     expect(spy).toHaveBeenCalledWith(gain::param('gain'));
     expect(lfo.destinations).toEqual([]);
   });
-})
+});

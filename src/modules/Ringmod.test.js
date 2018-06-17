@@ -1,7 +1,7 @@
 import 'web-audio-test-api';
 import Ringmod from './Ringmod';
 
-describe ('Ringmod', () => {
+describe('Ringmod', () => {
   it('should set frequency', () => {
     const ringmod = new Ringmod();
 
@@ -15,7 +15,7 @@ describe ('Ringmod', () => {
 
     ringmod.setDepth(0.53);
 
-    expect(ringmod.lfo.gain.getGain()).toEqual(0.53)
+    expect(ringmod.lfo.gain.getGain()).toEqual(0.53);
   });
 
   it('should set gain', () => {
@@ -23,7 +23,7 @@ describe ('Ringmod', () => {
 
     ringmod.setGain(0.25);
 
-    expect(ringmod.gain.getGain()).toEqual(0.25)
+    expect(ringmod.gain.getGain()).toEqual(0.25);
   });
 
   it('should set wet/dry mix', () => {
@@ -41,5 +41,5 @@ describe ('Ringmod', () => {
     ringmod.setWaveformType('sine');
 
     expect(ringmod.lfo.osc.node.type).toEqual('sine');
-  })
-})
+  });
+});

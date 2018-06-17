@@ -54,7 +54,7 @@ describe('Sequencer', () => {
 
     sequencer.onStepSelect(fn);
 
-    expect(sequencer.onStepSelectCallbacks.length).toEqual(1);
+    expect(sequencer.onStepSelectCallbacks).toHaveLength(1);
     expect(sequencer.onStepSelectCallbacks[0]).toEqual(fn);
   });
 
@@ -74,7 +74,7 @@ describe('Sequencer', () => {
 
     sequencer.trigger(fn);
 
-    expect(sequencer.triggerCallbacks.length).toEqual(1);
+    expect(sequencer.triggerCallbacks).toHaveLength(1);
     expect(sequencer.triggerCallbacks[0]).toEqual(fn);
   });
 
@@ -99,12 +99,12 @@ describe('Sequencer', () => {
     sequencer.triggerAtStep(9, spy);
     sequencer.triggerStep();
 
-    expect(spy.mock.calls.length).toEqual(0);
+    expect(spy.mock.calls).toHaveLength(0);
 
     sequencer.activeStep = 9;
     sequencer.triggerStep();
 
-    expect(spy.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls).toHaveLength(1);
   });
 
   it('should trigger metronome on metronome steps', () => {
@@ -112,32 +112,32 @@ describe('Sequencer', () => {
     const spy = jest.spyOn(sequencer.metronomeEnvelope, 'trigger');
     sequencer.triggerMetronome();
 
-    expect(spy.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls).toHaveLength(1);
 
     sequencer.activeStep = 3;
     sequencer.triggerMetronome();
 
-    expect(spy.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls).toHaveLength(1);
 
     sequencer.activeStep = 5;
     sequencer.triggerMetronome();
 
-    expect(spy.mock.calls.length).toEqual(2);
+    expect(spy.mock.calls).toHaveLength(2);
 
     sequencer.activeStep = 8;
     sequencer.triggerMetronome();
 
-    expect(spy.mock.calls.length).toEqual(2);
+    expect(spy.mock.calls).toHaveLength(2);
 
     sequencer.activeStep = 9;
     sequencer.triggerMetronome();
 
-    expect(spy.mock.calls.length).toEqual(3);
+    expect(spy.mock.calls).toHaveLength(3);
 
     sequencer.activeStep = 13;
     sequencer.triggerMetronome();
 
-    expect(spy.mock.calls.length).toEqual(4);
+    expect(spy.mock.calls).toHaveLength(4);
   });
 
   it('should call trigger callbacks', () => {
@@ -174,8 +174,8 @@ describe('Sequencer', () => {
     sequencer.onSetTrigger(callback);
     sequencer.triggerAtStep(null, fn);
 
-    expect(sequencer.stepTriggers[null]).toEqual(undefined);
-    expect(callback.mock.calls.length).toEqual(0);
+    expect(sequencer.stepTriggers.null).toEqual(undefined);
+    expect(callback.mock.calls).toHaveLength(0);
   });
 
   it('should call on set trigger callbacks', () => {
@@ -261,7 +261,7 @@ describe('Sequencer', () => {
 
     sequencer.onSetTrigger(fn);
 
-    expect(sequencer.onSetTriggerCallbacks.length).toEqual(1);
+    expect(sequencer.onSetTriggerCallbacks).toHaveLength(1);
     expect(sequencer.onSetTriggerCallbacks[0]).toEqual(fn);
   });
 
@@ -275,17 +275,17 @@ describe('Sequencer', () => {
 
     jest.advanceTimersByTime(500);
 
-    expect(triggerStep.mock.calls.length).toEqual(5);
+    expect(triggerStep.mock.calls).toHaveLength(5);
     expect(sequencer.activeStep).toEqual(5);
 
     jest.advanceTimersByTime(300);
 
-    expect(triggerStep.mock.calls.length).toEqual(7);
+    expect(triggerStep.mock.calls).toHaveLength(7);
     expect(sequencer.activeStep).toEqual(7);
 
     jest.advanceTimersByTime(1200);
 
-    expect(triggerStep.mock.calls.length).toEqual(17);
+    expect(triggerStep.mock.calls).toHaveLength(17);
     expect(sequencer.activeStep).toEqual(1);
   });
 
@@ -301,20 +301,20 @@ describe('Sequencer', () => {
 
     jest.advanceTimersByTime(500);
 
-    expect(triggerStep.mock.calls.length).toEqual(5);
-    expect(triggerMetronome.mock.calls.length).toEqual(5);
+    expect(triggerStep.mock.calls).toHaveLength(5);
+    expect(triggerMetronome.mock.calls).toHaveLength(5);
     expect(sequencer.activeStep).toEqual(5);
 
     jest.advanceTimersByTime(300);
 
-    expect(triggerStep.mock.calls.length).toEqual(7);
-    expect(triggerMetronome.mock.calls.length).toEqual(7);
+    expect(triggerStep.mock.calls).toHaveLength(7);
+    expect(triggerMetronome.mock.calls).toHaveLength(7);
     expect(sequencer.activeStep).toEqual(7);
 
     jest.advanceTimersByTime(1200);
 
-    expect(triggerStep.mock.calls.length).toEqual(17);
-    expect(triggerMetronome.mock.calls.length).toEqual(17);
+    expect(triggerStep.mock.calls).toHaveLength(17);
+    expect(triggerMetronome.mock.calls).toHaveLength(17);
     expect(sequencer.activeStep).toEqual(1);
   });
 
