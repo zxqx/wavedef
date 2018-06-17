@@ -3,10 +3,13 @@
 # dependencies
 /node_modules
 
+# umd
+/lib
+
 # testing
 /coverage
 
-# production
+# production example
 example/build
 
 # misc
