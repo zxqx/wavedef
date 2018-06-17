@@ -8,5 +8,6 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - run: npm run lint
       - run: npm run coverage:report
       - run: npm run build
