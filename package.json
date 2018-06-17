@@ -30,6 +30,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jest": "^21.17.0",
+    "husky": "^1.0.0-rc.9",
     "jest": "^22.4.2",
     "lodash.capitalize": "^4.2.1",
     "web-audio-test-api": "^0.5.2"
@@ -48,6 +49,11 @@
     "coverage:report": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "build": "echo build",
     "heroku-postbuild": "cd example && npm install && npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test -- --watchAll=false"
+    }
   },
   "jest": {
     "collectCoverageFrom": [
