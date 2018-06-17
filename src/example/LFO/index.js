@@ -40,11 +40,14 @@ export default class LFO extends Component {
           options={options}
           onChange={(value) => {
             if (value === 'none') {
-              return lfo.disconnect();
+              return lfo.disconnectAll();
             }
 
             const { path } = params.find(param => param.value === value);
-            return lfo.modulateOne(path);
+
+            return lfo
+              .disconnectAll()
+              .modulate(path);
           }}
         />
 
@@ -55,9 +58,9 @@ export default class LFO extends Component {
 
         <Slider
           label="Depth"
-          defaultValue={0}
+          defaultValue={100}
           min={0}
-          max={1000}
+          max={400}
           step={0.1}
           onChange={lfo::lfo.setDepth}
         />

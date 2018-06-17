@@ -1,7 +1,7 @@
-import WebAudioTestAPI from 'web-audio-test-api';
+import WebAudioTestApi from 'web-audio-test-api';
 import Chorus from './Chorus';
 
-WebAudioTestAPI.setState({
+WebAudioTestApi.setState({
   'AudioContext#createStereoPanner': 'enabled',
 });
 
@@ -83,7 +83,7 @@ describe('Chorus', () => {
   it('should modulate offset nodes', () => {
     const chorus = new Chorus();
 
-    expect(chorus.lfo.destination).toEqual([
+    expect(chorus.lfo.destinations).toEqual([
       chorus.offset1.delay.delayTime,
       chorus.offset2.delay.delayTime,
     ]);

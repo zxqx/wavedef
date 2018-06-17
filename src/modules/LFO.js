@@ -5,6 +5,7 @@ export default class LFO {
   constructor() {
     this.osc = new Oscillator();
     this.gain = new Gain();
+    this.destinations = [];
 
     const { osc, gain } = this;
 
@@ -13,44 +14,52 @@ export default class LFO {
   }
 
   modulate(destination) {
-    if (!Array.isArray(this.destination)) {
-      this.destination = [];
-    }
-
-    this.destination.push(destination);
-    this.destination.forEach(d => this.gain.node.connect(d));
-  }
-
-  modulateOne(destination) {
-    this.gain.node.disconnect(this.destination);
-
-    this.destination = destination;
+    this.destinations.push(destination);
     this.gain.node.connect(destination);
+
+    return this;
   }
 
-  disconnect() {
-    this.gain.node.disconnect(this.destination);
-    this.destination = null;
+  disconnect(destination) {
+    this.destinations = this.destinations.filter(d => d !== destination);
+    this.gain.node.disconnect(destination);
+
+    return this;
+  }
+
+  disconnectAll() {
+    this.destinations.forEach(d => this.gain.node.disconnect(d));
+    this.destinations = [];
+
+    return this;
   }
 
   setDepth(depth) {
     this.gain.setGain(depth);
+
+    return this;
   }
 
   setWaveformType(waveform) {
     this.osc.setWaveformType(waveform);
+
+    return this;
   }
 
   setFrequency(frequency) {
     this.osc.setFrequency(frequency);
+
+    return this;
   }
 
   getDestinations() {
-    return this.destination;
+    return this.destinations;
   }
 
   bpmSync(bpm, note) {
     this.osc.setFrequency(1 / ((60 / bpm) / note));
+
+    return this;
   }
 
   getFrequency() {
