@@ -27,6 +27,13 @@ Install library dependencies:
 $ npm install
 ```
 
+Install example app dependencies:
+
+```
+$ cd example
+$ npm install
+```
+
 Boot up the example app at [http://localhost:3000](http://localhost:3000) (implicitly rebuilds on code changes):
 
 ```

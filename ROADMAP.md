@@ -20,7 +20,6 @@
 + Add 404 page
 
 + Bugs
-  - Minify app JS
   - Fix record button focus state after stopping record
   + FF
     - Fix transport button transition styles
