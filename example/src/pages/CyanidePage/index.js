@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import Cyanide from '../../../../src/stock-synths/Cyanide';
+import { Cyanide } from '../../../../src/index';
 import Oscillator from '../../Oscillator';
 import Filter from '../../Filter';
 import VolumeEnvelope from '../../VolumeEnvelope';
