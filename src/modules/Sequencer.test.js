@@ -214,6 +214,18 @@ describe('Sequencer', () => {
     expect(sequencer.quantizeStepTrigger()).toEqual(2);
   });
 
+  it('should quantize step trigger at end of sequence', () => {
+    const sequencer = new Sequencer();
+
+    sequencer.sequenceTimestamp = 1000;
+    global.Date.now = () => 1070;
+
+    sequencer.setSelectedStep(16);
+    sequencer.record();
+
+    expect(sequencer.quantizeStepTrigger()).toEqual(1);
+  });
+
   it('should not quantize step trigger', () => {
     const sequencer = new Sequencer();
 
@@ -236,6 +248,11 @@ describe('Sequencer', () => {
 
     expect(spy).toHaveBeenCalledWith(11, fn);
     expect(sequencer.selectedStep).toEqual(null);
+
+    sequencer.selectedStep = 13;
+    sequencer.record();
+    sequencer.triggerAtSelectedStep(fn);
+    expect(sequencer.selectedStep).toEqual(13);
   });
 
   it('should set on set trigger callback', () => {
