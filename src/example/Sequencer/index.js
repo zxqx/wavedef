@@ -60,7 +60,7 @@ export default class Sequencer extends Component {
           <Col span={6}>
             <DragInput
               label="BPM"
-              defaultValue={90}
+              defaultValue={120}
               min={30}
               max={300}
               onChange={(bpm) => {

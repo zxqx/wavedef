@@ -34,7 +34,12 @@ export default class Sequencer {
 
   createMetronome() {
     this.metronome = new Oscillator();
-    this.metronomeEnvelope = new Envelope({ release: 0.2 });
+    this.metronomeEnvelope = new Envelope({
+      sustain: 0.3,
+      release: 0.2,
+      peakLevel: 0.3,
+    });
+
     this.metronomeVCA = new VCA();
 
     this.metronome.node.connect(this.metronomeVCA.node);
