@@ -39,16 +39,97 @@ describe('ComputerKeyboard', () => {
     ]);
   });
 
-  // TODO - Figure out how to trigger mousetrap bound events
-  it('should set up key bindings', () => {
+  it('should set up keyboard keydown key bindings', () => {
     const kb = new ComputerKeyboard();
+    const spy = jest.spyOn(kb, 'triggerOnPressCallbacks');
 
     kb.setupKeyBindings();
 
-    const spy = jest.spyOn(kb, 'triggerOnPressCallbacks');
+    Mousetrap.trigger('a', 'keydown')
+    Mousetrap.trigger('s', 'keydown')
+    Mousetrap.trigger('d', 'keydown')
+    Mousetrap.trigger('f', 'keydown')
+    Mousetrap.trigger('g', 'keydown')
+    Mousetrap.trigger('h', 'keydown')
+    Mousetrap.trigger('j', 'keydown')
+    Mousetrap.trigger('w', 'keydown')
+    Mousetrap.trigger('e', 'keydown')
+    Mousetrap.trigger('t', 'keydown')
+    Mousetrap.trigger('y', 'keydown')
+    Mousetrap.trigger('u', 'keydown')
 
-    const key = new KeyboardEvent('keydown', { keyCode: 68 });
-    document.dispatchEvent(key);
+    expect(spy.mock.calls.length).toEqual(12);
+
+    Mousetrap.trigger('r', 'keydown')
+    Mousetrap.trigger('3', 'keydown')
+    Mousetrap.trigger('n', 'keydown')
+
+    expect(spy.mock.calls.length).toEqual(12);
+  });
+
+  it('should set up keyboard keyup key bindings', () => {
+    const kb = new ComputerKeyboard();
+    const spy = jest.spyOn(kb, 'triggerOnReleaseCallbacks');
+
+    kb.setupKeyBindings();
+
+    Mousetrap.trigger('a', 'keydown')
+    Mousetrap.trigger('a', 'keyup')
+    Mousetrap.trigger('s', 'keydown')
+    Mousetrap.trigger('s', 'keyup')
+    Mousetrap.trigger('d', 'keydown')
+    Mousetrap.trigger('d', 'keyup')
+    Mousetrap.trigger('f', 'keydown')
+    Mousetrap.trigger('f', 'keyup')
+    Mousetrap.trigger('g', 'keydown')
+    Mousetrap.trigger('g', 'keyup')
+    Mousetrap.trigger('h', 'keydown')
+    Mousetrap.trigger('h', 'keyup')
+    Mousetrap.trigger('j', 'keydown')
+    Mousetrap.trigger('j', 'keyup')
+    Mousetrap.trigger('w', 'keydown')
+    Mousetrap.trigger('w', 'keyup')
+    Mousetrap.trigger('e', 'keydown')
+    Mousetrap.trigger('e', 'keyup')
+    Mousetrap.trigger('t', 'keydown')
+    Mousetrap.trigger('t', 'keyup')
+    Mousetrap.trigger('y', 'keydown')
+    Mousetrap.trigger('y', 'keyup')
+    Mousetrap.trigger('u', 'keydown')
+    Mousetrap.trigger('u', 'keyup')
+
+    expect(spy.mock.calls.length).toEqual(12);
+
+    Mousetrap.trigger('r', 'keydown')
+    Mousetrap.trigger('r', 'keyup')
+    Mousetrap.trigger('3', 'keydown')
+    Mousetrap.trigger('3', 'keyup')
+    Mousetrap.trigger('n', 'keydown')
+    Mousetrap.trigger('n', 'keyup')
+
+    expect(spy.mock.calls.length).toEqual(12);
+  });
+
+  it('should set up octave up key binding', () => {
+    const kb = new ComputerKeyboard();
+    const spy = jest.spyOn(kb, 'triggerOctaveChange');
+
+    kb.setupKeyBindings();
+
+    Mousetrap.trigger('z');
+
+    expect(spy).toHaveBeenCalledWith('octaveDown');
+  });
+
+  it('should set up octave down key binding', () => {
+    const kb = new ComputerKeyboard();
+    const spy = jest.spyOn(kb, 'triggerOctaveChange');
+
+    kb.setupKeyBindings();
+
+    Mousetrap.trigger('x');
+
+    expect(spy).toHaveBeenCalledWith('octaveUp');
   });
 
   it('should trigger on press callbacks', () => {

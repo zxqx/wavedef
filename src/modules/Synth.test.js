@@ -230,5 +230,9 @@ describe('Synth', () => {
 
     expect(synth.modules.length).toEqual(1);
     expect(synth.modules[0]).toEqual(osc);
+
+    synth.ensureModuleIsAdded(osc);
+    expect(synth.modules.length).toEqual(1);
+    expect(synth.modules[0]).toEqual(osc);
   });
 });
