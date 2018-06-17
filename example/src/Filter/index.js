@@ -29,7 +29,7 @@ export default class Filter extends Component {
           label="Type"
           defaultValue="lowpass"
           options={this.getOptions()}
-          onChange={filter::filter.setFilterType}
+          onChange={filter::filter.setType}
         />
 
         <Slider
@@ -39,7 +39,7 @@ export default class Filter extends Component {
           max={2000}
           step={1}
           onChange={(value) => {
-            filter.setFrequency(value);
+            filter.setCutoff(value);
             envelope.setStart(value);
           }}
         />

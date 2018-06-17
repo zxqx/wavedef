@@ -1,8 +1,17 @@
 import ctx from 'audio-context';
+import applyParams from '../helpers/applyParams';
 
 export default class Filter {
-  constructor() {
+  defaults = {
+    cutoff: 350,
+    resonance: 1,
+    type: 'lowpass',
+  }
+
+  constructor(params = {}) {
     this.node = ctx().createBiquadFilter();
+
+    this::applyParams(params);
   }
 
   types = [
@@ -13,7 +22,7 @@ export default class Filter {
     'allpass',
   ]
 
-  setFrequency(frequency) {
+  setCutoff(frequency) {
     this.node.frequency.value = frequency;
   }
 
@@ -21,7 +30,7 @@ export default class Filter {
     this.node.Q.value = resonance;
   }
 
-  setFilterType(type) {
+  setType(type) {
     this.node.type = type;
   }
 
@@ -29,7 +38,7 @@ export default class Filter {
     this.node.gain.value = gain;
   }
 
-  getFrequency() {
+  getCutoff() {
     return this.node.frequency.value;
   }
 
@@ -37,7 +46,7 @@ export default class Filter {
     return this.node.Q.value;
   }
 
-  getFilterType() {
+  getType() {
     return this.node.type;
   }
 
