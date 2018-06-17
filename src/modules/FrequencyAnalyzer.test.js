@@ -79,4 +79,21 @@ describe('FrequencyAnalyzer', () => {
 
     expect(spy.mock.calls.length).toEqual(6);
   });
+
+  it('should destroy', () => {
+    const frequencyAnalyzer = new FrequencyAnalyzer();
+    const target = document.createElement('div');
+    const spy = jest.spyOn(frequencyAnalyzer, 'drawLine');
+
+    frequencyAnalyzer.draw(target, {
+      fftSize: 1024,
+      height: 500,
+      lineThickness: 17,
+      lineColor: 'pink',
+    });
+
+    frequencyAnalyzer.destroy();
+
+    expect(target.innerHTML).toEqual('<div></div>');
+  });
 });
