@@ -2,16 +2,16 @@ import 'web-audio-test-api';
 import Mixer from './Mixer';
 
 describe('Mixer', () => {
-  it('should set default amount', () => {
+  it('should set default channel count', () => {
     const mixer = new Mixer();
 
-    expect(mixer.amount).toEqual(2);
+    expect(mixer.channels).toEqual(2);
   });
 
-  it('should set amount', () => {
+  it('should set channel count', () => {
     const mixer = new Mixer(8);
 
-    expect(mixer.amount).toEqual(8);
+    expect(mixer.channels).toEqual(8);
   });
 
   it('should create gain instance', () => {

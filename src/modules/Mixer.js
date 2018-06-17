@@ -3,8 +3,8 @@ import MixerChannel from './MixerChannel';
 import addChildModule from '../helpers/addChildModule';
 
 export default class Mixer {
-  constructor(amount = 2) {
-    this.amount = amount;
+  constructor(channels = 2) {
+    this.channels = channels;
     this.gain = new Gain();
     this.node = this.gain.node;
 
@@ -12,7 +12,7 @@ export default class Mixer {
   }
 
   createChannels() {
-    for (let x = 1; x <= this.amount; x++) {
+    for (let x = 1; x <= this.channels; x++) {
       this::addChildModule(new MixerChannel());
     }
   }
