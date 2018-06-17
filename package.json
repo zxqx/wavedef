@@ -44,7 +44,8 @@
     "lint": "eslint src",
     "test": "node scripts/test.js --env=jsdom",
     "coverage": "npm test -- --coverage",
-    "coverage:report": "npm run coverage && cat ./coverage/lcov.info | coveralls"
+    "coverage:report": "npm run coverage && cat ./coverage/lcov.info | coveralls",
+    "build": "exit 0"
   },
   "jest": {
     "collectCoverageFrom": [
