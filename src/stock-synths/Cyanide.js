@@ -19,7 +19,7 @@ import FrequencyAnalyzer from '../modules/FrequencyAnalyzer';
 export default class Cyanide {
   constructor() {
     this.synth = new Synth();
-    this.mixer = new Mixer(2);
+    this.mixer = new Mixer();
     this.osc = new Oscillator('OSC 1');
     this.vca = new VCA();
     this.volumeEnvelope = new Envelope();

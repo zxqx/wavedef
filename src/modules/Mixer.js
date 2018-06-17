@@ -1,14 +1,23 @@
 import Gain from './Gain';
 import MixerChannel from './MixerChannel';
+import applyParams from '../helpers/applyParams';
 import addChildModule from '../helpers/addChildModule';
 
 export default class Mixer {
-  constructor(channels = 2) {
-    this.channels = channels;
+  defaults = {
+    channels: 2,
+  }
+
+  constructor(params = {}) {
     this.gain = new Gain();
     this.node = this.gain.node;
 
+    this::applyParams(params);
     this.createChannels();
+  }
+
+  setChannels(numberOfChannels) {
+    this.channels = numberOfChannels;
   }
 
   createChannels() {
