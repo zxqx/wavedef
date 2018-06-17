@@ -60,7 +60,12 @@ export default class Keyboard extends Component {
   }
 
   render() {
-    const { octaves, onKeypress, onKeyRelease } = this.props;
+    const {
+      octaves,
+      onKeypress,
+      onKeyRelease,
+    } = this.props;
+
     const { startingOctave } = this.state;
 
     const octaveList = this.getOctaveList();

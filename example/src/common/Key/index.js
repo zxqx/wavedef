@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import noteToFrequency from 'note-to-frequency';
+import classnames from 'classnames';
 import './Key.css';
 
 /**
@@ -8,43 +9,35 @@ import './Key.css';
  */
 export default class Key extends Component {
   static propTypes = {
+    note: PropTypes.string.isRequired,
     isBlack: PropTypes.bool.isRequired,
     isAdjacentWhite: PropTypes.bool.isRequired,
+    onKeypress: PropTypes.array.isRequired, // eslint-disable-line
+    onKeyRelease: PropTypes.array.isRequired, // eslint-disable-line
   }
 
   render() {
-    const { props } = this;
-
-    const classNames = ['keyboard-key'];
-
-    if (this.props.isBlack) {
-      classNames.push('keyboard-key-black');
-    }
-
-    if (this.props.isAdjacentWhite) {
-      classNames.push('keyboard-key-adjacent-white');
-    }
+    const {
+      note,
+      isBlack,
+      isAdjacentWhite,
+      onKeypress,
+      onKeyRelease,
+    } = this.props;
 
     return (
       <button
-        className={classNames.join(' ')}
-        value={props.note}
+        className={classnames({
+          'keyboard-key': true,
+          'keyboard-key-black': isBlack,
+          'keyboard-key-adjacent-white': isAdjacentWhite,
+        })}
+        value={note}
         onMouseDown={(e) => {
           const freq = noteToFrequency(e.target.value);
-
-          if (Array.isArray(props.onKeypress)) {
-            props.onKeypress.forEach(callback => callback(freq));
-          } else {
-            props.onKeypress(freq);
-          }
+          onKeypress.forEach(callback => callback(freq));
         }}
-        onMouseUp={() => {
-          if (Array.isArray(props.onKeyRelease)) {
-            props.onKeyRelease.forEach(callback => callback());
-          } else {
-            props.onKeyRelease();
-          }
-        }}
+        onMouseUp={() => onKeyRelease.forEach(callback => callback())}
       />
     );
   }

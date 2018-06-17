@@ -1,4 +1,7 @@
-import noteToFrequency from 'note-to-frequency';
+import {
+  triggerOnPressCallbacks,
+  triggerOnReleaseCallbacks,
+} from '../helpers/keyboardTracking';
 
 const notes = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
@@ -20,6 +23,9 @@ export default class MIDI {
     this.onReleaseCallbacks = null;
 
     this.requestMIDIAccess();
+
+    this.triggerOnPressCallbacks = this::triggerOnPressCallbacks;
+    this.triggerOnReleaseCallbacks = this::triggerOnReleaseCallbacks;
   }
 
   async requestMIDIAccess() {
@@ -75,19 +81,13 @@ export default class MIDI {
   }
 
   onMidiIn(e) {
-    const midiDataObject = translateMIDIDataToObject(e.data);
+    const { note, octave, on } = translateMIDIDataToObject(e.data);
 
-    if (midiDataObject.on && this.onPressCallbacks) {
-      const freq = noteToFrequency(midiDataObject.note + midiDataObject.octave);
-      return this.onPressCallbacks.forEach(callback => callback(freq));
+    if (on) {
+      this.triggerOnPressCallbacks(`${note}${octave}`);
+    } else {
+      this.triggerOnReleaseCallbacks(`${note}${octave}`);
     }
-
-    if (!midiDataObject.on && this.onReleaseCallbacks) {
-      const freq = noteToFrequency(midiDataObject.note + midiDataObject.octave);
-      return this.onReleaseCallbacks.forEach(callback => callback(freq));
-    }
-
-    return false;
   }
 
   // eslint-disable-next-line

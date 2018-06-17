@@ -1,10 +1,12 @@
-import noteToFrequency from 'note-to-frequency';
 import Mousetrap from 'mousetrap';
 import 'mousetrap/plugins/global-bind/mousetrap-global-bind';
+import {
+  triggerOnPressCallbacks,
+  triggerOnReleaseCallbacks,
+} from '../helpers/keyboardTracking';
 
 const OCTAVE_UP = 'octaveUp';
 const OCTAVE_DOWN = 'octaveDown';
-const KEY_HOLD_DELAY_TIME = 500;
 
 const KEY_TO_NOTE_MAP = {
   a: 'C',
@@ -34,6 +36,9 @@ export default class ComputerKeyboard {
     this.octave = octave;
 
     this.setupKeyBindings();
+
+    this.triggerOnPressCallbacks = this::triggerOnPressCallbacks;
+    this.triggerOnReleaseCallbacks = this::triggerOnReleaseCallbacks;
   }
 
   /**
@@ -68,97 +73,18 @@ export default class ComputerKeyboard {
   setupKeyBindings() {
     Mousetrap.bindGlobal(Object.keys(KEY_TO_NOTE_MAP), (event, key) => {
       const note = KEY_TO_NOTE_MAP[key];
-      this.triggerOnPressCallbacks(key, note);
+      this.triggerOnPressCallbacks(`${note}${this.octave}`);
     }, 'keydown');
 
     Mousetrap.bindGlobal(Object.keys(KEY_TO_NOTE_MAP), (event, key) => {
-      this.triggerOnReleaseCallbacks(key);
+      const note = KEY_TO_NOTE_MAP[key];
+      this.triggerOnReleaseCallbacks(`${note}${this.octave}`);
     }, 'keyup');
 
     Mousetrap.bindGlobal(Object.keys(KEY_TO_OCTAVE_CHANGE_MAP), (event, key) => {
       const octaveChangeDirection = KEY_TO_OCTAVE_CHANGE_MAP[key];
       this.triggerOctaveChange(octaveChangeDirection);
     });
-  }
-
-  /**
-   * Trigger all stored `onPress` callbacks
-   * Do some nasty shit to check if key is being held so we don't
-   * unnecessarily re-trigger callbacks on key hold
-   * @param {string} key
-   * @param {string} note
-   * @private
-   */
-  triggerOnPressCallbacks(key, note) {
-    if (!note) return;
-
-    if (!Array.isArray(this.keysBeingHeld)) {
-      this.keysBeingHeld = [];
-    }
-
-    if (!this.keysBeingHeld.includes(key)) {
-      this.keysBeingHeld.push(key);
-    }
-
-    if (key !== this.lastKeyHeld) {
-      this.holding = false;
-    }
-
-    if (this.holding) return;
-
-    this.currentPressedTime = new Date() - 0;
-
-    this.keyIsBeingHeld = (this.lastPressedTime > this.currentPressedTime - KEY_HOLD_DELAY_TIME) &&
-    (key === this.lastKeyHeld) && !this.justReleased;
-
-    if (this.keyIsBeingHeld) {
-      this.holding = true;
-      return;
-    }
-
-    this.lastPressedTime = this.currentPressedTime;
-    this.lastKeyHeld = key;
-
-    const noteAndOctave = note + this.octave;
-    const frequency = noteToFrequency(noteAndOctave);
-
-    if (this.onPressCallbacks) {
-      this.onPressCallbacks.forEach(cb => cb(frequency));
-    }
-
-    this.justReleased = false;
-  }
-
-  /**
-   * Trigger all stored `onRelease` callbacks
-   * @param {string} key
-   * @private
-   */
-  triggerOnReleaseCallbacks(key) {
-    this.holding = false;
-
-    if (key === this.lastKeyHeld) {
-      this.justReleased = true;
-    }
-
-    this.glidingBetweenKeys = this.keysBeingHeld.length > 1;
-
-    const index = this.keysBeingHeld.indexOf(key);
-    this.keysBeingHeld.splice(index, 1);
-
-    // Prevent release from being called if we're switching between notes
-    // quickly
-    if (this.glidingBetweenKeys) {
-      const thisKey = this.keysBeingHeld[this.keysBeingHeld.length - 1];
-      const note = KEY_TO_NOTE_MAP[thisKey];
-      this.triggerOnPressCallbacks(thisKey, note);
-
-      return;
-    }
-
-    if (this.onReleaseCallbacks) {
-      this.onReleaseCallbacks.forEach(cb => cb(key));
-    }
   }
 
   /**
