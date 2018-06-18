@@ -1,6 +1,8 @@
 import 'web-audio-test-api';
 import Synth from './Synth';
 
+jest.mock('startaudiocontext');
+
 describe('Synth', () => {
   it('should add module', () => {
     const synth = new Synth();
