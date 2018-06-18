@@ -13,6 +13,23 @@
   "engines": {
     "node": "8.9.4"
   },
+  "keywords": [
+    "synth",
+    "synthesizer",
+    "sequencer",
+    "oscillator",
+    "lfo",
+    "adsr",
+    "envelope",
+    "filter",
+    "keyboard",
+    "keys",
+    "mixer",
+    "web",
+    "audio",
+    "api",
+    "music"
+  ],
   "author": "Zak Angelle, Drake Champagne",
   "license": "MIT",
   "devDependencies": {
