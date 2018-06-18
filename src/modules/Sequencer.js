@@ -2,14 +2,17 @@ import Oscillator from './Oscillator';
 import Envelope from './Envelope';
 import VCA from './VCA';
 import param from '../helpers/param';
+import applyParams from '../helpers/applyParams';
 
 const ONE_MINUTE = 60;
 const ONE_SECOND = 1000;
 
 export default class Sequencer {
-  constructor(bpm = 120) {
-    this.bpm = bpm;
-    this.originalBpm = bpm;
+  defaults = {
+    bpm: 120,
+  }
+
+  constructor(params = {}) {
     this.steps = 16;
     this.activeStep = 1;
     this.selectedStep = null;
@@ -29,7 +32,10 @@ export default class Sequencer {
       13: 500,
     };
 
+    this::applyParams(params);
     this.createMetronome();
+
+    this.originalBpm = this.bpm;
   }
 
   createMetronome() {

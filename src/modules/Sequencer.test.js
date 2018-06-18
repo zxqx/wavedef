@@ -2,14 +2,16 @@ import 'web-audio-test-api';
 import Sequencer from './Sequencer';
 
 describe('Sequencer', () => {
-  it('should set default bpm', () => {
+  it('should set default params', () => {
     const sequencer = new Sequencer();
 
     expect(sequencer.bpm).toEqual(120);
   });
 
-  it('should set custom bpm', () => {
-    const sequencer = new Sequencer(88);
+  it('should override default params', () => {
+    const sequencer = new Sequencer({
+      bpm: 88,
+    });
 
     expect(sequencer.bpm).toEqual(88);
   });
@@ -60,8 +62,13 @@ describe('Sequencer', () => {
 
   it('should get step interval', () => {
     const sequencer = new Sequencer();
-    const sequencer2 = new Sequencer(80);
-    const sequencer3 = new Sequencer(250);
+    const sequencer2 = new Sequencer({
+      bpm: 80,
+    });
+
+    const sequencer3 = new Sequencer({
+      bpm: 250,
+    });
 
     expect(sequencer.getStepInterval()).toEqual(125);
     expect(sequencer2.getStepInterval()).toEqual(187.5);
@@ -268,7 +275,7 @@ describe('Sequencer', () => {
   it('should start', () => {
     jest.useFakeTimers();
 
-    const sequencer = new Sequencer(120);
+    const sequencer = new Sequencer();
     const triggerStep = jest.spyOn(sequencer, 'triggerStep');
 
     sequencer.start();
@@ -292,7 +299,7 @@ describe('Sequencer', () => {
   it('should start in live recording mode', () => {
     jest.useFakeTimers();
 
-    const sequencer = new Sequencer(120);
+    const sequencer = new Sequencer();
     const triggerStep = jest.spyOn(sequencer, 'triggerStep');
     const triggerMetronome = jest.spyOn(sequencer, 'triggerMetronome');
 

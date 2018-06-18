@@ -32,7 +32,7 @@ export default class Cyanide {
     this.delay = new Delay();
     this.chorus = new Chorus();
     this.noise = new WhiteNoise();
-    this.sequencer = new Sequencer();
+    this.sequencer = new Sequencer({ bpm: 80 });
     this.frequencyAnalyzer = new FrequencyAnalyzer();
 
     this.computerKeyboard = new ComputerKeyboard(2);
