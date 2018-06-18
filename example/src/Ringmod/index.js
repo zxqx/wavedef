@@ -14,10 +14,9 @@ export default class Ringmod extends Component {
 
     return (
       <AudioControlGroup label="Ring Modulator">
-
         <WaveSelector
           defaultValue="sine"
-          onChange={ringmod::ringmod.setWaveformType}
+          onChange={ringmod::ringmod.setType}
         />
         <Slider
           label="Frequency"
@@ -43,7 +42,7 @@ export default class Ringmod extends Component {
           min={0}
           max={1}
           step={0.01}
-          onChange={ringmod::ringmod.setWetDryMix}
+          onChange={ringmod::ringmod.setMix}
         />
       </AudioControlGroup>
     );

@@ -1,8 +1,16 @@
 import LFO from './LFO';
 import Gain from './Gain';
+import applyParams from '../helpers/applyParams';
 
 export default class Ringmod {
-  constructor() {
+  defaults = {
+    type: 'sine',
+    frequency: 100,
+    depth: 1,
+    mix: 0,
+  }
+
+  constructor(params = {}) {
     this.lfo = new LFO();
     this.gain = new Gain();
     this.post = new Gain();
@@ -33,6 +41,8 @@ export default class Ringmod {
     input.setGain(1);
     dry.setGain(1);
     lfo.modulate(gain.node.gain);
+
+    this::applyParams(params);
   }
 
   setFrequency(frequency) {
@@ -43,7 +53,7 @@ export default class Ringmod {
     this.lfo.setDepth(depth);
   }
 
-  setWaveformType(type) {
+  setType(type) {
     this.lfo.setType(type);
   }
 
@@ -51,8 +61,24 @@ export default class Ringmod {
     this.gain.setGain(gain);
   }
 
-  setWetDryMix(value) {
-    this.post.setGain(value);
-    this.dry.setGain(1 - value);
+  setMix(mix) {
+    this.post.setGain(mix);
+    this.dry.setGain(1 - mix);
+  }
+
+  getFrequency() {
+    return this.lfo.getRate();
+  }
+
+  getDepth() {
+    return this.lfo.getDepth();
+  }
+
+  getGain() {
+    return this.gain.getGain();
+  }
+
+  getType() {
+    return this.lfo.getType();
   }
 }
