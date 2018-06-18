@@ -1,13 +1,9 @@
 <p align="center">
-  <a href="https://wavedef.com/">
-    <img src="http://i.imgur.com/AaNfuK5.jpg?1" width="600" />
-  </a>
+  <a href="https://wavedef.com/"><img src="http://i.imgur.com/AaNfuK5.jpg?1" width="600" /></a>
 </p>
 
 <p align="center">
-  <a href="https://wavedef.com/">
-    <img src="https://i.imgur.com/YWB7PNt.png?1" alt="wavedef" width="250" />
-  </a>
+  <a href="https://wavedef.com/"><img src="https://i.imgur.com/YWB7PNt.png?1" alt="wavedef" width="250" /></a>
 </p>
 
 <p align="center">
@@ -15,15 +11,9 @@
 </p>
 
 <p align="center">
-  <a href="https://circleci.com/gh/zakangelle/wavedef/tree/master">
-    <img alt="CircleCI" src="https://circleci.com/gh/zakangelle/wavedef/tree/master.svg?style=shield" />
-  </a>
-  <a href="https://coveralls.io/github/zakangelle/wavedef?branch=master">
-    <img alt="Coverage Status" src="https://coveralls.io/repos/github/zakangelle/wavedef/badge.svg?branch=master" />
-  </a>
-  <a href="https://wavedef.com/">
-    <img alt="See Demo" src="https://img.shields.io/badge/see-demo-8500ff.svg" />
-  </a>
+  <a href="https://circleci.com/gh/zakangelle/wavedef/tree/master"><img alt="CircleCI" src="https://circleci.com/gh/zakangelle/wavedef/tree/master.svg?style=shield" /></a>
+  <a href="https://coveralls.io/github/zakangelle/wavedef?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/zakangelle/wavedef/badge.svg?branch=master" /></a>
+  <a href="https://wavedef.com/"><img alt="See Demo" src="https://img.shields.io/badge/see-demo-8500ff.svg" /></a>
 </p>
 
 ## Installation
