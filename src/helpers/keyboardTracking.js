@@ -9,8 +9,6 @@ const NOTE_HOLD_DELAY_TIME = 500;
  * @param {string} note
  */
 export function triggerOnPressCallbacks(note) {
-  if (!note) return;
-
   if (!Array.isArray(this.notesBeingHeld)) {
     this.notesBeingHeld = [];
   }

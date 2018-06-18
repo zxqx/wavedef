@@ -98,7 +98,9 @@ export default class ComputerKeyboard {
     if (octaveChangeDirection === OCTAVE_UP) {
       if (this.octave === 8) return;
       this.setOctave(this.octave + 1);
-    } else if (octaveChangeDirection === OCTAVE_DOWN) {
+    }
+
+    if (octaveChangeDirection === OCTAVE_DOWN) {
       if (this.octave === 1) return;
       this.setOctave(this.octave - 1);
     }

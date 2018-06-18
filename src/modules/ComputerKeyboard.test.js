@@ -168,6 +168,23 @@ describe('ComputerKeyboard', () => {
     expect(kb.justReleased).toEqual(false);
   });
 
+  it('should not re-trigger on press callbacks if note is being held', () => {
+    const kb = new ComputerKeyboard();
+
+    const callback = jest.fn();
+
+    kb.triggerOnPress([
+      callback,
+    ]);
+
+    kb.triggerOnPressCallbacks('C#2');
+    kb.triggerOnPressCallbacks('C#2');
+    kb.triggerOnPressCallbacks('C#2');
+
+    expect(callback.mock.calls).toHaveLength(1);
+  });
+
+
   it('should trigger on release callbacks', () => {
     const kb = new ComputerKeyboard();
 
@@ -215,6 +232,7 @@ describe('ComputerKeyboard', () => {
     expect(kb.octave).toEqual(2);
 
     kb.triggerOctaveChange('octaveDown');
+    expect(kb.octave).toEqual(1);
     kb.triggerOctaveChange('octaveDown');
     kb.triggerOctaveChange('octaveDown');
     kb.triggerOctaveChange('octaveDown');
