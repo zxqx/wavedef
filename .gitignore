@@ -12,6 +12,9 @@
 # production example
 example/build
 
+# documentation
+/_book
+
 # misc
 .DS_Store
 .env.local
