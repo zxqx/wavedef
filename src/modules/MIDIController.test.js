@@ -10,6 +10,14 @@ describe('MIDIController', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('should not throw if request midi access is not supported', async () => {
+    global.navigator.requestMIDIAccess = undefined;
+
+    const midiController = new MIDIController();
+
+    expect(await midiController.requestMIDIAccess()).toEqual(false);
+  });
+
   it('should handle midi success', () => {
     jest.useFakeTimers();
 

@@ -32,11 +32,13 @@ export default class MIDI {
     if (navigator.requestMIDIAccess) {
       try {
         const midiAccess = await navigator.requestMIDIAccess();
-        this.onMIDISuccess(midiAccess);
+        return this.onMIDISuccess(midiAccess);
       } catch (e) {
-        this.onMIDIFailure(e);
+        return this.onMIDIFailure(e);
       }
     }
+
+    return false;
   }
 
   onMIDISuccess(midiAccess) {

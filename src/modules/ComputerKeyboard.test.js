@@ -219,6 +219,20 @@ describe('ComputerKeyboard', () => {
     expect(callback2.mock.calls).toHaveLength(1);
   });
 
+  it('should not trigger on release callbacks if no note is being held', () => {
+    const kb = new ComputerKeyboard();
+
+    const callback = jest.fn();
+
+    kb.triggerOnRelease([
+      callback,
+    ]);
+
+    kb.triggerOnReleaseCallbacks('E2');
+
+    expect(callback.mock.calls).toHaveLength(0);
+  });
+
   it('should trigger octave change', () => {
     const kb = new ComputerKeyboard();
 
