@@ -1,1 +1,8 @@
+.circleci
+.github
+coverage
 example
+scripts
+Procfile
+CONTRIBUTING.md
+ROADMAP.md
