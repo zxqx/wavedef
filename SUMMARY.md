@@ -1,2 +1,6 @@
 * [Read Me](/README.md)
 * [Tutorial](/docs/tutorial/README.md)
+* [Modules](/docs/modules/README.md)
+  * [Oscillator](/docs/modules/oscillator/README.md)
+  * [Envelope](/docs/modules/envelope/README.md)
+  * [Filter](/docs/modules/filter/README.md)

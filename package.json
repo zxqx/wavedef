@@ -54,7 +54,7 @@
     "coverage": "npm test -- --coverage",
     "coverage:report": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "build": "webpack",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "heroku-postbuild": "cd example && npm install && npm run build",
     "docs": "gitbook build ."
   },
