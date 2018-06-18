@@ -38,6 +38,12 @@ $ npm install wavedef
 
 ## Develop
 
+Clone the repository:
+
+```sh
+$ git clone https://github.com/zakangelle/wavedef
+```
+
 Install library dependencies:
 
 ```
