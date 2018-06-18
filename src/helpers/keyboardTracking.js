@@ -58,6 +58,10 @@ export function triggerOnReleaseCallbacks(note) {
     this.justReleased = true;
   }
 
+  if (!this.notesBeingHeld) {
+    return;
+  }
+
   this.glidingBetweenNotes = this.notesBeingHeld.length > 1;
 
   const index = this.notesBeingHeld.indexOf(note);

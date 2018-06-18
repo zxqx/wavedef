@@ -1,14 +1,5 @@
 import ctx from 'audio-context';
-
-const startEvents = [
-  'load',
-  'keydown',
-  'keyup',
-  'keypress',
-  'mousemove',
-  'mousedown',
-  'mouseup',
-];
+import startAudioContext from 'startaudiocontext';
 
 /**
  * Composable synth container for connecting audio modules
@@ -18,7 +9,7 @@ export default class Synth {
     this.modules = [];
     this.connecting = null;
 
-    startEvents.forEach(event => document.addEventListener(event, () => ctx().resume()));
+    startAudioContext(ctx());
   }
 
   /**

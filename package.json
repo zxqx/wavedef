@@ -44,6 +44,7 @@
     "audio-context": "^1.0.3",
     "mousetrap": "^1.6.1",
     "note-to-frequency": "^1.4.1",
+    "startaudiocontext": "^1.2.1",
     "stereo-panner-node": "^1.4.0",
     "tunajs": "^1.0.1"
   },

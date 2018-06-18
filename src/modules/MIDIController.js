@@ -47,7 +47,7 @@ export default class MIDI {
     // TODO - communicate state change to user
     midiAccess.onstatechange = () => {};
 
-    setTimeout(this::this.testOutputs, 500);
+    setTimeout(this::this.testOutputs, 0);
   }
 
   // eslint-disable-next-line
@@ -68,7 +68,7 @@ export default class MIDI {
       port.onmidimessage = this::this.onMidiIn;
     });
 
-    setTimeout(this::this.stopInputs, 5000);
+    setTimeout(this::this.stopInputs, 0);
   }
 
   testOutputs() {
@@ -77,7 +77,7 @@ export default class MIDI {
       port.send([0x90, 60, 0x7f]);
     });
 
-    setTimeout(this::this.stopOutputs, 1000);
+    setTimeout(this::this.stopOutputs, 0);
   }
 
   onMidiIn(e) {
