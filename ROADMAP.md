@@ -5,6 +5,8 @@
 + Document all modules
   - Host docs
 
++ Add favicon
+
 + Add 404 page
 
 ## Future
