@@ -2,17 +2,10 @@
 
 ## 1.0
 
-+ Set sane module defaults
-  - allow boot up params object
-
 + Document all modules
   - Host docs
 
 + Add 404 page
-
-+ Bugs
-  + FF
-    - Fix transport button transition styles
 
 ## Future
 
