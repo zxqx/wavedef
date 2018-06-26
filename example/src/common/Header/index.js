@@ -51,12 +51,6 @@ export default class Header extends Component {
                   </Link>
                 </Menu.Item>
 
-                <Menu.Item key="docs">
-                  <Link to="/docs">
-                    docs
-                  </Link>
-                </Menu.Item>
-
                 <Menu.Item key="github">
                   <a
                     href="http://github.com/zakangelle/wavedef"
