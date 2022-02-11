@@ -28,30 +28,12 @@ export default class Overdrive extends Component {
         }
       >
         <Slider
-          label="Output Gain"
-          defaultValue={0.8}
-          min={0}
-          max={1}
-          step={0.01}
-          onChange={overdrive::overdrive.setOutputGain}
-        />
-
-        <Slider
           label="Drive"
           defaultValue={0.8}
           min={0}
           max={1}
           step={0.01}
           onChange={overdrive::overdrive.setDrive}
-        />
-
-        <Slider
-          label="Curve Amount"
-          defaultValue={1}
-          min={0}
-          max={1}
-          step={0.01}
-          onChange={overdrive::overdrive.setCurveAmount}
         />
 
         <Slider

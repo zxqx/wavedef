@@ -5,7 +5,7 @@ describe('TunaOverdrive', () => {
   it('should set default params', () => {
     const overdrive = new TunaOverdrive();
 
-    expect(overdrive.getOutputGain()).toEqual(0.5);
+    expect(overdrive.getOutputGain()).toEqual(1);
     expect(overdrive.getDrive()).toEqual(0.7);
     expect(overdrive.getCurveAmount()).toEqual(1);
     expect(overdrive.getAlgorithmIndex()).toEqual(0);

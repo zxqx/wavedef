@@ -6,7 +6,7 @@ const tuna = new Tuna(ctx());
 
 export default class TunaOverdrive {
   defaults = {
-    outputGain: 0.5,
+    outputGain: 1,
     drive: 0.7,
     curveAmount: 1,
     algorithmIndex: 0,
