@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://wavedef.com/"><img src="http://i.imgur.com/AaNfuK5.jpg?1" width="600" /></a>
+  <a href="https://wavedef.com/"><img src="https://www.dropbox.com/s/wd0tmfix85wb5ji/wavedef.png?raw=1" width="600" /></a>
 </p>
 
 <p align="center">
