@@ -28,15 +28,6 @@ export default class Ringmod extends Component {
         />
 
         <Slider
-          label="Depth"
-          defaultValue={1}
-          min={0}
-          max={1}
-          step={0.01}
-          onChange={ringmod::ringmod.setDepth}
-        />
-
-        <Slider
           label="Mix"
           defaultValue={0}
           min={0}
