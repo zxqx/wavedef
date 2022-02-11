@@ -11,6 +11,11 @@ export default class Oscillator extends Component {
       node: PropTypes.object.isRequired, // eslint-disable-line
     }).isRequired,
     mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
+    label: PropTypes.string,
+  }
+
+  static defaultProps = {
+    label: 'Oscillator',
   }
 
   toggle(on) {
@@ -20,14 +25,14 @@ export default class Oscillator extends Component {
   }
 
   render() {
-    const { oscillator, mixerChannel } = this.props;
+    const { oscillator, mixerChannel, label } = this.props;
 
     return (
       <AudioControlGroup
         label={
           <Fragment>
             <span className="audio-control-label">
-              Oscillator
+              {label}
             </span>
 
             <Switch
@@ -41,6 +46,15 @@ export default class Oscillator extends Component {
         <WaveSelector
           defaultValue="sawtooth"
           onChange={oscillator::oscillator.setType}
+        />
+
+        <Slider
+          label="Detune"
+          defaultValue={0}
+          min={-1200}
+          max={1200}
+          step={1}
+          onChange={oscillator::oscillator.setDetune}
         />
 
         <Slider

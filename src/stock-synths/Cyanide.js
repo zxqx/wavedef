@@ -18,14 +18,18 @@ import FrequencyAnalyzer from '../modules/FrequencyAnalyzer';
 export default class Cyanide {
   constructor() {
     this.synth = new Synth();
-    this.mixer = new Mixer();
-    this.osc = new Oscillator('OSC 1');
+    this.mixer = new Mixer({ channels: 3 });
+    this.osc1 = new Oscillator('OSC 1');
+    this.osc2 = new Oscillator('OSC 2');
+    this.osc3 = new Oscillator('OSC 3');
     this.vca = new VCA();
     this.volumeEnvelope = new Envelope();
     this.filterEnvelope = new Envelope();
     this.filter = new Filter();
     this.lfo1 = new LFO('LFO 1');
     this.lfo2 = new LFO('LFO 2');
+    this.lfo3 = new LFO('LFO 3');
+    this.lfo4 = new LFO('LFO 4');
     this.ringmod = new Ringmod();
     this.overdrive = new Overdrive();
     this.delay = new Delay();
@@ -39,13 +43,17 @@ export default class Cyanide {
     const {
       synth,
       mixer,
-      osc,
+      osc1,
+      osc2,
+      osc3,
       vca,
       volumeEnvelope,
       filterEnvelope,
       filter,
       lfo1,
       lfo2,
+      lfo3,
+      lfo4,
       overdrive,
       delay,
       sequencer,
@@ -54,7 +62,9 @@ export default class Cyanide {
       frequencyAnalyzer,
     } = this;
 
-    synth.connect(osc).to(mixer.channel(1));
+    synth.connect(osc1).to(mixer.channel(1));
+    synth.connect(osc2).to(mixer.channel(2));
+    synth.connect(osc3).to(mixer.channel(3));
     synth
       .connect(mixer)
       .to(vca)
@@ -70,6 +80,8 @@ export default class Cyanide {
 
     synth.addModule(lfo1);
     synth.addModule(lfo2);
+    synth.addModule(lfo3);
+    synth.addModule(lfo4);
     synth.addModule(volumeEnvelope);
     synth.addModule(filterEnvelope);
 
@@ -82,17 +94,23 @@ export default class Cyanide {
       computerKeyboard,
       midiController,
       sequencer,
-      osc,
+      osc1,
+      osc2,
+      osc3,
       volumeEnvelope,
       filterEnvelope,
     } = this;
 
     computerKeyboard.triggerOnPress([
-      osc::osc.setFrequency,
+      osc1::osc1.setFrequency,
+      osc2::osc2.setFrequency,
+      osc3::osc3.setFrequency,
       volumeEnvelope::volumeEnvelope.triggerADS,
       filterEnvelope::filterEnvelope.triggerADS,
       freq => sequencer.triggerAtSelectedStep(() => {
-        osc.setFrequency(freq);
+        osc1.setFrequency(freq);
+        osc2.setFrequency(freq);
+        osc3.setFrequency(freq);
         volumeEnvelope.trigger();
         filterEnvelope.trigger();
       }),
@@ -104,11 +122,15 @@ export default class Cyanide {
     ]);
 
     midiController.triggerOnPress([
-      osc::osc.setFrequency,
+      osc1::osc1.setFrequency,
+      osc2::osc2.setFrequency,
+      osc3::osc3.setFrequency,
       volumeEnvelope::volumeEnvelope.triggerADS,
       filterEnvelope::filterEnvelope.triggerADS,
       freq => sequencer.triggerAtSelectedStep(() => {
-        osc.setFrequency(freq);
+        osc1.setFrequency(freq);
+        osc2.setFrequency(freq);
+        osc3.setFrequency(freq);
         volumeEnvelope.trigger();
         filterEnvelope.trigger();
       }),

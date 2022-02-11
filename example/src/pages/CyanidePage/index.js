@@ -17,10 +17,14 @@ import './CyanidePage.css';
 const cyanide = new Cyanide();
 
 const {
-  osc,
+  osc1,
+  osc2,
+  osc3,
   filter,
   lfo1,
   lfo2,
+  lfo3,
+  lfo4,
   overdrive,
   delay,
   mixer,
@@ -34,9 +38,19 @@ const {
 
 const lfoParams = [
   {
-    label: 'Oscillator Frequency',
-    value: 'oscillator-frequency',
-    path: osc.node.frequency,
+    label: 'Oscillator 1 Frequency',
+    value: 'oscillator-1-frequency',
+    path: osc1.node.frequency,
+  },
+  {
+    label: 'Oscillator 2 Frequency',
+    value: 'oscillator-2-frequency',
+    path: osc2.node.frequency,
+  },
+  {
+    label: 'Oscillator 3 Frequency',
+    value: 'oscillator-3-frequency',
+    path: osc3.node.frequency,
   },
   {
     label: 'Filter Cutoff',
@@ -80,8 +94,9 @@ export default class CyanidePage extends Component {
             xl={5}
           >
             <Oscillator
-              oscillator={osc}
+              oscillator={osc1}
               mixerChannel={mixer.channel(1)}
+              label="Osc 1"
             />
 
             <VolumeEnvelope envelope={volumeEnvelope} />
@@ -93,6 +108,12 @@ export default class CyanidePage extends Component {
             md={8}
             xl={5}
           >
+            <Oscillator
+              oscillator={osc2}
+              mixerChannel={mixer.channel(2)}
+              label="Osc 2"
+            />
+
             <LFO
               label="LFO 1"
               lfo={lfo1}
@@ -104,14 +125,70 @@ export default class CyanidePage extends Component {
                   path: lfo2.gain.node.gain,
                 },
                 {
-                  label: 'LFO 2 Speed',
-                  value: 'lfo-2-speed',
+                  label: 'LFO 2 Rate',
+                  value: 'lfo-2-rate',
                   path: lfo2.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 3 Depth',
+                  value: 'lfo-3-depth',
+                  path: lfo3.gain.node.gain,
+                },
+                {
+                  label: 'LFO 3 Rate',
+                  value: 'lfo-3-rate',
+                  path: lfo3.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 4 Depth',
+                  value: 'lfo-4-depth',
+                  path: lfo4.gain.node.gain,
+                },
+                {
+                  label: 'LFO 4 Rate',
+                  value: 'lfo-4-rate',
+                  path: lfo4.osc.node.frequency,
                 },
               ]}
             />
 
-            <Chorus chorus={chorus} />
+            <LFO
+              label="LFO 3"
+              lfo={lfo3}
+              params={[
+                ...lfoParams,
+                {
+                  label: 'LFO 1 Depth',
+                  value: 'lfo-1-depth',
+                  path: lfo1.gain.node.gain,
+                },
+                {
+                  label: 'LFO 1 Rate',
+                  value: 'lfo-1-rate',
+                  path: lfo1.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 2 Depth',
+                  value: 'lfo-2-depth',
+                  path: lfo2.gain.node.gain,
+                },
+                {
+                  label: 'LFO 2 Rate',
+                  value: 'lfo-2-rate',
+                  path: lfo2.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 4 Depth',
+                  value: 'lfo-4-depth',
+                  path: lfo4.gain.node.gain,
+                },
+                {
+                  label: 'LFO 4 Rate',
+                  value: 'lfo-4-rate',
+                  path: lfo4.osc.node.frequency,
+                },
+              ]}
+            />
           </Col>
 
           <Col
@@ -119,6 +196,12 @@ export default class CyanidePage extends Component {
             md={8}
             xl={5}
           >
+            <Oscillator
+              oscillator={osc3}
+              mixerChannel={mixer.channel(3)}
+              label="Osc 3"
+            />
+
             <LFO
               label="LFO 2"
               lfo={lfo2}
@@ -130,14 +213,70 @@ export default class CyanidePage extends Component {
                   path: lfo1.gain.node.gain,
                 },
                 {
-                  label: 'LFO 1 Speed',
-                  value: 'lfo-1-speed',
+                  label: 'LFO 1 Rate',
+                  value: 'lfo-1-rate',
                   path: lfo1.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 3 Depth',
+                  value: 'lfo-3-depth',
+                  path: lfo3.gain.node.gain,
+                },
+                {
+                  label: 'LFO 3 Rate',
+                  value: 'lfo-3-rate',
+                  path: lfo3.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 4 Depth',
+                  value: 'lfo-4-depth',
+                  path: lfo4.gain.node.gain,
+                },
+                {
+                  label: 'LFO 4 Rate',
+                  value: 'lfo-4-rate',
+                  path: lfo4.osc.node.frequency,
                 },
               ]}
             />
 
-            <Ringmod ringmod={ringmod} />
+            <LFO
+              label="LFO 4"
+              lfo={lfo3}
+              params={[
+                ...lfoParams,
+                {
+                  label: 'LFO 1 Depth',
+                  value: 'lfo-1-depth',
+                  path: lfo1.gain.node.gain,
+                },
+                {
+                  label: 'LFO 1 Rate',
+                  value: 'lfo-1-rate',
+                  path: lfo1.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 2 Depth',
+                  value: 'lfo-2-depth',
+                  path: lfo2.gain.node.gain,
+                },
+                {
+                  label: 'LFO 2 Rate',
+                  value: 'lfo-2-rate',
+                  path: lfo2.osc.node.frequency,
+                },
+                {
+                  label: 'LFO 3 Depth',
+                  value: 'lfo-3-depth',
+                  path: lfo3.gain.node.gain,
+                },
+                {
+                  label: 'LFO 3 Rate',
+                  value: 'lfo-3-rate',
+                  path: lfo3.osc.node.frequency,
+                },
+              ]}
+            />
           </Col>
 
           <Col
@@ -163,6 +302,8 @@ export default class CyanidePage extends Component {
                 />
 
                 <Overdrive overdrive={overdrive} />
+
+                <Ringmod ringmod={ringmod} />
               </Col>
 
               <Col
@@ -170,6 +311,8 @@ export default class CyanidePage extends Component {
                 md={12}
               >
                 <Delay delay={delay} />
+
+                <Chorus chorus={chorus} />
               </Col>
             </Row>
           </Col>
