@@ -22,10 +22,6 @@
 $ npm install wavedef
 ```
 
-## Usage
-
-*need docs here*
-
 ## Develop
 
 Clone the repository:
