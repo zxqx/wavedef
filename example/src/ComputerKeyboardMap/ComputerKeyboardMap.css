@@ -16,6 +16,10 @@
   color: #aaa;
 }
 
+.computer-keyboard-map .ant-modal-close-x {
+  font-size: 24px;
+}
+
 .computer-keyboard-map .ant-modal-close:hover {
   color: #fff;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import computerKeyboardMap from '../assets/tools/computer-keyboard-map.png';
 import './ComputerKeyboardMap.css';
 
@@ -8,7 +8,7 @@ export default class ComputerKeyboardMap extends Component {
   static propTypes = {
     visible: PropTypes.bool.isRequired,
     close: PropTypes.func.isRequired,
-  }
+  };
 
   render() {
     return (
@@ -17,15 +17,7 @@ export default class ComputerKeyboardMap extends Component {
         width={700}
         visible={this.props.visible}
         onCancel={this.props.close}
-        footer={
-          <Button
-            onClick={this.props.close}
-            className="close-computer-keyboard-map-btn"
-            size="large"
-          >
-            OK
-          </Button>
-        }
+        footer={null}
       >
         <img
           src={computerKeyboardMap}
