@@ -17,7 +17,6 @@ import Sequencer from './modules/Sequencer';
 import Synth from './modules/Synth';
 import TunaOverdrive from './modules/TunaOverdrive';
 import VCA from './modules/VCA';
-import WhiteNoise from './modules/WhiteNoise';
 
 export {
   Cyanide,
@@ -39,5 +38,4 @@ export {
   Synth,
   TunaOverdrive,
   VCA,
-  WhiteNoise,
 };

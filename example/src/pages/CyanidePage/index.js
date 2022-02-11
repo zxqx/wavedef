@@ -10,7 +10,6 @@ import Overdrive from '../../Overdrive';
 import Delay from '../../Delay';
 import Ringmod from '../../Ringmod';
 import Chorus from '../../Chorus';
-import WhiteNoise from '../../WhiteNoise';
 import Sequencer from '../../Sequencer';
 import Oscilloscope from '../../Oscilloscope';
 import Keyboard from '../../common/Keyboard';
@@ -84,10 +83,6 @@ export default class CyanidePage extends Component {
             <Oscillator
               oscillator={osc}
               mixerChannel={mixer.channel(1)}
-            />
-
-            <WhiteNoise
-              mixerChannel={mixer.channel(2)}
             />
 
             <VolumeEnvelope envelope={volumeEnvelope} />
