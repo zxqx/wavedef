@@ -11,11 +11,13 @@ export default class Oscillator extends Component {
       node: PropTypes.object.isRequired, // eslint-disable-line
     }).isRequired,
     mixerChannel: PropTypes.object.isRequired, // eslint-disable-line
+    isOn: PropTypes.bool,
     label: PropTypes.string,
   }
 
   static defaultProps = {
     label: 'Oscillator',
+    isOn: true,
   }
 
   toggle(on) {
@@ -25,7 +27,12 @@ export default class Oscillator extends Component {
   }
 
   render() {
-    const { oscillator, mixerChannel, label } = this.props;
+    const {
+      oscillator,
+      mixerChannel,
+      label,
+      isOn,
+    } = this.props;
 
     return (
       <AudioControlGroup
@@ -36,7 +43,7 @@ export default class Oscillator extends Component {
             </span>
 
             <Switch
-              defaultValue
+              defaultValue={isOn}
               onChange={this::this.toggle}
             />
           </Fragment>

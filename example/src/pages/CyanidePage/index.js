@@ -112,6 +112,7 @@ export default class CyanidePage extends Component {
               oscillator={osc2}
               mixerChannel={mixer.channel(2)}
               label="Osc 2"
+              isOn={false}
             />
 
             <LFO
@@ -200,6 +201,7 @@ export default class CyanidePage extends Component {
               oscillator={osc3}
               mixerChannel={mixer.channel(3)}
               label="Osc 3"
+              isOn={false}
             />
 
             <LFO
