@@ -9,18 +9,25 @@ const OCTAVE_UP = 'octaveUp';
 const OCTAVE_DOWN = 'octaveDown';
 
 const KEY_TO_NOTE_MAP = {
-  a: 'C',
-  w: 'C#',
-  s: 'D',
-  e: 'D#',
-  d: 'E',
-  f: 'F',
-  t: 'F#',
-  g: 'G',
-  y: 'G#',
-  h: 'A',
-  u: 'A#',
-  j: 'B',
+  a: 'C.0',
+  w: 'C#.0',
+  s: 'D.0',
+  e: 'D#.0',
+  d: 'E.0',
+  f: 'F.0',
+  t: 'F#.0',
+  g: 'G.0',
+  y: 'G#.0',
+  h: 'A.0',
+  u: 'A#.0',
+  j: 'B.0',
+  k: 'C.1',
+  o: 'C#.1',
+  l: 'D.1',
+  p: 'D#.1',
+  ';': 'E.1',
+  '\'': 'F.1',
+  ']': 'F#.1',
 };
 
 const KEY_TO_OCTAVE_CHANGE_MAP = {
@@ -72,13 +79,15 @@ export default class ComputerKeyboard {
    */
   setupKeyBindings() {
     Mousetrap.bindGlobal(Object.keys(KEY_TO_NOTE_MAP), (event, key) => {
-      const note = KEY_TO_NOTE_MAP[key];
-      this.triggerOnPressCallbacks(`${note}${this.octave}`);
+      const noteAndOctave = KEY_TO_NOTE_MAP[key];
+      const [note, octave] = noteAndOctave.split('.');
+      this.triggerOnPressCallbacks(`${note}${this.octave + parseInt(octave, 10)}`);
     }, 'keydown');
 
     Mousetrap.bindGlobal(Object.keys(KEY_TO_NOTE_MAP), (event, key) => {
-      const note = KEY_TO_NOTE_MAP[key];
-      this.triggerOnReleaseCallbacks(`${note}${this.octave}`);
+      const noteAndOctave = KEY_TO_NOTE_MAP[key];
+      const [note, octave] = noteAndOctave.split('.');
+      this.triggerOnReleaseCallbacks(`${note}${this.octave + parseInt(octave, 10)}`);
     }, 'keyup');
 
     Mousetrap.bindGlobal(Object.keys(KEY_TO_OCTAVE_CHANGE_MAP), (event, key) => {
