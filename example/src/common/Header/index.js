@@ -16,11 +16,7 @@ export default class Header extends Component {
   }
 
   state = {
-    keyboardMapIsVisible: !localStorage.getItem('keyboardMapShown'),
-  }
-
-  componentDidMount() {
-    localStorage.setItem('keyboardMapShown', true);
+    keyboardMapIsVisible: false,
   }
 
   render() {

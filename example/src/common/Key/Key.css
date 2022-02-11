@@ -1,6 +1,6 @@
 .keyboard-key {
   width: 34px;
-  height: 180px;
+  height: 160px;
   background: #fff;
   border: 0;
   border-right: 1px solid #ccc;
@@ -9,9 +9,9 @@
 .keyboard-key.keyboard-key-black {
   position: absolute;
   top: 0;
-  width: 15px;
-  height: 116px;
-  margin: 0 -8px;
+  width: 18px;
+  height: 100px;
+  margin: 0 -10px;
   padding: 4px;
   background: #000;
   border: 0;

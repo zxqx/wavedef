@@ -12,7 +12,6 @@ import Ringmod from '../../Ringmod';
 import Chorus from '../../Chorus';
 import Sequencer from '../../Sequencer';
 import Oscilloscope from '../../Oscilloscope';
-import Keyboard from '../../common/Keyboard';
 import './CyanidePage.css';
 
 const cyanide = new Cyanide();
@@ -173,31 +172,6 @@ export default class CyanidePage extends Component {
                 <Delay delay={delay} />
               </Col>
             </Row>
-          </Col>
-        </Row>
-
-        <Row type="flex">
-          <Col>
-            <Keyboard
-              octaves={5}
-              startingOctave={2}
-              onKeypress={[
-                value => osc.setFrequency(value),
-                () => {
-                  volumeEnvelope.triggerADS();
-                  filterEnvelope.triggerADS();
-                },
-                freq => sequencer.triggerAtSelectedStep(() => {
-                  osc.setFrequency(freq);
-                  volumeEnvelope.trigger();
-                  filterEnvelope.trigger();
-                }),
-              ]}
-              onKeyRelease={[
-                () => volumeEnvelope.triggerRelease(),
-                () => filterEnvelope.triggerRelease(),
-              ]}
-            />
           </Col>
         </Row>
       </div>

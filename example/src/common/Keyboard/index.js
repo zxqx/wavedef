@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'antd';
 import Key from '../Key';
 import './Keyboard.css';
 
@@ -61,57 +60,27 @@ export default class Keyboard extends Component {
 
   render() {
     const {
-      octaves,
       onKeypress,
       onKeyRelease,
     } = this.props;
 
-    const { startingOctave } = this.state;
-
     const octaveList = this.getOctaveList();
-    const endingOctave = startingOctave + octaves;
 
     return (
-      <Fragment>
-        <div className="keyboard">
-          {octaveList.map(octave => (
-            notes.map(note => (
-              <Key
-                key={note + octave}
-                note={note + octave}
-                onKeypress={onKeypress}
-                onKeyRelease={onKeyRelease}
-                isBlack={isSharpOrFlat(note)}
-                isAdjacentWhite={isAdjacentToWhiteKey(note)}
-              />
-            ))
-          ))}
-        </div>
-
-        <div className="octave-buttons">
-          <Button
-            disabled={endingOctave === 8}
-            onClick={() => {
-              this.setState({
-                startingOctave: endingOctave < 8 ? startingOctave + 1 : (endingOctave - octaves),
-              });
-            }}
-          >
-            +
-          </Button>
-
-          <Button
-            disabled={startingOctave === 1}
-            onClick={() => {
-              this.setState({
-                startingOctave: startingOctave > 1 ? startingOctave - 1 : 1,
-              });
-            }}
-          >
-            -
-          </Button>
-        </div>
-      </Fragment>
+      <div className="keyboard">
+        {octaveList.map(octave => (
+          notes.map(note => (
+            <Key
+              key={note + octave}
+              note={note + octave}
+              onKeypress={onKeypress}
+              onKeyRelease={onKeyRelease}
+              isBlack={isSharpOrFlat(note)}
+              isAdjacentWhite={isAdjacentToWhiteKey(note)}
+            />
+          ))
+        ))}
+      </div>
     );
   }
 }
