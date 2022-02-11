@@ -1,7 +1,9 @@
 .drag-input-container {
   margin-top: 6px;
+  margin-right: 20px;
   padding: 10px 0 5px;
   width: 190px;
+  float: left;
   background: #111;
   font-family: 'LCD Bold', monospace;
   text-align: center;

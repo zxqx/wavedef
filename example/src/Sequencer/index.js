@@ -57,7 +57,7 @@ export default class Sequencer extends Component {
     return (
       <AudioControlGroup className="sequencer">
         <Row>
-          <Col span={6}>
+          <Col span={7}>
             <DragInput
               label="BPM"
               defaultValue={sequencer.bpm}
@@ -68,9 +68,26 @@ export default class Sequencer extends Component {
                 this.forceUpdate();
               }}
             />
+
+            <DragInput
+              label="Steps"
+              defaultValue={sequencer.steps}
+              min={16}
+              max={64}
+              step={16}
+              onChange={(s) => {
+                if (s < sequencer.activeStep) {
+                  sequencer.stop();
+                  sequencer.start();
+                }
+
+                sequencer.setSteps(s);
+                this.forceUpdate();
+              }}
+            />
           </Col>
 
-          <Col span={12}>
+          <Col span={13}>
             <Button
               className={classnames({
                 'sequencer-btn': true,
@@ -146,7 +163,7 @@ export default class Sequencer extends Component {
             </Button>
           </Col>
 
-          <Col offset={2} span={4}>
+          <Col span={4}>
             <div className="sequencer-metronome-switch">
               <img src={metronomeIcon} alt="Metronome" />
 

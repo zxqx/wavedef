@@ -65,6 +65,10 @@ export default class Sequencer {
     this.steps = steps;
   }
 
+  setActiveStep(step) {
+    this.activeStep = step;
+  }
+
   setSelectedStep(step) {
     this.selectedStep = step;
 

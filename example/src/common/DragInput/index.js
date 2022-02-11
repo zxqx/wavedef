@@ -9,12 +9,14 @@ export default class DragInput extends Component {
     defaultValue: PropTypes.number.isRequired,
     min: PropTypes.number,
     max: PropTypes.number,
+    step: PropTypes.number,
     onChange: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     min: 0,
     max: 100,
+    step: 1,
   }
 
   state = {
@@ -44,7 +46,7 @@ export default class DragInput extends Component {
 
   computeNewValue(pageY) {
     const { mouseYPosition } = this.state;
-    const { min, max } = this.props;
+    const { min, max, step } = this.props;
 
     const value = this.state.value + Math.floor((mouseYPosition - pageY) / 2);
 
@@ -54,7 +56,11 @@ export default class DragInput extends Component {
       return min;
     }
 
-    return value;
+    if (Math.abs(this.state.value - value) >= step) {
+      return (value - (value % this.props.step));
+    }
+
+    return this.state.value;
   }
 
   updateInput = (e) => {
@@ -129,7 +135,7 @@ export default class DragInput extends Component {
               className="drag-input-button drag-input-up-button"
               disabled={value === max}
               onClick={() => {
-                const newValue = value + 1;
+                const newValue = value + this.props.step;
 
                 if (this.isInRange(newValue)) {
                   this.setState({ value: newValue });
@@ -144,7 +150,7 @@ export default class DragInput extends Component {
               className="drag-input-button drag-input-down-button"
               disabled={value === min}
               onClick={() => {
-                const newValue = value - 1;
+                const newValue = value - this.props.step;
 
                 if (this.isInRange(newValue)) {
                   this.setState({ value: newValue });
