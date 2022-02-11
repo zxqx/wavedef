@@ -381,7 +381,6 @@ describe('Sequencer', () => {
     const sequencer = new Sequencer();
 
     sequencer.bpm = 135;
-    sequencer.steps = 8;
     sequencer.activeStep = 5;
     sequencer.selectedStep = 2;
     sequencer.stepTriggers = {
@@ -397,7 +396,6 @@ describe('Sequencer', () => {
     sequencer.reset();
 
     expect(sequencer.bpm).toEqual(120);
-    expect(sequencer.steps).toEqual(16);
     expect(sequencer.activeStep).toEqual(1);
     expect(sequencer.selectedStep).toEqual(null);
     expect(sequencer.stepTriggers).toEqual({});

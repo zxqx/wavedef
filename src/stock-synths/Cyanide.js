@@ -30,7 +30,7 @@ export default class Cyanide {
     this.overdrive = new Overdrive();
     this.delay = new Delay();
     this.chorus = new Chorus();
-    this.sequencer = new Sequencer();
+    this.sequencer = new Sequencer({ steps: 16 });
     this.frequencyAnalyzer = new FrequencyAnalyzer();
 
     this.computerKeyboard = new ComputerKeyboard(2);

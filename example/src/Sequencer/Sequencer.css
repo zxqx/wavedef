@@ -1,5 +1,5 @@
 .sequencer .ant-card-body {
-  padding: 24px;
+  padding: 24px 24px 0;
 }
 
 .sequencer-bpm {
@@ -10,6 +10,7 @@
 
 .sequencer-btn {
   margin-right: 1rem;
+  margin-bottom: 24px;
   padding: 1.5rem 2.034rem 2.5rem;
   font-size: 16px;
   color: #bbb;
@@ -17,7 +18,7 @@
   border: none;
 }
 
-.sequencer-btn:last-child {
+.sequencer-btn:nth-child(16n) {
   margin-right: 0;
 }
 

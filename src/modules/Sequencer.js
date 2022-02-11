@@ -10,6 +10,7 @@ const ONE_SECOND = 1000;
 export default class Sequencer {
   defaults = {
     bpm: 120,
+    steps: 16,
   }
 
   constructor(params = {}) {
@@ -60,6 +61,10 @@ export default class Sequencer {
     this.bpm = bpm;
   }
 
+  setSteps(steps) {
+    this.steps = steps;
+  }
+
   setSelectedStep(step) {
     this.selectedStep = step;
 
@@ -89,7 +94,7 @@ export default class Sequencer {
   }
 
   triggerMetronome() {
-    const metronomeFrequency = this.metronomeSteps[this.activeStep];
+    const metronomeFrequency = this.metronomeSteps[this.activeStep % 16];
 
     if (this.metronomeOn && metronomeFrequency) {
       this.metronome.setFrequency(metronomeFrequency);
@@ -113,7 +118,7 @@ export default class Sequencer {
     const needsQuantize = (Date.now() - this.sequenceTimestamp) > (interval / 2);
 
     if (this.recording && needsQuantize) {
-      return this.selectedStep === 16 ? 1 : this.selectedStep + 1;
+      return this.selectedStep === this.steps ? 1 : this.selectedStep + 1;
     }
 
     return this.selectedStep;
@@ -147,7 +152,7 @@ export default class Sequencer {
     this.sequenceTimestamp = Date.now();
 
     this.sequence = setTimeout(() => {
-      this.activeStep = activeStep === 16 ? 1 : activeStep + 1;
+      this.activeStep = activeStep === this.steps ? 1 : activeStep + 1;
 
       if (this.recording) {
         this.selectedStep = this.activeStep;
@@ -183,7 +188,6 @@ export default class Sequencer {
 
   reset() {
     this.bpm = this.originalBpm;
-    this.steps = 16;
     this.activeStep = 1;
     this.selectedStep = null;
     this.stepTriggers = {};
