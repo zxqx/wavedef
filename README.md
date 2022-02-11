@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://wavedef.com/"><img src="https://i.imgur.com/YWB7PNt.png?1" alt="wavedef" width="250" /></a>
+  <a href="https://wavedef.com/"><img src="https://www.dropbox.com/s/5xdwbvau8a6ayjl/wavedef-logo-stroked.png?raw=1" alt="wavedef" width="250" /></a>
 </p>
 
 <p align="center">
