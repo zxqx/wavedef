@@ -1,13 +1,13 @@
 version: 2
 machine:
   node:
-    version: 8.9.4
+    version: 20.0.0
 jobs:
   build:
     machine: true
     steps:
       - checkout
-      - run: npm install
+      - run: npm install --legacy-peer-deps
       - run: npm run lint
       - run: npm run coverage:report
       - run: npm run build

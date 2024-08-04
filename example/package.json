@@ -2,12 +2,6 @@
   "name": "wavedef-app",
   "version": "0.1.2",
   "description": "A playground app built with the wavedef library",
-  "devEngines": {
-    "node": "8.9.4"
-  },
-  "engines": {
-    "node": "8.9.4"
-  },
   "author": "Zak Angelle, Drake Champagne",
   "license": "MIT",
   "dependencies": {

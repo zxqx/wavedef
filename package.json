@@ -7,12 +7,6 @@
     "type": "git",
     "url": "https://github.com/zakangelle/wavedef.git"
   },
-  "devEngines": {
-    "node": "8.9.4"
-  },
-  "engines": {
-    "node": "8.9.4"
-  },
   "keywords": [
     "synth",
     "synthesizer",
@@ -72,11 +66,6 @@
     "build": "webpack",
     "prepare": "npm run build",
     "heroku-postbuild": "cd example && npm install && npm run build"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run lint && npm test -- --watchAll=false"
-    }
   },
   "jest": {
     "collectCoverageFrom": [

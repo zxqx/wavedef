@@ -9,7 +9,6 @@ import Overdrive from '../modules/TunaOverdrive';
 import Delay from '../modules/Delay';
 import Sequencer from '../modules/Sequencer';
 import ComputerKeyboard from '../modules/ComputerKeyboard';
-import MIDIController from '../modules/MIDIController';
 import param from '../helpers/param';
 import Ringmod from '../modules/Ringmod';
 import Chorus from '../modules/Chorus';
@@ -38,7 +37,6 @@ export default class Cyanide {
     this.frequencyAnalyzer = new FrequencyAnalyzer();
 
     this.computerKeyboard = new ComputerKeyboard(2);
-    this.midiController = new MIDIController();
 
     const {
       synth,
@@ -92,7 +90,6 @@ export default class Cyanide {
   connectControllers() {
     const {
       computerKeyboard,
-      midiController,
       sequencer,
       osc1,
       osc2,
@@ -120,31 +117,10 @@ export default class Cyanide {
       volumeEnvelope::volumeEnvelope.triggerRelease,
       filterEnvelope::filterEnvelope.triggerRelease,
     ]);
-
-    midiController.triggerOnPress([
-      osc1::osc1.setFrequency,
-      osc2::osc2.setFrequency,
-      osc3::osc3.setFrequency,
-      volumeEnvelope::volumeEnvelope.triggerADS,
-      filterEnvelope::filterEnvelope.triggerADS,
-      freq => sequencer.triggerAtSelectedStep(() => {
-        osc1.setFrequency(freq);
-        osc2.setFrequency(freq);
-        osc3.setFrequency(freq);
-        volumeEnvelope.trigger();
-        filterEnvelope.trigger();
-      }),
-    ]);
-
-    midiController.triggerOnRelease([
-      volumeEnvelope::volumeEnvelope.triggerRelease,
-      filterEnvelope::filterEnvelope.triggerRelease,
-    ]);
   }
 
   disconnectControllers() {
     this.computerKeyboard.triggerOnPress([]);
-    this.midiController.triggerOnPress([]);
     this.sequencer.reset();
     this.sequencer.stop();
   }
