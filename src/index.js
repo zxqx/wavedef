@@ -7,7 +7,6 @@ import Filter from './modules/Filter';
 import FrequencyAnalyzer from './modules/FrequencyAnalyzer';
 import Gain from './modules/Gain';
 import LFO from './modules/LFO';
-import MIDIController from './modules/MIDIController';
 import Mixer from './modules/Mixer';
 import MixerChannel from './modules/MixerChannel';
 import Oscillator from './modules/Oscillator';
@@ -28,7 +27,6 @@ export {
   FrequencyAnalyzer,
   Gain,
   LFO,
-  MIDIController,
   Mixer,
   MixerChannel,
   Oscillator,
